@@ -1,6 +1,6 @@
-# Filament Spiggle Theme
+# Laravel Filament Spiggle Theme
 
-A Filament PHP admin theme: deep blue sidebar, rounded content card, active-nav cutout, Roboto typography, and a full appearance settings page. Compatible with Filament v3, v4, and v5 (v5 is the primary target).
+A Laravel Filament PHP admin theme: deep blue sidebar, rounded content card, active-nav cutout, Roboto typography, and a full appearance settings page. Compatible with Laravel Filament v3, v4, and v5 (v5 is the primary target). Laravel-13 · Filament 5.
 
 **Current version:** 2.0.50
 
@@ -11,7 +11,7 @@ A Filament PHP admin theme: deep blue sidebar, rounded content card, active-nav 
 - Layout: `#1C3FAA` sidebar, `#F1F5F8` content canvas, ~30px content radius, ~20px cards
 - Sidebar styles: **Standard** (active item cut into the content card), **Dossier** (stacked file tabs), **Solid** (opaque column flush with the pane), **Canvas** (nested menus; cards sit on the page background)
 - Palettes: Blue, Slate, Forest, Sunset, Sassy, Greyish
-- Light and dark mode (floating Dark Mode pill + Filament theme store)
+- Light and dark mode (floating Dark Mode pill + Laravel Filament theme store)
 - Settings page: brand, palettes, shape, density, backgrounds, fonts, menu size, icon pack
 - Translations: English ships with the package; publish strings to customize them or add another locale
 - Responsive sidebar with desktop collapse and mobile overlay
@@ -63,7 +63,7 @@ Canvas drops the wrapping content card. Nested menus sit on a light rail; sectio
 composer require spiggle/filament-spiggle-theme
 ```
 
-The plugin auto-registers on every Filament panel. To register it yourself instead:
+The plugin auto-registers on every Laravel Filament panel. To register it yourself instead:
 
 ```php
 use Spiggle\FilamentSpiggleTheme\FilamentSpiggleThemePlugin;
@@ -89,7 +89,7 @@ To edit copy or add a language:
 php artisan vendor:publish --tag=filament-spiggle-theme-translations
 ```
 
-Files land in `lang/vendor/filament-spiggle-theme/{locale}/theme.php`. Copy `en/theme.php` into a folder named for your locale (for example `nl` or `fr`) and set `APP_LOCALE` (or Filament’s locale) to match. Untranslated keys fall back to English.
+Files land in `lang/vendor/filament-spiggle-theme/{locale}/theme.php`. Copy `en/theme.php` into a folder named for your locale (for example `nl` or `fr`) and set `APP_LOCALE` (or Laravel Filament’s locale) to match. Untranslated keys fall back to English.
 
 ## Theme settings
 
@@ -159,7 +159,7 @@ Pick one palette. Sidebar, canvas, cards, accents, and dark mode update together
 | Icon pack | Feather (thin line), Heroicons, Font Awesome | Feather |
 | Icon size | Small (20px), 24px (default), Large (28px) | 24px |
 
-Feather and Font Awesome replace sidebar and header icons. Heroicons keep Filament’s defaults.
+Feather and Font Awesome replace sidebar and header icons. Heroicons keep Laravel Filament’s defaults.
 
 ![Canvas sidebar, dark mode, Menu & icons tab](screenshots/Spiggle-Theme_Canvas-Dark_Layout.png)
 
@@ -167,7 +167,13 @@ Feather and Font Awesome replace sidebar and header icons. Heroicons keep Filame
 
 Set `SPIGGLE_DEMO_NAVIGATION=true` (or `demo_navigation` in the config) to load sample nested menus (Menu Layout, Pages) so you can compare the four sidebar styles without wiring your own resources first. Leave it off in production.
 
-Use Filament `navigationGroup` / child items on your own resources to populate Canvas and Dossier submenus.
+Use Laravel Filament `navigationGroup` / child items on your own resources to populate Canvas and Dossier submenus.
+
+## FAQ
+
+### What does this plugin do?
+
+Spiggle Theme restyles your Laravel Filament admin panel: sidebar layouts, color palettes, dark mode, brand, fonts, and icons. You change those from Theme Settings in the panel — no custom CSS. It does not add resources or replace your forms and tables.
 
 ## Security
 
