@@ -764,6 +764,7 @@ section { padding: 72px 0; }
   letter-spacing: 0.02em;
   opacity: 0.7;
 }
+.footer-update a { color: inherit; }
 
 @media (max-width: 900px) {
   .pricing-grid,
