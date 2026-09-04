@@ -1,6 +1,6 @@
 # Laravel Filament Spiggle Theme
 
-A Laravel Filament PHP admin theme: deep blue sidebar, rounded content card, active-nav cutout, Roboto typography, and a full appearance settings page. Compatible with Laravel Filament v3, v4, and v5 (v5 is the primary target). Laravel-13 · Filament 5.
+A Laravel Filament PHP admin theme: deep blue sidebar, rounded content card, active-nav cutout, Roboto typography, and a full appearance settings page. Compatible with Laravel-13 · Filament 5.
 
 **Current version:** 2.0.50
 
