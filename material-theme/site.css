@@ -340,6 +340,108 @@ section { padding: 72px 0; }
 .step h3 { margin: 0 0 8px; font-size: 1.05rem; }
 .step p { margin: 0; color: var(--muted); font-size: 0.95rem; }
 
+.pricing-head {
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto 40px;
+}
+.pricing-head .section-desc { margin-inline: auto; }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+.pricing-grid-single {
+  max-width: 380px;
+  margin-inline: auto;
+}
+.plan {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.plan.popular {
+  background: var(--dark);
+  color: #fff;
+  border-color: var(--dark);
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.plan-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.plan.popular .plan-tag { color: #9ca3af; }
+.plan h3 {
+  margin: 0 0 6px;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+.plan-price {
+  margin: 16px 0 6px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.plan-price small {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+.plan.popular .plan-price small { color: #9ca3af; }
+.plan-note {
+  margin: 0 0 18px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.plan.popular .plan-note { color: #d1d5db; }
+.plan ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  flex: 1;
+}
+.plan li {
+  padding: 7px 0 7px 22px;
+  position: relative;
+  font-size: 0.92rem;
+  border-top: 1px solid var(--line);
+}
+.plan.popular li { border-top-color: rgba(255,255,255,0.1); }
+.plan li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.plan .btn { width: 100%; }
+.plan.popular .btn-accent { margin-top: auto; }
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
 .faq {
   max-width: 680px;
   margin: 0 auto;
@@ -435,6 +537,7 @@ section { padding: 72px 0; }
   .plugins-4,
   .workflow,
   .gallery-grid,
+  .pricing-grid,
   .phones { grid-template-columns: 1fr; }
   .custom-cta {
     flex-direction: column;

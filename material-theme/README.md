@@ -10,6 +10,10 @@ Package source stays in its own repo. This folder is the public showcase only.
 
 Material Design chrome for Laravel Filament 5: Roboto type, 24dp icons, tonal surfaces. Brand, colors, density, notifications, global search, toolbar shortcuts, and a promo banner are edited on Theme Settings. No Vite rebuild.
 
+## Price
+
+**$39** one-time license. Checkout links will be added on the product page.
+
 ## Contact
 
 [skillbobby@outlook.com](mailto:skillbobby@outlook.com)

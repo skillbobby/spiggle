@@ -12,7 +12,7 @@ spiggle/
 
 ## Pages
 
-- [Material Theme](https://skillbobby.github.io/spiggle/material-theme/) — Material Design shell for Laravel Filament 5
+- [Material Theme](https://skillbobby.github.io/spiggle/material-theme/) — Material Design shell for Laravel Filament 5, $39 license
 - [Spiggle Theme](https://skillbobby.github.io/spiggle/filament-theme/) — four layouts, six palettes, $9.99 unlimited license
 
 ## Other Spiggle plugins
