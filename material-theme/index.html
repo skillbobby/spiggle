@@ -21,9 +21,9 @@
       <a class="logo" href="./"><span class="logo-mark">M</span> Material Theme</a>
       <nav class="nav">
         <a class="hide-mobile" href="#features">Features</a>
+        <a class="hide-mobile" href="#list-view">List View</a>
         <a class="hide-mobile" href="#gallery">Gallery</a>
         <a class="hide-mobile" href="#pricing">Pricing</a>
-        <a class="hide-mobile" href="#plugins">Plugins</a>
         <a class="btn btn-outline" href="#pricing">$39 lifetime</a>
       </nav>
     </div>
@@ -107,6 +107,13 @@
             <h3>Global search</h3>
             <p>Search across resource records from the top bar. Hits show identifier badges so you know what you opened.</p>
           </article>
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg>
+            </div>
+            <h3>List View</h3>
+            <p>Toggle any Filament table to an A–Z list with avatars and stacked columns. Row click stays the same.</p>
+          </article>
         </div>
         <div class="also-row" aria-label="Also included">
           <span class="also-chip">Promo banner + ticker</span>
@@ -123,7 +130,7 @@
       <div class="container">
         <div class="section-label">Gallery</div>
         <h2 class="section-title">See the panel in use</h2>
-        <p class="section-desc">Login, dashboard, tables, Theme Settings, notifications, and search — desktop and phone.</p>
+        <p class="section-desc">Login, dashboard, tables, List View, Theme Settings, notifications, and search — desktop and phone.</p>
         <div class="gallery-grid">
           <figure class="shot">
             <img src="screenshots/login.png" alt="Material Theme sign-in screen with brand logo and welcome panel">
@@ -138,8 +145,8 @@
             <figcaption>Filament tables, Material chrome</figcaption>
           </figure>
           <figure class="shot">
-            <img src="screenshots/orders.png" alt="Orders resource with Material sidebar and table">
-            <figcaption>Orders resource</figcaption>
+            <img src="screenshots/list-view.png" alt="Users List View: A–Z grouping, avatars, and stacked name and email">
+            <figcaption>List View — A–Z grouped list</figcaption>
           </figure>
           <figure class="shot">
             <img src="screenshots/notifications.png" alt="Notifications page with All, System, and Archive tabs">
@@ -176,6 +183,17 @@
             <figcaption>Navigation</figcaption>
           </figure>
         </div>
+      </div>
+    </section>
+
+    <section id="list-view">
+      <div class="container">
+        <div class="section-label">List View</div>
+        <h2 class="section-title">Table or A–Z list, same Filament table</h2>
+        <p class="section-desc">Spiggle List View is a companion plugin. Toggle any resource table to an alphabetical list with letter groups, avatars, and stacked columns. Native Filament — not a custom board. Row click is unchanged (Users slide-over, Roles full page).</p>
+        <figure class="hero-shot">
+          <img src="screenshots/list-view.png" alt="Spiggle List View on Users: letter A group, avatars, name and email stacked">
+        </figure>
       </div>
     </section>
 
@@ -273,6 +291,10 @@
             <p>Until checkout is live, <a href="mailto:skillbobby@outlook.com?subject=Spiggle%20Material%20Theme%20license">email skillbobby@outlook.com</a>. After purchase you receive all files.</p>
           </details>
           <details>
+            <summary>What is List View?</summary>
+            <p>A companion Filament plugin. Toggle a resource table to an alphabetical list with A–Z groups, avatars, and stacked columns. It uses native Filament table layout — not a custom board. See <a href="#list-view">List View</a>.</p>
+          </details>
+          <details>
             <summary>Does it work in a subdirectory install?</summary>
             <p>Yes. Asset URLs use Laravel’s <code>asset()</code> helper, so a panel at <code>/spiggle/admin</code> still loads logos and theme files.</p>
           </details>
@@ -302,9 +324,9 @@
             <a class="btn btn-outline" href="https://skillbobby.github.io/Spiggle-Form-Builder-Core/">View Form Builder →</a>
           </article>
           <article class="plugin-card">
-            <h3>Dashlet Core</h3>
-            <p>Runtime Laravel Filament dashboards — data sources, filters, and chart dashlets without hardcoded widgets.</p>
-            <a class="btn btn-outline" href="https://github.com/skillbobby/Spiggle-Dashlet-Core">View Dashlet →</a>
+            <h3>List View</h3>
+            <p>Toggle Filament tables to an A–Z list with grouping, avatars, and stacked columns. Native Filament layout.</p>
+            <a class="btn btn-outline" href="#list-view">See List View →</a>
           </article>
         </div>
       </div>
@@ -328,6 +350,7 @@
       <div>© <span id="y"></span> Spiggle · Material Theme</div>
       <nav class="footer-links">
         <a href="../filament-theme/">Spiggle Theme</a>
+        <a href="#list-view">List View</a>
         <a href="https://skillbobby.github.io/Spiggle-Form-Builder-Core/">Form Builder</a>
         <a href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/">Dynamic Fields</a>
         <a href="#pricing">$39 lifetime</a>

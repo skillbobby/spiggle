@@ -177,6 +177,9 @@ code {
   height: auto;
   display: block;
 }
+#list-view .hero-shot {
+  margin-top: 8px;
+}
 
 section { padding: 72px 0; }
 .section-label {
