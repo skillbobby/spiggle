@@ -2,16 +2,21 @@
 
 Public product pages for private Spiggle packages. Package source stays in its own repo.
 
-GitHub Pages: [skillbobby.github.io/spiggle/filament-theme](https://skillbobby.github.io/spiggle/filament-theme/)
+GitHub Pages: [skillbobby.github.io/spiggle](https://skillbobby.github.io/spiggle/)
 
 ```
 spiggle/
-  filament-theme/     Theme product page (this one)
+  filament-theme/     Spiggle Theme product page
+  material-theme/     Material Theme product page
 ```
 
-Add another plugin later as a sibling folder (`form-builder/`, `dynamic-fields/`, …).
+## Pages
 
-## Theme
+- [Material Theme](https://skillbobby.github.io/spiggle/material-theme/) — Material Design shell for Laravel Filament 5
+- [Spiggle Theme](https://skillbobby.github.io/spiggle/filament-theme/) — four layouts, six palettes, $9.99 unlimited license
 
-- **$9.99** once, unlimited sites
-- [Buy license](https://kodesmart.lemonsqueezy.com/checkout/buy/70dd247d-942c-4768-90e5-98caa0d487cb)
+## Other Spiggle plugins
+
+- [Dynamic Fields Core](https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/)
+- [Form Builder Core](https://skillbobby.github.io/Spiggle-Form-Builder-Core/)
+- [Dashlet Core](https://github.com/skillbobby/Spiggle-Dashlet-Core)
