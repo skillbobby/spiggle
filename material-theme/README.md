@@ -12,7 +12,7 @@ Material Design chrome for Laravel Filament 5: Roboto type, 24dp icons, tonal su
 
 ## Price
 
-**$39** one-time license. Checkout links will be added on the product page.
+**$39** lifetime license. You get all files and can use them on any number of sites. Checkout links will be added on the product page.
 
 ## Contact
 
