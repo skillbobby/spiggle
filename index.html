@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Spiggle — Laravel Filament plugins</title>
-  <meta name="description" content="Public product pages for Spiggle Laravel Filament plugins: Material Theme, Spiggle Theme, List View, Dynamic Fields, and Form Builder.">
+  <title>Spiggle — Laravel & Filament Ecosystem Packages</title>
+  <meta name="description" content="Explore all open-source packages, core plugins, and professional extensions by Spiggle for Laravel and Filament PHP.">
   <link rel="canonical" href="https://skillbobby.github.io/spiggle/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,11 +12,12 @@
   <style>
     :root {
       --bg: #faf8f5;
-      --ink: #1a1a1a;
-      --muted: #5c6470;
-      --line: #e8e4de;
+      --card-bg: #ffffff;
+      --ink: #111827;
+      --muted: #4b5563;
+      --line: #e5e7eb;
       --accent: #f59e0b;
-      --dark: #111827;
+      --accent-hover: #d97706;
       --font: "Inter", "Segoe UI", system-ui, sans-serif;
     }
     * { box-sizing: border-box; }
@@ -28,75 +29,316 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    .wrap { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 72px 0 80px; }
+    .wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 60px 0 80px; }
+    
+    header {
+      margin-bottom: 48px;
+    }
     .kicker {
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #d97706;
+      color: var(--accent-hover);
+      margin-bottom: 8px;
     }
-    h1 { margin: 8px 0 12px; font-size: clamp(2rem, 5vw, 2.8rem); letter-spacing: -0.04em; }
-    .lead { color: var(--muted); max-width: 36rem; margin: 0 0 40px; }
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    article {
-      background: #fff;
+    h1 { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 2.6rem); letter-spacing: -0.03em; }
+    .lead { color: var(--muted); max-width: 40rem; margin: 0; font-size: 1.05rem; }
+
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: transparent;
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
     }
-    article h2 { margin: 0 0 8px; font-size: 1.15rem; }
-    article p { margin: 0 0 16px; color: var(--muted); font-size: 0.95rem; }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    
+    article {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+    }
+    article:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    
+    .badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-core { background: #eff6ff; color: #1d4ed8; }
+    .badge-pro { background: #fdf4ff; color: #a21caf; }
+    .badge-theme { background: #fff7ed; color: #c2410c; }
+    .badge-mit { background: #f0fdf4; color: #15803d; }
+
+    article h2 { margin: 0 0 8px; font-size: 1.15rem; letter-spacing: -0.01em; }
+    article h2 a { color: var(--ink); text-decoration: none; }
+    article h2 a:hover { color: var(--accent-hover); }
+
+    article p { margin: 0 0 20px; color: var(--muted); font-size: 0.93rem; line-height: 1.5; flex-grow: 1; }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      margin-top: auto;
+    }
+
+    .repo-stats {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      gap: 12px;
+    }
+
     a.btn {
       display: inline-flex;
+      align-items: center;
+      gap: 6px;
       color: var(--ink);
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       text-decoration: none;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 8px 14px;
+      padding: 6px 12px;
+      background: #fff;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
-    a.btn:hover { border-color: #ccc; }
-    footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
-    footer a { color: var(--muted); }
-    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+    a.btn:hover { background: #f9fafb; border-color: #9ca3af; }
+
+    footer { margin-top: 64px; border-top: 1px solid var(--line); padding-top: 24px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    footer a { color: var(--muted); text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="kicker">Laravel 13 · Filament 5</div>
-    <h1>Spiggle plugins</h1>
-    <p class="lead">Public product pages for Spiggle Laravel Filament packages. Theme source stays in its own repo.</p>
-    <div class="grid">
-      <article>
-        <h2>Material Theme</h2>
-        <p>Material Design chrome for Filament: Theme Settings, notifications, global search, and a promo banner. $39 lifetime, unlimited sites.</p>
-        <a class="btn" href="material-theme/">View Material Theme →</a>
-      </article>
-      <article>
-        <h2>Spiggle Theme</h2>
-        <p>Four sidebar layouts, six palettes, light and dark mode. $9.99 unlimited license.</p>
-        <a class="btn" href="filament-theme/">View Spiggle Theme →</a>
-      </article>
-      <article>
-        <h2>Dynamic Fields Core</h2>
-        <p>Free MIT EAV custom fields for any Eloquent model — Filament UI and typed values.</p>
-        <a class="btn" href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/">View Dynamic Fields →</a>
-      </article>
-      <article>
-        <h2>Form Builder Core</h2>
-        <p>Public forms, submissions inbox, and CSV export. Pro adds wizards and XLSX/PDF.</p>
-        <a class="btn" href="https://skillbobby.github.io/Spiggle-Form-Builder-Core/">View Form Builder →</a>
-      </article>
-      <article>
-        <h2>List View</h2>
-        <p>Toggle Filament tables to an A–Z list with grouping, avatars, and stacked columns.</p>
-        <a class="btn" href="material-theme/#list-view">See List View →</a>
-      </article>
+    <header>
+      <div class="kicker">Laravel · FilamentPHP · Ecosystem</div>
+      <h1>Spiggle Repositories</h1>
+      <p class="lead">Complete directory of open-source packages, UI themes, core builders, and professional extensions maintained by Spiggle.</p>
+    </header>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRepo('all', this)">All Repositories</button>
+      <button class="filter-btn" onclick="filterRepo('core', this)">Core & Free</button>
+      <button class="filter-btn" onclick="filterRepo('pro', this)">Pro Add-ons</button>
+      <button class="filter-btn" onclick="filterRepo('theme', this)">Themes & UI</button>
     </div>
-    <footer>© <span id="y"></span> Spiggle · <a href="mailto:skillbobby@outlook.com">skillbobby@outlook.com</a></footer>
+
+    <div class="grid" id="repo-grid">
+      
+      <!-- Spiggle Rules Engine -->
+      <article data-category="core">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-core">Core</span>
+              <span class="badge badge-mit">MIT</span>
+            </div>
+          </div>
+          <h2><a href="https://github.com/skillbobby/Spiggle-Rules-Engine" target="_blank">Spiggle-Rules-Engine</a></h2>
+          <p>Enterprise fully UI-driven event trigger plugin designed for Laravel and Filament.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>PHP / Laravel</span></div>
+          <a class="btn" href="https://github.com/skillbobby/Spiggle-Rules-Engine" target="_blank">GitHub →</a>
+        </div>
+      </article>
+
+      <!-- Form Builder Core -->
+      <article data-category="core">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-core">Core</span>
+              <span class="badge badge-mit">MIT</span>
+            </div>
+          </div>
+          <h2><a href="https://github.com/skillbobby/Spiggle-Form-Builder-Core" target="_blank">Spiggle-Form-Builder-Core</a></h2>
+          <p>Filament Form Builder Community Edition: public forms, submissions inbox, and CSV export.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>Filament</span></div>
+          <a class="btn" href="https://skillbobby.github.io/Spiggle-Form-Builder-Core" target="_blank">View Site →</a>
+        </div>
+      </article>
+
+      <!-- Dynamic Fields Core -->
+      <article data-category="core">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-core">Core</span>
+              <span class="badge badge-mit">MIT</span>
+            </div>
+          </div>
+          <h2><a href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core" target="_blank">Spiggle-Dynamic-Fields-Core</a></h2>
+          <p>Plug-and-play Laravel Filament package that adds custom EAV fields to any Eloquent model.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>Eloquent</span></div>
+          <a class="btn" href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/" target="_blank">View Site →</a>
+        </div>
+      </article>
+
+      <!-- Spiggle Theme -->
+      <article data-category="theme">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-theme">Theme</span>
+            </div>
+          </div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-theme" target="_blank">filament-spiggle-theme</a></h2>
+          <p>A crisp, clean, and high-performance theme for FilamentPHP with flexible sidebar layouts and color palettes.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>Tailwind CSS</span></div>
+          <a class="btn" href="https://skillbobby.github.io/spiggle/filament-theme" target="_blank">View Site →</a>
+        </div>
+      </article>
+
+      <!-- Material Theme -->
+      <article data-category="theme">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-theme">Theme</span>
+            </div>
+          </div>
+          <h2><a href="https://skillbobby.github.io/spiggle/material-theme" target="_blank">Spiggle-Material-Theme</a></h2>
+          <p>Spiggle Material Design chrome for Filament v5 including Theme Settings, notifications, and global search.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>Filament v5</span></div>
+          <a class="btn" href="https://skillbobby.github.io/spiggle/material-theme" target="_blank">View Site →</a>
+        </div>
+      </article>
+
+      <!-- List View -->
+      <article data-category="theme">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-theme">UI Plugin</span>
+              <span class="badge badge-mit">MIT</span>
+            </div>
+          </div>
+          <h2><a href="https://github.com/skillbobby/Spiggle-List-View" target="_blank">Spiggle-List-View</a></h2>
+          <p>Filament v5 plugin that toggles tables between standard table view and alphabetical list views.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>Filament</span></div>
+          <a class="btn" href="material-theme/#list-view" target="_blank">Explore →</a>
+        </div>
+      </article>
+
+      <!-- Form Builder Pro -->
+      <article data-category="pro">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-pro">Pro</span>
+            </div>
+          </div>
+          <h2><a href="https://github.com/skillbobby/Spiggle-Form-Builder-Pro" target="_blank">Spiggle-Form-Builder-Pro</a></h2>
+          <p>Premier licensed Pro add-on for Spiggle Form Builder Core with advanced form wizards and exports.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>Licensed</span></div>
+          <a class="btn" href="https://github.com/skillbobby/Spiggle-Form-Builder-Pro" target="_blank">GitHub →</a>
+        </div>
+      </article>
+
+      <!-- Dynamic Fields Pro -->
+      <article data-category="pro">
+        <div>
+          <div class="card-header">
+            <div class="badges">
+              <span class="badge badge-pro">Pro</span>
+            </div>
+          </div>
+          <h2><a href="https://github.com/skillbobby/Spiggle-Dynamic-Fields-Pro" target="_blank">Spiggle-Dynamic-Fields-Pro</a></h2>
+          <p>Premier licensed Pro add-on extending Spiggle Dynamic Fields Core capabilities.</p>
+        </div>
+        <div class="card-footer">
+          <div class="repo-stats"><span>Licensed</span></div>
+          <a class="btn" href="https://github.com/skillbobby/Spiggle-Dynamic-Fields-Pro" target="_blank">GitHub →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <footer>
+      <span>© <span id="y"></span> Spiggle · Built for developers</span>
+      <a href="https://x.com/iamspiggle" target="_blank">@iamspiggle</a>
+    </footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function filterRepo(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const articles = document.querySelectorAll('#repo-grid article');
+      articles.forEach(article => {
+        if (category === 'all' || article.dataset.category === category) {
+          article.style.display = 'flex';
+        } else {
+          article.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
