@@ -19,7 +19,22 @@
       --accent: #f59e0b;
       --accent-hover: #d97706;
       --font: "Inter", "Segoe UI", system-ui, sans-serif;
+      --card-hover-border: #cbd5e1;
+      --btn-bg: #fff;
     }
+
+    [data-theme="dark"] {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --line: #334155;
+      --accent: #f59e0b;
+      --accent-hover: #fbbf24;
+      --card-hover-border: #475569;
+      --btn-bg: #1e293b;
+    }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -28,12 +43,50 @@
       color: var(--ink);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      transition: background 0.2s ease, color 0.2s ease;
     }
     .wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 60px 0 80px; }
     
     header {
       margin-bottom: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
     }
+
+    .header-content {
+      flex-grow: 1;
+    }
+
+    .theme-toggle-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      flex-shrink: 0;
+    }
+    .theme-toggle-btn:hover {
+      border-color: var(--accent);
+    }
+    .theme-toggle-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Hide/show appropriate icons based on current theme */
+    [data-theme="dark"] .sun-icon { display: block; }
+    [data-theme="dark"] .moon-icon { display: none; }
+    .sun-icon { display: none; }
+    .moon-icon { display: block; }
+
     .kicker {
       font-size: 13px;
       font-weight: 600;
@@ -64,7 +117,7 @@
     }
     .filter-btn:hover, .filter-btn.active {
       background: var(--ink);
-      color: #fff;
+      color: var(--bg);
       border-color: var(--ink);
     }
 
@@ -78,28 +131,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
       position: relative;
     }
     article:hover {
       transform: translateY(-2px);
-      border-color: #cbd5e1;
+      border-color: var(--card-hover-border);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-    }
-	
-	.card-visual {
-      background: #f1f5f9;
-      height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--line);
-      position: relative;
-    }
-    .card-visual svg {
-      width: 48px;
-      height: 48px;
-      color: #64748b;
     }
     
     .card-header {
@@ -126,6 +164,11 @@
     .badge-pro { background: #fdf4ff; color: #a21caf; }
     .badge-theme { background: #fff7ed; color: #c2410c; }
     .badge-mit { background: #f0fdf4; color: #15803d; }
+
+    [data-theme="dark"] .badge-core { background: #1e3a8a; color: #93c5fd; }
+    [data-theme="dark"] .badge-pro { background: #701a75; color: #f0abfc; }
+    [data-theme="dark"] .badge-theme { background: #7c2d12; color: #fdba74; }
+    [data-theme="dark"] .badge-mit { background: #14532d; color: #86efac; }
 
     article h2 { margin: 0 0 8px; font-size: 1.15rem; letter-spacing: -0.01em; }
     article h2 a { color: var(--ink); text-decoration: none; }
@@ -160,10 +203,10 @@
       border: 1px solid var(--line);
       border-radius: 999px;
       padding: 6px 12px;
-      background: #fff;
+      background: var(--btn-bg);
       transition: background 0.15s ease, border-color 0.15s ease;
     }
-    a.btn:hover { background: #f9fafb; border-color: #9ca3af; }
+    a.btn:hover { border-color: var(--accent); }
 
     footer { margin-top: 64px; border-top: 1px solid var(--line); padding-top: 24px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     footer a { color: var(--muted); text-decoration: underline; }
@@ -176,9 +219,17 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="kicker">Laravel · FilamentPHP · Ecosystem</div>
-      <h1>Spiggle Repositories</h1>
-      <p class="lead">Complete directory of open-source packages, UI themes, core builders, and professional extensions maintained by Spiggle.</p>
+      <div class="header-content">
+        <div class="kicker">Laravel · FilamentPHP · Ecosystem</div>
+        <h1>Spiggle Repositories</h1>
+        <p class="lead">Complete directory of open-source packages, UI themes, core builders, and professional extensions maintained by Spiggle.</p>
+      </div>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+        <!-- Moon Icon (Shown in Light Mode) -->
+        <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+        <!-- Sun Icon (Shown in Dark Mode) -->
+        <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
     </header>
 
     <div class="filter-bar">
@@ -235,7 +286,7 @@
               <span class="badge badge-mit">MIT</span>
             </div>
           </div>
-          <h2><a href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core" target="_blank">Dynamic Fields</a></h2>
+          <h2><a href="https://github.com/skillbobby/Spiggle-Dynamic-Fields-Core" target="_blank">Dynamic Fields</a></h2>
           <p>Plug-and-play Laravel Filament package that adds custom EAV fields to any Eloquent model.</p>
         </div>
         <div class="card-footer">
@@ -340,6 +391,26 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme Switcher Logic
+    const toggleBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    // Check for saved user preference, otherwise check system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      htmlElement.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      htmlElement.setAttribute('data-theme', 'dark');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
 
     function filterRepo(category, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
