@@ -1,0 +1,29 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='980' height='700' viewBox='0 0 980 700' role='img' aria-label='Create snapshot schedule form'>
+  <rect width='980' height='700' fill='#f8fafc'/>
+  <rect x='90' y='24' width='800' height='652' rx='16' fill='#ffffff' stroke='#e2e8f0'/>
+  <text x='122' y='70' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='22' font-weight='700'>New snapshot schedule</text>
+  <text x='122' y='96' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Typical demo reset: restore the golden snapshot every night at 00:00.</text>
+  <text x='122' y='140' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Name</text>
+  <rect x='122' y='148' width='736' height='40' rx='8' fill='#fff' stroke='#cbd5e1'/>
+  <text x='136' y='174' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Midnight demo reset</text>
+  <text x='122' y='218' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Action</text>
+  <rect x='122' y='226' width='736' height='40' rx='8' fill='#fff' stroke='#cbd5e1'/>
+  <text x='136' y='252' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Restore snapshot</text>
+  <text x='122' y='296' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>When</text>
+  <rect x='122' y='304' width='736' height='40' rx='8' fill='#fff' stroke='#cbd5e1'/>
+  <text x='136' y='330' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Every night at 00:00</text>
+  <rect x='122' y='368' width='18' height='18' rx='4' fill='#f59e0b'/>
+  <path d='M126 377 l4 4 8-8' fill='none' stroke='#111827' stroke-width='2'/>
+  <text x='150' y='382' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Restore the golden snapshot</text>
+  <text x='150' y='404' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Ignores a named file and always loads the starred baseline.</text>
+  <rect x='122' y='428' width='18' height='18' rx='4' fill='#f59e0b'/>
+  <path d='M126 437 l4 4 8-8' fill='none' stroke='#111827' stroke-width='2'/>
+  <text x='150' y='442' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Enabled</text>
+  <rect x='122' y='480' width='736' height='72' rx='10' fill='#fffbeb' stroke='#fde68a'/>
+  <text x='140' y='510' fill='#92400e' font-family='Inter,Segoe UI,sans-serif' font-size='13' font-weight='600'>Requires schedule:run</text>
+  <text x='140' y='532' fill='#b45309' font-family='Inter,Segoe UI,sans-serif' font-size='12'>portal-snapshot:run-schedules is registered every minute.</text>
+  <rect x='646' y='588' width='92' height='40' rx='10' fill='#fff' stroke='#e2e8f0'/>
+  <text x='670' y='613' fill='#475569' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='600'>Cancel</text>
+  <rect x='750' y='588' width='108' height='40' rx='10' fill='#f59e0b'/>
+  <text x='780' y='613' fill='#111827' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='700'>Create</text>
+</svg>
