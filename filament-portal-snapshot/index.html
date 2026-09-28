@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spiggle Filament Portal Snapshot — database snapshots in the panel</title>
+  <meta name="description" content="Filament 4 and 5 plugin for database snapshots. Create, schedule, export, copy remotely, and restore — including a midnight demo reset against a golden baseline. Built on spatie/laravel-db-snapshots.">
+  <link rel="canonical" href="https://skillbobby.github.io/spiggle/filament-portal-snapshot/">
+  <meta property="og:title" content="Spiggle Filament Portal Snapshot">
+  <meta property="og:description" content="Create, schedule, export and restore database snapshots from a Filament panel. Golden baseline + midnight demo reset.">
+  <meta property="og:image" content="https://skillbobby.github.io/spiggle/filament-portal-snapshot/hero.svg">
+  <meta property="og:url" content="https://skillbobby.github.io/spiggle/filament-portal-snapshot/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="./">Portal Snapshot <span>by Spiggle</span></a>
+      <nav class="nav">
+        <a class="hide-mobile" href="#features">Features</a>
+        <a class="hide-mobile" href="#gallery">Screenshots</a>
+        <a class="hide-mobile" href="#demo-reset">Demo reset</a>
+        <a class="hide-mobile" href="#install">Install</a>
+        <a class="btn btn-outline" href="../">All packages</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-kicker">Filament 4 · Filament 5 · Spatie snapshots</div>
+        <h1>Snapshots in the panel — including a midnight demo reset</h1>
+        <p class="hero-lead">Create, export, copy to Drive or S3, and restore database dumps without leaving Filament. Schedule ongoing backups or revert a demo site to a golden baseline at 00:00.</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="#gallery">View screenshots</a>
+          <a class="btn btn-outline" href="#install">Install notes</a>
+        </div>
+        <figure class="hero-shot hero-shot-photo">
+          <img src="hero.svg" alt="Portal snapshots page: snapshot table, golden star, create action, and recent activity">
+        </figure>
+      </div>
+    </section>
+    <section id="features">
+      <div class="container">
+        <div class="section-label">Features</div>
+        <h2 class="section-title">Everything an operator needs around a dump</h2>
+        <p class="section-desc">Built on <code>spatie/laravel-db-snapshots</code>. The plugin adds a Filament UI, schedules, safety rails, notifications, and remote copies.</p>
+        <div class="features-grid">
+          <article class="feature-card"><h3>Create on demand</h3><p>Name a dump, pick a connection, optionally limit or exclude tables, and compress to <code>.sql.gz</code>. Work runs on a queue.</p></article>
+          <article class="feature-card"><h3>Restore with a confirm phrase</h3><p>Type <code>RESTORE</code> before tables drop. Restores are blocked outside allowed environments so production stays safe by default.</p></article>
+          <article class="feature-card"><h3>Golden baseline</h3><p>Star one snapshot as the known-good demo state. Nightly schedules can always load that file while newer dumps keep accumulating.</p></article>
+          <article class="feature-card"><h3>Schedules</h3><p>Create, restore, remote-copy, or clean up on midnight, daily, hourly, weekly, every six hours, or a custom cron.</p></article>
+          <article class="feature-card"><h3>Export & remote storage</h3><p>Download a dump from the table. Copy to any Laravel disk — S3, GCS, SFTP, or Google Drive via Flysystem.</p></article>
+          <article class="feature-card"><h3>Bell + inbox</h3><p>Completions land in the Filament notification bell and a queued email. Mail fails silently if it is not configured.</p></article>
+          <article class="feature-card"><h3>Plugin tables survive restore</h3><p>Schedule and operation rows are preserved across a restore so the plugin does not wipe its own history.</p></article>
+          <article class="feature-card"><h3>Activity log</h3><p>Every create, restore, export, cleanup, and remote copy is recorded with status, actor, and a short message.</p></article>
+        </div>
+        <div class="also-row">
+          <span class="also-chip">Filament 4 + 5</span>
+          <span class="also-chip">Laravel 11–13</span>
+          <span class="also-chip">Queued jobs</span>
+          <span class="also-chip">Environment guard</span>
+          <span class="also-chip">Retention cleanup</span>
+          <span class="also-chip">Authorize callback</span>
+        </div>
+      </div>
+    </section>
+    <section id="gallery">
+      <div class="container">
+        <div class="section-label">Screenshots</div>
+        <h2 class="section-title">The panel operators actually use</h2>
+        <p class="section-desc">Snapshots list, create and restore modals, schedules, the midnight demo-reset form, and the notification bell.</p>
+        <div class="gallery-grid">
+          <figure class="shot shot-wide">
+            <img src="hero.svg" alt="Portal snapshots table with golden baseline, gzip badges, and recent activity">
+            <figcaption>Snapshots — list, golden star, export / restore / remote copy</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="screenshots/create-snapshot.svg" alt="Create a database snapshot modal">
+            <figcaption>Create snapshot — name, connection, tables, gzip, remote copy</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="screenshots/restore.svg" alt="Restore confirmation modal requiring the word RESTORE">
+            <figcaption>Restore — target connection + confirmation phrase</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="screenshots/schedules.svg" alt="Snapshot schedules table">
+            <figcaption>Schedules — midnight reset, nightly dump, weekly cleanup</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="screenshots/schedule-form.svg" alt="New snapshot schedule form">
+            <figcaption>New schedule — restore the golden snapshot at 00:00</figcaption>
+          </figure>
+          <figure class="shot shot-wide">
+            <img src="screenshots/notifications.svg" alt="Stats cards and notification bell">
+            <figcaption>Stats + Filament bell when a snapshot or remote copy finishes</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <section id="demo-reset">
+      <div class="container">
+        <div class="section-label">Demo reset</div>
+        <h2 class="section-title">Put the portal back how you left it, every night</h2>
+        <p class="section-desc">The reason this plugin exists: a public demo that visitors can break, then a known-good database at midnight.</p>
+        <div class="workflow">
+          <article class="step"><div class="step-num">1</div><h3>Capture the baseline</h3><p>When the portal looks right, create a snapshot named <code>demo-baseline</code> and mark it golden.</p></article>
+          <article class="step"><div class="step-num">2</div><h3>Schedule the restore</h3><p>Action: restore. When: every night at 00:00. Turn on “Restore the golden snapshot”.</p></article>
+          <article class="step"><div class="step-num">3</div><h3>Leave the scheduler running</h3><p>Laravel’s schedule calls <code>portal-snapshot:run-schedules</code> every minute. Failures hit the bell and email.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="install">
+      <div class="container">
+        <div class="section-label">Install</div>
+        <h2 class="section-title">Private Composer package</h2>
+        <p class="section-desc">Source lives in a private repo. Require it from GitHub, publish config + migrations, and register the plugin on the panel.</p>
+        <div class="demo-panel">
+          <div class="demo-pane">
+            <h3>Register</h3>
+            <p>Authorize whoever may dump or restore. Navigation group and sort are optional.</p>
+            <div class="demo-creds">
+              <code>FilamentPortalSnapshotPlugin::make()<br>&nbsp;&nbsp;->authorize(fn () => auth()->user()?->is_admin ?? false)<br>&nbsp;&nbsp;->navigationGroup('Portal')</code>
+            </div>
+          </div>
+          <div class="demo-divider" aria-hidden="true"></div>
+          <div class="demo-pane demo-steps">
+            <h3>Then</h3>
+            <ol>
+              <li>Add a <code>snapshots</code> disk in <code>config/filesystems.php</code>.</li>
+              <li>Publish config and migrations, then migrate.</li>
+              <li>Run a queue worker and <code>* * * * * php artisan schedule:run</code>.</li>
+              <li>Optionally enable remote disks and mail recipients in config.</li>
+            </ol>
+            <a class="btn btn-primary" href="https://github.com/skillbobby/Spiggle-Filament-Portal-Snapshot" target="_blank" rel="noopener">Private repo →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="faq">
+      <div class="container">
+        <div class="section-label" style="text-align:center">FAQ</div>
+        <h2 class="section-title" style="text-align:center;margin-bottom:32px">Quick answers</h2>
+        <div class="faq">
+          <details open><summary>What does this plugin do?</summary><p>It wraps Spatie database snapshots in a Filament page and a schedules resource. Operators can create, download, copy remotely, delete, and restore dumps — and schedule those same actions, including a nightly demo reset.</p></details>
+          <details><summary>Which Filament versions?</summary><p>Filament 4 and 5. PHP 8.2+. Laravel 11, 12, or 13.</p></details>
+          <details><summary>Is restore allowed in production?</summary><p>Not by default. Configure <code>allow_restore_environments</code>. The restore action also requires typing a confirmation phrase.</p></details>
+          <details><summary>What if mail is not configured?</summary><p>The queued email is skipped and logged at debug. The Filament bell still fires when database notifications are enabled.</p></details>
+          <details><summary>How does Google Drive / S3 work?</summary><p>Point <code>filament-portal-snapshot.remote.disks</code> at existing Laravel filesystem disks. The plugin copies the dump file; it does not invent a Drive driver.</p></details>
+          <details><summary>Is this the same as Spatie Backup?</summary><p>No. This is database snapshots (SQL dumps) via <code>spatie/laravel-db-snapshots</code>, not full application backups.</p></details>
+        </div>
+      </div>
+    </section>
+    <section id="plugins">
+      <div class="container">
+        <div class="section-label">Works with</div>
+        <h2 class="section-title">More Spiggle plugins</h2>
+        <div class="plugins">
+          <article class="plugin-card"><h3>Spiggle Theme</h3><p>Four sidebar layouts, six palettes, light and dark mode, and a live Theme Settings page.</p><a class="btn btn-outline" href="../filament-theme/">View Spiggle Theme →</a></article>
+          <article class="plugin-card"><h3>Material Theme</h3><p>Material Design chrome for Filament v5 — Theme Settings, notifications, and search.</p><a class="btn btn-outline" href="../material-theme/">View Material Theme →</a></article>
+          <article class="plugin-card"><h3>Form Builder</h3><p>Public forms, submissions inbox, and CSV export.</p><a class="btn btn-outline" href="https://skillbobby.github.io/Spiggle-Form-Builder-Core/">View Form Builder →</a></article>
+          <article class="plugin-card"><h3>Dynamic Fields</h3><p>EAV custom fields for any Eloquent model, with a Filament UI.</p><a class="btn btn-outline" href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/">View Dynamic Fields →</a></article>
+        </div>
+      </div>
+    </section>
+    <section id="custom" class="custom-cta-wrap">
+      <div class="container">
+        <div class="custom-cta">
+          <div class="custom-cta-copy">
+            <h2>Need this on a panel?</h2>
+            <p>Portal Snapshot is a private package. Get in touch for access, or for a custom Filament plugin built around your portal.</p>
+          </div>
+          <a class="btn btn-accent custom-cta-btn" href="https://x.com/iamspiggle" target="_blank" rel="noopener">@iamspiggle →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="y"></span> Spiggle · Portal Snapshot</div>
+      <nav class="footer-links">
+        <a href="README.md">Readme</a>
+        <a href="../">All packages</a>
+        <a href="../filament-theme/">Spiggle Theme</a>
+        <a href="../material-theme/">Material Theme</a>
+        <a href="https://github.com/skillbobby/Spiggle-Filament-Portal-Snapshot">Source</a>
+      </nav>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
