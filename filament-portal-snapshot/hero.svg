@@ -1,0 +1,58 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='800' viewBox='0 0 1280 800' role='img' aria-label='Portal Snapshots page'>
+  <rect width='1280' height='800' fill='#f8fafc'/>
+  <rect width='240' height='800' fill='#0f172a'/>
+  <text x='28' y='42' fill='#f8fafc' font-family='Inter,Segoe UI,sans-serif' font-size='16' font-weight='700'>Spiggle</text>
+  <text x='28' y='62' fill='#94a3b8' font-family='Inter,Segoe UI,sans-serif' font-size='11'>Portal admin</text>
+  <rect x='16' y='96' width='208' height='36' rx='8' fill='#1e293b'/>
+  <text x='32' y='119' fill='#f8fafc' font-family='Inter,Segoe UI,sans-serif' font-size='13' font-weight='600'>Snapshots</text>
+  <text x='32' y='164' fill='#94a3b8' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Snapshot schedules</text>
+  <text x='32' y='200' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Users</text>
+  <text x='32' y='236' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Orders</text>
+  <rect x='240' width='1040' height='64' fill='#ffffff' stroke='#e2e8f0'/>
+  <text x='268' y='40' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='18' font-weight='700'>Snapshots</text>
+  <rect x='1088' y='18' width='160' height='28' rx='8' fill='#f59e0b'/>
+  <text x='1112' y='37' fill='#111827' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='700'>Create snapshot</text>
+  <rect x='268' y='88' width='232' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
+  <text x='286' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Snapshots</text>
+  <text x='286' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='24' font-weight='700'>6</text>
+  <rect x='516' y='88' width='232' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
+  <text x='534' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Golden baseline</text>
+  <text x='534' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='18' font-weight='700'>demo-baseline</text>
+  <rect x='764' y='88' width='232' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
+  <text x='782' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Last restore</text>
+  <text x='782' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='18' font-weight='700'>00:00 tonight</text>
+  <rect x='1012' y='88' width='236' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
+  <text x='1030' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Pending jobs</text>
+  <text x='1030' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='24' font-weight='700'>0</text>
+  <rect x='268' y='184' width='980' height='580' rx='14' fill='#fff' stroke='#e2e8f0'/>
+  <text x='292' y='220' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='700'>Database dumps</text>
+  <rect x='292' y='240' width='932' height='36' fill='#f8fafc'/>
+  <text x='308' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>NAME</text>
+  <text x='560' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>SIZE</text>
+  <text x='680' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>CREATED</text>
+  <text x='860' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>STATUS</text>
+  <g font-family='Inter,Segoe UI,sans-serif' font-size='13'>
+    <text x='308' y='310' fill='#0f172a' font-weight='600'>★ demo-baseline.sql.gz</text>
+    <text x='560' y='310' fill='#475569'>18.4 MB</text>
+    <text x='680' y='310' fill='#475569'>Sep 21, 00:04</text>
+    <rect x='860' y='294' width='64' height='22' rx='11' fill='#ecfdf5'/>
+    <text x='874' y='309' fill='#047857' font-size='11' font-weight='700'>golden</text>
+    <text x='308' y='358' fill='#0f172a'>nightly-2026-09-28.sql.gz</text>
+    <text x='560' y='358' fill='#475569'>19.1 MB</text>
+    <text x='680' y='358' fill='#475569'>Sep 28, 00:01</text>
+    <rect x='860' y='342' width='58' height='22' rx='11' fill='#eff6ff'/>
+    <text x='872' y='357' fill='#1d4ed8' font-size='11' font-weight='700'>ready</text>
+    <text x='308' y='406' fill='#0f172a'>pre-release.sql.gz</text>
+    <text x='560' y='406' fill='#475569'>17.9 MB</text>
+    <text x='680' y='406' fill='#475569'>Sep 26, 16:12</text>
+    <rect x='860' y='390' width='58' height='22' rx='11' fill='#eff6ff'/>
+    <text x='872' y='405' fill='#1d4ed8' font-size='11' font-weight='700'>ready</text>
+    <text x='308' y='454' fill='#0f172a'>before-import.sql.gz</text>
+    <text x='560' y='454' fill='#475569'>21.0 MB</text>
+    <text x='680' y='454' fill='#475569'>Sep 24, 11:40</text>
+    <rect x='860' y='438' width='58' height='22' rx='11' fill='#eff6ff'/>
+    <text x='872' y='453' fill='#1d4ed8' font-size='11' font-weight='700'>ready</text>
+  </g>
+  <text x='1048' y='310' fill='#d97706' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Restore · Export</text>
+  <text x='1048' y='358' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Restore · Remote</text>
+</svg>
