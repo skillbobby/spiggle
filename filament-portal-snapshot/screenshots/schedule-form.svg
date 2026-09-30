@@ -1,29 +1,112 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='980' height='700' viewBox='0 0 980 700' role='img' aria-label='Create snapshot schedule form'>
-  <rect width='980' height='700' fill='#f8fafc'/>
-  <rect x='90' y='24' width='800' height='652' rx='16' fill='#ffffff' stroke='#e2e8f0'/>
-  <text x='122' y='70' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='22' font-weight='700'>New snapshot schedule</text>
-  <text x='122' y='96' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Typical demo reset: restore the golden snapshot every night at 00:00.</text>
-  <text x='122' y='140' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Name</text>
-  <rect x='122' y='148' width='736' height='40' rx='8' fill='#fff' stroke='#cbd5e1'/>
-  <text x='136' y='174' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Midnight demo reset</text>
-  <text x='122' y='218' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Action</text>
-  <rect x='122' y='226' width='736' height='40' rx='8' fill='#fff' stroke='#cbd5e1'/>
-  <text x='136' y='252' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Restore snapshot</text>
-  <text x='122' y='296' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>When</text>
-  <rect x='122' y='304' width='736' height='40' rx='8' fill='#fff' stroke='#cbd5e1'/>
-  <text x='136' y='330' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Every night at 00:00</text>
-  <rect x='122' y='368' width='18' height='18' rx='4' fill='#f59e0b'/>
-  <path d='M126 377 l4 4 8-8' fill='none' stroke='#111827' stroke-width='2'/>
-  <text x='150' y='382' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Restore the golden snapshot</text>
-  <text x='150' y='404' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Ignores a named file and always loads the starred baseline.</text>
-  <rect x='122' y='428' width='18' height='18' rx='4' fill='#f59e0b'/>
-  <path d='M126 437 l4 4 8-8' fill='none' stroke='#111827' stroke-width='2'/>
-  <text x='150' y='442' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>Enabled</text>
-  <rect x='122' y='480' width='736' height='72' rx='10' fill='#fffbeb' stroke='#fde68a'/>
-  <text x='140' y='510' fill='#92400e' font-family='Inter,Segoe UI,sans-serif' font-size='13' font-weight='600'>Requires schedule:run</text>
-  <text x='140' y='532' fill='#b45309' font-family='Inter,Segoe UI,sans-serif' font-size='12'>portal-snapshot:run-schedules is registered every minute.</text>
-  <rect x='646' y='588' width='92' height='40' rx='10' fill='#fff' stroke='#e2e8f0'/>
-  <text x='670' y='613' fill='#475569' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='600'>Cancel</text>
-  <rect x='750' y='588' width='108' height='40' rx='10' fill='#f59e0b'/>
-  <text x='780' y='613' fill='#111827' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='700'>Create</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1020" height="760" viewBox="0 0 1020 760" role="img" aria-label="New Snapshot Schedule Form">
+  
+  <defs>
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="amber-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+    <linearGradient id="golden-badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="100%" stop-color="#fef3c7" />
+    </linearGradient>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.06"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.04"/>
+    </filter>
+    <filter id="modal-shadow" x="-10%" y="-10%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#090d16" flood-opacity="0.25"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#090d16" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glow-amber" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <style>
+    .font-sans { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace; }
+  </style>
+
+  <!-- Backdrop / Canvas -->
+  <rect width="1020" height="760" fill="#f8fafc" />
+
+  <!-- Form Container -->
+  <g class="font-sans" transform="translate(100, 30)" filter="url(#modal-shadow)">
+    <rect width="820" height="700" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Form Header -->
+    <g transform="translate(40, 36)">
+      <text x="0" y="22" fill="#0f172a" font-size="22" font-weight="800" letter-spacing="-0.02em">New snapshot schedule</text>
+      <text x="0" y="44" fill="#64748b" font-size="13">Configure automated snapshot actions, including midnight demo resets against golden baselines.</text>
+    </g>
+
+    <rect x="40" y="96" width="740" height="1" fill="#f1f5f9"/>
+
+    <!-- Form Controls -->
+    <g transform="translate(40, 118)">
+      <!-- Schedule Name -->
+      <text x="0" y="16" fill="#1e293b" font-size="13" font-weight="600">Schedule Name <tspan fill="#ef4444">*</tspan></text>
+      <rect x="0" y="24" width="740" height="42" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="16" y="51" fill="#0f172a" font-size="14" font-weight="600">Midnight demo reset</text>
+
+      <!-- Action Select -->
+      <g transform="translate(0, 88)">
+        <text x="0" y="16" fill="#1e293b" font-size="13" font-weight="600">Action to Execute <tspan fill="#ef4444">*</tspan></text>
+        <rect x="0" y="24" width="740" height="42" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+        <text x="16" y="51" fill="#0f172a" font-size="14" font-weight="600">Restore snapshot (Revert database to baseline)</text>
+        <polyline points="710,42 716,48 722,42" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <!-- When Select -->
+      <g transform="translate(0, 176)">
+        <text x="0" y="16" fill="#1e293b" font-size="13" font-weight="600">Frequency / When <tspan fill="#ef4444">*</tspan></text>
+        <rect x="0" y="24" width="740" height="42" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+        <text x="16" y="51" fill="#0f172a" font-size="14" font-weight="600">Every night at 00:00 (Midnight)</text>
+        <polyline points="710,42 716,48 722,42" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+        <text x="0" y="86" fill="#64748b" font-size="12">Presets available: Hourly, Daily, Weekly, Every 6 hours, or Custom Cron.</text>
+      </g>
+
+      <!-- Checkboxes -->
+      <g transform="translate(0, 280)">
+        <!-- Golden Star Toggle -->
+        <rect width="22" height="22" rx="6" fill="#f59e0b" />
+        <polyline points="6,11 10,15 16,7" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="34" y="16" fill="#0f172a" font-size="14" font-weight="700">Restore the golden snapshot baseline</text>
+        <text x="34" y="34" fill="#64748b" font-size="12">Dynamically resolves and restores whichever snapshot is marked golden at runtime.</text>
+
+        <!-- Enabled Toggle -->
+        <g transform="translate(0, 52)">
+          <rect width="22" height="22" rx="6" fill="#f59e0b" />
+          <polyline points="6,11 10,15 16,7" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round"/>
+          <text x="34" y="16" fill="#0f172a" font-size="14" font-weight="700">Schedule Enabled</text>
+          <text x="34" y="34" fill="#64748b" font-size="12">If unchecked, this scheduled task will be paused and bypassed.</text>
+        </g>
+      </g>
+
+      <!-- Alert box -->
+      <g transform="translate(0, 395)">
+        <rect width="740" height="66" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1.2"/>
+        <circle cx="24" cy="33" r="10" fill="#fef3c7"/>
+        <text x="24" y="37" fill="#b45309" font-size="12" font-weight="800" text-anchor="middle">!</text>
+        <text x="46" y="28" fill="#92400e" font-size="13" font-weight="700">Requires Artisan Schedule Runner</text>
+        <text x="46" y="48" fill="#b45309" font-size="12">Add <tspan class="font-mono">* * * * * php artisan schedule:run</tspan> to your system crontab to execute jobs.</text>
+      </g>
+    </g>
+
+    <!-- Footer -->
+    <rect x="0" y="626" width="820" height="74" rx="16" fill="#f8fafc"/>
+    <rect x="0" y="625" width="820" height="1" fill="#e2e8f0"/>
+    <g transform="translate(560, 644)">
+      <rect width="100" height="40" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="50" y="25" fill="#475569" font-size="13" font-weight="600" text-anchor="middle">Cancel</text>
+      <g transform="translate(112, 0)">
+        <rect width="108" height="40" rx="8" fill="url(#primary-grad)"/>
+        <text x="54" y="25" fill="#0f172a" font-size="13" font-weight="700" text-anchor="middle">Create</text>
+      </g>
+    </g>
+  </g>
 </svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#0f172a"/>
+  <defs>
+    <linearGradient id="fav-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Database Stack with Snap star -->
+  <ellipse cx="16" cy="10" rx="9" ry="3.5" fill="none" stroke="url(#fav-grad)" stroke-width="2"/>
+  <path d="M7 10v6c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5v-6" fill="none" stroke="url(#fav-grad)" stroke-width="2"/>
+  <path d="M7 16v6c0 1.93 4.03 3.5 9 3.5s9-1.57 9-3.5v-6" fill="none" stroke="url(#fav-grad)" stroke-width="2"/>
+  <!-- Golden baseline star badge -->
+  <circle cx="23" cy="9" r="5" fill="#fef3c7"/>
+  <path d="M23 6.5l.9 1.8 2 .3-1.4 1.4.3 2-1.8-1-1.8 1 .3-2-1.4-1.4 2-.3z" fill="#f59e0b"/>
+</svg>

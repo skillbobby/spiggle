@@ -1,58 +1,368 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='800' viewBox='0 0 1280 800' role='img' aria-label='Portal Snapshots page'>
-  <rect width='1280' height='800' fill='#f8fafc'/>
-  <rect width='240' height='800' fill='#0f172a'/>
-  <text x='28' y='42' fill='#f8fafc' font-family='Inter,Segoe UI,sans-serif' font-size='16' font-weight='700'>Spiggle</text>
-  <text x='28' y='62' fill='#94a3b8' font-family='Inter,Segoe UI,sans-serif' font-size='11'>Portal admin</text>
-  <rect x='16' y='96' width='208' height='36' rx='8' fill='#1e293b'/>
-  <text x='32' y='119' fill='#f8fafc' font-family='Inter,Segoe UI,sans-serif' font-size='13' font-weight='600'>Snapshots</text>
-  <text x='32' y='164' fill='#94a3b8' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Snapshot schedules</text>
-  <text x='32' y='200' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Users</text>
-  <text x='32' y='236' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='13'>Orders</text>
-  <rect x='240' width='1040' height='64' fill='#ffffff' stroke='#e2e8f0'/>
-  <text x='268' y='40' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='18' font-weight='700'>Snapshots</text>
-  <rect x='1088' y='18' width='160' height='28' rx='8' fill='#f59e0b'/>
-  <text x='1112' y='37' fill='#111827' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='700'>Create snapshot</text>
-  <rect x='268' y='88' width='232' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
-  <text x='286' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Snapshots</text>
-  <text x='286' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='24' font-weight='700'>6</text>
-  <rect x='516' y='88' width='232' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
-  <text x='534' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Golden baseline</text>
-  <text x='534' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='18' font-weight='700'>demo-baseline</text>
-  <rect x='764' y='88' width='232' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
-  <text x='782' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Last restore</text>
-  <text x='782' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='18' font-weight='700'>00:00 tonight</text>
-  <rect x='1012' y='88' width='236' height='78' rx='12' fill='#fff' stroke='#e2e8f0'/>
-  <text x='1030' y='116' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Pending jobs</text>
-  <text x='1030' y='144' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='24' font-weight='700'>0</text>
-  <rect x='268' y='184' width='980' height='580' rx='14' fill='#fff' stroke='#e2e8f0'/>
-  <text x='292' y='220' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='700'>Database dumps</text>
-  <rect x='292' y='240' width='932' height='36' fill='#f8fafc'/>
-  <text x='308' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>NAME</text>
-  <text x='560' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>SIZE</text>
-  <text x='680' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>CREATED</text>
-  <text x='860' y='262' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11' font-weight='600'>STATUS</text>
-  <g font-family='Inter,Segoe UI,sans-serif' font-size='13'>
-    <text x='308' y='310' fill='#0f172a' font-weight='600'>★ demo-baseline.sql.gz</text>
-    <text x='560' y='310' fill='#475569'>18.4 MB</text>
-    <text x='680' y='310' fill='#475569'>Sep 21, 00:04</text>
-    <rect x='860' y='294' width='64' height='22' rx='11' fill='#ecfdf5'/>
-    <text x='874' y='309' fill='#047857' font-size='11' font-weight='700'>golden</text>
-    <text x='308' y='358' fill='#0f172a'>nightly-2026-09-28.sql.gz</text>
-    <text x='560' y='358' fill='#475569'>19.1 MB</text>
-    <text x='680' y='358' fill='#475569'>Sep 28, 00:01</text>
-    <rect x='860' y='342' width='58' height='22' rx='11' fill='#eff6ff'/>
-    <text x='872' y='357' fill='#1d4ed8' font-size='11' font-weight='700'>ready</text>
-    <text x='308' y='406' fill='#0f172a'>pre-release.sql.gz</text>
-    <text x='560' y='406' fill='#475569'>17.9 MB</text>
-    <text x='680' y='406' fill='#475569'>Sep 26, 16:12</text>
-    <rect x='860' y='390' width='58' height='22' rx='11' fill='#eff6ff'/>
-    <text x='872' y='405' fill='#1d4ed8' font-size='11' font-weight='700'>ready</text>
-    <text x='308' y='454' fill='#0f172a'>before-import.sql.gz</text>
-    <text x='560' y='454' fill='#475569'>21.0 MB</text>
-    <text x='680' y='454' fill='#475569'>Sep 24, 11:40</text>
-    <rect x='860' y='438' width='58' height='22' rx='11' fill='#eff6ff'/>
-    <text x='872' y='453' fill='#1d4ed8' font-size='11' font-weight='700'>ready</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-label="Filament Portal Snapshot Dashboard">
+  
+  <defs>
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="amber-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+    <linearGradient id="golden-badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="100%" stop-color="#fef3c7" />
+    </linearGradient>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.06"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.04"/>
+    </filter>
+    <filter id="modal-shadow" x="-10%" y="-10%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#090d16" flood-opacity="0.25"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#090d16" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glow-amber" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <style>
+    .font-sans { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1280" height="820" fill="#f8fafc" />
+
+  <!-- Sidebar -->
+  <g class="font-sans">
+    <rect width="250" height="820" fill="#0f172a" />
+    
+    <!-- Brand -->
+    <g transform="translate(24, 28)">
+      <rect width="36" height="36" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <polygon points="18,10 28,26 8,26" fill="#f59e0b" opacity="0.9" />
+      <circle cx="18" cy="20" r="3" fill="#ffffff" />
+      <text x="46" y="20" fill="#ffffff" font-size="16" font-weight="700" letter-spacing="-0.02em">Spiggle</text>
+      <text x="46" y="34" fill="#94a3b8" font-size="11" font-weight="500">Portal Admin</text>
+    </g>
+
+    <!-- Navigation -->
+    <g transform="translate(14, 95)">
+      <text x="14" y="0" fill="#64748b" font-size="10" font-weight="700" letter-spacing="0.1em" text-transform="uppercase">OPERATIONS</text>
+      
+      <!-- Active Link: Snapshots -->
+      <g transform="translate(0, 12)">
+        <rect width="222" height="40" rx="8" fill="#1e293b" />
+        <path d="M16 20a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4z" fill="none" stroke="#f59e0b" stroke-width="2"/>
+        <path d="M18 14v-2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+        <text x="42" y="25" fill="#ffffff" font-size="13" font-weight="600">Snapshots</text>
+        <rect x="180" y="11" width="28" height="18" rx="9" fill="#f59e0b" />
+        <text x="194" y="24" fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle">6</text>
+      </g>
+
+      <!-- Link: Schedules -->
+      <g transform="translate(0, 58)">
+        <circle cx="21" cy="20" r="6" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+        <polyline points="21,17 21,20 24,20" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="42" y="25" fill="#94a3b8" font-size="13" font-weight="500">Snapshot schedules</text>
+        <rect x="186" y="11" width="22" height="18" rx="9" fill="#334155" />
+        <text x="197" y="24" fill="#cbd5e1" font-size="10" font-weight="600" text-anchor="middle">3</text>
+      </g>
+
+      <!-- Other Nav -->
+      <text x="14" y="125" fill="#64748b" font-size="10" font-weight="700" letter-spacing="0.1em" text-transform="uppercase">PORTAL RESOURCES</text>
+      
+      <g transform="translate(0, 137)">
+        <circle cx="21" cy="20" r="5" fill="none" stroke="#64748b" stroke-width="1.6"/>
+        <text x="42" y="25" fill="#64748b" font-size="13" font-weight="500">Users &amp; Roles</text>
+      </g>
+      <g transform="translate(0, 175)">
+        <rect x="16" y="15" width="10" height="10" rx="2" fill="none" stroke="#64748b" stroke-width="1.6"/>
+        <text x="42" y="25" fill="#64748b" font-size="13" font-weight="500">Activity Log</text>
+      </g>
+      <g transform="translate(0, 213)">
+        <circle cx="21" cy="20" r="4" fill="none" stroke="#64748b" stroke-width="1.6"/>
+        <text x="42" y="25" fill="#64748b" font-size="13" font-weight="500">Settings</text>
+      </g>
+    </g>
+
+    <!-- Sidebar footer profile -->
+    <g transform="translate(18, 760)">
+      <circle cx="18" cy="18" r="16" fill="#334155"/>
+      <text x="18" y="23" fill="#f8fafc" font-size="12" font-weight="600" text-anchor="middle">OP</text>
+      <text x="44" y="15" fill="#f1f5f9" font-size="12" font-weight="600">Site Operator</text>
+      <text x="44" y="29" fill="#64748b" font-size="11">Production Admin</text>
+      <circle cx="204" cy="18" r="4" fill="#10b981"/>
+    </g>
   </g>
-  <text x='1048' y='310' fill='#d97706' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Restore · Export</text>
-  <text x='1048' y='358' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Restore · Remote</text>
+
+  <!-- Topbar -->
+  <g class="font-sans" transform="translate(250, 0)">
+    <rect width="1030" height="64" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    
+    <!-- Breadcrumbs -->
+    <text x="28" y="37" fill="#64748b" font-size="13" font-weight="500">Portal / Operations / <tspan fill="#0f172a" font-weight="600">Snapshots</tspan></text>
+    
+    <!-- Search Bar -->
+    <g transform="translate(460, 14)">
+      <rect width="280" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <circle cx="18" cy="18" r="5" fill="none" stroke="#94a3b8" stroke-width="1.8"/>
+      <line x1="22" y1="22" x2="27" y2="27" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round"/>
+      <text x="36" y="23" fill="#94a3b8" font-size="12">Search snapshots...</text>
+      <rect x="238" y="8" width="32" height="20" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="254" y="22" fill="#64748b" font-size="10" font-weight="600" text-anchor="middle">⌘K</text>
+    </g>
+
+    <!-- Topbar Actions -->
+    <g transform="translate(870, 16)">
+      <!-- Bell with Notification -->
+      <g transform="translate(40, 4)">
+        <rect width="32" height="32" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <path d="M16 10a4 4 0 0 0-4 4v3l-2 2h12l-2-2v-3a4 4 0 0 0-4-4z" fill="none" stroke="#475569" stroke-width="1.8"/>
+        <circle cx="23" cy="8" r="4" fill="#ef4444"/>
+      </g>
+      <!-- Panel mode badge -->
+      <rect x="84" y="4" width="60" height="24" rx="12" fill="#ecfdf5" stroke="#a7f3d0"/>
+      <text x="114" y="20" fill="#065f46" font-size="11" font-weight="600" text-anchor="middle">Demo Env</text>
+    </g>
+  </g>
+
+  <!-- Main Content Area -->
+  <g class="font-sans" transform="translate(278, 88)">
+    <!-- Header title + Action button -->
+    <text x="0" y="26" fill="#0f172a" font-size="24" font-weight="800" letter-spacing="-0.03em">Database Snapshots</text>
+    <text x="0" y="48" fill="#64748b" font-size="13">Take on-demand dumps, configure golden baselines, and manage scheduled midnight resets.</text>
+
+    <!-- Create Button -->
+    <g transform="translate(820, 4)">
+      <rect width="154" height="42" rx="8" fill="url(#primary-grad)" />
+      <!-- Plus Icon -->
+      <line x1="20" y1="21" x2="30" y2="21" stroke="#111827" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="25" y1="16" x2="25" y2="26" stroke="#111827" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="38" y="26" fill="#0f172a" font-size="13" font-weight="700">Create snapshot</text>
+    </g>
+
+    <!-- 4 Stats Cards -->
+    <g transform="translate(0, 72)">
+      <!-- Card 1 -->
+      <g filter="url(#card-shadow)">
+        <rect width="232" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+        <text x="18" y="28" fill="#64748b" font-size="12" font-weight="600" text-transform="uppercase" letter-spacing="0.05em">Total Snapshots</text>
+        <text x="18" y="62" fill="#0f172a" font-size="28" font-weight="800">6</text>
+        <rect x="52" y="42" width="68" height="20" rx="10" fill="#eff6ff" />
+        <text x="86" y="56" fill="#1d4ed8" font-size="11" font-weight="600" text-anchor="middle">114.2 MB</text>
+        <text x="18" y="78" fill="#10b981" font-size="11" font-weight="500">↑ 2 created this week</text>
+      </g>
+
+      <!-- Card 2: Golden Baseline -->
+      <g transform="translate(248, 0)" filter="url(#card-shadow)">
+        <rect width="232" height="90" rx="12" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+        <rect x="0" y="0" width="232" height="90" rx="12" fill="url(#golden-badge)" opacity="0.25"/>
+        <text x="18" y="28" fill="#92400e" font-size="12" font-weight="700" text-transform="uppercase" letter-spacing="0.05em">★ Golden Baseline</text>
+        <text x="18" y="58" fill="#0f172a" font-size="17" font-weight="800">demo-baseline</text>
+        <text x="18" y="78" fill="#d97706" font-size="11" font-weight="600">Locked for midnight reset</text>
+        <!-- Star Icon -->
+        <circle cx="206" cy="26" r="14" fill="#fef3c7"/>
+        <path d="M206 18l2.4 5 5.6.8-4 4 1 5.5-5-2.7-5 2.7 1-5.5-4-4 5.6-.8z" fill="#f59e0b"/>
+      </g>
+
+      <!-- Card 3: Next Reset -->
+      <g transform="translate(496, 0)" filter="url(#card-shadow)">
+        <rect width="232" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+        <text x="18" y="28" fill="#64748b" font-size="12" font-weight="600" text-transform="uppercase" letter-spacing="0.05em">Scheduled Reset</text>
+        <text x="18" y="58" fill="#0f172a" font-size="20" font-weight="800">00:00 UTC</text>
+        <text x="18" y="78" fill="#059669" font-size="11" font-weight="600">● Nightly auto-revert active</text>
+        <circle cx="206" cy="26" r="14" fill="#ecfdf5"/>
+        <polyline points="206,20 206,26 210,26" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <!-- Card 4: Remote Storage -->
+      <g transform="translate(744, 0)" filter="url(#card-shadow)">
+        <rect width="232" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+        <text x="18" y="28" fill="#64748b" font-size="12" font-weight="600" text-transform="uppercase" letter-spacing="0.05em">Remote Sync</text>
+        <text x="18" y="58" fill="#0f172a" font-size="18" font-weight="800">AWS S3 + Drive</text>
+        <text x="18" y="78" fill="#64748b" font-size="11" font-weight="500">Synced 14m ago · 0 errors</text>
+        <circle cx="206" cy="26" r="14" fill="#eff6ff"/>
+        <path d="M201 28a3 3 0 0 1 0-6 4 4 0 0 1 8-1 3 3 0 0 1 3 4" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+      </g>
+    </g>
+
+    <!-- Table Container -->
+    <g transform="translate(0, 182)" filter="url(#card-shadow)">
+      <rect width="976" height="428" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+      
+      <!-- Table Header Bar -->
+      <g transform="translate(0, 0)">
+        <rect width="976" height="52" rx="14" fill="#ffffff"/>
+        <rect x="0" y="51" width="976" height="1" fill="#e2e8f0"/>
+        
+        <text x="24" y="32" fill="#0f172a" font-size="15" font-weight="700">Dumps on Disk</text>
+        <rect x="140" y="18" width="56" height="22" rx="11" fill="#f1f5f9"/>
+        <text x="168" y="33" fill="#475569" font-size="11" font-weight="700" text-anchor="middle">6 files</text>
+
+        <!-- Search Table Filter -->
+        <g transform="translate(730, 10)">
+          <rect width="220" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+          <text x="12" y="21" fill="#94a3b8" font-size="12">Filter by name or tag...</text>
+        </g>
+      </g>
+
+      <!-- Table Column Headers -->
+      <g transform="translate(0, 52)">
+        <rect width="976" height="36" fill="#f8fafc"/>
+        <rect x="0" y="35" width="976" height="1" fill="#e2e8f0"/>
+        
+        <text x="24" y="23" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.05em">NAME</text>
+        <text x="360" y="23" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.05em">FILE SIZE</text>
+        <text x="470" y="23" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.05em">CONNECTION</text>
+        <text x="590" y="23" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.05em">CREATED</text>
+        <text x="730" y="23" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.05em">STATUS</text>
+        <text x="860" y="23" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.05em">ACTIONS</text>
+      </g>
+
+      <!-- Row 1: Golden Baseline -->
+      <g transform="translate(0, 88)">
+        <rect width="976" height="66" fill="#fffdf5" />
+        <rect x="0" y="65" width="976" height="1" fill="#fef3c7"/>
+        
+        <!-- Golden Star & Name -->
+        <g transform="translate(24, 22)">
+          <!-- Glowing Golden Star -->
+          <circle cx="10" cy="11" r="11" fill="#fef3c7"/>
+          <path d="M10 5l1.6 3.4 3.8.5-2.7 2.7.6 3.8-3.3-1.8-3.3 1.8.6-3.8-2.7-2.7 3.8-.5z" fill="#f59e0b"/>
+          <text x="28" y="16" fill="#0f172a" font-size="14" font-weight="700" class="font-mono">demo-baseline.sql.gz</text>
+          <rect x="238" y="2" width="50" height="18" rx="4" fill="#fde68a"/>
+          <text x="263" y="15" fill="#92400e" font-size="10" font-weight="700" text-anchor="middle">GOLDEN</text>
+        </g>
+
+        <!-- Size -->
+        <text x="360" y="38" fill="#1e293b" font-size="13" font-weight="600" class="font-mono">18.4 MB</text>
+        <!-- Connection -->
+        <rect x="470" y="24" width="58" height="22" rx="4" fill="#f1f5f9"/>
+        <text x="499" y="39" fill="#334155" font-size="11" font-weight="600" text-anchor="middle">mysql</text>
+        <!-- Created -->
+        <text x="590" y="38" fill="#64748b" font-size="13">Sep 21, 00:04</text>
+        
+        <!-- Status Badge -->
+        <g transform="translate(730, 24)">
+          <rect width="84" height="24" rx="12" fill="#fef3c7" stroke="#fcd34d" stroke-width="1"/>
+          <circle cx="12" cy="12" r="3.5" fill="#d97706"/>
+          <text x="22" y="16" fill="#92400e" font-size="11" font-weight="700">Baseline</text>
+        </g>
+
+        <!-- Actions -->
+        <g transform="translate(850, 20)">
+          <rect width="64" height="28" rx="6" fill="#fee2e2" stroke="#fca5a5" stroke-width="1"/>
+          <text x="882" y="38" fill="#b91c1c" font-size="12" font-weight="700" text-anchor="middle">Restore</text>
+          <circle cx="930" cy="14" r="14" fill="#f8fafc" stroke="#e2e8f0"/>
+          <text x="930" y="18" fill="#475569" font-size="14" text-anchor="middle">⋯</text>
+        </g>
+      </g>
+
+      <!-- Row 2 -->
+      <g transform="translate(0, 154)">
+        <rect width="976" height="66" fill="#ffffff" />
+        <rect x="0" y="65" width="976" height="1" fill="#f1f5f9"/>
+        
+        <g transform="translate(24, 22)">
+          <circle cx="10" cy="11" r="11" fill="#f1f5f9"/>
+          <path d="M10 6v10m-5-5h10" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round"/>
+          <text x="28" y="16" fill="#0f172a" font-size="14" font-weight="600" class="font-mono">nightly-2026-09-28.sql.gz</text>
+        </g>
+
+        <text x="360" y="38" fill="#475569" font-size="13" class="font-mono">19.1 MB</text>
+        <rect x="470" y="24" width="58" height="22" rx="4" fill="#f1f5f9"/>
+        <text x="499" y="39" fill="#334155" font-size="11" font-weight="600" text-anchor="middle">mysql</text>
+        <text x="590" y="38" fill="#64748b" font-size="13">Sep 28, 00:01</text>
+        
+        <!-- Status: Ready -->
+        <g transform="translate(730, 24)">
+          <rect width="68" height="24" rx="12" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
+          <circle cx="12" cy="12" r="3.5" fill="#10b981"/>
+          <text x="22" y="16" fill="#065f46" font-size="11" font-weight="700">Ready</text>
+        </g>
+
+        <!-- Actions -->
+        <g transform="translate(850, 20)">
+          <rect width="64" height="28" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+          <text x="882" y="38" fill="#334155" font-size="12" font-weight="600" text-anchor="middle">Export</text>
+          <circle cx="930" cy="14" r="14" fill="#f8fafc" stroke="#e2e8f0"/>
+          <text x="930" y="18" fill="#475569" font-size="14" text-anchor="middle">⋯</text>
+        </g>
+      </g>
+
+      <!-- Row 3 -->
+      <g transform="translate(0, 220)">
+        <rect width="976" height="66" fill="#ffffff" />
+        <rect x="0" y="65" width="976" height="1" fill="#f1f5f9"/>
+        
+        <g transform="translate(24, 22)">
+          <circle cx="10" cy="11" r="11" fill="#f1f5f9"/>
+          <text x="28" y="16" fill="#0f172a" font-size="14" font-weight="600" class="font-mono">pre-release-v2.sql.gz</text>
+        </g>
+
+        <text x="360" y="38" fill="#475569" font-size="13" class="font-mono">17.9 MB</text>
+        <rect x="470" y="24" width="58" height="22" rx="4" fill="#f1f5f9"/>
+        <text x="499" y="39" fill="#334155" font-size="11" font-weight="600" text-anchor="middle">mysql</text>
+        <text x="590" y="38" fill="#64748b" font-size="13">Sep 26, 16:12</text>
+        
+        <g transform="translate(730, 24)">
+          <rect width="68" height="24" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+          <circle cx="12" cy="12" r="3.5" fill="#3b82f6"/>
+          <text x="22" y="16" fill="#1e40af" font-size="11" font-weight="700">Ready</text>
+        </g>
+
+        <g transform="translate(850, 20)">
+          <rect width="64" height="28" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+          <text x="882" y="38" fill="#334155" font-size="12" font-weight="600" text-anchor="middle">Export</text>
+          <circle cx="930" cy="14" r="14" fill="#f8fafc" stroke="#e2e8f0"/>
+          <text x="930" y="18" fill="#475569" font-size="14" text-anchor="middle">⋯</text>
+        </g>
+      </g>
+
+      <!-- Row 4 -->
+      <g transform="translate(0, 286)">
+        <rect width="976" height="66" fill="#ffffff" />
+        <rect x="0" y="65" width="976" height="1" fill="#f1f5f9"/>
+        
+        <g transform="translate(24, 22)">
+          <circle cx="10" cy="11" r="11" fill="#f1f5f9"/>
+          <text x="28" y="16" fill="#0f172a" font-size="14" font-weight="600" class="font-mono">before-migration.sql.gz</text>
+        </g>
+
+        <text x="360" y="38" fill="#475569" font-size="13" class="font-mono">21.0 MB</text>
+        <rect x="470" y="24" width="58" height="22" rx="4" fill="#f1f5f9"/>
+        <text x="499" y="39" fill="#334155" font-size="11" font-weight="600" text-anchor="middle">mysql</text>
+        <text x="590" y="38" fill="#64748b" font-size="13">Sep 24, 11:40</text>
+        
+        <g transform="translate(730, 24)">
+          <rect width="68" height="24" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+          <circle cx="12" cy="12" r="3.5" fill="#3b82f6"/>
+          <text x="22" y="16" fill="#1e40af" font-size="11" font-weight="700">Ready</text>
+        </g>
+
+        <g transform="translate(850, 20)">
+          <rect width="64" height="28" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+          <text x="882" y="38" fill="#334155" font-size="12" font-weight="600" text-anchor="middle">Export</text>
+          <circle cx="930" cy="14" r="14" fill="#f8fafc" stroke="#e2e8f0"/>
+          <text x="930" y="18" fill="#475569" font-size="14" text-anchor="middle">⋯</text>
+        </g>
+      </g>
+
+      <!-- Table Pagination Footer -->
+      <g transform="translate(0, 352)">
+        <rect width="976" height="76" rx="14" fill="#f8fafc"/>
+        <text x="24" y="44" fill="#64748b" font-size="12">Showing <tspan font-weight="600" fill="#0f172a">1</tspan> to <tspan font-weight="600" fill="#0f172a">4</tspan> of <tspan font-weight="600" fill="#0f172a">6</tspan> results</text>
+        <g transform="translate(830, 26)">
+          <rect width="32" height="32" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="16" y="21" fill="#94a3b8" font-size="12" text-anchor="middle">‹</text>
+          <rect x="40" y="0" width="32" height="32" rx="6" fill="#f59e0b"/>
+          <text x="56" y="21" fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle">1</text>
+          <rect x="80" y="0" width="32" height="32" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="96" y="21" fill="#475569" font-size="12" text-anchor="middle">›</text>
+        </g>
+      </g>
+    </g>
+  </g>
 </svg>
