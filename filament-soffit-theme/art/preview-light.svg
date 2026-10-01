@@ -1,0 +1,375 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-label="Soffit Theme Light Mode Preview">
+  <defs>
+    <filter id="soft-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e1a16" flood-opacity="0.04"/>
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#1e1a16" flood-opacity="0.05"/>
+    </filter>
+    <filter id="card-shadow" x="-3%" y="-3%" width="106%" height="112%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#1e1a16" flood-opacity="0.03"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1e1a16" flood-opacity="0.04"/>
+    </filter>
+    <linearGradient id="brass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4b88a"/>
+      <stop offset="100%" stop-color="#c4a574"/>
+    </linearGradient>
+    <linearGradient id="teal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#148b7c"/>
+      <stop offset="100%" stop-color="#0f6e62"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .font-outfit { font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  </style>
+
+  <!-- Canvas Background with Soffit Brass Radial Glow -->
+  <rect width="1280" height="820" fill="#f3efe6"/>
+  <radialGradient id="ambient-glow" cx="95%" cy="5%" r="75%">
+    <stop offset="0%" stop-color="#c4a574" stop-opacity="0.22"/>
+    <stop offset="60%" stop-color="#c4a574" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1280" height="820" fill="url(#ambient-glow)"/>
+
+  <!-- Full-Height White Sidebar (Signature Soffit Design) -->
+  <g class="font-outfit">
+    <rect width="260" height="820" fill="#ffffff" stroke="#e4ddd2" stroke-width="1"/>
+
+    <!-- Soffit Brand Logo -->
+    <g transform="translate(24, 28)">
+      <!-- Tiered Soffit Mark -->
+      <rect width="36" height="36" rx="9" fill="#123f3a"/>
+      <rect x="7" y="8" width="22" height="5" rx="1.5" fill="#f6f1e8"/>
+      <rect x="10" y="16.5" width="16" height="3.5" rx="1" fill="#c4a574"/>
+      <rect x="13.5" y="23.5" width="9" height="3.2" rx="1" fill="#f6f1e8" opacity="0.75"/>
+      
+      <text x="48" y="24" fill="#1e1a16" font-size="20" font-weight="700" letter-spacing="-0.03em">Soffit</text>
+      <text x="106" y="16" fill="#c4a574" font-size="9" font-weight="700" letter-spacing="0.08em">THEME</text>
+    </g>
+
+    <!-- Navigation Search -->
+    <g transform="translate(18, 88)">
+      <rect width="224" height="36" rx="8" fill="#f7f4ee" stroke="#e4ddd2" stroke-width="1"/>
+      <circle cx="16" cy="18" r="5" fill="none" stroke="#6e665c" stroke-width="1.6"/>
+      <line x1="20" y1="22" x2="24" y2="26" stroke="#6e665c" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="32" y="22" fill="#6e665c" font-size="12" font-weight="500">Quick jump...</text>
+      <rect x="182" y="8" width="32" height="20" rx="4" fill="#ffffff" stroke="#e4ddd2"/>
+      <text x="198" y="22" fill="#6e665c" font-size="10" font-weight="600" text-anchor="middle">⌘K</text>
+    </g>
+
+    <!-- Nav Section: Core -->
+    <g transform="translate(18, 146)">
+      <text x="10" y="0" fill="#6e665c" font-size="10" font-weight="700" letter-spacing="0.1em">MANAGEMENT</text>
+      
+      <!-- Active Item: Dashboard -->
+      <g transform="translate(0, 12)">
+        <rect width="224" height="42" rx="10" fill="#0f6e62"/>
+        <rect x="14" y="13" width="7" height="7" rx="2" fill="#f6f1e8"/>
+        <rect x="23" y="13" width="7" height="7" rx="2" fill="#c4a574"/>
+        <rect x="14" y="22" width="7" height="7" rx="2" fill="#c4a574"/>
+        <rect x="23" y="22" width="7" height="7" rx="2" fill="#f6f1e8"/>
+        <text x="40" y="26" fill="#ffffff" font-size="13.5" font-weight="600">Dashboard</text>
+      </g>
+
+      <!-- Nav: Orders -->
+      <g transform="translate(0, 60)">
+        <rect width="224" height="40" rx="10" fill="transparent"/>
+        <circle cx="22" cy="20" r="5.5" fill="none" stroke="#6e665c" stroke-width="1.8"/>
+        <polyline points="20,18 22,20 25,17" fill="none" stroke="#6e665c" stroke-width="1.6" stroke-linecap="round"/>
+        <text x="40" y="25" fill="#1e1a16" font-size="13" font-weight="500">Orders</text>
+        <rect x="182" y="11" width="30" height="18" rx="9" fill="#f3efe6"/>
+        <text x="197" y="24" fill="#6e665c" font-size="10.5" font-weight="700" text-anchor="middle">48</text>
+      </g>
+
+      <!-- Nav: Customers -->
+      <g transform="translate(0, 104)">
+        <circle cx="22" cy="16" r="4" fill="none" stroke="#6e665c" stroke-width="1.8"/>
+        <path d="M14 26c0-4 4-5 8-5s8 1 8 5" fill="none" stroke="#6e665c" stroke-width="1.8"/>
+        <text x="40" y="25" fill="#1e1a16" font-size="13" font-weight="500">Customers</text>
+      </g>
+
+      <!-- Nav: Products -->
+      <g transform="translate(0, 148)">
+        <rect x="16" y="14" width="12" height="12" rx="3" fill="none" stroke="#6e665c" stroke-width="1.8"/>
+        <text x="40" y="25" fill="#1e1a16" font-size="13" font-weight="500">Products</text>
+      </g>
+    </g>
+
+    <!-- Nav Section: Settings -->
+    <g transform="translate(18, 360)">
+      <text x="10" y="0" fill="#6e665c" font-size="10" font-weight="700" letter-spacing="0.1em">CONFIGURATION</text>
+      
+      <g transform="translate(0, 12)">
+        <circle cx="22" cy="20" r="6" fill="none" stroke="#6e665c" stroke-width="1.8"/>
+        <line x1="22" y1="12" x2="22" y2="15" stroke="#6e665c" stroke-width="2"/>
+        <text x="40" y="25" fill="#1e1a16" font-size="13" font-weight="500">Theme Settings</text>
+        <rect x="176" y="11" width="38" height="18" rx="9" fill="#fff7ed"/>
+        <text x="195" y="24" fill="#c2410c" font-size="9" font-weight="700" text-anchor="middle">SOFFIT</text>
+      </g>
+
+      <g transform="translate(0, 56)">
+        <rect x="16" y="14" width="12" height="12" rx="2" fill="none" stroke="#6e665c" stroke-width="1.8"/>
+        <line x1="16" y1="18" x2="28" y2="18" stroke="#6e665c" stroke-width="1.8"/>
+        <text x="40" y="25" fill="#1e1a16" font-size="13" font-weight="500">Store Settings</text>
+      </g>
+    </g>
+
+    <!-- Sidebar Footer Help Card -->
+    <g transform="translate(18, 690)">
+      <rect width="224" height="106" rx="12" fill="#f7f4ee" stroke="#e4ddd2" stroke-width="1"/>
+      <circle cx="24" cy="24" r="10" fill="#e8dfd0"/>
+      <text x="24" y="28" fill="#0f6e62" font-size="12" font-weight="800" text-anchor="middle">?</text>
+      <text x="44" y="22" fill="#1e1a16" font-size="12.5" font-weight="700">Soffit Help &amp; Docs</text>
+      <text x="44" y="36" fill="#6e665c" font-size="10.5">Quiet, refined admin kit</text>
+      
+      <rect x="14" y="56" width="196" height="34" rx="8" fill="#ffffff" stroke="#e4ddd2"/>
+      <text x="112" y="77" fill="#0f6e62" font-size="11.5" font-weight="700" text-anchor="middle">Documentation →</text>
+    </g>
+  </g>
+
+  <!-- Topbar -->
+  <g class="font-outfit" transform="translate(260, 0)">
+    <rect width="1020" height="68" fill="#fffcf7" stroke="#e4ddd2" stroke-width="1"/>
+    
+    <text x="32" y="40" fill="#6e665c" font-size="13" font-weight="500">Store Admin / <tspan fill="#1e1a16" font-weight="700">Executive Overview</tspan></text>
+
+    <!-- Topbar Actions -->
+    <g transform="translate(730, 16)">
+      <!-- Scheme Switcher Pill -->
+      <g transform="translate(0, 2)">
+        <rect width="90" height="32" rx="16" fill="#f3efe6" stroke="#e4ddd2"/>
+        <circle cx="20" cy="16" r="10" fill="#ffffff" filter="url(#card-shadow)"/>
+        <!-- Sun icon -->
+        <circle cx="20" cy="16" r="4" fill="#c4a574"/>
+        <text x="56" y="21" fill="#1e1a16" font-size="11" font-weight="600">Light</text>
+      </g>
+
+      <!-- Bell notification -->
+      <g transform="translate(104, 2)">
+        <rect width="32" height="32" rx="8" fill="#f7f4ee" stroke="#e4ddd2"/>
+        <path d="M16 10a4 4 0 0 0-4 4v3l-2 2h12l-2-2v-3a4 4 0 0 0-4-4z" fill="none" stroke="#6e665c" stroke-width="1.8"/>
+        <circle cx="22" cy="9" r="3.5" fill="#0f6e62"/>
+      </g>
+
+      <!-- User Profile -->
+      <g transform="translate(150, 0)">
+        <rect width="120" height="36" rx="18" fill="#f7f4ee" stroke="#e4ddd2"/>
+        <circle cx="18" cy="18" r="14" fill="#0f6e62"/>
+        <text x="18" y="22" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">SO</text>
+        <text x="40" y="17" fill="#1e1a16" font-size="12" font-weight="600">Spiggle</text>
+        <text x="40" y="29" fill="#6e665c" font-size="9.5">Admin</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Main Content View -->
+  <g class="font-outfit" transform="translate(292, 92)">
+    <!-- Header title + Action button -->
+    <g>
+      <text x="0" y="26" fill="#1e1a16" font-size="26" font-weight="700" letter-spacing="-0.03em">Executive Overview</text>
+      <text x="0" y="48" fill="#6e665c" font-size="13">Soft curves, calm brass accents, and edge-to-edge clarity across all Filament panels.</text>
+      
+      <!-- New Order Button -->
+      <g transform="translate(805, 4)">
+        <rect width="150" height="42" rx="10" fill="url(#teal-grad)" filter="url(#card-shadow)"/>
+        <line x1="20" y1="21" x2="30" y2="21" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="25" y1="16" x2="25" y2="26" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+        <text x="40" y="26" fill="#ffffff" font-size="13" font-weight="600">Export Report</text>
+      </g>
+    </g>
+
+    <!-- 3 Stat Cards in Soffit Surface Palette -->
+    <g transform="translate(0, 72)">
+      <!-- Card 1 -->
+      <g filter="url(#card-shadow)">
+        <rect width="308" height="106" rx="14" fill="#fffcf7" stroke="#e4ddd2" stroke-width="1.2"/>
+        <text x="20" y="30" fill="#6e665c" font-size="11.5" font-weight="600" text-transform="uppercase" letter-spacing="0.06em">Gross Revenue</text>
+        <text x="20" y="66" fill="#1e1a16" font-size="28" font-weight="800" letter-spacing="-0.03em">$94,820.00</text>
+        <rect x="20" y="78" width="62" height="18" rx="9" fill="#eaf4ee"/>
+        <text x="51" y="90" fill="#0f6e62" font-size="10.5" font-weight="700" text-anchor="middle">↑ 12.4%</text>
+        <text x="90" y="90" fill="#6e665c" font-size="11">vs. last month</text>
+        <!-- Brass Sparkline Indicator -->
+        <circle cx="275" cy="30" r="14" fill="#f7f3ea"/>
+        <path d="M268 33l4-6 4 4 6-8" fill="none" stroke="#c4a574" stroke-width="2" stroke-linecap="round"/>
+      </g>
+
+      <!-- Card 2 -->
+      <g transform="translate(328, 0)" filter="url(#card-shadow)">
+        <rect width="308" height="106" rx="14" fill="#fffcf7" stroke="#e4ddd2" stroke-width="1.2"/>
+        <text x="20" y="30" fill="#6e665c" font-size="11.5" font-weight="600" text-transform="uppercase" letter-spacing="0.06em">Active Subscriptions</text>
+        <text x="20" y="66" fill="#1e1a16" font-size="28" font-weight="800" letter-spacing="-0.03em">1,420</text>
+        <rect x="20" y="78" width="86" height="18" rx="9" fill="#f7f3ea"/>
+        <text x="63" y="90" fill="#96753c" font-size="10.5" font-weight="700" text-anchor="middle">98.6% active</text>
+        <text x="114" y="90" fill="#6e665c" font-size="11">Single + Studio</text>
+        <circle cx="275" cy="30" r="14" fill="#eaf4ee"/>
+        <path d="M268 30a7 7 0 0 1 14 0" fill="none" stroke="#0f6e62" stroke-width="2"/>
+      </g>
+
+      <!-- Card 3 -->
+      <g transform="translate(656, 0)" filter="url(#card-shadow)">
+        <rect width="300" height="106" rx="14" fill="#fffcf7" stroke="#e4ddd2" stroke-width="1.2"/>
+        <text x="20" y="30" fill="#6e665c" font-size="11.5" font-weight="600" text-transform="uppercase" letter-spacing="0.06em">Theme Engine</text>
+        <text x="20" y="64" fill="#1e1a16" font-size="20" font-weight="700">Soffit v1.0.0</text>
+        <text x="20" y="90" fill="#0f6e62" font-size="11" font-weight="600">● Filament 4 &amp; 5 Ready · CSS Only</text>
+        <circle cx="265" cy="30" r="14" fill="#fff7ed"/>
+        <polygon points="265,23 272,37 258,37" fill="#c4a574"/>
+      </g>
+    </g>
+
+    <!-- Table Container Card -->
+    <g transform="translate(0, 200)" filter="url(#soft-shadow)">
+      <rect width="956" height="490" rx="16" fill="#fffcf7" stroke="#e4ddd2" stroke-width="1.2"/>
+
+      <!-- Table Header Bar -->
+      <g transform="translate(0, 0)">
+        <text x="24" y="36" fill="#1e1a16" font-size="16" font-weight="700">Recent Customer Licenses</text>
+        <rect x="234" y="20" width="70" height="22" rx="11" fill="#f3efe6"/>
+        <text x="269" y="35" fill="#6e665c" font-size="11" font-weight="700" text-anchor="middle">48 records</text>
+
+        <!-- Filter and Search -->
+        <g transform="translate(680, 16)">
+          <rect width="250" height="34" rx="8" fill="#f7f4ee" stroke="#e4ddd2" stroke-width="1"/>
+          <text x="14" y="22" fill="#6e665c" font-size="12">Filter by license or buyer...</text>
+        </g>
+      </g>
+
+      <!-- Table Columns Header -->
+      <g transform="translate(0, 60)">
+        <rect width="956" height="36" fill="#f7f4ee"/>
+        <rect x="0" y="35" width="956" height="1" fill="#e4ddd2"/>
+
+        <text x="24" y="23" fill="#6e665c" font-size="11" font-weight="700" letter-spacing="0.05em">ORDER</text>
+        <text x="140" y="23" fill="#6e665c" font-size="11" font-weight="700" letter-spacing="0.05em">CUSTOMER</text>
+        <text x="360" y="23" fill="#6e665c" font-size="11" font-weight="700" letter-spacing="0.05em">LICENSE PLAN</text>
+        <text x="560" y="23" fill="#6e665c" font-size="11" font-weight="700" letter-spacing="0.05em">UPDATES UNTIL</text>
+        <text x="730" y="23" fill="#6e665c" font-size="11" font-weight="700" letter-spacing="0.05em">STATUS</text>
+        <text x="860" y="23" fill="#6e665c" font-size="11" font-weight="700" letter-spacing="0.05em" text-anchor="end">AMOUNT</text>
+      </g>
+
+      <!-- Row 1: Studio Unlimited License -->
+      <g transform="translate(0, 96)">
+        <rect width="956" height="68" fill="#fffdf9"/>
+        <rect x="0" y="67" width="956" height="1" fill="#f1ece3"/>
+        
+        <text x="24" y="40" fill="#0f6e62" font-size="13" font-weight="700" class="font-mono">#SOF-1094</text>
+        
+        <!-- Customer -->
+        <g transform="translate(140, 22)">
+          <circle cx="16" cy="16" r="14" fill="#e8dfd0"/>
+          <text x="16" y="20" fill="#1e1a16" font-size="11" font-weight="700" text-anchor="middle">EV</text>
+          <text x="38" y="15" fill="#1e1a16" font-size="13" font-weight="600">Eleanor Vance</text>
+          <text x="38" y="29" fill="#6e665c" font-size="11">eleanor@hillhouse.design</text>
+        </g>
+
+        <!-- Plan -->
+        <g transform="translate(360, 26)">
+          <rect width="138" height="24" rx="6" fill="#fdf6eb" stroke="#ebd9b9"/>
+          <text x="69" y="16" fill="#96753c" font-size="11" font-weight="700" text-anchor="middle">Unlimited Projects ($49)</text>
+        </g>
+
+        <!-- Updates -->
+        <text x="560" y="40" fill="#1e1a16" font-size="13">Sep 30, 2027</text>
+
+        <!-- Status -->
+        <g transform="translate(730, 26)">
+          <rect width="84" height="24" rx="12" fill="#eaf4ee" stroke="#bedecb"/>
+          <circle cx="12" cy="12" r="3.5" fill="#0f6e62"/>
+          <text x="22" y="16" fill="#0b5249" font-size="11" font-weight="700">Active</text>
+        </g>
+
+        <!-- Amount -->
+        <text x="860" y="40" fill="#1e1a16" font-size="14" font-weight="700" text-anchor="end">$49.00</text>
+      </g>
+
+      <!-- Row 2: Single Site License -->
+      <g transform="translate(0, 164)">
+        <rect width="956" height="68" fill="#fffcf7"/>
+        <rect x="0" y="67" width="956" height="1" fill="#f1ece3"/>
+
+        <text x="24" y="40" fill="#0f6e62" font-size="13" font-weight="700" class="font-mono">#SOF-1093</text>
+        
+        <g transform="translate(140, 22)">
+          <circle cx="16" cy="16" r="14" fill="#eaf4ee"/>
+          <text x="16" y="20" fill="#0f6e62" font-size="11" font-weight="700" text-anchor="middle">MA</text>
+          <text x="38" y="15" fill="#1e1a16" font-size="13" font-weight="600">Marcus Aurelius</text>
+          <text x="38" y="29" fill="#6e665c" font-size="11">marcus@rome.org</text>
+        </g>
+
+        <g transform="translate(360, 26)">
+          <rect width="118" height="24" rx="6" fill="#f3efe6" stroke="#e4ddd2"/>
+          <text x="59" y="16" fill="#4a4237" font-size="11" font-weight="600" text-anchor="middle">Single Site ($19)</text>
+        </g>
+
+        <text x="560" y="40" fill="#1e1a16" font-size="13">Sep 30, 2027</text>
+
+        <g transform="translate(730, 26)">
+          <rect width="84" height="24" rx="12" fill="#eaf4ee" stroke="#bedecb"/>
+          <circle cx="12" cy="12" r="3.5" fill="#0f6e62"/>
+          <text x="22" y="16" fill="#0b5249" font-size="11" font-weight="700">Active</text>
+        </g>
+
+        <text x="860" y="40" fill="#1e1a16" font-size="14" font-weight="700" text-anchor="end">$19.00</text>
+      </g>
+
+      <!-- Row 3: Studio Unlimited License -->
+      <g transform="translate(0, 232)">
+        <rect width="956" height="68" fill="#fffcf7"/>
+        <rect x="0" y="67" width="956" height="1" fill="#f1ece3"/>
+
+        <text x="24" y="40" fill="#0f6e62" font-size="13" font-weight="700" class="font-mono">#SOF-1092</text>
+        
+        <g transform="translate(140, 22)">
+          <circle cx="16" cy="16" r="14" fill="#f7f3ea"/>
+          <text x="16" y="20" fill="#96753c" font-size="11" font-weight="700" text-anchor="middle">CO</text>
+          <text x="38" y="15" fill="#1e1a16" font-size="13" font-weight="600">Clara Oswald</text>
+          <text x="38" y="29" fill="#6e665c" font-size="11">clara@tardis.net</text>
+        </g>
+
+        <g transform="translate(360, 26)">
+          <rect width="138" height="24" rx="6" fill="#fdf6eb" stroke="#ebd9b9"/>
+          <text x="69" y="16" fill="#96753c" font-size="11" font-weight="700" text-anchor="middle">Unlimited Projects ($49)</text>
+        </g>
+
+        <text x="560" y="40" fill="#1e1a16" font-size="13">Sep 28, 2027</text>
+
+        <g transform="translate(730, 26)">
+          <rect width="84" height="24" rx="12" fill="#eaf4ee" stroke="#bedecb"/>
+          <circle cx="12" cy="12" r="3.5" fill="#0f6e62"/>
+          <text x="22" y="16" fill="#0b5249" font-size="11" font-weight="700">Active</text>
+        </g>
+
+        <text x="860" y="40" fill="#1e1a16" font-size="14" font-weight="700" text-anchor="end">$49.00</text>
+      </g>
+
+      <!-- Row 4: Single Site License -->
+      <g transform="translate(0, 300)">
+        <rect width="956" height="68" fill="#fffcf7"/>
+        <rect x="0" y="67" width="956" height="1" fill="#f1ece3"/>
+
+        <text x="24" y="40" fill="#0f6e62" font-size="13" font-weight="700" class="font-mono">#SOF-1091</text>
+        
+        <g transform="translate(140, 22)">
+          <circle cx="16" cy="16" r="14" fill="#e8dfd0"/>
+          <text x="16" y="20" fill="#1e1a16" font-size="11" font-weight="700" text-anchor="middle">JB</text>
+          <text x="38" y="15" fill="#1e1a16" font-size="13" font-weight="600">Julian Bashir</text>
+          <text x="38" y="29" fill="#6e665c" font-size="11">julian@ds9.med</text>
+        </g>
+
+        <g transform="translate(360, 26)">
+          <rect width="118" height="24" rx="6" fill="#f3efe6" stroke="#e4ddd2"/>
+          <text x="59" y="16" fill="#4a4237" font-size="11" font-weight="600" text-anchor="middle">Single Site ($19)</text>
+        </g>
+
+        <text x="560" y="40" fill="#1e1a16" font-size="13">Sep 26, 2027</text>
+
+        <g transform="translate(730, 26)">
+          <rect width="84" height="24" rx="12" fill="#eaf4ee" stroke="#bedecb"/>
+          <circle cx="12" cy="12" r="3.5" fill="#0f6e62"/>
+          <text x="22" y="16" fill="#0b5249" font-size="11" font-weight="700">Active</text>
+        </g>
+
+        <text x="860" y="40" fill="#1e1a16" font-size="14" font-weight="700" text-anchor="end">$19.00</text>
+      </g>
+    </g>
+  </g>
+</svg>
