@@ -48,7 +48,7 @@ Sidebar skins match Fascia’s compact colors: light, purple, midnight, indigo, 
 </p>
 
 <p align="center">
-  <img src="screenshots/mobile.png" alt="Fascia mobile drawer" width="320">
+  <img src="screenshots/mobile.png" alt="Fascia dashboard stacked on a phone" width="320">
 </p>
 
 ## Components
