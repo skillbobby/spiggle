@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fascia Theme — Compact icon rail for Laravel Filament 4 and 5</title>
+  <title>Fascia by Spiggle — Compact icon rail for Laravel Filament 4 and 5</title>
   <meta name="description" content="Fascia theme for Filament 4 and 5. Nunito, #663399, a 120px icon rail with a flyout menu, a large sidebar, seven skins, light and dark mode, and a mobile drawer.">
   <link rel="canonical" href="https://skillbobby.github.io/spiggle/filament-fascia-theme/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Fascia Theme for Laravel Filament">
+  <meta property="og:title" content="Fascia by Spiggle — Laravel Filament theme">
   <meta property="og:description" content="The Fascia admin look on Filament: icon rail, flyout menus, large sidebar, dark mode, and a phone drawer.">
   <meta property="og:image" content="https://skillbobby.github.io/spiggle/filament-fascia-theme/screenshots/light.png">
   <meta property="og:url" content="https://skillbobby.github.io/spiggle/filament-fascia-theme/">
@@ -15,7 +15,8 @@
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=nunito:400,600,700,800" rel="stylesheet">
   <link href="https://fonts.bunny.net/css?family=jetbrains-mono:500" rel="stylesheet">
-  <link rel="stylesheet" href="site.css?v=5">
+  <link rel="stylesheet" href="site.css?v=6">
+  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 
 
   <script>
@@ -37,12 +38,13 @@
           <path fill="currentColor" d="M26.8 27.4c3.6-.8 7.2-3.2 10.2-7.4 1.4 3.6 1.2 6.6-.6 9-2.4.6-5.4.8-9.6-1.6z"/>
           <path fill="currentColor" d="M38.2 14.6c-1.2 2.6-1.4 4.6-.4 6.6 2.2-.8 3.8-1.6 5-2.8-1.2-1.4-2.8-2.8-4.6-3.8z"/>
         </svg>
-        <span>Fascia<small>Filament theme</small></span>
+        <span class="brand-name">Fascia <span class="brand-by">by Spiggle</span></span>
       </a>
       <nav class="nav" aria-label="On this page">
         <a href="#look">Look</a>
         <a href="#features">Features</a>
         <a href="#menus">Menus</a>
+        <a href="#pricing">Pricing</a>
         <a href="#install">Install</a>
         <a href="https://x.com/iamspiggle" target="_blank" rel="noopener">@iamspiggle</a>
       </nav>
@@ -62,7 +64,7 @@
         <h1>The Fascia admin look, on <span>Filament</span></h1>
         <p class="lead">Nunito, a #663399 primary, soft 10px cards, and the two menus Fascia is known for: a compact icon rail with a flyout, and a large accordion sidebar. Light and dark mode are both first-class.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#install">How to install</a>
+          <a class="btn btn-primary" href="#pricing">Get a license — from $19</a>
           <a class="btn btn-ghost" href="#look">See the layouts</a>
         </div>
         <figure class="frame">
@@ -210,6 +212,47 @@ $panel->navigationGroups([
       </div>
     </section>
 
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <p class="kicker">Pricing</p>
+        <h2>Choose the right license for your projects</h2>
+        <p class="sub">Same packages as Soffit. Two plans, full theme files, light and dark mode, and 1 year of updates. Fascia checkout links are separate and will be pasted in when they are ready.</p>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Single Site</h3>
+            <p>One production application or client dashboard.</p>
+            <p class="price">$19 <small>/ site</small></p>
+            <p class="price-term">Includes 1 year of updates</p>
+            <ul>
+              <li><strong>1 production panel</strong></li>
+              <li><strong>1 year</strong> of updates and security fixes</li>
+              <li>Compact rail, flyout, and large sidebar</li>
+              <li>Light and dark mode, seven skins</li>
+              <li>Filament 4 and Filament 5</li>
+            </ul>
+            <a class="btn btn-ghost buy-link" data-plan="single" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Buy Single Site — $19</a>
+          </article>
+          <article class="price-card price-card-popular">
+            <span class="price-badge">Most popular</span>
+            <h3>Unlimited Projects</h3>
+            <p>Freelancers, agencies, and teams with more than one panel.</p>
+            <p class="price">$49 <small>/ year</small></p>
+            <p class="price-term">1 year of updates on every project</p>
+            <ul>
+              <li><strong>Unlimited</strong> client and internal projects</li>
+              <li><strong>1 year</strong> of updates across all sites</li>
+              <li>Compact rail, flyout, and large sidebar</li>
+              <li>Light and dark mode, seven skins</li>
+              <li>Filament 4 and Filament 5</li>
+              <li>Priority support from the maintainer</li>
+            </ul>
+            <a class="btn btn-primary buy-link" data-plan="unlimited" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Buy Unlimited Projects — $49</a>
+          </article>
+        </div>
+        <p class="price-note">Checkout URLs are not Soffit’s. Until the Fascia links are supplied, both buttons go to <a href="https://x.com/iamspiggle" target="_blank" rel="noopener">@iamspiggle</a>.</p>
+      </div>
+    </section>
+
     <section class="section" id="install">
       <div class="wrap">
         <p class="kicker">Install</p>
@@ -251,6 +294,10 @@ $panel->plugin(FilamentFasciaThemePlugin::make());</code></pre>
           <details>
             <summary>Why did Filament reject the icons?</summary>
             <p>A navigation group and its items cannot both have icons. Leave the group icon off. Put icons on the parent and on each child.</p>
+          </details>
+          <details>
+            <summary>How does the license work?</summary>
+            <p>Single Site is $19 for one production panel. Unlimited Projects is $49 for unlimited client and personal panels. Both include 1 year of updates and security fixes. The checkout links are Fascia’s own and are not the Soffit products.</p>
           </details>
           <details>
             <summary>Where is dark mode stored?</summary>
@@ -305,6 +352,18 @@ $panel->plugin(FilamentFasciaThemePlugin::make());</code></pre>
   </footer>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+    // Fascia checkout. Paste the Lemon Squeezy URLs here. Do not reuse the Soffit product links.
+    var FASCIA_CHECKOUT = {
+      single: "",
+      unlimited: ""
+    };
+    document.querySelectorAll(".buy-link").forEach(function (link) {
+      var url = FASCIA_CHECKOUT[link.getAttribute("data-plan")];
+      if (!url) return;
+      link.href = url;
+      link.classList.add("lemonsqueezy-button");
+    });
+
     document.getElementById("theme-toggle").addEventListener("click", function () {
       var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);

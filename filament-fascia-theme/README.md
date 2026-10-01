@@ -1,6 +1,10 @@
-# Spiggle Fascia Theme for Filament
+<p align="center">
+  <img src="screenshots/light.png" alt="Fascia theme compact dashboard for Laravel Filament" width="100%">
+</p>
 
-A panel theme that follows the Fascia admin dashboard: Nunito, `#663399` primary, soft 10px cards, and the two menus Fascia is known for.
+# Fascia by Spiggle
+
+A panel theme for Filament: Nunito, `#663399` primary, soft 10px cards, a compact icon rail with a flyout, and a large accordion sidebar.
 
 Built for **Filament 4.x and 5.x** on **Laravel 11, 12, and 13** with PHP 8.2+.
 
@@ -132,4 +136,11 @@ If you discover a security issue, email **skillbobby@outlook.com** instead of op
 
 ## License
 
-MIT.
+Same packages as Soffit. Checkout links are Fascia’s own and are not live on this page until they are supplied.
+
+| Plan | Price | Includes |
+|---|---|---|
+| **Single Site** | **$19** | 1 production panel · 1 year of updates and security fixes |
+| **Unlimited Projects** | **$49** | Unlimited sites and client projects · 1 year of updates · priority support |
+
+Purchase from the [theme page](https://skillbobby.github.io/spiggle/filament-fascia-theme/#pricing). Until those URLs are pasted into `FASCIA_CHECKOUT` on that page, the buy buttons go to [@iamspiggle](https://x.com/iamspiggle).
