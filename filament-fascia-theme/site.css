@@ -286,7 +286,7 @@ h1 {
 h1 span { color: var(--primary); }
 
 .lead {
-  max-width: 42rem;
+  max-width: 44rem;
   margin: 0;
   font-size: 1.05rem;
 }
@@ -729,8 +729,29 @@ h1 span { color: var(--primary); }
   .shots { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 860px) {
   .wrap { width: min(1080px, calc(100% - 24px)); }
-  .nav { width: 100%; }
+  .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.6rem;
+    row-gap: 0;
+  }
+  .brand { margin-right: 0; }
+  .nav {
+    grid-column: 1 / -1;
+    width: auto;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.25rem;
+  }
+  .nav a {
+    flex: 1;
+    justify-content: center;
+    min-height: 40px;
+    font-size: 15px;
+  }
+  .icon-btn { grid-row: 1; grid-column: 2; }
   .hero { padding-top: 1.4rem; }
 }
