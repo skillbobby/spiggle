@@ -16,6 +16,28 @@
   <link href="https://fonts.bunny.net/css?family=nunito:400,600,700,800" rel="stylesheet">
   <link href="https://fonts.bunny.net/css?family=jetbrains-mono:500" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
+
+  <dialog id="lightbox-dialog" class="lightbox-dialog" aria-labelledby="lightbox-title">
+    <div class="lightbox-content">
+      <div class="lightbox-topbar">
+        <div id="lightbox-title" class="lightbox-title">Screenshot</div>
+        <button class="lightbox-close-btn" type="button" onclick="closeLightbox()" aria-label="Close">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lightbox-img" src="" alt="">
+      </div>
+      <div class="lightbox-footer">
+        <div id="lightbox-desc"></div>
+        <div class="lightbox-hint">Press <kbd>Esc</kbd> to close</div>
+      </div>
+    </div>
+  </dialog>
+
   <script>
     (function () {
       try {
@@ -63,7 +85,10 @@
           <a class="btn btn-ghost" href="#look">See the layouts</a>
         </div>
         <figure class="frame">
-          <img src="screenshots/light.png" alt="Gull compact layout: 120px icon rail, white content, purple primary, and a sales dashboard" width="1440" height="900">
+          <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/light.png', 'Compact layout', '120px icon rail, icon above a 13px label, dashboard on a #f8f9fa page.')">
+            <img src="screenshots/light.png" alt="Gull compact layout: 120px icon rail, white content, purple primary, and a sales dashboard" width="1440" height="900">
+            <div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div>
+          </a>
           <figcaption>Compact layout. 120px rail, icon above a 13px label, dashboard on a #f8f9fa page.</figcaption>
         </figure>
       </div>
@@ -97,23 +122,23 @@
         </div>
         <div class="grid shots" style="margin-top:1rem">
           <figure class="shot">
-            <a href="screenshots/flyout.png"><img src="screenshots/flyout.png" alt="Compact rail with the UI kits flyout open, listing Alerts, Buttons, Badges, Cards, Forms, and Tables" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/flyout.png', 'Compact rail with the UI kits flyout open, listing Alerts, Buttons, Badges, Cards, Forms, ', 'Compact rail with the UI kits flyout open, listing Alerts, Buttons, Badges, Cards, Forms, and Tables')"><img src="screenshots/flyout.png" alt="Compact rail with the UI kits flyout open, listing Alerts, Buttons, Badges, Cards, Forms, and Tables" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Hover previews a section. Click pins the flyout. Click again to close it.</figcaption>
           </figure>
           <figure class="shot">
-            <a href="screenshots/large.png"><img src="screenshots/large.png" alt="Large Gull sidebar with uppercase groups and an open Dashboards accordion, customizer open" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/large.png', 'Large Gull sidebar with uppercase groups and an open Dashboards accordion, customizer open', 'Large Gull sidebar with uppercase groups and an open Dashboards accordion, customizer open')"><img src="screenshots/large.png" alt="Large Gull sidebar with uppercase groups and an open Dashboards accordion, customizer open" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Large mode. 260px sidebar, accordion children, and the customize tab.</figcaption>
           </figure>
           <figure class="shot">
-            <a href="screenshots/dark.png"><img src="screenshots/dark.png" alt="Gull dashboard in dark mode with a dark page, dark cards, and the Light Dark switch set to Dark" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/dark.png', 'Gull dashboard in dark mode with a dark page, dark cards, and the Light Dark switch set to', 'Gull dashboard in dark mode with a dark page, dark cards, and the Light Dark switch set to Dark')"><img src="screenshots/dark.png" alt="Gull dashboard in dark mode with a dark page, dark cards, and the Light Dark switch set to Dark" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Dark mode. Page, cards, charts, and forms switch together. The choice is remembered.</figcaption>
           </figure>
           <figure class="shot">
-            <a href="screenshots/purple.png"><img src="screenshots/purple.png" alt="Purple sidebar skin on the large Gull layout" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/purple.png', 'Purple sidebar skin on the large Gull layout', 'Purple sidebar skin on the large Gull layout')"><img src="screenshots/purple.png" alt="Purple sidebar skin on the large Gull layout" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Sidebar skins. Light, purple, midnight, indigo, pink, slate, and a purple–indigo gradient. The flyout stays white.</figcaption>
           </figure>
           <figure class="shot phone">
-            <a href="screenshots/mobile.png"><img src="screenshots/mobile.png" alt="Phone drawer with the icon rail and the Dashboards secondary menu over a dimmed dashboard" width="390" height="844"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/mobile.png', 'Phone drawer with the icon rail and the Dashboards secondary menu over a dimmed dashboard', 'Phone drawer with the icon rail and the Dashboards secondary menu over a dimmed dashboard')"><img src="screenshots/mobile.png" alt="Phone drawer with the icon rail and the Dashboards secondary menu over a dimmed dashboard" width="390" height="844"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>On a phone the hamburger opens a drawer. The rail stays, children sit beside it, and the backdrop closes it.</figcaption>
           </figure>
         </div>
@@ -152,19 +177,19 @@
         </div>
         <div class="grid shots" style="margin-top:1rem">
           <figure class="shot">
-            <a href="screenshots/tables.png"><img src="screenshots/tables.png" alt="Orders table with status pills, search, and the Gull sidebar" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/tables.png', 'Orders table with status pills, search, and the Gull sidebar', 'Orders table with status pills, search, and the Gull sidebar')"><img src="screenshots/tables.png" alt="Orders table with status pills, search, and the Gull sidebar" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Tables. Status pills, a search field, and the same card shadow as the dashboard.</figcaption>
           </figure>
           <figure class="shot">
-            <a href="screenshots/alerts.png"><img src="screenshots/alerts.png" alt="Info, success, warning, and danger alerts inside Gull cards" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/alerts.png', 'Info, success, warning, and danger alerts inside Gull cards', 'Info, success, warning, and danger alerts inside Gull cards')"><img src="screenshots/alerts.png" alt="Info, success, warning, and danger alerts inside Gull cards" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Alerts. Info, success, warning, and danger, each on a tinted surface.</figcaption>
           </figure>
           <figure class="shot">
-            <a href="screenshots/forms.png"><img src="screenshots/forms.png" alt="Gull form with two columns, validation, and primary, secondary, and success buttons" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/forms.png', 'Gull form with two columns, validation, and primary, secondary, and success buttons', 'Gull form with two columns, validation, and primary, secondary, and success buttons')"><img src="screenshots/forms.png" alt="Gull form with two columns, validation, and primary, secondary, and success buttons" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Forms. Two-column fields, inline errors, and the purple primary button.</figcaption>
           </figure>
           <figure class="shot">
-            <a href="screenshots/buttons.png"><img src="screenshots/buttons.png" alt="Primary, secondary, success, danger, and ghost buttons plus status badges" width="1440" height="900"></a>
+            <a href="javascript:void(0)" class="shot-card-preview" onclick="openLightbox('screenshots/buttons.png', 'Primary, secondary, success, danger, and ghost buttons plus status badges', 'Primary, secondary, success, danger, and ghost buttons plus status badges')"><img src="screenshots/buttons.png" alt="Primary, secondary, success, danger, and ghost buttons plus status badges" width="1440" height="900"><div class="shot-card-hover"><span class="shot-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> Click to inspect</span></div></a>
             <figcaption>Buttons and badges. Primary, secondary, success, danger, and ghost.</figcaption>
           </figure>
         </div>
@@ -262,6 +287,27 @@ $panel->plugin(GullThemePlugin::make());</code></pre>
       var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
       localStorage.setItem("spiggle-docs-theme", next);
+    });
+
+    var dialog = document.getElementById("lightbox-dialog");
+    var lightboxImg = document.getElementById("lightbox-img");
+    var lightboxTitle = document.getElementById("lightbox-title");
+    var lightboxDesc = document.getElementById("lightbox-desc");
+
+    function openLightbox(src, title, desc) {
+      lightboxImg.src = src;
+      lightboxImg.alt = title;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = desc;
+      dialog.showModal();
+    }
+
+    function closeLightbox() {
+      dialog.close();
+    }
+
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) dialog.close();
     });
   </script>
 </body>
