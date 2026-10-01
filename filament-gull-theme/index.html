@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gull Theme — Compact icon rail for Laravel Filament 4 and 5</title>
+  <meta name="description" content="Gull theme for Filament 4 and 5. Nunito, #663399, a 120px icon rail with a flyout menu, a large sidebar, seven skins, light and dark mode, and a mobile drawer.">
+  <link rel="canonical" href="https://skillbobby.github.io/spiggle/filament-gull-theme/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gull Theme for Laravel Filament">
+  <meta property="og:description" content="The Gull admin look on Filament: icon rail, flyout menus, large sidebar, dark mode, and a phone drawer.">
+  <meta property="og:image" content="https://skillbobby.github.io/spiggle/filament-gull-theme/screenshots/light.png">
+  <meta property="og:url" content="https://skillbobby.github.io/spiggle/filament-gull-theme/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=nunito:400,600,700,800" rel="stylesheet">
+  <link href="https://fonts.bunny.net/css?family=jetbrains-mono:500" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <script>
+    (function () {
+      try {
+        var m = localStorage.getItem("spiggle-docs-theme");
+        if (m !== "light" && m !== "dark") m = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", m);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="currentColor" d="M5 30.2c5.6-1.6 9.4-6.6 12.6-12.4 1.8 5.2 5.4 9 10.8 11-5.2 1.1-8.8 3.6-11.6 7.4-2.4-2.6-6.2-4.6-11.8-6z"/>
+          <path fill="currentColor" d="M26.8 27.4c3.6-.8 7.2-3.2 10.2-7.4 1.4 3.6 1.2 6.6-.6 9-2.4.6-5.4.8-9.6-1.6z"/>
+          <path fill="currentColor" d="M38.2 14.6c-1.2 2.6-1.4 4.6-.4 6.6 2.2-.8 3.8-1.6 5-2.8-1.2-1.4-2.8-2.8-4.6-3.8z"/>
+        </svg>
+        <span>Gull<small>Filament theme</small></span>
+      </a>
+      <nav class="nav" aria-label="On this page">
+        <a href="#look">Look</a>
+        <a href="#features">Features</a>
+        <a href="#menus">Menus</a>
+        <a href="#install">Install</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle light and dark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1 1M17.4 17.4l1 1M18.4 5.6l-1 1M6.6 17.4l-1 1"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="pill">Filament 4 and 5 · Laravel 11, 12, and 13</span>
+        <h1>The Gull admin look, on <span>Filament</span></h1>
+        <p class="lead">Nunito, a #663399 primary, soft 10px cards, and the two menus Gull is known for: a compact icon rail with a flyout, and a large accordion sidebar. Light and dark mode are both first-class.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#install">How to install</a>
+          <a class="btn btn-ghost" href="#look">See the layouts</a>
+        </div>
+        <figure class="frame">
+          <img src="screenshots/light.png" alt="Gull compact layout: 120px icon rail, white content, purple primary, and a sales dashboard" width="1440" height="900">
+          <figcaption>Compact layout. 120px rail, icon above a 13px label, dashboard on a #f8f9fa page.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="look">
+      <div class="wrap">
+        <p class="kicker">Look and feel</p>
+        <h2>Same chrome Gull uses, on Filament panels</h2>
+        <p class="sub">The page is 13px Nunito. Cards sit on a quiet shadow, <code>0 4px 20px 1px</code> at 6% black, with a 10px radius. Primary actions and the active rail item use #663399.</p>
+        <div class="table-scroll">
+          <table class="layout-table">
+            <thead>
+              <tr><th>Layout</th><th>How the menu works</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Compact</strong></td>
+                <td>A 120px rail. Each parent is a Tabler icon with a label under it. Hover opens a 230px white flyout. Click pins it. A triangle marks the open section.</td>
+              </tr>
+              <tr>
+                <td><strong>Large</strong></td>
+                <td>A 260px sidebar. Section labels are uppercase. Items accordion in place, icon then label.</td>
+              </tr>
+              <tr>
+                <td><strong>Phone</strong></td>
+                <td>Both layouts become an off-canvas drawer with a dimmed backdrop. Targets are at least 44px. Compact keeps the icon rail and shows children beside it.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid shots" style="margin-top:1rem">
+          <figure class="shot">
+            <a href="screenshots/flyout.png"><img src="screenshots/flyout.png" alt="Compact rail with the UI kits flyout open, listing Alerts, Buttons, Badges, Cards, Forms, and Tables" width="1440" height="900"></a>
+            <figcaption>Hover previews a section. Click pins the flyout. Click again to close it.</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="screenshots/large.png"><img src="screenshots/large.png" alt="Large Gull sidebar with uppercase groups and an open Dashboards accordion, customizer open" width="1440" height="900"></a>
+            <figcaption>Large mode. 260px sidebar, accordion children, and the customize tab.</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="screenshots/dark.png"><img src="screenshots/dark.png" alt="Gull dashboard in dark mode with a dark page, dark cards, and the Light Dark switch set to Dark" width="1440" height="900"></a>
+            <figcaption>Dark mode. Page, cards, charts, and forms switch together. The choice is remembered.</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="screenshots/purple.png"><img src="screenshots/purple.png" alt="Purple sidebar skin on the large Gull layout" width="1440" height="900"></a>
+            <figcaption>Sidebar skins. Light, purple, midnight, indigo, pink, slate, and a purple–indigo gradient. The flyout stays white.</figcaption>
+          </figure>
+          <figure class="shot wide">
+            <a href="screenshots/mobile.png"><img src="screenshots/mobile.png" alt="Phone drawer with the icon rail and the Dashboards secondary menu over a dimmed dashboard" width="390" height="844"></a>
+            <figcaption>On a phone the hamburger opens a drawer. The rail stays, children sit beside it, and the backdrop closes it.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="wrap">
+        <p class="kicker">Features</p>
+        <h2>What the theme changes</h2>
+        <div class="grid features">
+          <article class="card">
+            <h3>Two menus, one plugin</h3>
+            <p>Compact is the default. Large is a click away. The hamburger on desktop pins the flyout or slides the large sidebar away, instead of using Filament’s own collapse.</p>
+          </article>
+          <article class="card">
+            <h3>Tabler icons, one size per slot</h3>
+            <p>Outline icons from the same 24×24 grid. 26px on the rail, 18px in the flyout, 20px in the large sidebar, 22px in the top bar.</p>
+          </article>
+          <article class="card">
+            <h3>Light and dark</h3>
+            <p>A Light / Dark switch sits in the top bar. It is also on the sign-in screen and in Customize. Stored as <code>gull-mode</code>.</p>
+          </article>
+          <article class="card">
+            <h3>Seven sidebar skins</h3>
+            <p>Light, purple, midnight, indigo, pink, slate, and gradient. Stored as <code>gull-skin</code>. Set <code>customizer</code> to false to hide the gear tab.</p>
+          </article>
+          <article class="card">
+            <h3>Filament components, Gull surfaces</h3>
+            <p>Tables, alerts, buttons, badges, cards, and forms keep Filament behavior and pick up the Nunito type, purple primary, and soft cards.</p>
+          </article>
+          <article class="card">
+            <h3>No panel rebuild</h3>
+            <p>CSS and a small menu script load through Filament render hooks. Register the plugin and the chrome is there.</p>
+          </article>
+        </div>
+        <div class="grid shots" style="margin-top:1rem">
+          <figure class="shot">
+            <a href="screenshots/tables.png"><img src="screenshots/tables.png" alt="Orders table with status pills, search, and the Gull sidebar" width="1440" height="900"></a>
+            <figcaption>Tables. Status pills, a search field, and the same card shadow as the dashboard.</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="screenshots/alerts.png"><img src="screenshots/alerts.png" alt="Info, success, warning, and danger alerts inside Gull cards" width="1440" height="900"></a>
+            <figcaption>Alerts. Info, success, warning, and danger, each on a tinted surface.</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="screenshots/forms.png"><img src="screenshots/forms.png" alt="Gull form with two columns, validation, and primary, secondary, and success buttons" width="1440" height="900"></a>
+            <figcaption>Forms. Two-column fields, inline errors, and the purple primary button.</figcaption>
+          </figure>
+          <figure class="shot">
+            <a href="screenshots/buttons.png"><img src="screenshots/buttons.png" alt="Primary, secondary, success, danger, and ghost buttons plus status badges" width="1440" height="900"></a>
+            <figcaption>Buttons and badges. Primary, secondary, success, danger, and ghost.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menus">
+      <div class="wrap">
+        <p class="kicker">Menus</p>
+        <h2>How to build the rail</h2>
+        <p class="sub">Filament only prints child links when the parent has no URL. Parents used as rail sections must not have a URL, or the flyout stays empty until you are already inside it.</p>
+        <div class="steps">
+          <div>
+            <p class="step-label">Do not put an icon on the navigation group</p>
+            <p>Filament throws if a group and its items both have icons. Put Tabler icons on the parent item and on each child. Groups should be <code>collapsible(false)</code> so a section header cannot hide the rail.</p>
+          </div>
+          <pre><code>use Filament\Navigation\NavigationGroup;
+use Gull\FilamentTheme\Gull;
+
+$panel->navigationGroups([
+    NavigationGroup::make('Applications')->collapsible(false)->items([
+        Gull::parent('Dashboards', 'tabler-chart-bar', [
+            Gull::link('Version 1', 'tabler-layout-dashboard', '/admin'),
+            Gull::link('Version 2', 'tabler-report-analytics', '/admin/sales'),
+        ]),
+        Gull::parent('UI kits', 'tabler-stack-2', [
+            Gull::link('Alerts', 'tabler-alert-triangle', '/admin/alerts'),
+            Gull::link('Tables', 'tabler-table', '/admin/orders'),
+        ]),
+        Gull::link('Charts', 'tabler-chart-dots-3', '/admin/charts'),
+    ]),
+]);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="wrap">
+        <p class="kicker">Install</p>
+        <h2>Register the plugin</h2>
+        <p class="sub">PHP 8.2 or newer. Laravel 11, 12, or 13. Filament 4 or 5. The same plugin class works on both.</p>
+        <div class="steps">
+          <div>
+            <p class="step-label">1. Require the package and Tabler icons</p>
+            <pre><code>composer require gull/filament-theme
+composer require secondnetwork/blade-tabler-icons
+php artisan vendor:publish --tag=filament-gull-theme-config</code></pre>
+          </div>
+          <div>
+            <p class="step-label">2. Add it to the panel</p>
+            <pre><code>use Gull\FilamentTheme\GullThemePlugin;
+
+$panel->plugin(GullThemePlugin::make());</code></pre>
+          </div>
+        </div>
+        <h3 style="color:var(--ink);margin:1.4rem 0 0.4rem">Defaults</h3>
+        <p class="sub">Layout and skin defaults live in <code>config/filament-gull-theme.php</code>. Visitors can still switch them. <code>GULL_LAYOUT</code> is <code>compact</code> or <code>large</code>. <code>GULL_SIDEBAR</code> is one of the skins below.</p>
+        <ul class="skins">
+          <li><span class="swatch" style="background:#fff;border:1px solid #ddd"></span>Light</li>
+          <li><span class="swatch" style="background:#663399"></span>Purple</li>
+          <li><span class="swatch" style="background:#1a1a27"></span>Midnight</li>
+          <li><span class="swatch" style="background:#3f51b5"></span>Indigo</li>
+          <li><span class="swatch" style="background:#e91e63"></span>Pink</li>
+          <li><span class="swatch" style="background:#475569"></span>Slate</li>
+          <li><span class="swatch" style="background:linear-gradient(#663399,#3f51b5)"></span>Gradient</li>
+        </ul>
+        <div class="faq" style="margin-top:1.4rem">
+          <details>
+            <summary>Why is the flyout empty?</summary>
+            <p>The parent NavigationItem has a URL. Leave the URL off parents that should open children. <code>Gull::parent()</code> does this for you.</p>
+          </details>
+          <details>
+            <summary>Why did Filament reject the icons?</summary>
+            <p>A navigation group and its items cannot both have icons. Leave the group icon off. Put icons on the parent and on each child.</p>
+          </details>
+          <details>
+            <summary>Where is dark mode stored?</summary>
+            <p>In the browser, under <code>gull-mode</code>. Layout is <code>gull-layout</code>. Sidebar skin is <code>gull-skin</code>. Nothing is written to the database.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <span>© <span id="y"></span> Spiggle · Gull theme for Filament</span>
+    <span>
+      <a href="https://skillbobby.github.io/spiggle/">All packages</a>
+      · <a href="https://github.com/skillbobby/spiggle/tree/main/filament-gull-theme">README</a>
+    </span>
+  </footer>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("theme-toggle").addEventListener("click", function () {
+      var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("spiggle-docs-theme", next);
+    });
+  </script>
+</body>
+</html>
