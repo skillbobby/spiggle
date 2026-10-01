@@ -79,18 +79,15 @@ Sidebar skins match Gull’s compact colors: light, purple, midnight, indigo, pi
 ```bash
 composer require gull/filament-theme
 composer require secondnetwork/blade-tabler-icons
+php artisan filament:assets
 php artisan vendor:publish --tag=filament-gull-theme-config
 ```
 
-Register the plugin. This works on Filament 4 and Filament 5:
+Gull registers itself on every panel. Publish the config and set `auto_register` to `false` to opt a panel out, then add `GullThemePlugin::make()` yourself.
 
-```php
-use Gull\FilamentTheme\GullThemePlugin;
+## Theme switcher
 
-$panel->plugin(GullThemePlugin::make());
-```
-
-The plugin sets the Nunito font, the Gull color palette, `sidebarCollapsibleOnDesktop()` (so Filament renders icons on nested items), and the theme CSS, menu script, and top-bar toggle through panel render hooks.
+`spiggle/filament-theme-switcher` (Filament 5, PHP 8.3) attaches to every panel on its own. It does not scan Composer for arbitrary theme plugins. A theme is listed only if it calls `ThemeRegistry::registerTheme()`. Gull does that when the switcher is installed, and only paints the rail, Nunito, and stylesheet while Gull is the selected theme. Soffit uses the same contract. A theme that never registers will not appear.
 
 ## Menus
 

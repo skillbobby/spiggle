@@ -212,22 +212,25 @@ $panel->navigationGroups([
     <section class="section" id="install">
       <div class="wrap">
         <p class="kicker">Install</p>
-        <h2>Register the plugin</h2>
-        <p class="sub">PHP 8.2 or newer. Laravel 11, 12, or 13. Filament 4 or 5. The same plugin class works on both.</p>
+        <h2>Install the package</h2>
+        <p class="sub">PHP 8.2 or newer. Laravel 11, 12, or 13. Filament 4 or 5. Gull attaches itself to every panel.</p>
         <div class="steps">
           <div>
             <p class="step-label">1. Require the package and Tabler icons</p>
             <pre><code>composer require gull/filament-theme
 composer require secondnetwork/blade-tabler-icons
-php artisan vendor:publish --tag=filament-gull-theme-config</code></pre>
+php artisan filament:assets</code></pre>
           </div>
           <div>
-            <p class="step-label">2. Add it to the panel</p>
-            <pre><code>use Gull\FilamentTheme\GullThemePlugin;
+            <p class="step-label">2. Optional: pin it to one panel</p>
+            <pre><code>// config: 'auto_register' => false
+use Gull\FilamentTheme\GullThemePlugin;
 
 $panel->plugin(GullThemePlugin::make());</code></pre>
           </div>
         </div>
+        <h3 style="color:var(--ink);margin:1.4rem 0 0.4rem">Theme switcher</h3>
+        <p class="sub">Install <a href="https://github.com/skillbobby/filament-theme-switcher">spiggle/filament-theme-switcher</a> and Gull shows up in the header menu. The switcher attaches itself to every Filament 5 panel. It only lists themes that register, which Gull and Soffit do. Gull’s rail and stylesheet load only while Gull is selected. Filament’s light/dark control stays separate.</p>
         <h3 style="color:var(--ink);margin:1.4rem 0 0.4rem">Defaults</h3>
         <p class="sub">Layout and skin defaults live in <code>config/filament-gull-theme.php</code>. Visitors can still switch them. <code>GULL_LAYOUT</code> is <code>compact</code> or <code>large</code>. <code>GULL_SIDEBAR</code> is one of the skins below.</p>
         <ul class="skins">
