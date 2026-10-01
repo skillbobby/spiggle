@@ -298,13 +298,30 @@ $panel->plugin(GullThemePlugin::make());</code></pre>
     var lightboxTitle = document.getElementById("lightbox-title");
     var lightboxDesc = document.getElementById("lightbox-desc");
 
+    function fitLightbox() {
+      var maxW = Math.min(window.innerWidth * 0.9, 1100);
+      var maxH = window.innerHeight * 0.72;
+      var nw = lightboxImg.naturalWidth || maxW;
+      var nh = lightboxImg.naturalHeight || maxH;
+      var w = Math.min(nw, maxW);
+      var h = nh * (w / nw);
+      if (h > maxH) w = w * (maxH / h);
+      dialog.style.width = Math.ceil(w + 32) + "px";
+    }
+
     function openLightbox(src, title, desc) {
       lightboxImg.src = src;
       lightboxImg.alt = title;
       lightboxTitle.textContent = title;
       lightboxDesc.textContent = desc;
+      dialog.style.width = "";
       dialog.showModal();
+      if (lightboxImg.complete) fitLightbox();
     }
+
+    lightboxImg.addEventListener("load", function () {
+      if (dialog.open) fitLightbox();
+    });
 
     function closeLightbox() {
       dialog.close();
