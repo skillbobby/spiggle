@@ -203,41 +203,276 @@
     <!-- Component Styling Showcase -->
     <section id="components" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--line-border); border-bottom: 1px solid var(--line-border);">
       <div class="container">
-        <div class="section-label">Component Showcase</div>
+        <div class="section-label">Component Design System</div>
         <h2 class="section-title">How Soffit styles major Filament components</h2>
         <p class="section-desc">
-          Your resources, data, and forms remain 100% native Filament. Soffit polishes the styling shell around them with architectural restraint.
+          Your resources, data, and forms remain 100% native Filament. Soffit elevates every interface element with tactile architectural finishes, warm contrast, and zero eye fatigue.
         </p>
 
-        <!-- Composite Component Frame -->
-        <div class="component-hero-frame">
-          <img src="screenshots/components-preview.png" alt="Soffit Theme Component Styles — Tables, Alerts, Badges and Buttons" width="1280" height="820" loading="lazy">
-        </div>
-
-        <div class="features-grid">
-          <article class="feature-card">
-            <div class="component-card-media">
-              <img src="screenshots/table-preview.png" alt="Soffit Filament Table Styling" width="728" height="288" loading="lazy">
+        <div class="live-components-wrapper">
+          <!-- 1. Live Table Component -->
+          <div class="live-table-card">
+            <div class="live-table-topbar">
+              <div class="live-table-title-group">
+                <h3>Resource Tables &amp; Data Grids</h3>
+                <p>Generous row padding, muted stone column headers, customer avatars, rounded status pills, and integrated action sets.</p>
+              </div>
+              <div class="live-table-search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" placeholder="Search or filter records..." readonly value="Filter by workspace...">
+              </div>
             </div>
-            <h3>Resource Tables &amp; Records</h3>
-            <p>Table headers are gently muted in stone gray, rows feature generous padding with subtle ivory dividers, and status indicators render as rounded, comfortable pill badges with custom action icons.</p>
-          </article>
 
-          <article class="feature-card">
-            <div class="component-card-media">
-              <img src="screenshots/alerts-preview.png" alt="Soffit Contextual Alert Cards" width="418" height="148" loading="lazy">
+            <div class="live-table-wrap">
+              <table class="live-table">
+                <thead>
+                  <tr>
+                    <th style="width: 40px;"><input type="checkbox" aria-label="Select all rows" style="accent-color: var(--accent-teal);"></th>
+                    <th>Serial</th>
+                    <th>Date</th>
+                    <th>Workspace</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th style="text-align: right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" aria-label="Select SF-2405" style="accent-color: var(--accent-teal);"></td>
+                    <td class="td-mono">SF-2405</td>
+                    <td>September 3, 2026 <span style="font-size: 0.76rem; color: var(--text-dim); display: block;">12:00 AM</span></td>
+                    <td>
+                      <div class="td-workspace">
+                        <div class="ws-avatar ws-av-1">NL</div>
+                        <div class="ws-info">
+                          <span class="ws-name">Northline</span>
+                          <span class="ws-domain">northline.io</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="td-amount">$82.50</td>
+                    <td>
+                      <span class="status-pill pill-paid">
+                        <span class="dot"></span> Paid
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <div class="action-icons" style="justify-content: flex-end;">
+                        <button class="action-btn" title="Edit" aria-label="Edit record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                        <button class="action-btn" title="View" aria-label="View record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                        <button class="action-btn" title="Delete" aria-label="Delete record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" aria-label="Select SF-2411" style="accent-color: var(--accent-teal);"></td>
+                    <td class="td-mono">SF-2411</td>
+                    <td>September 3, 2026 <span style="font-size: 0.76rem; color: var(--text-dim); display: block;">12:00 AM</span></td>
+                    <td>
+                      <div class="td-workspace">
+                        <div class="ws-avatar ws-av-2">PK</div>
+                        <div class="ws-info">
+                          <span class="ws-name">Paperkite</span>
+                          <span class="ws-domain">paperkite.ca</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="td-amount">$29.00</td>
+                    <td>
+                      <span class="status-pill pill-paid">
+                        <span class="dot"></span> Paid
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <div class="action-icons" style="justify-content: flex-end;">
+                        <button class="action-btn" title="Edit" aria-label="Edit record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                        <button class="action-btn" title="View" aria-label="View record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                        <button class="action-btn" title="Delete" aria-label="Delete record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" aria-label="Select SF-2416" style="accent-color: var(--accent-teal);"></td>
+                    <td class="td-mono">SF-2416</td>
+                    <td>September 3, 2026 <span style="font-size: 0.76rem; color: var(--text-dim); display: block;">12:00 AM</span></td>
+                    <td>
+                      <div class="td-workspace">
+                        <div class="ws-avatar ws-av-3">FN</div>
+                        <div class="ws-info">
+                          <span class="ws-name">Fieldnote</span>
+                          <span class="ws-domain">fieldnote.app</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="td-amount">$299.00</td>
+                    <td>
+                      <span class="status-pill pill-paid">
+                        <span class="dot"></span> Paid
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <div class="action-icons" style="justify-content: flex-end;">
+                        <button class="action-btn" title="Edit" aria-label="Edit record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                        <button class="action-btn" title="View" aria-label="View record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                        <button class="action-btn" title="Delete" aria-label="Delete record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" aria-label="Select SF-2426" style="accent-color: var(--accent-teal);"></td>
+                    <td class="td-mono">SF-2426</td>
+                    <td>September 3, 2026 <span style="font-size: 0.76rem; color: var(--text-dim); display: block;">12:00 AM</span></td>
+                    <td>
+                      <div class="td-workspace">
+                        <div class="ws-avatar ws-av-4">KD</div>
+                        <div class="ws-info">
+                          <span class="ws-name">Kindling</span>
+                          <span class="ws-domain">kindling.dev</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="td-amount">$24.17</td>
+                    <td>
+                      <span class="status-pill pill-open">
+                        <span class="dot"></span> Open
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <div class="action-icons" style="justify-content: flex-end;">
+                        <button class="action-btn" title="Edit" aria-label="Edit record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                        <button class="action-btn" title="View" aria-label="View record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+                        <button class="action-btn" title="Delete" aria-label="Delete record"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <h3>Contextual Alerts &amp; Banners</h3>
-            <p>Gentle mint (success), azure (info), amber (warning), and coral (danger) alert cards with thin architectural borders, soft tinted backdrops, and harmonious iconography.</p>
-          </article>
 
-          <article class="feature-card">
-            <div class="component-card-media">
-              <img src="screenshots/buttons-preview.png" alt="Soffit Buttons, Badges and Toasts" width="418" height="96" loading="lazy">
+            <div class="live-table-footer">
+              <span>Showing <strong>1 to 4</strong> of <strong>48</strong> records</span>
+              <div class="pagination-pills">
+                <button class="pag-btn" aria-label="Previous page">‹</button>
+                <button class="pag-btn active" aria-label="Page 1">1</button>
+                <button class="pag-btn" aria-label="Page 2">2</button>
+                <button class="pag-btn" aria-label="Page 3">3</button>
+                <button class="pag-btn" aria-label="Next page">›</button>
+              </div>
             </div>
-            <h3>Buttons, Badges &amp; Toasts</h3>
-            <p>Tactile primary buttons in calm spruce teal (<code>#0f6e62</code>), rounded danger and ghost actions, pill badges (<code>GROWTH</code>, <code>ACTIVE</code>, <code>TRIALING</code>), and matching notification toasts.</p>
-          </article>
+          </div>
+
+          <!-- 2. Split Row: Alerts & Controls -->
+          <div class="live-showcase-split">
+            <!-- Contextual Alerts -->
+            <div class="live-subcard">
+              <div class="live-subcard-header">
+                <h3>Contextual Alerts &amp; Banners</h3>
+                <p>Gentle mint, azure, amber, and coral alert cards with thin architectural borders and matching iconography.</p>
+              </div>
+
+              <div class="alerts-list">
+                <div class="soffit-alert alert-success">
+                  <div class="soffit-alert-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  <div class="soffit-alert-body">
+                    <span class="soffit-alert-title">Payment collected</span>
+                    <span class="soffit-alert-text">Northline paid invoice #B-2416.</span>
+                  </div>
+                </div>
+
+                <div class="soffit-alert alert-info">
+                  <div class="soffit-alert-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  </div>
+                  <div class="soffit-alert-body">
+                    <span class="soffit-alert-title">Trial in progress</span>
+                    <span class="soffit-alert-text">Waypoint 1 has 6 days left on Growth trial.</span>
+                  </div>
+                </div>
+
+                <div class="soffit-alert alert-warning">
+                  <div class="soffit-alert-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
+                  <div class="soffit-alert-body">
+                    <span class="soffit-alert-title">Seat limit near</span>
+                    <span class="soffit-alert-text">Harborlight is using 64 of 100 seats.</span>
+                  </div>
+                </div>
+
+                <div class="soffit-alert alert-danger">
+                  <div class="soffit-alert-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  </div>
+                  <div class="soffit-alert-body">
+                    <span class="soffit-alert-title">Card declined</span>
+                    <span class="soffit-alert-text">Coppercone's latest invoice did not clear.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Buttons, Badges & Form Controls -->
+            <div class="live-subcard">
+              <div class="live-subcard-header">
+                <h3>Buttons, Badges &amp; Controls</h3>
+                <p>Tactile primary spruce buttons, rounded ghost/delete actions, pastel status pills, and calm inputs.</p>
+              </div>
+
+              <div class="controls-sections">
+                <!-- Action Buttons -->
+                <div class="control-section">
+                  <div class="control-label">Tactile Action Buttons</div>
+                  <div class="buttons-cluster">
+                    <button class="btn-soffit-primary">Create workspace</button>
+                    <button class="btn-soffit-cancel">Cancel</button>
+                    <button class="btn-soffit-delete">Delete</button>
+                  </div>
+                </div>
+
+                <!-- Status Badges -->
+                <div class="control-section">
+                  <div class="control-label">Resource Pill Badges</div>
+                  <div class="pills-cluster">
+                    <span class="badge-pill badge-growth">Growth</span>
+                    <span class="badge-pill badge-active">Active</span>
+                    <span class="badge-pill badge-trialing">Trialing</span>
+                    <span class="badge-pill badge-pastdue">Past Due</span>
+                    <span class="badge-pill badge-canceled">Canceled</span>
+                  </div>
+                </div>
+
+                <!-- Notification Toasts -->
+                <div class="control-section">
+                  <div class="control-label">Notification Toasts Stack</div>
+                  <div class="pills-cluster">
+                    <span class="toast-pill toast-info">Info</span>
+                    <span class="toast-pill toast-success">Success</span>
+                    <span class="toast-pill toast-warning">Warning</span>
+                    <span class="toast-pill toast-danger">Danger</span>
+                  </div>
+                </div>
+
+                <!-- Form Controls -->
+                <div class="control-section">
+                  <div class="control-label">Calm Form Inputs &amp; Selects</div>
+                  <div class="form-fields-mini">
+                    <div class="mini-input-group">
+                      <label for="sample-ws-name">Workspace Name</label>
+                      <input id="sample-ws-name" type="text" value="Harborlight" readonly>
+                    </div>
+                    <div class="mini-input-group">
+                      <label for="sample-ws-plan">Assigned Plan</label>
+                      <select id="sample-ws-plan" disabled>
+                        <option>Scale ($299/mo)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
