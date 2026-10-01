@@ -16,7 +16,6 @@
   <link href="https://fonts.bunny.net/css?family=nunito:400,600,700,800" rel="stylesheet">
   <link href="https://fonts.bunny.net/css?family=jetbrains-mono:500" rel="stylesheet">
   <link rel="stylesheet" href="site.css?v=8">
-  <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 
 
   <script>
@@ -227,7 +226,7 @@ $panel->navigationGroups([
               <li>Light and dark mode, seven skins</li>
               <li>Filament 4 and Filament 5</li>
             </ul>
-            <a class="btn btn-ghost buy-link lemonsqueezy-button" data-plan="single" href="https://kodesmart.lemonsqueezy.com/checkout/buy/d8620c64-25c9-4135-a2cf-571e74f780cd?enabled=2192703" target="_blank" rel="noopener">Buy Single Site — $19</a>
+            <a class="btn btn-ghost buy-link" data-plan="single" href="https://kodesmart.lemonsqueezy.com/checkout/buy/d8620c64-25c9-4135-a2cf-571e74f780cd?enabled=2192703" target="_blank" rel="noopener">Buy Single Site — $19</a>
           </article>
           <article class="price-card price-card-popular">
             <span class="price-badge">Most popular</span>
@@ -243,10 +242,10 @@ $panel->navigationGroups([
               <li>Filament 4 and Filament 5</li>
               <li>Priority support from the maintainer</li>
             </ul>
-            <a class="btn btn-primary buy-link lemonsqueezy-button" data-plan="unlimited" href="https://kodesmart.lemonsqueezy.com/checkout/buy/bcddc616-b7e7-4b3c-8469-d1313ed6518e?enabled=2192704" target="_blank" rel="noopener">Buy Unlimited Projects — $49</a>
+            <a class="btn btn-primary buy-link" data-plan="unlimited" href="https://kodesmart.lemonsqueezy.com/checkout/buy/bcddc616-b7e7-4b3c-8469-d1313ed6518e?enabled=2192704" target="_blank" rel="noopener">Buy Unlimited Projects — $49</a>
           </article>
         </div>
-        <p class="price-note">Checkout opens on Lemon Squeezy. Single Site is one production panel. Unlimited Projects covers every client and personal panel.</p>
+        <p class="price-note">Each button opens its Lemon Squeezy checkout in a new tab.</p>
       </div>
     </section>
 
@@ -357,7 +356,6 @@ $panel->plugin(FilamentFasciaThemePlugin::make());</code></pre>
       var url = FASCIA_CHECKOUT[link.getAttribute("data-plan")];
       if (!url) return;
       link.href = url;
-      link.classList.add("lemonsqueezy-button");
     });
 
     document.getElementById("theme-toggle").addEventListener("click", function () {
