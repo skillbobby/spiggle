@@ -1,4 +1,4 @@
-# Fascia theme for Filament 4 and 5
+# Spiggle Fascia theme for Filament 4 and 5
 
 A panel theme that follows the Fascia admin dashboard: Nunito, `#663399` primary, soft 10px cards, and the two menus Fascia is known for.
 
