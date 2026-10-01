@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="art/preview-light.png" alt="Soffit Theme for Laravel Filament" width="100%">
-</p>
-
 # Soffit Theme for Filament
 
 A soft, refined admin theme for Laravel Filament by Spiggle. Features a full-height white sidebar, rounded cards, quiet ambient shadows, Outfit typography, and calm teal & brass accents.
