@@ -461,10 +461,31 @@ h1 span { color: var(--primary); }
   font-weight: 800;
 }
 
+.device {
+  width: min(300px, 100%);
+  margin: 1rem auto 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.device .shot-card-preview {
+  border: 10px solid #241f29;
+  border-radius: 32px;
+  background: #111;
+  box-shadow: var(--shadow);
+}
+
+.device figcaption {
+  padding: 0.7rem 0.2rem 0;
+  text-align: center;
+}
+
 .lightbox-dialog {
   position: fixed;
   inset: 0;
-  width: min(94vw, 1280px);
+  width: auto;
+  max-width: min(94vw, 1100px);
   max-height: min(94vh, 900px);
   margin: auto;
   padding: 0;
@@ -502,6 +523,9 @@ h1 span { color: var(--primary); }
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
+  width: 0;
+  min-width: 100%;
+  box-sizing: border-box;
   padding: 0.85rem 1rem;
   background: var(--soft);
 }
@@ -540,9 +564,12 @@ h1 span { color: var(--primary); }
 }
 
 .lightbox-body img {
+  display: block;
   width: auto;
-  max-width: 100%;
-  max-height: 75vh;
+  height: auto;
+  max-width: min(90vw, 1040px);
+  max-height: 72vh;
+  margin: 0 auto;
   object-fit: contain;
   border-radius: 8px;
 }
@@ -568,7 +595,6 @@ h1 span { color: var(--primary); }
 @media (min-width: 720px) {
   .features { grid-template-columns: 1fr 1fr; }
   .shots { grid-template-columns: 1fr 1fr; }
-  .shot.phone { grid-column: 1 / -1; }
 }
 
 @media (max-width: 640px) {
