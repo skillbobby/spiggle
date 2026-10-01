@@ -423,6 +423,43 @@ a.btn-primary:hover,
   line-height: 1.6;
 }
 
+.component-card-media {
+  background: var(--bg-surface);
+  border: 1px solid var(--line-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(30, 26, 22, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.component-card-media img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+.component-hero-frame {
+  margin-bottom: 40px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--line-border);
+  border-radius: 16px;
+  box-shadow: var(--frame-shadow);
+  overflow: hidden;
+}
+
+.component-hero-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Pricing Section */
 .pricing-grid {
   display: grid;
