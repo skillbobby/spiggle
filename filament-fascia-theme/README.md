@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="screenshots/light.png" alt="Gull theme compact dashboard for Laravel Filament" width="100%">
+  <img src="screenshots/light.png" alt="Fascia theme compact dashboard for Laravel Filament" width="100%">
 </p>
 
-# Gull theme for Filament 4 and 5
+# Fascia theme for Filament 4 and 5
 
-A panel theme that follows the Gull admin dashboard: Nunito, `#663399` primary, soft 10px cards, and the two menus Gull is known for.
+A panel theme that follows the Fascia admin dashboard: Nunito, `#663399` primary, soft 10px cards, and the two menus Fascia is known for.
 
 Built for **Filament 4.x and 5.x** on **Laravel 11, 12, and 13** with PHP 8.2+.
 
-[**View the theme page →**](https://skillbobby.github.io/spiggle/filament-gull-theme/)
+[**View the theme page →**](https://skillbobby.github.io/spiggle/filament-fascia-theme/)
 
 ---
 
@@ -26,7 +26,7 @@ The page background is `#f8f9fa`. Cards use a 10px radius and the shadow `0 4px 
   <img src="screenshots/flyout.png" alt="Compact rail with the UI kits flyout open" width="100%">
 </p>
 
-Sidebar skins match Gull’s compact colors: light, purple, midnight, indigo, pink, slate, and a purple–indigo gradient. The flyout stays white.
+Sidebar skins match Fascia’s compact colors: light, purple, midnight, indigo, pink, slate, and a purple–indigo gradient. The flyout stays white.
 
 <p align="center">
   <img src="screenshots/purple.png" alt="Purple sidebar skin" width="100%">
@@ -36,25 +36,25 @@ Sidebar skins match Gull’s compact colors: light, purple, midnight, indigo, pi
 
 - **Compact rail and flyout.** 120px icon rail, 230px secondary panel, triangle pointer, hover to preview, click to pin.
 - **Large sidebar.** 260px accordion with uppercase group labels.
-- **Light and dark mode.** A Light / Dark switch in the top bar, on the sign-in screen, and in Customize. Stored in `localStorage` as `gull-mode`.
-- **Seven sidebar skins.** Stored as `gull-skin`. Set `'customizer' => false` to hide the gear tab.
+- **Light and dark mode.** A Light / Dark switch in the top bar, on the sign-in screen, and in Customize. Stored in `localStorage` as `fascia-mode`.
+- **Seven sidebar skins.** Stored as `fascia-skin`. Set `'customizer' => false` to hide the gear tab.
 - **Tabler icons, fixed sizes.** 26px on the rail, 18px in the flyout, 20px in the large sidebar, 22px in the top bar. Same 24×24 outline grid, stroke 2.
 - **Mobile drawer.** Off-canvas, dimmed backdrop, 44px targets.
-- **Filament surfaces.** Tables, alerts, buttons, badges, cards, and forms keep native behavior and pick up the Gull chrome.
+- **Filament surfaces.** Tables, alerts, buttons, badges, cards, and forms keep native behavior and pick up the Fascia chrome.
 - **Filament 4 and 5.** One plugin. Render hooks are resolved by name so a missing hook on one major version is skipped.
 
 <p align="center">
-  <img src="screenshots/dark.png" alt="Gull dashboard in dark mode" width="100%">
+  <img src="screenshots/dark.png" alt="Fascia dashboard in dark mode" width="100%">
 </p>
 
 <p align="center">
-  <img src="screenshots/mobile.png" alt="Gull mobile drawer" width="320">
+  <img src="screenshots/mobile.png" alt="Fascia mobile drawer" width="320">
 </p>
 
 ## Components
 
 <p align="center">
-  <img src="screenshots/tables.png" alt="Orders table styled by the Gull theme" width="100%">
+  <img src="screenshots/tables.png" alt="Orders table styled by the Fascia theme" width="100%">
 </p>
 
 - **Tables.** Card surface, status pills, and a rounded search field.
@@ -63,7 +63,7 @@ Sidebar skins match Gull’s compact colors: light, purple, midnight, indigo, pi
 - **Forms.** 40px fields, two-column grids, and inline errors.
 
 <p align="center">
-  <img src="screenshots/alerts.png" alt="Gull alerts" width="100%">
+  <img src="screenshots/alerts.png" alt="Fascia alerts" width="100%">
 </p>
 
 ## Requirements
@@ -77,17 +77,17 @@ Sidebar skins match Gull’s compact colors: light, purple, midnight, indigo, pi
 ## Installation
 
 ```bash
-composer require gull/filament-theme
+composer require spiggle/filament-fascia-theme
 composer require secondnetwork/blade-tabler-icons
 php artisan filament:assets
-php artisan vendor:publish --tag=filament-gull-theme-config
+php artisan vendor:publish --tag=filament-fascia-theme-config
 ```
 
-Gull registers itself on every panel. Publish the config and set `auto_register` to `false` to opt a panel out, then add `GullThemePlugin::make()` yourself.
+Fascia registers itself on every panel. Publish the config and set `auto_register` to `false` to opt a panel out, then add `FilamentFasciaThemePlugin::make()` yourself.
 
 ## Theme switcher
 
-`spiggle/filament-theme-switcher` (Filament 5, PHP 8.3) attaches to every panel on its own. It does not scan Composer for arbitrary theme plugins. A theme is listed only if it calls `ThemeRegistry::registerTheme()`. Gull does that when the switcher is installed, and only paints the rail, Nunito, and stylesheet while Gull is the selected theme. Soffit uses the same contract. A theme that never registers will not appear.
+`spiggle/filament-theme-switcher` (Filament 5, PHP 8.3) attaches to every panel on its own. It does not scan Composer for arbitrary theme plugins. A theme is listed only if it calls `ThemeRegistry::registerTheme()`. Fascia does that when the switcher is installed, and only paints the rail, Nunito, and stylesheet while Fascia is the selected theme. Soffit uses the same contract. A theme that never registers will not appear.
 
 ## Menus
 
@@ -97,35 +97,35 @@ Do **not** put an icon on the navigation group. Filament throws if a group and i
 
 ```php
 use Filament\Navigation\NavigationGroup;
-use Gull\FilamentTheme\Gull;
+use Spiggle\FilamentFasciaTheme\Fascia;
 
 $panel->navigationGroups([
     NavigationGroup::make('Applications')->collapsible(false)->items([
-        Gull::parent('Dashboards', 'tabler-chart-bar', [
-            Gull::link('Version 1', 'tabler-layout-dashboard', '/admin'),
-            Gull::link('Version 2', 'tabler-report-analytics', '/admin/sales'),
+        Fascia::parent('Dashboards', 'tabler-chart-bar', [
+            Fascia::link('Version 1', 'tabler-layout-dashboard', '/admin'),
+            Fascia::link('Version 2', 'tabler-report-analytics', '/admin/sales'),
         ]),
-        Gull::parent('UI kits', 'tabler-stack-2', [
-            Gull::link('Alerts', 'tabler-alert-triangle', '/admin/alerts'),
-            Gull::link('Tables', 'tabler-table', '/admin/orders'),
+        Fascia::parent('UI kits', 'tabler-stack-2', [
+            Fascia::link('Alerts', 'tabler-alert-triangle', '/admin/alerts'),
+            Fascia::link('Tables', 'tabler-table', '/admin/orders'),
         ]),
-        Gull::link('Charts', 'tabler-chart-dots-3', '/admin/charts'),
+        Fascia::link('Charts', 'tabler-chart-dots-3', '/admin/charts'),
     ]),
 ]);
 ```
 
 Groups should be `->collapsible(false)` so a section header cannot hide the rail.
 
-The theme turns on `sidebarCollapsibleOnDesktop()` because that is when Filament renders icons on nested items. Its own hamburger keeps the Filament sidebar open and toggles the Gull flyout (or slides the large sidebar away) instead.
+The theme turns on `sidebarCollapsibleOnDesktop()` because that is when Filament renders icons on nested items. Its own hamburger keeps the Filament sidebar open and toggles the Fascia flyout (or slides the large sidebar away) instead.
 
 ## Customize
 
-A gear tab on the right switches layout and sidebar skin. Choices are stored in `localStorage` (`gull-layout`, `gull-skin`, `gull-mode`). Defaults live in `config/filament-gull-theme.php`.
+A gear tab on the right switches layout and sidebar skin. Choices are stored in `localStorage` (`fascia-layout`, `fascia-skin`, `fascia-mode`). Defaults live in `config/filament-fascia-theme.php`.
 
 | Key | Values |
 |---|---|
-| `layout` | `compact` (default), `large`. Env: `GULL_LAYOUT` |
-| `sidebar` | `light`, `purple`, `midnight`, `indigo`, `pink`, `slate`, `gradient`. Env: `GULL_SIDEBAR` |
+| `layout` | `compact` (default), `large`. Env: `FASCIA_LAYOUT` |
+| `sidebar` | `light`, `purple`, `midnight`, `indigo`, `pink`, `slate`, `gradient`. Env: `FASCIA_SIDEBAR` |
 | `customizer` | `true` to show the gear tab |
 
 Icons are [Tabler outline](https://tabler.io/icons).
