@@ -213,7 +213,7 @@ $panel->navigationGroups([
       <div class="wrap">
         <p class="kicker">Pricing</p>
         <h2>Choose the right license for your projects</h2>
-        <p class="sub">Same packages as Soffit. Two plans, full theme files, light and dark mode, and 1 year of updates. Fascia checkout links are separate and will be pasted in when they are ready.</p>
+        <p class="sub">Two plans, full theme files, light and dark mode, and 1 year of updates.</p>
         <div class="pricing-grid">
           <article class="price-card">
             <h3>Single Site</h3>
@@ -227,7 +227,7 @@ $panel->navigationGroups([
               <li>Light and dark mode, seven skins</li>
               <li>Filament 4 and Filament 5</li>
             </ul>
-            <a class="btn btn-ghost buy-link" data-plan="single" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Buy Single Site — $19</a>
+            <a class="btn btn-ghost buy-link lemonsqueezy-button" data-plan="single" href="https://kodesmart.lemonsqueezy.com/checkout/buy/d8620c64-25c9-4135-a2cf-571e74f780cd?enabled=2192703" target="_blank" rel="noopener">Buy Single Site — $19</a>
           </article>
           <article class="price-card price-card-popular">
             <span class="price-badge">Most popular</span>
@@ -243,10 +243,10 @@ $panel->navigationGroups([
               <li>Filament 4 and Filament 5</li>
               <li>Priority support from the maintainer</li>
             </ul>
-            <a class="btn btn-primary buy-link" data-plan="unlimited" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Buy Unlimited Projects — $49</a>
+            <a class="btn btn-primary buy-link lemonsqueezy-button" data-plan="unlimited" href="https://kodesmart.lemonsqueezy.com/checkout/buy/bcddc616-b7e7-4b3c-8469-d1313ed6518e?enabled=2192704" target="_blank" rel="noopener">Buy Unlimited Projects — $49</a>
           </article>
         </div>
-        <p class="price-note">Checkout URLs are not Soffit’s. Until the Fascia links are supplied, both buttons go to <a href="https://x.com/iamspiggle" target="_blank" rel="noopener">@iamspiggle</a>.</p>
+        <p class="price-note">Checkout opens on Lemon Squeezy. Single Site is one production panel. Unlimited Projects covers every client and personal panel.</p>
       </div>
     </section>
 
@@ -294,7 +294,7 @@ $panel->plugin(FilamentFasciaThemePlugin::make());</code></pre>
           </details>
           <details>
             <summary>How does the license work?</summary>
-            <p>Single Site is $19 for one production panel. Unlimited Projects is $49 for unlimited client and personal panels. Both include 1 year of updates and security fixes. The checkout links are Fascia’s own and are not the Soffit products.</p>
+            <p>Single Site is $19 for one production panel. Unlimited Projects is $49 for unlimited client and personal panels. Both include 1 year of updates and security fixes.</p>
           </details>
           <details>
             <summary>Where is dark mode stored?</summary>
@@ -349,10 +349,9 @@ $panel->plugin(FilamentFasciaThemePlugin::make());</code></pre>
   </footer>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
-    // Fascia checkout. Paste the Lemon Squeezy URLs here. Do not reuse the Soffit product links.
     var FASCIA_CHECKOUT = {
-      single: "",
-      unlimited: ""
+      single: "https://kodesmart.lemonsqueezy.com/checkout/buy/d8620c64-25c9-4135-a2cf-571e74f780cd?enabled=2192703",
+      unlimited: "https://kodesmart.lemonsqueezy.com/checkout/buy/bcddc616-b7e7-4b3c-8469-d1313ed6518e?enabled=2192704"
     };
     document.querySelectorAll(".buy-link").forEach(function (link) {
       var url = FASCIA_CHECKOUT[link.getAttribute("data-plan")];

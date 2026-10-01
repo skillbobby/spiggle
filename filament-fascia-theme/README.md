@@ -136,11 +136,9 @@ If you discover a security issue, email **skillbobby@outlook.com** instead of op
 
 ## License
 
-Same packages as Soffit. Checkout links are Fascia’s own and are not live on this page until they are supplied.
+Same packages as Soffit. Buy from the [theme page](https://skillbobby.github.io/spiggle/filament-fascia-theme/#pricing).
 
 | Plan | Price | Includes |
 |---|---|---|
 | **Single Site** | **$19** | 1 production panel · 1 year of updates and security fixes |
 | **Unlimited Projects** | **$49** | Unlimited sites and client projects · 1 year of updates · priority support |
-
-Purchase from the [theme page](https://skillbobby.github.io/spiggle/filament-fascia-theme/#pricing). Until those URLs are pasted into `FASCIA_CHECKOUT` on that page, the buy buttons go to [@iamspiggle](https://x.com/iamspiggle).
