@@ -48,7 +48,7 @@ Sidebar skins match Gull’s compact colors: light, purple, midnight, indigo, pi
 </p>
 
 <p align="center">
-  <img src="screenshots/mobile.png" alt="Gull mobile drawer" width="50%">
+  <img src="screenshots/mobile.png" alt="Gull mobile drawer" width="320">
 </p>
 
 ## Components
