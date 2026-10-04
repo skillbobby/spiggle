@@ -3,30 +3,128 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rabbet Theme</title>
+  <title>Rabbet — Filament 5 theme and starter kit</title>
+  <meta name="description" content="Rabbet is a forest-green Filament 5 theme. Buy the shell, or the shell plus the operations starter kit. Four licenses.">
   <link rel="canonical" href="https://skillbobby.github.io/spiggle/rabbet-theme/">
+  <meta property="og:title" content="Rabbet for Filament 5">
+  <meta property="og:description" content="Theme only, or theme plus starter kit. Four licenses.">
+  <meta property="og:image" content="https://skillbobby.github.io/spiggle/rabbet-theme/screenshots/overview-light.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family:Inter,system-ui,sans-serif; background:#e6ebe8; color:#1f2933; }
-    main { width:min(1080px,calc(100% - 32px)); margin:0 auto; padding:28px 0 64px; }
-    img { width:100%; border-radius:24px; border:1px solid #eef1f0; margin:12px 0 28px; }
-    a { color:#1b4332; }
+    :root { --bg:#e7eeea; --card:#fff; --ink:#1c2822; --muted:#5f6f68; --line:#dfe7e3; --primary:#1b4332; --soft:#e7f3ec; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,sans-serif; background:var(--bg); color:var(--ink); }
+    a { color:var(--primary); }
+    header, main { width:min(1120px,calc(100% - 32px)); margin:0 auto; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:22px 0; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink); text-decoration:none; }
+    .nav { display:flex; gap:18px; align-items:center; }
+    .nav a { text-decoration:none; color:var(--muted); font-weight:600; }
+    .btn { background:var(--primary); color:#fff; text-decoration:none; border-radius:999px; padding:10px 16px; font-weight:600; display:inline-block; }
+    .btn.ghost { background:#fff; color:var(--primary); border:1px solid var(--line); }
+    h1 { font-family:"Source Serif 4",Georgia,serif; font-size:clamp(2.4rem,5vw,4rem); letter-spacing:-.03em; line-height:1.05; margin:10px 0; }
+    .lead { color:var(--muted); font-size:1.08rem; max-width:40rem; }
+    .hero-actions { display:flex; gap:10px; flex-wrap:wrap; margin:22px 0; }
+    .frame { background:#fff; border:1px solid var(--line); border-radius:28px; padding:10px; box-shadow:0 24px 50px rgba(27,67,50,.08); }
+    .frame img { width:100%; height:auto; border-radius:20px; display:block; }
+    .switch { display:flex; gap:8px; margin:14px 0; }
+    .switch button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 14px; font-weight:600; cursor:pointer; }
+    .switch button.on { background:var(--primary); color:#fff; border-color:var(--primary); }
+    section { padding:64px 0 10px; }
+    h2 { font-family:"Source Serif 4",Georgia,serif; font-size:2rem; letter-spacing:-.03em; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+    article { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; }
+    .offers { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+    .offer { background:#fff; border:1px solid var(--line); border-radius:20px; padding:20px; display:flex; flex-direction:column; gap:8px; }
+    .offer.bundle { border-color:#1b4332; box-shadow:0 12px 30px rgba(27,67,50,.08); }
+    .price { font-size:2.1rem; margin:0; letter-spacing:-.03em; }
+    .tag { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#1b4332; }
+    pre { background:#17211d; color:#e7eee9; border-radius:16px; padding:16px; overflow:auto; }
+    footer { color:var(--muted); padding:40px 0 64px; }
   </style>
 </head>
 <body>
+  <header>
+    <a class="brand" href="./">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1B4332"/><path d="M7 8h18v6H13v10H7V8z" fill="#F7F8F7"/><path d="M13 14h12v10H13V14z" fill="#BFE3D8"/></svg>
+      Rabbet
+    </a>
+    <nav class="nav">
+      <a href="#shell">Theme</a>
+      <a href="#kit">Starter kit</a>
+      <a href="#offers">Offers</a>
+      <a class="btn" href="#offers">See licenses</a>
+    </nav>
+  </header>
   <main>
-    <p>spiggle/rabbet-theme</p>
-    <h1>Rabbet Theme</h1>
-    <p>Forest-green shell for Filament 5. Every shot carries the Rabbet mark. The book of business is the <a href="../rabbet-starter-kit/">starter kit</a>.</p>
-    <h2>Overview</h2>
-    <img src="screenshots/overview-light.png" alt="Rabbet theme overview with logo">
-    <h2>Dark mode</h2>
-    <img src="screenshots/overview-dark.png" alt="Rabbet theme dark overview with logo">
-    <h2>Sign in</h2>
-    <img src="screenshots/login.png" alt="Rabbet sign in with logo">
-    <h2>Tables</h2>
-    <img src="screenshots/policies.png" alt="Rabbet policies table with logo">
-    <h2>Alerts</h2>
-    <img src="screenshots/alerts.png" alt="Rabbet alerts with logo">
+    <p class="tag">Filament 5 · one page, two products</p>
+    <h1>The forest-green shell, with the book of business if you want it.</h1>
+    <p class="lead">Rabbet is the theme. The starter kit is the same console with Overview, Work Queue, Policies, Quotes, and Claims. Buy the shell, or buy both.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#offers">Four licenses</a>
+      <a class="btn ghost" href="https://github.com/skillbobby/Spiggle-Rabbet-Theme">Theme source</a>
+    </div>
+    <div class="switch" role="tablist">
+      <button class="on" id="light-btn" type="button">Light</button>
+      <button id="dark-btn" type="button">Dark</button>
+    </div>
+    <div class="frame">
+      <img id="hero" src="screenshots/overview-light.png" alt="Rabbet overview with the Rabbet mark, pill navigation, and metric cards" width="1600" height="1000">
+    </div>
+
+    <section id="shell">
+      <h2>Theme only</h2>
+      <p class="lead">Colors, Inter, Source Serif, pill navigation, light and dark, login, tables, and alerts. No models. No seed data.</p>
+      <div class="grid">
+        <article><h3>Pill navigation</h3><p>Forest-green active item, quiet inactive items, Rabbet mark in the bar.</p></article>
+        <article><h3>Light and dark</h3><p>Canvas, shell, card, ink, and status colors for both schemes.</p></article>
+        <article><h3>Switcher ready</h3><p>Registers as <code>spiggle-rabbet-theme</code> and paints only while selected.</p></article>
+      </div>
+      <div class="frame" style="margin-top:18px"><img src="screenshots/login.png" alt="Rabbet sign-in screen with the Rabbet mark" width="1600" height="1000"></div>
+    </section>
+
+    <section id="kit">
+      <h2>Starter kit</h2>
+      <p class="lead">The same shell, plus the operations screens and the reference book. It requires the theme and registers it if the panel does not already have it.</p>
+      <div class="grid">
+        <article><h3>Overview</h3><p>SLA at risk, backlog, underwriting blocked, and high-priority claims from the database.</p></article>
+        <article><h3>Work, policies, quotes</h3><p>Resources and queue pages, not hardcoded cards.</p></article>
+        <article><h3>Claims</h3><p>Breached, due soon, and unassigned tabs, with assign on the stored rows.</p></article>
+      </div>
+      <div class="frame" style="margin-top:18px"><img src="screenshots/claims.png" alt="Rabbet claims queue with the Rabbet mark" width="1600" height="1000"></div>
+      <div class="frame"><img src="screenshots/policies.png" alt="Rabbet policies table with the Rabbet mark" width="1600" height="1000"></div>
+    </section>
+
+    <section id="offers">
+      <h2>Four offers</h2>
+      <p class="lead">Theme only keeps the existing licenses. The bundle is the theme plus the starter kit, billed yearly, with one year of updates and security patches.</p>
+      <div class="offers">
+        <article class="offer"><span class="tag">Theme only</span><p class="price">$19</p><strong>One project</strong><p>The shell. Existing license.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
+        <article class="offer"><span class="tag">Theme only</span><p class="price">$49</p><strong>Unlimited projects</strong><p>The shell, for projects you own. Existing license.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
+        <article class="offer bundle"><span class="tag">Bundle</span><p class="price">$29<span style="font-size:1rem">/yr</span></p><strong>One project</strong><p>Theme and starter kit. One year of updates and security patches.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
+        <article class="offer bundle"><span class="tag">Bundle</span><p class="price">$79<span style="font-size:1rem">/yr</span></p><strong>Unlimited projects</strong><p>Theme and starter kit for projects you own. One year of updates and security patches.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
+      </div>
+    </section>
+
+    <section id="install">
+      <h2>Install</h2>
+      <p>Theme only:</p>
+      <pre><code>composer require spiggle/rabbet-theme
+->plugin(\Spiggle\FilamentRabbetTheme\RabbetThemePlugin::make())</code></pre>
+      <p>Bundle:</p>
+      <pre><code>composer require spiggle/rabbet-starter-kit
+php artisan rabbet:install --seed
+->plugin(\Spiggle\RabbetStarterKit\RabbetStarterKitPlugin::make())</code></pre>
+    </section>
+    <footer>Checkout is not wired yet. Write to <a href="https://x.com/iamspiggle">@iamspiggle</a> for a license. Theme repo: <a href="https://github.com/skillbobby/Spiggle-Rabbet-Theme">Spiggle-Rabbet-Theme</a>. Kit repo: <a href="https://github.com/skillbobby/Spiggle-Rabbet-Starter-Kit">Spiggle-Rabbet-Starter-Kit</a>.</footer>
   </main>
+  <script>
+    const hero = document.getElementById('hero');
+    const light = document.getElementById('light-btn');
+    const dark = document.getElementById('dark-btn');
+    light.addEventListener('click', () => { hero.src = 'screenshots/overview-light.png'; light.classList.add('on'); dark.classList.remove('on'); });
+    dark.addEventListener('click', () => { hero.src = 'screenshots/overview-dark.png'; dark.classList.add('on'); light.classList.remove('on'); });
+  </script>
 </body>
 </html>
