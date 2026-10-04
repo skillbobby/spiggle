@@ -3,37 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rabbet starter kit — Filament 5 operations console</title>
+  <title>Rabbet starter kit</title>
   <link rel="canonical" href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
   <style>
-    :root { --bg:#e6ebe8; --card:#fff; --ink:#1f2933; --muted:#6b7280; --line:#eef1f0; --primary:#1b4332; }
-    body { margin:0; font-family:Inter,system-ui,sans-serif; background:var(--bg); color:var(--ink); }
-    header, main { width:min(1080px,calc(100% - 32px)); margin:0 auto; }
-    header { display:flex; justify-content:space-between; align-items:center; padding:22px 0; }
-    a { color:var(--primary); } .btn { background:var(--primary); color:#fff; text-decoration:none; border-radius:999px; padding:10px 16px; font-weight:600; }
-    h1 { font-family:"Source Serif 4",Georgia,serif; font-size:clamp(2.2rem,5vw,3.4rem); }
-    .lead { color:var(--muted); max-width:40rem; } img { width:100%; border-radius:24px; border:1px solid var(--line); }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin:28px 0; }
-    article { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; } .price { font-size:2rem; margin:0; }
+    body { margin:0; font-family:Inter,system-ui,sans-serif; background:#e6ebe8; color:#1f2933; }
+    main { width:min(1080px,calc(100% - 32px)); margin:0 auto; padding:28px 0 64px; }
+    img { width:100%; border-radius:24px; border:1px solid #eef1f0; margin:12px 0 28px; }
+    a { color:#1b4332; }
   </style>
 </head>
 <body>
-  <header><strong>Rabbet starter kit</strong><a class="btn" href="#pricing">Licenses</a></header>
   <main>
-    <p>spiggle/rabbet-starter-kit · Filament 5</p>
-    <h1>The Rabbet book of business.</h1>
-    <p class="lead">Overview, work queue, policies, quotes, and claims. The kit requires <a href="../rabbet-theme/">spiggle/rabbet-theme</a> and registers it if the panel does not already have it.</p>
-    <img src="screenshots/overview-light.png" alt="Rabbet starter kit overview">
-    <div class="grid">
-      <article><p class="price">$49</p><p>One project. Includes the Rabbet theme for that project.</p></article>
-      <article><p class="price">$99</p><p>Unlimited projects you own.</p></article>
-    </div>
-    <h2>Install</h2>
-    <pre><code>composer require spiggle/rabbet-starter-kit
-php artisan rabbet:install --seed
-->plugin(RabbetStarterKitPlugin::make())</code></pre>
-    <p id="pricing">Checkout is not wired yet. Write to <a href="https://x.com/iamspiggle">@iamspiggle</a>. Source: <a href="https://github.com/skillbobby/Spiggle-Rabbet-Starter-Kit">skillbobby/Spiggle-Rabbet-Starter-Kit</a>.</p>
+    <p>spiggle/rabbet-starter-kit</p>
+    <h1>Rabbet starter kit</h1>
+    <p>Overview, work queue, policies, quotes, and claims. Requires the <a href="../rabbet-theme/">Rabbet theme</a>.</p>
+    <h2>Overview</h2>
+    <img src="screenshots/overview-light.png" alt="Rabbet starter kit overview with logo">
+    <h2>Dark mode</h2>
+    <img src="screenshots/overview-dark.png" alt="Rabbet starter kit dark overview with logo">
+    <h2>Work queue</h2>
+    <img src="screenshots/work-queue.png" alt="Rabbet work queue with logo">
+    <h2>Policies</h2>
+    <img src="screenshots/policies.png" alt="Rabbet policies with logo">
+    <h2>Quotes</h2>
+    <img src="screenshots/quotes.png" alt="Rabbet quotes with logo">
+    <h2>Claims</h2>
+    <img src="screenshots/claims.png" alt="Rabbet claims with logo">
+    <h2>Alerts</h2>
+    <img src="screenshots/alerts.png" alt="Rabbet alerts with logo">
+    <h2>Sign in</h2>
+    <img src="screenshots/login.png" alt="Rabbet sign in with logo">
   </main>
 </body>
 </html>
