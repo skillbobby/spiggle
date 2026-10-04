@@ -4,127 +4,128 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rabbet — Filament 5 theme and starter kit</title>
-  <meta name="description" content="Rabbet is a forest-green Filament 5 theme. Buy the shell, or the shell plus the operations starter kit. Four licenses.">
+  <meta name="description" content="Rabbet is a forest-green Filament 5 theme with a starter kit, language switcher, zoom, audit log, notifications, roles, and themed sign-in.">
   <link rel="canonical" href="https://skillbobby.github.io/spiggle/rabbet-theme/">
-  <meta property="og:title" content="Rabbet for Filament 5">
-  <meta property="og:description" content="Theme only, or theme plus starter kit. Four licenses.">
   <meta property="og:image" content="https://skillbobby.github.io/spiggle/rabbet-theme/screenshots/overview-light.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
   <style>
-    :root { --bg:#e7eeea; --card:#fff; --ink:#1c2822; --muted:#5f6f68; --line:#dfe7e3; --primary:#1b4332; --soft:#e7f3ec; }
+    :root { --bg:#e7eeea; --card:#fff; --ink:#1c2822; --muted:#5f6f68; --line:#dfe7e3; --primary:#1b4332; }
     * { box-sizing:border-box; }
     body { margin:0; font-family:Inter,system-ui,sans-serif; background:var(--bg); color:var(--ink); }
     a { color:var(--primary); }
     header, main { width:min(1120px,calc(100% - 32px)); margin:0 auto; }
-    header { display:flex; justify-content:space-between; align-items:center; padding:22px 0; }
-    .brand { display:flex; align-items:center; gap:10px; font-weight:700; color:var(--ink); text-decoration:none; }
-    .nav { display:flex; gap:18px; align-items:center; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:22px 0; gap:16px; }
+    .brand, .nav { display:flex; align-items:center; gap:16px; }
+    .brand { font-weight:700; color:var(--ink); text-decoration:none; }
     .nav a { text-decoration:none; color:var(--muted); font-weight:600; }
     .btn { background:var(--primary); color:#fff; text-decoration:none; border-radius:999px; padding:10px 16px; font-weight:600; display:inline-block; }
-    .btn.ghost { background:#fff; color:var(--primary); border:1px solid var(--line); }
-    h1 { font-family:"Source Serif 4",Georgia,serif; font-size:clamp(2.4rem,5vw,4rem); letter-spacing:-.03em; line-height:1.05; margin:10px 0; }
-    .lead { color:var(--muted); font-size:1.08rem; max-width:40rem; }
-    .hero-actions { display:flex; gap:10px; flex-wrap:wrap; margin:22px 0; }
-    .frame { background:#fff; border:1px solid var(--line); border-radius:28px; padding:10px; box-shadow:0 24px 50px rgba(27,67,50,.08); }
-    .frame img { width:100%; height:auto; border-radius:20px; display:block; }
-    .switch { display:flex; gap:8px; margin:14px 0; }
-    .switch button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 14px; font-weight:600; cursor:pointer; }
-    .switch button.on { background:var(--primary); color:#fff; border-color:var(--primary); }
-    section { padding:64px 0 10px; }
-    h2 { font-family:"Source Serif 4",Georgia,serif; font-size:2rem; letter-spacing:-.03em; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
-    article { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; }
-    .offers { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
-    .offer { background:#fff; border:1px solid var(--line); border-radius:20px; padding:20px; display:flex; flex-direction:column; gap:8px; }
-    .offer.bundle { border-color:#1b4332; box-shadow:0 12px 30px rgba(27,67,50,.08); }
-    .price { font-size:2.1rem; margin:0; letter-spacing:-.03em; }
-    .tag { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#1b4332; }
+    h1, h2 { font-family:"Source Serif 4",Georgia,serif; letter-spacing:-.03em; }
+    h1 { font-size:clamp(2.4rem,5vw,4rem); line-height:1.05; margin:8px 0; }
+    .lead { color:var(--muted); max-width:42rem; }
+    .sim { margin:28px 0; background:#fff; border:1px solid var(--line); border-radius:28px; padding:14px; box-shadow:0 24px 50px rgba(27,67,50,.08); }
+    .sim-bar { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:12px; }
+    .sim-bar strong { font-size:14px; }
+    .stage { position:relative; height:min(640px,62vw); overflow:hidden; border-radius:18px; background:#101614; user-select:none; }
+    .stage img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; }
+    .stage .dark { clip-path: inset(0 0 0 var(--split)); }
+    .handle { position:absolute; top:0; bottom:0; left:var(--split); width:28px; transform:translateX(-50%); cursor:ew-resize; display:grid; place-items:center; }
+    .handle span { width:28px; height:28px; border-radius:99px; background:#fff; border:1px solid var(--line); box-shadow:0 6px 16px rgba(0,0,0,.15); }
+    section { padding:54px 0 8px; }
+    .shot { width:100%; border-radius:22px; border:1px solid var(--line); margin:14px 0 8px; }
+    .grid, .offers { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
+    article, .offer { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; }
+    .offer.bundle { border-color:var(--primary); }
+    .price { font-size:2rem; margin:6px 0; }
     pre { background:#17211d; color:#e7eee9; border-radius:16px; padding:16px; overflow:auto; }
-    footer { color:var(--muted); padding:40px 0 64px; }
+    footer { color:var(--muted); padding:36px 0 64px; }
   </style>
 </head>
 <body>
   <header>
-    <a class="brand" href="./">
-      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1B4332"/><path d="M7 8h18v6H13v10H7V8z" fill="#F7F8F7"/><path d="M13 14h12v10H13V14z" fill="#BFE3D8"/></svg>
-      Rabbet
-    </a>
-    <nav class="nav">
-      <a href="#shell">Theme</a>
-      <a href="#kit">Starter kit</a>
-      <a href="#offers">Offers</a>
-      <a class="btn" href="#offers">See licenses</a>
-    </nav>
+    <a class="brand" href="./"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1B4332"/><path d="M7 8h18v6H13v10H7V8z" fill="#F7F8F7"/><path d="M13 14h12v10H13V14z" fill="#BFE3D8"/></svg> Rabbet</a>
+    <nav class="nav"><a href="#shell">Theme</a><a href="#kit">Kit</a><a href="#offers">Offers</a><a class="btn" href="#offers">Licenses</a></nav>
   </header>
   <main>
-    <p class="tag">Filament 5 · one page, two products</p>
-    <h1>The forest-green shell, with the book of business if you want it.</h1>
-    <p class="lead">Rabbet is the theme. The starter kit is the same console with Overview, Work Queue, Policies, Quotes, and Claims. Buy the shell, or buy both.</p>
-    <div class="hero-actions">
-      <a class="btn" href="#offers">Four licenses</a>
-      <a class="btn ghost" href="https://github.com/skillbobby/Spiggle-Rabbet-Theme">Theme source</a>
-    </div>
-    <div class="switch" role="tablist">
-      <button class="on" id="light-btn" type="button">Light</button>
-      <button id="dark-btn" type="button">Dark</button>
-    </div>
-    <div class="frame">
-      <img id="hero" src="screenshots/overview-light.png" alt="Rabbet overview with the Rabbet mark, pill navigation, and metric cards" width="1600" height="1000">
+    <p>Filament 5 · theme or theme plus starter kit</p>
+    <h1>A forest-green shell, with the book of business if you want it.</h1>
+    <p class="lead">Drag the preview to compare light and dark. The same page covers the shell, the starter kit, language, zoom, audit, notifications, and roles.</p>
+    <div class="sim">
+      <div class="sim-bar"><strong>Preview</strong><span>Light on the left, dark on the right</span></div>
+      <div class="stage" id="stage" style="--split:50%">
+        <img src="screenshots/overview-light.png" alt="Rabbet light overview with the Rabbet mark">
+        <img class="dark" src="screenshots/overview-dark.png" alt="Rabbet dark overview with the Rabbet mark">
+        <div class="handle" id="handle" role="slider" aria-label="Compare light and dark" aria-valuemin="8" aria-valuemax="92" aria-valuenow="50" tabindex="0"><span></span></div>
+      </div>
     </div>
 
     <section id="shell">
-      <h2>Theme only</h2>
-      <p class="lead">Colors, Inter, Source Serif, pill navigation, light and dark, login, tables, and alerts. No models. No seed data.</p>
+      <h2>Theme</h2>
       <div class="grid">
-        <article><h3>Pill navigation</h3><p>Forest-green active item, quiet inactive items, Rabbet mark in the bar.</p></article>
-        <article><h3>Light and dark</h3><p>Canvas, shell, card, ink, and status colors for both schemes.</p></article>
-        <article><h3>Switcher ready</h3><p>Registers as <code>spiggle-rabbet-theme</code> and paints only while selected.</p></article>
+        <article><h3>Brand</h3><p>The mark and logo text render in the panel. Theme options replace the text and accept a PNG, WebP, JPG, or SVG icon.</p></article>
+        <article><h3>Language and zoom</h3><p>English, Español, Français, and Português in the session. A− / A / A+ zoom stays in the browser.</p></article>
+        <article><h3>List view</h3><p>Tables can switch to an alphabetical list without a second resource.</p></article>
+        <article><h3>Mobile</h3><p>The pill nav scrolls, controls stay at least 44px, and wide tables scroll sideways.</p></article>
       </div>
-      <div class="frame" style="margin-top:18px"><img src="screenshots/login.png" alt="Rabbet sign-in screen with the Rabbet mark" width="1600" height="1000"></div>
+      <img class="shot" src="screenshots/theme-options.png" alt="Rabbet theme options with logo text and icon">
+      <img class="shot" src="screenshots/list-view.png" alt="Rabbet table and list toggle">
+    </section>
+
+    <section>
+      <h2>Sign in and register</h2>
+      <p class="lead">The theme renders both auth pages. Each links to the other.</p>
+      <img class="shot" src="screenshots/login.png" alt="Rabbet sign in">
+      <img class="shot" src="screenshots/register.png" alt="Rabbet registration">
+    </section>
+
+    <section>
+      <h2>Audit, notifications, roles</h2>
+      <p class="lead">A resource change writes an audit row and a notification linked to that row. Roles gate audit, notifications, roles, and theme options. A user with no role is not locked out.</p>
+      <img class="shot" src="screenshots/audit.png" alt="Rabbet audit log">
+      <img class="shot" src="screenshots/notifications.png" alt="Rabbet notifications linked to audit events">
+      <img class="shot" src="screenshots/roles.png" alt="Rabbet roles and permissions">
     </section>
 
     <section id="kit">
       <h2>Starter kit</h2>
-      <p class="lead">The same shell, plus the operations screens and the reference book. It requires the theme and registers it if the panel does not already have it.</p>
-      <div class="grid">
-        <article><h3>Overview</h3><p>SLA at risk, backlog, underwriting blocked, and high-priority claims from the database.</p></article>
-        <article><h3>Work, policies, quotes</h3><p>Resources and queue pages, not hardcoded cards.</p></article>
-        <article><h3>Claims</h3><p>Breached, due soon, and unassigned tabs, with assign on the stored rows.</p></article>
-      </div>
-      <div class="frame" style="margin-top:18px"><img src="screenshots/claims.png" alt="Rabbet claims queue with the Rabbet mark" width="1600" height="1000"></div>
-      <div class="frame"><img src="screenshots/policies.png" alt="Rabbet policies table with the Rabbet mark" width="1600" height="1000"></div>
+      <p class="lead">Overview, work queue, policies, quotes, and claims. The kit registers the theme if the panel does not already have it.</p>
+      <img class="shot" src="screenshots/overview-light.png" alt="Rabbet starter kit overview">
     </section>
 
     <section id="offers">
       <h2>Four offers</h2>
-      <p class="lead">Theme only keeps the existing licenses. The bundle is the theme plus the starter kit, billed yearly, with one year of updates and security patches.</p>
       <div class="offers">
-        <article class="offer"><span class="tag">Theme only</span><p class="price">$19</p><strong>One project</strong><p>The shell. Existing license.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
-        <article class="offer"><span class="tag">Theme only</span><p class="price">$49</p><strong>Unlimited projects</strong><p>The shell, for projects you own. Existing license.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
-        <article class="offer bundle"><span class="tag">Bundle</span><p class="price">$29<span style="font-size:1rem">/yr</span></p><strong>One project</strong><p>Theme and starter kit. One year of updates and security patches.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
-        <article class="offer bundle"><span class="tag">Bundle</span><p class="price">$79<span style="font-size:1rem">/yr</span></p><strong>Unlimited projects</strong><p>Theme and starter kit for projects you own. One year of updates and security patches.</p><a class="btn" href="https://x.com/iamspiggle">Request</a></article>
+        <article class="offer"><p class="price">$19</p><strong>Theme, one project</strong><p>Existing license.</p></article>
+        <article class="offer"><p class="price">$49</p><strong>Theme, unlimited</strong><p>Projects you own. Existing license.</p></article>
+        <article class="offer bundle"><p class="price">$29/yr</p><strong>Bundle, one project</strong><p>Theme and starter kit. One year of updates and security patches.</p></article>
+        <article class="offer bundle"><p class="price">$79/yr</p><strong>Bundle, unlimited</strong><p>Theme and starter kit for projects you own. One year of updates and security patches.</p></article>
       </div>
-    </section>
-
-    <section id="install">
-      <h2>Install</h2>
-      <p>Theme only:</p>
+      <p><a class="btn" href="https://x.com/iamspiggle">Request a license</a></p>
       <pre><code>composer require spiggle/rabbet-theme
-->plugin(\Spiggle\FilamentRabbetTheme\RabbetThemePlugin::make())</code></pre>
-      <p>Bundle:</p>
-      <pre><code>composer require spiggle/rabbet-starter-kit
-php artisan rabbet:install --seed
-->plugin(\Spiggle\RabbetStarterKit\RabbetStarterKitPlugin::make())</code></pre>
+->plugin(\Spiggle\FilamentRabbetTheme\RabbetThemePlugin::make())
+
+composer require spiggle/rabbet-starter-kit
+php artisan rabbet:install --seed</code></pre>
     </section>
-    <footer>Checkout is not wired yet. Write to <a href="https://x.com/iamspiggle">@iamspiggle</a> for a license. Theme repo: <a href="https://github.com/skillbobby/Spiggle-Rabbet-Theme">Spiggle-Rabbet-Theme</a>. Kit repo: <a href="https://github.com/skillbobby/Spiggle-Rabbet-Starter-Kit">Spiggle-Rabbet-Starter-Kit</a>.</footer>
+    <footer>Checkout is not wired yet. Theme source: <a href="https://github.com/skillbobby/Spiggle-Rabbet-Theme">Spiggle-Rabbet-Theme</a>. Kit source: <a href="https://github.com/skillbobby/Spiggle-Rabbet-Starter-Kit">Spiggle-Rabbet-Starter-Kit</a>.</footer>
   </main>
   <script>
-    const hero = document.getElementById('hero');
-    const light = document.getElementById('light-btn');
-    const dark = document.getElementById('dark-btn');
-    light.addEventListener('click', () => { hero.src = 'screenshots/overview-light.png'; light.classList.add('on'); dark.classList.remove('on'); });
-    dark.addEventListener('click', () => { hero.src = 'screenshots/overview-dark.png'; dark.classList.add('on'); light.classList.remove('on'); });
+    const stage = document.getElementById('stage');
+    const handle = document.getElementById('handle');
+    const setSplit = (clientX) => {
+      const rect = stage.getBoundingClientRect();
+      const pct = Math.min(92, Math.max(8, ((clientX - rect.left) / rect.width) * 100));
+      stage.style.setProperty('--split', pct + '%');
+      handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+    };
+    let drag = false;
+    handle.addEventListener('pointerdown', (event) => { drag = true; handle.setPointerCapture(event.pointerId); });
+    handle.addEventListener('pointermove', (event) => { if (drag) setSplit(event.clientX); });
+    handle.addEventListener('pointerup', () => { drag = false; });
+    handle.addEventListener('keydown', (event) => {
+      const current = Number(handle.getAttribute('aria-valuenow'));
+      if (event.key === 'ArrowLeft') setSplit(stage.getBoundingClientRect().left + ((current - 4) / 100) * stage.clientWidth);
+      if (event.key === 'ArrowRight') setSplit(stage.getBoundingClientRect().left + ((current + 4) / 100) * stage.clientWidth);
+    });
   </script>
 </body>
 </html>
