@@ -33,20 +33,20 @@
   <main>
     <p>Filament 5 · light and dark · optional demo</p>
     <h1>A forest-green shell for the Canopy console.</h1>
-    <p class="lead">Pill navigation, serif page titles, and quiet cards. The theme does not install claims, policies, or seed data unless you opt in.</p>
+    <p class="lead">Pill navigation, serif page titles, and quiet cards. Rabbet is the shell only. The insurance console is the separate <a href="../filament-canopy/">Canopy</a> product.</p>
     <p><a class="btn" href="#install">Install</a></p>
     <img src="screenshots/overview-light.png" alt="Rabbet light overview with pill navigation and metric cards">
     <div class="grid">
-      <article><h2>Theme only</h2><p>Colors, Inter, Source Serif, top navigation, sidebar, login, tables, badges, and modals. No models required.</p></article>
-      <article><h2>Optional demo</h2><p><code>php artisan rabbet:install --demo</code> seeds the Canopy reference: 248, 549, 137, 102 and the claims queue.</p></article>
+      <article><h2>Shell only</h2><p>Colors, Inter, Source Serif, top navigation, sidebar, login, tables, badges, and modals. No models required.</p></article>
+      <article><h2>Pair it with Canopy</h2><p>The operations console is <a href="../filament-canopy/">Canopy</a>: overview, work queue, policies, quotes, and claims.</p></article>
       <article><h2>Switcher ready</h2><p>Registers as <code>spiggle-rabbet-theme</code> and serves <code>/spiggle/rabbet-theme/theme.css</code>. Paints only while selected.</p></article>
     </div>
     <img src="screenshots/overview-dark.png" alt="Rabbet dark overview">
     <h2 id="install">Install</h2>
     <pre><code>composer require spiggle/filament-rabbet-theme
-php artisan rabbet:install
+php artisan vendor:publish --tag=rabbet-theme-config
 ->plugin(RabbetThemePlugin::make())</code></pre>
-    <p>Demo: <code>php artisan rabbet:install --demo</code> and <code>->demo()</code>.</p>
+    <p>For the console, install <a href="../filament-canopy/">Canopy</a> instead.</p>
     <h2 id="pricing">Licenses</h2>
     <div class="grid">
       <article><p class="price">$19</p><p>One project.</p></article>
