@@ -1,173 +1,1296 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rabbet — Filament 5 theme and starter kit</title>
-  <meta name="description" content="Rabbet is a forest-green Filament 5 theme. Buy the shell, or the shell plus the operations starter kit.">
+  <title>Rabbet — Forest-Green Filament 5 Theme & Operations Starter Kit</title>
+  <meta name="description" content="A rich, forest-green admin theme and operations starter kit for Laravel Filament 4 and 5. Pill navigation, theme options with brand upload, light and dark modes, list view, audit logs, and an insurance & operations reference book.">
   <link rel="canonical" href="https://skillbobby.github.io/spiggle/rabbet-theme/">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
-  <style>
-    :root { --ink:#17211d; --muted:#5d6b64; --line:#e6ece9; --bg:#f7f8f7; --card:#fff; --primary:#1b4332; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Inter,system-ui,sans-serif; color:var(--ink); background:#fff; }
-    a { color:var(--primary); }
-    header { position:sticky; top:0; z-index:5; background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
-    .wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
-    .bar { display:flex; justify-content:space-between; align-items:center; height:68px; }
-    .brand, .nav { display:flex; align-items:center; gap:18px; }
-    .brand { font-weight:700; color:var(--ink); text-decoration:none; }
-    .nav a { color:var(--muted); text-decoration:none; font-weight:600; font-size:14px; }
-    .btn { background:var(--primary); color:#fff; text-decoration:none; border-radius:999px; padding:10px 16px; font-weight:600; display:inline-block; }
-    .btn.ghost { background:#fff; color:var(--primary); border:1px solid var(--line); }
-    .hero { display:grid; grid-template-columns:0.85fr 1.15fr; gap:40px; align-items:center; padding:56px 0 28px; }
-    h1, h2 { font-family:"Source Serif 4",Georgia,serif; letter-spacing:-.03em; margin:0; }
-    h1 { font-size:clamp(2.6rem,4.4vw,4.1rem); line-height:1.02; }
-    h2 { font-size:2rem; }
-    .eyebrow { color:var(--primary); font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
-    .lead { color:var(--muted); font-size:1.05rem; line-height:1.6; }
-    .actions { display:flex; gap:10px; margin-top:22px; }
-    .frame { background:var(--bg); border:1px solid var(--line); border-radius:22px; padding:12px; box-shadow:0 20px 50px rgba(23,33,29,.08); }
-    .sim-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:13px; color:var(--muted); }
-    .stage { position:relative; aspect-ratio:2880/1083; overflow:hidden; border-radius:14px; background:#101614; }
-    .stage img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; }
-    .stage .dark { clip-path:inset(0 0 0 var(--split)); }
-    .handle { position:absolute; top:0; bottom:0; left:var(--split); width:22px; transform:translateX(-50%); cursor:ew-resize; }
-    .handle i { position:absolute; top:50%; left:50%; width:22px; height:22px; border-radius:99px; background:#fff; border:1px solid var(--line); transform:translate(-50%,-50%); }
-    section { padding:64px 0; }
-    .band { background:var(--bg); }
-    .split { display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center; }
-    .split img, .grid img { width:100%; border-radius:16px; border:1px solid var(--line); display:block; }
-    .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-    .card, .offer { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px; }
-    .offers { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-    .offer.pick { border-color:var(--primary); box-shadow:0 12px 30px rgba(27,67,50,.08); }
-    .price { font-size:2rem; margin:8px 0; }
-    pre { background:#17211d; color:#e7eee9; border-radius:16px; padding:16px; overflow:auto; }
-    footer { color:var(--muted); padding:28px 0 48px; border-top:1px solid var(--line); }
-    @media (max-width:900px) {
-      .hero, .split, .grid, .offers { grid-template-columns:1fr; }
-      .bar { height:auto; padding:12px 0; }
-    }
-  </style>
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rabbet — Forest-Green Filament 5 Theme & Operations Starter Kit">
+  <meta property="og:description" content="Pill navigation, custom brand mark upload, hand-tuned light & dark modes, list view, audit trail, and full operations reference book for Laravel Filament.">
+  <meta property="og:image" content="https://skillbobby.github.io/spiggle/rabbet-theme/screenshots/overview-light.png">
+  <meta property="og:url" content="https://skillbobby.github.io/spiggle/rabbet-theme/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="site.css">
+
+  <!-- Theme init script to avoid flash of unstyled theme -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("spiggle-rabbet-theme");
+        if (!savedTheme) {
+          savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
-  <header>
-    <div class="wrap bar">
-      <a class="brand" href="./"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1B4332"/><path d="M7 8h18v6H13v10H7V8z" fill="#F7F8F7"/><path d="M13 14h12v10H13V14z" fill="#BFE3D8"/></svg> Rabbet</a>
-      <nav class="nav"><a href="#product">Product</a><a href="#kit">Starter kit</a><a href="#offers">Offers</a><a class="btn" href="#offers">See licenses</a></nav>
+
+  <!-- Sticky Glassmorphic Header -->
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="./" aria-label="Rabbet Home">
+        <div class="brand-logo-wrap">
+          <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#1B4332"/>
+            <path d="M7 8h18v6H13v10H7V8z" fill="#F7F8F7"/>
+            <path d="M13 14h12v10H13V14z" fill="#BFE3D8"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span>Rabbet</span>
+          <span class="brand-sub">by Spiggle</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+        <a href="#product">Theme Shell</a>
+        <a href="#kit">Starter Kit</a>
+        <a href="#showcase">Gallery</a>
+        <a href="#offers">Pricing</a>
+        <a href="#install">Quickstart</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle-btn" id="theme-toggle" type="button" aria-label="Toggle site light and dark mode">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a class="btn btn-primary" href="#offers">Get Rabbet — from $19</a>
+
+        <button class="mobile-menu-btn" id="mobile-toggle" type="button" aria-label="Toggle mobile menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
+
   <main>
-    <div class="wrap hero">
-      <div>
-        <p class="eyebrow">Filament 5 theme</p>
-        <h1>The forest-green shell, with the book if you want it.</h1>
-        <p class="lead">Pill navigation, the Rabbet mark, light and dark, language, zoom, list view, audit, and roles. Drag the preview. Light is on the left, dark is on the right.</p>
-        <div class="actions"><a class="btn" href="#offers">Four licenses</a><a class="btn ghost" href="https://github.com/skillbobby/Spiggle-Rabbet-Theme">Source</a></div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-backdrop-glow" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Filament 4 &amp; 5 Ready · Laravel 11, 12 &amp; 13</span>
+          </div>
+
+          <h1 class="hero-title">
+            The forest-green shell, with the <span>operations book</span> when you want it.
+          </h1>
+
+          <p class="lead">
+            Built for operators and teams who spend hours inside their admin panel. Rabbet pairs soothing botanical tones and crisp editorial serif typography with custom brand uploads, multi-language switching, in-browser zoom, audit logs, and an optional end-to-end reference book.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#offers">
+              <span>View 4 Licenses</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+            </a>
+            <a class="btn btn-ghost" href="#product">Explore Capabilities</a>
+            <a class="btn btn-ghost" href="https://github.com/skillbobby/Spiggle-Rabbet-Theme" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <div class="hero-trust-chips">
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Zero Vite Rebuilds</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Dual Light &amp; Dark Modes</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Live Calculated Seeders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Light/Dark Comparison Stage -->
+        <div class="hero-stage-card">
+          <div class="stage-window-bar">
+            <div class="stage-traffic-lights" aria-hidden="true">
+              <span class="light-red"></span>
+              <span class="light-yellow"></span>
+              <span class="light-green"></span>
+            </div>
+            <div class="stage-window-title">Rabbet Operations Overview · Light vs. Dark</div>
+            <div class="stage-mode-presets" role="group" aria-label="Compare presets">
+              <button type="button" class="preset-btn" id="preset-light" onclick="setStageSplit(98)">Light</button>
+              <button type="button" class="preset-btn active" id="preset-split" onclick="setStageSplit(52)">Split</button>
+              <button type="button" class="preset-btn" id="preset-dark" onclick="setStageSplit(2)">Dark</button>
+            </div>
+          </div>
+
+          <div class="stage-viewport" id="stage" style="--split:52%">
+            <img class="img-light" src="screenshots/overview-light.png" alt="Rabbet Operations dashboard in light mode showing metrics, exposure, underwriting, and policy lifecycles" width="1440" height="541" fetchpriority="high">
+            <img class="img-dark" src="screenshots/overview-dark.png" alt="Rabbet Operations dashboard in dark mode showing metrics, exposure, underwriting, and policy lifecycles" width="1440" height="541" loading="eager">
+            <div class="stage-divider" aria-hidden="true"></div>
+            <div class="stage-handle" id="stage-handle" role="slider" tabindex="0" aria-label="Compare Light and Dark mode" aria-valuemin="5" aria-valuemax="95" aria-valuenow="52">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <div class="stage-caption">
+            <span id="stage-split-label">Drag handle or click image to compare</span>
+            <span class="stage-badge-tag">Interactive Preview</span>
+          </div>
+        </div>
       </div>
-      <div class="frame">
-        <div class="sim-bar"><strong>Dashboard</strong><span>Drag to compare</span></div>
-        <div class="stage" id="stage" style="--split:54%">
-          <img src="screenshots/overview-light.png" alt="Rabbet dashboard in light mode, with metric cards, exposure, underwriting, and lifecycle">
-          <img class="dark" src="screenshots/overview-dark.png" alt="Rabbet dashboard in dark mode">
-          <div class="handle" id="handle" role="slider" tabindex="0" aria-label="Compare light and dark" aria-valuemin="12" aria-valuemax="88" aria-valuenow="54"><i></i></div>
+    </section>
+
+    <!-- Architecture & Two Pillars Section -->
+    <section class="section-band" id="product">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="eyebrow">Product Structure</p>
+          <h2 class="section-title">The shell is the product. The kit adds the operations book.</h2>
+          <p class="section-desc">
+            Acquire Rabbet as a standalone theme to re-skin your existing Filament panels, or bundle the starter kit for an immediate, full-fledged operational domain ready for production.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar 1: Theme Shell -->
+          <article class="pillar-card">
+            <div class="pillar-card-header">
+              <div class="pillar-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              </div>
+              <span class="pill-badge">Core Theme · Single or Unlimited</span>
+            </div>
+            <h3>The Rabbet Theme Shell</h3>
+            <p>A pure CSS and Blade extension delivering an architectural, calming forest-green chrome across all native Filament resources, widgets, forms, and tables.</p>
+            <ul class="pillar-feature-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Custom Theme Options Panel:</strong> Store logo text, icon upload, and SVG validator.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Global Topbar Utilities:</strong> Multi-language selector (EN, ES, FR, PT) &amp; client-side zoom scaler.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Alphabetical List View Switcher:</strong> Pivot tables into a dictionary list with 1-click.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Custom Auth &amp; Audit Logs:</strong> Forest card sign-in/register + sanitized user audit trail.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Pillar 2: Starter Kit -->
+          <article class="pillar-card">
+            <div class="pillar-card-header">
+              <div class="pillar-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <span class="pill-badge" style="background:var(--accent-gold-subtle); color:var(--accent-gold); border-color:var(--accent-gold);">Bundle Edition · With Seeders</span>
+            </div>
+            <h3>The Operations Starter Kit</h3>
+            <p>An enterprise-grade reference system providing end-to-end operational models, underwriting stats, dynamic queues, policies, quotes, and claims.</p>
+            <ul class="pillar-feature-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Live Dashboard Overview:</strong> Underwriting exposure, policy distribution, and loss ratios.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Work Queue Prioritization:</strong> Assign, triage, and escalate incoming operational tickets.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Complete Policy &amp; Claim Lifecycles:</strong> Real rating calculation models and status state machines.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Instant Database Seeding:</strong> <code>rabbet:install --seed</code> populates real calculated metric sets.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 4-Box Feature Row -->
+        <div class="feature-cards-grid">
+          <div class="feature-box">
+            <div class="feature-box-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+            </div>
+            <h3>Brand &amp; Logo Settings</h3>
+            <p>Replace logo text and upload PNG, WebP, JPG, or SVG directly in your Filament dashboard. Scripted SVGs are safely sanitized.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-box-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <h3>Language &amp; Font Zoom</h3>
+            <p>English, Español, Français, and Português supported out of the box. Browser zoom controls (A− / A / A+) persist across reloads.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-box-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            </div>
+            <h3>Alphabetical List View</h3>
+            <p>Toggle wide resource tables into an alphabetical dictionary list directly from the table action bar without losing filters.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-box-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Tailored Auth &amp; Audit</h3>
+            <p>Unified sign-in and registration cards. Model modifications generate immutable audit logs and scoped notifications with token sanitization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive Showcase 1: Theme Options Panel -->
+    <section>
+      <div class="wrap showcase-row">
+        <div class="showcase-frame" onclick="openLightbox('screenshots/theme-options.png', 'Theme Options Panel', 'Manage logo text, upload PNG/WebP/SVG marks, and configure panel brand options with built-in sanitization.')">
+          <img src="screenshots/theme-options.png" alt="Rabbet Theme options panel with logo text and icon upload" width="800" height="480" loading="lazy">
+          <div class="showcase-frame-action">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <span>Click to inspect</span>
+          </div>
+        </div>
+        <div class="showcase-content">
+          <p class="eyebrow">Theme Options</p>
+          <h2>The mark is in the panel, not only in the code.</h2>
+          <p>
+            Logo text and brand marks are stored in a dedicated theme options database table. Administrators can upload brand assets without touching Blade views or CSS files.
+          </p>
+          <p>
+            Security is built in: uploaded SVG assets with embedded JavaScript or inline script tags are automatically rejected, and missing assets smoothly fallback to the bundled Rabbet mark.
+          </p>
+          <div class="showcase-tags">
+            <span class="pill-badge">SVG Security Sanitization</span>
+            <span class="pill-badge">Dynamic Text &amp; Mark</span>
+            <span class="pill-badge">Fallback Asset Guard</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive Showcase 2: Auth Flow -->
+    <section class="section-band">
+      <div class="wrap showcase-row reverse">
+        <div class="showcase-frame" onclick="openLightbox('screenshots/login.png', 'Auth Experience — Sign In', 'Forest-green card styling with language switcher, font zoom controls, and seamless registration linking.')">
+          <img src="screenshots/login.png" alt="Rabbet Sign In page with branded card and utility bar" width="800" height="480" loading="lazy">
+          <div class="showcase-frame-action">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <span>Click to inspect</span>
+          </div>
+        </div>
+        <div class="showcase-content">
+          <p class="eyebrow">Authentication</p>
+          <h2>Login and registration are fully themed parts of the shell.</h2>
+          <p>
+            Both Sign In and Sign Up screens inherit Rabbet's refined forest palette, curved container framing, and subtle backdrop textures.
+          </p>
+          <p>
+            Language controls (EN / ES / FR / PT) and font zoom adjustments sit right alongside the shell header, remaining responsive and functional even on compact mobile viewports.
+          </p>
+          <div class="showcase-tags">
+            <span class="pill-badge">Custom Form Styling</span>
+            <span class="pill-badge">Responsive Auth Card</span>
+            <span class="pill-badge">Language Preserved</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive Showcase 3: Audit Trail & Roles -->
+    <section>
+      <div class="wrap showcase-row">
+        <div class="showcase-frame" onclick="openLightbox('screenshots/audit.png', 'Audit Trail & Notification Feed', 'Track model modifications with sensitive credential stripping and user-scoped notifications.')">
+          <img src="screenshots/audit.png" alt="Rabbet Audit Log linked to notifications and role gating" width="800" height="480" loading="lazy">
+          <div class="showcase-frame-action">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <span>Click to inspect</span>
+          </div>
+        </div>
+        <div class="showcase-content">
+          <p class="eyebrow">Audit &amp; Security</p>
+          <h2>A change writes a log and notifies the right operator.</h2>
+          <p>
+            Whenever a model or record undergoes changes, an audit record is dispatched alongside an in-app notification. Passwords, secret tokens, and sensitive headers are strictly scrubbed before saving.
+          </p>
+          <p>
+            Notifications are cleanly scoped to the active signed-in user, and full role-based permissions gate access to audit tables, notifications center, roles management, and theme options.
+          </p>
+          <div class="showcase-tags">
+            <span class="pill-badge">Sensitive Data Scrubbed</span>
+            <span class="pill-badge">Scoped Notifications</span>
+            <span class="pill-badge">Role Permission Gates</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deep-Dive Showcase 4: List View -->
+    <section class="section-band">
+      <div class="wrap showcase-row reverse">
+        <div class="showcase-frame" onclick="openLightbox('screenshots/list-view.png', 'Alphabetical List View Toggle', 'Switch any resource table to an alphabetical dictionary layout with quick letter jumps.')">
+          <img src="screenshots/list-view.png" alt="Rabbet alphabetical list view mode inside a resource table" width="800" height="480" loading="lazy">
+          <div class="showcase-frame-action">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            <span>Click to inspect</span>
+          </div>
+        </div>
+        <div class="showcase-content">
+          <p class="eyebrow">Table Innovation</p>
+          <h2>Instant alphabetical list view for wide data tables.</h2>
+          <p>
+            Not every user wants a grid of 12 columns when looking for a specific entity or record. Rabbet introduces a header switch that rearranges table records into an alphabetical directory format.
+          </p>
+          <p>
+            Quick letter indexing and clean card rows let users browse hundreds of items with rapid visual scanning, fully preserving your existing search queries and scope filters.
+          </p>
+          <div class="showcase-tags">
+            <span class="pill-badge">Header Action Switcher</span>
+            <span class="pill-badge">Letter Indexing</span>
+            <span class="pill-badge">Preserves Table Filters</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operations Starter Kit Showcase -->
+    <section id="kit">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="eyebrow">Operations Starter Kit</p>
+          <h2 class="section-title">Overview, queues, policies, quotes, and claims.</h2>
+          <p class="section-desc">
+            The kit provides a complete business operations domain modeled around insurance and underwriting. Everything on the dashboard is dynamically aggregated from realistic database seeders.
+          </p>
+        </div>
+
+        <div class="operations-grid">
+          <!-- Op 1: Policies -->
+          <article class="op-card" onclick="openLightbox('screenshots/policies.png', 'Policy Registry & Management', 'Full policy lifecycle tracking, coverage categories, effective dates, premium breakdowns, and renewal status.')">
+            <div class="op-card-thumb">
+              <img src="screenshots/policies.png" alt="Rabbet starter kit policies table" width="400" height="250" loading="lazy">
+            </div>
+            <div class="op-card-body">
+              <span class="op-card-badge">Registry</span>
+              <h3 class="op-card-title">Policy Registry</h3>
+              <p class="op-card-desc">Underwriting policies with coverage tiers, effective date spans, and automated premium calculations.</p>
+            </div>
+          </article>
+
+          <!-- Op 2: Quotes -->
+          <article class="op-card" onclick="openLightbox('screenshots/quotes.png', 'Rating & Quotes Engine', 'Draft, calculate, and convert client quotes into active policies with granular line-item rating.')">
+            <div class="op-card-thumb">
+              <img src="screenshots/quotes.png" alt="Rabbet starter kit quotes engine" width="400" height="250" loading="lazy">
+            </div>
+            <div class="op-card-body">
+              <span class="op-card-badge">Pricing</span>
+              <h3 class="op-card-title">Quotes Engine</h3>
+              <p class="op-card-desc">Quote creation workflows, rating engines, automated tax computations, and one-click conversion.</p>
+            </div>
+          </article>
+
+          <!-- Op 3: Claims -->
+          <article class="op-card" onclick="openLightbox('screenshots/claims.png', 'Claims Adjudication Pipeline', 'Manage claims from submission through investigation, estimate approval, and payout settlement.')">
+            <div class="op-card-thumb">
+              <img src="screenshots/claims.png" alt="Rabbet starter kit claims management" width="400" height="250" loading="lazy">
+            </div>
+            <div class="op-card-body">
+              <span class="op-card-badge">Lifecycle</span>
+              <h3 class="op-card-title">Claims Pipeline</h3>
+              <p class="op-card-desc">Comprehensive claims intake, adjuster notes, reserve calculations, and stage progression tracking.</p>
+            </div>
+          </article>
+
+          <!-- Op 4: Work Queue -->
+          <article class="op-card" onclick="openLightbox('screenshots/work-queue.png', 'Operational Work Queues', 'Task distribution, priority routing, SLA monitoring, and pending underwriting assignments.')">
+            <div class="op-card-thumb">
+              <img src="screenshots/work-queue.png" alt="Rabbet starter kit prioritized work queue" width="400" height="250" loading="lazy">
+            </div>
+            <div class="op-card-body">
+              <span class="op-card-badge">Triage</span>
+              <h3 class="op-card-title">Work Queues</h3>
+              <p class="op-card-desc">Prioritized operational triage, urgent escalation tags, and SLA countdowns for claims and policies.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Screenshot Gallery & Lightbox -->
+    <section class="section-band" id="showcase">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="eyebrow">Screenshot Gallery</p>
+          <h2 class="section-title">Explore every screen in high resolution</h2>
+          <p class="section-desc">
+            Click any screenshot below to inspect the interface details, typography choices, and layout structure in full fidelity.
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="gallery-filter-bar" role="group" aria-label="Filter screenshots">
+          <button type="button" class="gallery-filter-btn active" data-filter="all">All Screens (14)</button>
+          <button type="button" class="gallery-filter-btn" data-filter="shell">Theme Shell</button>
+          <button type="button" class="gallery-filter-btn" data-filter="ops">Operations Kit</button>
+          <button type="button" class="gallery-filter-btn" data-filter="auth">Auth &amp; Settings</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Gallery Item 1 -->
+          <article class="gallery-item" data-category="shell" onclick="openLightbox('screenshots/overview-light.png', 'Operations Dashboard (Light Mode)', 'Metric cards, exposure distribution, underwriting metrics, and recent claims overview.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/overview-light.png" alt="Operations Dashboard in light mode" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Dashboard (Light)</span>
+              <span class="gallery-item-tag">Theme Shell</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 2 -->
+          <article class="gallery-item" data-category="shell" onclick="openLightbox('screenshots/overview-dark.png', 'Operations Dashboard (Dark Mode)', 'Deep forest slate palette with subtle green accents, high contrast readability.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/overview-dark.png" alt="Operations Dashboard in dark mode" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Dashboard (Dark)</span>
+              <span class="gallery-item-tag">Theme Shell</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 3 -->
+          <article class="gallery-item" data-category="ops" onclick="openLightbox('screenshots/policies.png', 'Policies Table & Management', 'Full policy table with coverage status, insured details, and renewal actions.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/policies.png" alt="Policies table" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Policies Registry</span>
+              <span class="gallery-item-tag">Operations Kit</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 4 -->
+          <article class="gallery-item" data-category="ops" onclick="openLightbox('screenshots/claims.png', 'Claims Adjudication View', 'Status indicators, payout calculations, deductible records, and adjuster notes.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/claims.png" alt="Claims table view" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Claims Pipeline</span>
+              <span class="gallery-item-tag">Operations Kit</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 5 -->
+          <article class="gallery-item" data-category="ops" onclick="openLightbox('screenshots/work-queue.png', 'Work Queue & SLA Tracking', 'Prioritized ticket routing, urgency badges, and assignee dispatching.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/work-queue.png" alt="Prioritized work queue" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Work Queue</span>
+              <span class="gallery-item-tag">Operations Kit</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 6 -->
+          <article class="gallery-item" data-category="shell" onclick="openLightbox('screenshots/list-view.png', 'Alphabetical List View', 'Dictionary-style alphabetical view inside native Filament tables.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/list-view.png" alt="Alphabetical list view" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">List View Switch</span>
+              <span class="gallery-item-tag">Theme Shell</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 7 -->
+          <article class="gallery-item" data-category="auth" onclick="openLightbox('screenshots/theme-options.png', 'Theme Options & Brand Panel', 'Upload logo text, mark image, favicon, and manage system preferences.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/theme-options.png" alt="Theme options panel" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Theme Options</span>
+              <span class="gallery-item-tag">Auth &amp; Settings</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 8 -->
+          <article class="gallery-item" data-category="auth" onclick="openLightbox('screenshots/login.png', 'Branded Sign In Experience', 'Crisp login card with persistent language switcher and zoom controls.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/login.png" alt="Branded sign in page" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Sign In Page</span>
+              <span class="gallery-item-tag">Auth &amp; Settings</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 9 -->
+          <article class="gallery-item" data-category="auth" onclick="openLightbox('screenshots/audit.png', 'Audit Trail Logging', 'Immutable change records with sensitive token protection and role gates.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/audit.png" alt="Audit trail logging" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Audit Trail</span>
+              <span class="gallery-item-tag">Auth &amp; Settings</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 10 -->
+          <article class="gallery-item" data-category="shell" onclick="openLightbox('screenshots/alerts.png', 'System Alerts & Flash Banners', 'Tailored notification callouts and status banners for Filament.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/alerts.png" alt="Alerts and status banners" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Alerts &amp; Callouts</span>
+              <span class="gallery-item-tag">Theme Shell</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 11 -->
+          <article class="gallery-item" data-category="auth" onclick="openLightbox('screenshots/register.png', 'Branded User Registration', 'Registration flow styled with Rabbet container card and topbar controls.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/register.png" alt="Branded user registration" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">User Registration</span>
+              <span class="gallery-item-tag">Auth &amp; Settings</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 12 -->
+          <article class="gallery-item" data-category="auth" onclick="openLightbox('screenshots/roles.png', 'Roles & Permissions Matrix', 'Role-based access gating for audit trail, notifications, and theme settings.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/roles.png" alt="Roles and permissions management" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Roles &amp; Access</span>
+              <span class="gallery-item-tag">Auth &amp; Settings</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 13 -->
+          <article class="gallery-item" data-category="shell" onclick="openLightbox('screenshots/notifications.png', 'User-Scoped Notification Center', 'In-app notification feed scoped to signed-in operator with timestamp sorting.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/notifications.png" alt="User notification center" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Notifications Feed</span>
+              <span class="gallery-item-tag">Theme Shell</span>
+            </div>
+          </article>
+
+          <!-- Gallery Item 14 -->
+          <article class="gallery-item" data-category="ops" onclick="openLightbox('screenshots/quotes.png', 'Quotes & Underwriting Proposals', 'Granular premium breakdown and rating calculations ready for policy binding.')">
+            <div class="gallery-thumb-wrap">
+              <img src="screenshots/quotes.png" alt="Quotes proposal interface" width="600" height="375" loading="lazy">
+              <div class="gallery-zoom-overlay">
+                <span class="gallery-zoom-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                  <span>Inspect Full Size</span>
+                </span>
+              </div>
+            </div>
+            <div class="gallery-item-footer">
+              <span class="gallery-item-title">Quotes Engine</span>
+              <span class="gallery-item-tag">Operations Kit</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation & Quickstart Terminal -->
+    <section id="install">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="eyebrow">Quickstart &amp; Setup</p>
+          <h2 class="section-title">Up and running in two minutes</h2>
+          <p class="section-desc">
+            Install via Composer into any Laravel 11, 12, or 13 application running Filament 4 or 5. Zero frontend building or npm dependencies required.
+          </p>
+        </div>
+
+        <div class="code-hub-card">
+          <div class="code-hub-nav">
+            <div class="code-hub-tabs">
+              <button type="button" class="code-tab-btn active" data-tab="tab-theme">Theme Shell Only</button>
+              <button type="button" class="code-tab-btn" data-tab="tab-bundle">Starter Kit Bundle</button>
+              <button type="button" class="code-tab-btn" data-tab="tab-provider">Panel Provider</button>
+            </div>
+            <button type="button" class="copy-code-btn" id="copy-btn" onclick="copyCurrentCode()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copy</span>
+            </button>
+          </div>
+
+          <div class="code-panel active" id="tab-theme">
+            <pre><code><span class="code-comment"># 1. Require the Rabbet theme package</span>
+<span class="code-cmd">composer require</span> <span class="code-pkg">spiggle/rabbet-theme</span>
+
+<span class="code-comment"># 2. Run database migrations for theme options &amp; audit trails</span>
+<span class="code-cmd">php artisan</span> <span class="code-flag">migrate</span>
+
+<span class="code-comment"># 3. Register the theme plugin in your Filament Panel Provider:</span>
+<span class="code-class">->plugin</span>(\Spiggle\FilamentRabbetTheme\<span class="code-class">RabbetThemePlugin</span>::make())</code></pre>
+          </div>
+
+          <div class="code-panel" id="tab-bundle">
+            <pre><code><span class="code-comment"># 1. Require the starter kit (auto-requires Rabbet theme)</span>
+<span class="code-cmd">composer require</span> <span class="code-pkg">spiggle/rabbet-starter-kit</span>
+
+<span class="code-comment"># 2. Install the operations suite &amp; seed realistic metrics</span>
+<span class="code-cmd">php artisan</span> <span class="code-flag">rabbet:install</span> <span class="code-pkg">--seed</span>
+
+<span class="code-comment"># Done! Visit your Filament panel to explore the live operations book.</span></code></pre>
+          </div>
+
+          <div class="code-panel" id="tab-provider">
+            <pre><code><span class="code-comment">// app/Providers/Filament/AdminPanelProvider.php</span>
+<span class="code-cmd">use</span> <span class="code-pkg">Spiggle\FilamentRabbetTheme\RabbetThemePlugin</span>;
+
+<span class="code-cmd">public function</span> <span class="code-class">panel</span>(<span class="code-class">Panel</span> <span class="code-flag">$panel</span>): <span class="code-class">Panel</span>
+{
+    <span class="code-cmd">return</span> <span class="code-flag">$panel</span>
+        <span class="code-class">->default</span>()
+        <span class="code-class">->id</span>(<span class="code-pkg">'admin'</span>)
+        <span class="code-class">->plugin</span>(<span class="code-class">RabbetThemePlugin</span>::make());
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers & Pricing Section -->
+    <section class="section-band" id="offers">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="eyebrow">Licensing &amp; Offers</p>
+          <h2 class="section-title">Four simple, transparent offers</h2>
+          <p class="section-desc">
+            Theme-only licenses are lifetime purchases with permanent patch access. Bundles include the operations starter kit with one full year of feature updates and security releases.
+          </p>
+        </div>
+
+        <div class="offers-grid">
+          <!-- Offer 1: Theme Single -->
+          <article class="offer-card">
+            <div class="offer-header">
+              <h3 class="offer-title">Theme, Single</h3>
+              <p class="offer-subtitle">For a single production app or client project</p>
+            </div>
+            <div class="offer-price-wrap">
+              <span class="offer-price">$19</span>
+              <span class="offer-billing">one-time</span>
+            </div>
+            <ul class="offer-features">
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Full Rabbet Theme Shell</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Filament 4 &amp; 5 Support</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Light &amp; Dark Modes</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>1 Production Project</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Lifetime Bug Fixes</span>
+              </li>
+              <li class="excluded">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Operations Starter Kit</span>
+              </li>
+            </ul>
+            <a class="btn btn-ghost" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Request License</a>
+          </article>
+
+          <!-- Offer 2: Theme Unlimited -->
+          <article class="offer-card">
+            <div class="offer-header">
+              <h3 class="offer-title">Theme, Unlimited</h3>
+              <p class="offer-subtitle">For freelancers &amp; agencies shipping multiple apps</p>
+            </div>
+            <div class="offer-price-wrap">
+              <span class="offer-price">$49</span>
+              <span class="offer-billing">one-time</span>
+            </div>
+            <ul class="offer-features">
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Full Rabbet Theme Shell</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Filament 4 &amp; 5 Support</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Light &amp; Dark Modes</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Unlimited Projects You Own</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Lifetime Bug Fixes</span>
+              </li>
+              <li class="excluded">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <span>Operations Starter Kit</span>
+              </li>
+            </ul>
+            <a class="btn btn-ghost" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Request License</a>
+          </article>
+
+          <!-- Offer 3: Bundle Single -->
+          <article class="offer-card">
+            <div class="offer-header">
+              <h3 class="offer-title">Bundle, Single</h3>
+              <p class="offer-subtitle">Theme plus full operations starter kit</p>
+            </div>
+            <div class="offer-price-wrap">
+              <span class="offer-price">$29</span>
+              <span class="offer-billing">/ year</span>
+            </div>
+            <ul class="offer-features">
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Full Rabbet Theme Shell</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Operations Starter Kit</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Policies, Quotes, Claims, Queues</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Complete Realistic Database Seeders</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>1 Project License</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>1 Year of Updates &amp; Security Patches</span>
+              </li>
+            </ul>
+            <a class="btn btn-ghost" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Request License</a>
+          </article>
+
+          <!-- Offer 4: Bundle Unlimited (Featured) -->
+          <article class="offer-card featured">
+            <span class="offer-badge">MOST POPULAR · BEST VALUE</span>
+            <div class="offer-header">
+              <h3 class="offer-title">Bundle, Unlimited</h3>
+              <p class="offer-subtitle">For teams building multiple business platforms</p>
+            </div>
+            <div class="offer-price-wrap">
+              <span class="offer-price">$79</span>
+              <span class="offer-billing">/ year</span>
+            </div>
+            <ul class="offer-features">
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Full Rabbet Theme Shell</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Operations Starter Kit</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Policies, Quotes, Claims, Queues</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Unlimited Projects You Own</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>1 Year of Updates &amp; Security Patches</span>
+              </li>
+              <li class="included">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Priority Developer Support</span>
+              </li>
+            </ul>
+            <a class="btn btn-primary" href="https://x.com/iamspiggle" target="_blank" rel="noopener">Request Bundle</a>
+          </article>
+        </div>
+
+        <div class="offers-guarantee-note">
+          <p>
+            Looking for automated checkout or team invoicing? Reach out to <a href="https://x.com/iamspiggle" target="_blank" rel="noopener">@iamspiggle on X</a> or open an inquiry on GitHub.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-header">
+          <p class="eyebrow">Questions &amp; Answers</p>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">
+            Everything you need to know about Rabbet Theme and the Operations Starter Kit.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-summary">
+              <span>Does Rabbet require npm, Vite, or Tailwind CLI compilation?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-content">
+              No. Rabbet is pure CSS and Blade template overrides engineered specifically for Filament. It injects directly through Filament's native render hooks. You do not need to modify tailwind.config.js, compile assets, or run npm run build.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Is Rabbet compatible with Filament v4 and Filament v5?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-content">
+              Yes. Rabbet is explicitly authored and continuously tested against both Filament 4 and Filament 5 on Laravel 11, 12, and 13 (PHP 8.2 through 8.5).
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>What is the difference between the Theme Shell and the Starter Kit?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-content">
+              The Theme Shell (<code>spiggle/rabbet-theme</code>) provides all styling chrome: the forest-green color palette, pill navigation, brand options panel, language switcher, zoom controls, alphabetical list view, audit logging, and auth screens. The Starter Kit (<code>spiggle/rabbet-starter-kit</code>) adds the entire business domain: Underwriting, Policies, Quotes, Claims, Work Queues, and rich database seeders.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Can I upload my own company mark and brand name?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-content">
+              Yes! Rabbet includes a Theme Options settings resource in your admin panel. You can define your panel brand name and upload PNG, WebP, JPG, or SVG logo files. Malicious SVG scripts are filtered out automatically, and missing uploads seamlessly fall back to the bundled Rabbet mark.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>How do updates work for the yearly bundle licenses?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </summary>
+            <div class="faq-content">
+              Yearly bundle licenses ($29/yr and $79/yr) include 12 months of all new feature updates, new component layouts, and security patches. You can renew each year to continue receiving new releases, or keep running the version you have indefinitely.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal Dialog -->
+    <dialog class="lightbox-dialog" id="lightbox">
+      <div class="lightbox-container">
+        <div class="lightbox-header">
+          <div>
+            <h3 class="lightbox-title" id="lightbox-title">Screenshot Inspection</h3>
+            <p class="lightbox-desc" id="lightbox-desc">Full resolution view</p>
+          </div>
+          <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close image modal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <div class="lightbox-media">
+          <img id="lightbox-img" src="" alt="Full resolution view">
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Toast Notification for Copy -->
+    <div class="copy-toast" id="copy-toast" aria-live="polite">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span>Command copied to clipboard!</span>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <a class="brand" href="./">
+            <div class="brand-logo-wrap">
+              <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#1B4332"/>
+                <path d="M7 8h18v6H13v10H7V8z" fill="#F7F8F7"/>
+                <path d="M13 14h12v10H13V14z" fill="#BFE3D8"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span>Rabbet</span>
+              <span class="brand-sub">by Spiggle</span>
+            </div>
+          </a>
+          <p>
+            An architectural, forest-green admin experience and complete business operations starter kit for Laravel Filament 4 &amp; 5.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Spiggle Ecosystem</h4>
+          <ul>
+            <li><a href="https://skillbobby.github.io/spiggle/filament-soffit-theme/">Soffit Theme</a></li>
+            <li><a href="https://skillbobby.github.io/spiggle/filament-fascia-theme/">Fascia Theme</a></li>
+            <li><a href="https://skillbobby.github.io/spiggle/filament-visual-theme/">Visual Theme</a></li>
+            <li><a href="https://skillbobby.github.io/spiggle/filament-visual-board/">Visual Board</a></li>
+            <li><a href="https://skillbobby.github.io/spiggle/filament-saas-billing/">SaaS Billing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Source &amp; Community</h4>
+          <ul>
+            <li><a href="https://github.com/skillbobby/Spiggle-Rabbet-Theme" target="_blank" rel="noopener">Rabbet Theme Repository</a></li>
+            <li><a href="https://github.com/skillbobby/Spiggle-Rabbet-Starter-Kit" target="_blank" rel="noopener">Starter Kit Repository</a></li>
+            <li><a href="https://skillbobby.github.io/spiggle/">Spiggle Package Directory</a></li>
+            <li><a href="https://x.com/iamspiggle" target="_blank" rel="noopener">Follow @iamspiggle</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Spiggle. Built for artisans &amp; operators using Laravel &amp; Filament.</span>
+        <div class="footer-bottom-links">
+          <a href="#offers">License Details</a>
+          <span>·</span>
+          <a href="https://github.com/skillbobby/Spiggle-Rabbet-Theme" target="_blank" rel="noopener">Theme Source</a>
+          <span>·</span>
+          <a href="https://github.com/skillbobby/Spiggle-Rabbet-Starter-Kit" target="_blank" rel="noopener">Kit Source</a>
         </div>
       </div>
     </div>
+  </footer>
 
-    <section class="band" id="product">
-      <div class="wrap">
-        <h2>What the theme carries</h2>
-        <p class="lead">The shell is the product. The kit is the same shell with the operations book.</p>
-        <div class="grid">
-          <article class="card"><h3>Brand</h3><p>Mark plus logo text. Replace the text and upload a PNG, WebP, JPG, or SVG.</p></article>
-          <article class="card"><h3>Language and zoom</h3><p>English, Español, Français, Português. A− / A / A+ stays in the browser.</p></article>
-          <article class="card"><h3>List view</h3><p>Switch a table to an alphabetical list from the header.</p></article>
-          <article class="card"><h3>Auth</h3><p>Sign in and registration use the Rabbet card, and link to each other.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap split">
-        <img src="screenshots/theme-options.png" alt="Rabbet theme options with logo text and icon">
-        <div>
-          <p class="eyebrow">Theme options</p>
-          <h2>The mark is in the panel, not only on the page.</h2>
-          <p class="lead">Logo text and icon save to the theme options table. A scripted SVG is rejected. A missing file falls back to the bundled mark.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap split">
-        <div>
-          <p class="eyebrow">Sign in</p>
-          <h2>Login and registration are part of the theme.</h2>
-          <p class="lead">Both pages use the Rabbet card. The language control and zoom sit with the shell, including on a narrow screen.</p>
-        </div>
-        <img src="screenshots/login.png" alt="Rabbet sign in page">
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap split">
-        <img src="screenshots/audit.png" alt="Rabbet audit log linked to notifications">
-        <div>
-          <p class="eyebrow">Audit</p>
-          <h2>A change writes a log and a notification.</h2>
-          <p class="lead">Passwords and tokens are left out. Notifications are scoped to the signed-in user. Roles gate audit, notifications, roles, and theme options.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="kit">
-      <div class="wrap split">
-        <div>
-          <p class="eyebrow">Starter kit</p>
-          <h2>Overview, queues, policies, quotes, claims.</h2>
-          <p class="lead">The kit requires the theme and registers it if the panel does not already have it. Seed data fills the reference book. Nothing on the overview is hardcoded.</p>
-        </div>
-        <img src="screenshots/overview-light.png" alt="Rabbet starter kit dashboard">
-      </div>
-    </section>
-
-    <section id="offers">
-      <div class="wrap">
-        <h2>Four offers</h2>
-        <p class="lead">Theme only keeps the existing licenses. The bundle is yearly and includes one year of updates and security patches.</p>
-        <div class="offers">
-          <article class="offer"><p class="price">$19</p><strong>Theme, one project</strong><p>Existing license.</p></article>
-          <article class="offer"><p class="price">$49</p><strong>Theme, unlimited</strong><p>Projects you own.</p></article>
-          <article class="offer pick"><p class="price">$29/yr</p><strong>Bundle, one project</strong><p>Theme and starter kit. One year of updates and security patches.</p></article>
-          <article class="offer pick"><p class="price">$79/yr</p><strong>Bundle, unlimited</strong><p>Theme and starter kit for projects you own. One year of updates and security patches.</p></article>
-        </div>
-        <p><a class="btn" href="https://x.com/iamspiggle">Request a license</a></p>
-        <pre><code>composer require spiggle/rabbet-theme
-php artisan migrate
-->plugin(\Spiggle\FilamentRabbetTheme\RabbetThemePlugin::make())
-
-composer require spiggle/rabbet-starter-kit
-php artisan rabbet:install --seed</code></pre>
-      </div>
-    </section>
-    <footer><div class="wrap">Checkout is not wired yet. <a href="https://github.com/skillbobby/Spiggle-Rabbet-Theme">Theme source</a> · <a href="https://github.com/skillbobby/Spiggle-Rabbet-Starter-Kit">Kit source</a></div></footer>
-  </main>
+  <!-- Scripts -->
   <script>
+    // Copyright Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Site Dark / Light Mode Switcher
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    const sunIcon = themeBtn.querySelector('.sun-icon');
+    const moonIcon = themeBtn.querySelector('.moon-icon');
+
+    function updateThemeIcons(theme) {
+      if (theme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    }
+
+    updateThemeIcons(htmlEl.getAttribute('data-theme') || 'light');
+
+    themeBtn.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', next);
+      localStorage.setItem('spiggle-rabbet-theme', next);
+      updateThemeIcons(next);
+    });
+
+    // Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (mobileBtn && navLinks) {
+      mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('mobile-open');
+        });
+      });
+    }
+
+    // Hero Interactive Light/Dark Comparison Stage
     const stage = document.getElementById('stage');
-    const handle = document.getElementById('handle');
-    const setSplit = (clientX) => {
+    const handle = document.getElementById('stage-handle');
+    const splitLabel = document.getElementById('stage-split-label');
+    const presetLight = document.getElementById('preset-light');
+    const presetSplit = document.getElementById('preset-split');
+    const presetDark = document.getElementById('preset-dark');
+
+    function updatePresetHighlight(pct) {
+      presetLight.classList.remove('active');
+      presetSplit.classList.remove('active');
+      presetDark.classList.remove('active');
+      if (pct > 85) presetLight.classList.add('active');
+      else if (pct < 15) presetDark.classList.add('active');
+      else presetSplit.classList.add('active');
+    }
+
+    function setStageSplit(pct) {
+      const clamped = Math.min(96, Math.max(4, pct));
+      stage.style.setProperty('--split', clamped + '%');
+      handle.setAttribute('aria-valuenow', String(Math.round(clamped)));
+      splitLabel.textContent = `${Math.round(clamped)}% split · Light (left) / Dark (right)`;
+      updatePresetHighlight(clamped);
+    }
+
+    const setSplitFromClientX = (clientX) => {
       const rect = stage.getBoundingClientRect();
-      const pct = Math.min(88, Math.max(12, ((clientX - rect.left) / rect.width) * 100));
-      stage.style.setProperty('--split', pct + '%');
-      handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+      const pct = ((clientX - rect.left) / rect.width) * 100;
+      setStageSplit(pct);
     };
-    let drag = false;
-    handle.addEventListener('pointerdown', (e) => { drag = true; handle.setPointerCapture(e.pointerId); });
-    handle.addEventListener('pointermove', (e) => { if (drag) setSplit(e.clientX); });
-    handle.addEventListener('pointerup', () => drag = false);
-    stage.addEventListener('pointerdown', (e) => { if (e.target === handle) return; setSplit(e.clientX); });
+
+    let isDragging = false;
+    handle.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      handle.setPointerCapture(e.pointerId);
+    });
+
+    handle.addEventListener('pointermove', (e) => {
+      if (isDragging) setSplitFromClientX(e.clientX);
+    });
+
+    handle.addEventListener('pointerup', () => { isDragging = false; });
+    handle.addEventListener('pointercancel', () => { isDragging = false; });
+
+    stage.addEventListener('pointerdown', (e) => {
+      if (e.target === handle) return;
+      setSplitFromClientX(e.clientX);
+    });
+
+    // Keyboard navigation for handle
+    handle.addEventListener('keydown', (e) => {
+      let current = parseFloat(stage.style.getPropertyValue('--split')) || 52;
+      if (e.key === 'ArrowLeft') {
+        setStageSplit(current - 5);
+        e.preventDefault();
+      } else if (e.key === 'ArrowRight') {
+        setStageSplit(current + 5);
+        e.preventDefault();
+      }
+    });
+
+    // Gallery Category Filter
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox Dialog
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+
+    function openLightbox(src, title, desc) {
+      lightboxImg.src = src;
+      lightboxTitle.textContent = title;
+      lightboxDesc.textContent = desc;
+      lightbox.showModal();
+    }
+
+    function closeLightbox() {
+      lightbox.close();
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Code Hub Tab Switcher
+    const codeTabs = document.querySelectorAll('.code-tab-btn');
+    const codePanels = document.querySelectorAll('.code-panel');
+
+    codeTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        codeTabs.forEach(t => t.classList.remove('active'));
+        codePanels.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        const targetId = tab.getAttribute('data-tab');
+        const targetPanel = document.getElementById(targetId);
+        if (targetPanel) targetPanel.classList.add('active');
+      });
+    });
+
+    // Copy Code functionality
+    function copyCurrentCode() {
+      const activePanel = document.querySelector('.code-panel.active');
+      if (!activePanel) return;
+      const textToCopy = activePanel.textContent.trim();
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const toast = document.getElementById('copy-toast');
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      });
+    }
   </script>
 </body>
 </html>
