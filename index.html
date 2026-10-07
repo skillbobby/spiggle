@@ -87,9 +87,10 @@
     article.card:hover { transform: translateY(-3px); }
     .shot {
       display: block; aspect-ratio: 16 / 9; background: #e7e1d6; position: relative; overflow: hidden;
+      padding: 14px;
     }
-    .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
-    .shot svg, .shot img.widget { object-fit: cover; }
+    .shot img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
+    .shot svg, .shot img.widget { object-fit: contain; }
     .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
     .badge { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; }
     .core { background: #e0f2fe; color: #075985; }
@@ -151,7 +152,7 @@
     </div>
     <div class="grid" id="repo-grid">
       <article class="card" data-category="theme">
-        <a class="shot" href="https://skillbobby.github.io/spiggle/rabbet-theme/"><img src="rabbet-theme/screenshots/overview-light.png" alt="Rabbet theme dashboard widget"></a>
+        <a class="shot" href="https://skillbobby.github.io/spiggle/rabbet-theme/"><img src="cards/rabbet-theme.png" alt="Rabbet theme dashboard"></a>
         <div class="body">
           <div class="badges"><span class="badge theme">Theme</span><span class="badge pro">Commercial</span></div>
           <h2><a href="https://skillbobby.github.io/spiggle/rabbet-theme/">Rabbet Theme</a></h2>
@@ -160,7 +161,7 @@
         </div>
       </article>
       <article class="card" data-category="pro">
-        <a class="shot" href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/"><img src="rabbet-starter-kit/screenshots/work-queue.png" alt="Rabbet starter kit work queue"></a>
+        <a class="shot" href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/"><img src="cards/rabbet-kit.png" alt="Rabbet starter kit work queue"></a>
         <div class="body">
           <div class="badges"><span class="badge pro">Kit</span><span class="badge pro">Commercial</span></div>
           <h2><a href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/">Rabbet starter kit</a></h2>
@@ -169,7 +170,7 @@
         </div>
       </article>
       <article class="card" data-category="theme">
-        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-fascia-theme/"><img src="filament-fascia-theme/screenshots/light.png" alt="Fascia theme light shell"></a>
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-fascia-theme/"><img src="cards/fascia.png" alt="Fascia theme light shell"></a>
         <div class="body">
           <div class="badges"><span class="badge theme">Theme</span><span class="badge pro">Commercial</span></div>
           <h2><a href="https://skillbobby.github.io/spiggle/filament-fascia-theme/">Fascia</a></h2>
@@ -178,7 +179,7 @@
         </div>
       </article>
       <article class="card" data-category="theme">
-        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-soffit-theme/"><img src="filament-soffit-theme/screenshots/preview-light.png" alt="Soffit theme light preview"></a>
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-soffit-theme/"><img src="cards/soffit.png" alt="Soffit theme light preview"></a>
         <div class="body">
           <div class="badges"><span class="badge theme">Theme</span><span class="badge pro">Commercial</span></div>
           <h2><a href="https://skillbobby.github.io/spiggle/filament-soffit-theme/">Soffit</a></h2>
@@ -187,7 +188,7 @@
         </div>
       </article>
       <article class="card" data-category="theme">
-        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-theme/"><img src="filament-theme/screenshots/Spiggle-Theme_Standard-Blue_Layout.png" alt="Spiggle theme standard blue layout"></a>
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-theme/"><img src="cards/spiggle-theme.png" alt="Spiggle theme standard blue layout"></a>
         <div class="body">
           <div class="badges"><span class="badge theme">Theme</span></div>
           <h2><a href="https://skillbobby.github.io/spiggle/filament-theme/">Spiggle Theme</a></h2>
@@ -196,7 +197,7 @@
         </div>
       </article>
       <article class="card" data-category="theme">
-        <a class="shot" href="https://skillbobby.github.io/spiggle/material-theme/"><img src="material-theme/screenshots/list-view.png" alt="Material theme list view"></a>
+        <a class="shot" href="https://skillbobby.github.io/spiggle/material-theme/"><img src="cards/material.png" alt="Material theme list view"></a>
         <div class="body">
           <div class="badges"><span class="badge theme">Theme</span></div>
           <h2><a href="https://skillbobby.github.io/spiggle/material-theme/">Material Theme</a></h2>
@@ -241,7 +242,7 @@
         </div>
       </article>
       <article class="card" data-category="core">
-        <a class="shot" href="https://filawarden.com" target="_blank" rel="noopener"><img class="widget" src="widgets/rules-engine.svg" alt="FilaWarden"></a>
+        <a class="shot" href="https://filawarden.com" target="_blank" rel="noopener"><img src="cards/filawarden.png" alt="FilaWarden executive dashboard"></a>
         <div class="body">
           <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
           <h2><a href="https://filawarden.com" target="_blank" rel="noopener">FilaWarden Core</a></h2>
