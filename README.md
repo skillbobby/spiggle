@@ -1,10 +1,8 @@
 # Spiggle
 
-Public product pages for Spiggle themes and Filament packages. Package source stays in its own repository. Private repositories are not listed on the catalog.
+Complete directory of packages, UI themes, core builders, and extensions maintained by Spiggle.
 
 GitHub Pages: [skillbobby.github.io/spiggle](https://skillbobby.github.io/spiggle/)
-
-Catalog v2 links each card to that product’s site and shows a widget-sized screenshot.
 
 ## Themes
 
