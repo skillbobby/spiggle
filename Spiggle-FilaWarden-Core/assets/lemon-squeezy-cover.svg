@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="lbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="lglow1" cx="20%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="lglow2" cx="85%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="lshadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#lbg)"/>
+  <rect width="1280" height="720" fill="url(#lglow1)"/>
+  <rect width="1280" height="720" fill="url(#lglow2)"/>
+
+  <!-- Grid Pattern -->
+  <g stroke="#334155" stroke-opacity="0.18" stroke-width="1">
+    <line x1="0" y1="120" x2="1280" y2="120"/>
+    <line x1="0" y1="240" x2="1280" y2="240"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="0" y1="600" x2="1280" y2="600"/>
+    <line x1="160" y1="0" x2="160" y2="720"/>
+    <line x1="320" y1="0" x2="320" y2="720"/>
+    <line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="960" y1="0" x2="960" y2="720"/>
+    <line x1="1120" y1="0" x2="1120" y2="720"/>
+  </g>
+
+  <!-- Left Content -->
+  <g transform="translate(80, 100)">
+    <!-- Brand Pill -->
+    <rect width="210" height="34" rx="17" fill="#1e293b" stroke="#334155"/>
+    <circle cx="18" cy="17" r="5" fill="#f59e0b"/>
+    <text x="32" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#f59e0b" letter-spacing="1.5">LEMON SQUEEZY PRO EDITION</text>
+
+    <!-- Main Title -->
+    <text x="0" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="68" font-weight="900" fill="#ffffff" letter-spacing="-1.5">Fila<tspan fill="#10b981">Warden</tspan> <tspan fill="#f59e0b">Pro</tspan></text>
+
+    <!-- Subtitle -->
+    <text x="0" y="145" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="600" fill="#cbd5e1">Enterprise Operations Intelligence &amp; APM</text>
+    <text x="0" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="600" fill="#94a3b8">Built Natively for Laravel Filament v5</text>
+
+    <!-- Description -->
+    <text x="0" y="235" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" fill="#94a3b8">Supercharge your Filament Admin with real-time threat intelligence,</text>
+    <text x="0" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" fill="#94a3b8">slow query capture, incident response boards, and instant Slack alerts.</text>
+
+    <!-- Feature Tags -->
+    <g transform="translate(0, 310)">
+      <rect width="180" height="42" rx="10" fill="#1e293b" stroke="#10b981" stroke-opacity="0.4"/>
+      <text x="18" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#34d399">🛡️ Secret Scanner</text>
+
+      <rect x="195" width="185" height="42" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-opacity="0.4"/>
+      <text x="213" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#fbbf24">⚡ APM Slow Queries</text>
+
+      <rect x="395" width="190" height="42" rx="10" fill="#1e293b" stroke="#6366f1" stroke-opacity="0.4"/>
+      <text x="413" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#a5b4fc">🔔 Slack &amp; Discord</text>
+    </g>
+
+    <!-- Guarantee Badges -->
+    <g transform="translate(0, 400)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#64748b">
+      <text x="0" y="0">✓ Instant Composer License Key</text>
+      <text x="240" y="0">✓ Lifetime Updates Included</text>
+      <text x="450" y="0">✓ Commercial License</text>
+    </g>
+  </g>
+
+  <!-- Right Visual Mockup -->
+  <g transform="translate(770, 90)" filter="url(#lshadow)">
+    <rect width="430" height="520" rx="20" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <rect width="430" height="54" rx="20" fill="#1e293b"/>
+    <rect x="0" y="34" width="430" height="20" fill="#1e293b"/>
+    <circle cx="25" cy="27" r="5" fill="#ef4444"/>
+    <circle cx="45" cy="27" r="5" fill="#f59e0b"/>
+    <circle cx="65" cy="27" r="5" fill="#10b981"/>
+    <text x="90" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#f8fafc">Security Intelligence Center</text>
+
+    <!-- Threat Finding 1 -->
+    <g transform="translate(25, 75)">
+      <rect width="380" height="95" rx="12" fill="#1e293b" fill-opacity="0.5" stroke="#ef4444" stroke-opacity="0.3"/>
+      <rect x="15" y="14" width="70" height="22" rx="6" fill="#ef4444" fill-opacity="0.2"/>
+      <text x="26" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#f87171">CRITICAL</text>
+      <text x="95" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#f1f5f9">Stripe Live Secret Key In Repo</text>
+      <rect x="15" y="48" width="350" height="32" rx="6" fill="#020617"/>
+      <text x="25" y="69" font-family="monospace" font-size="11" fill="#94a3b8">sk_live_51M... config/services.php:24</text>
+    </g>
+
+    <!-- APM Metric Card -->
+    <g transform="translate(25, 185)">
+      <rect width="380" height="95" rx="12" fill="#1e293b" fill-opacity="0.5" stroke="#f59e0b" stroke-opacity="0.3"/>
+      <rect x="15" y="14" width="60" height="22" rx="6" fill="#f59e0b" fill-opacity="0.2"/>
+      <text x="24" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#fbbf24">P95 APM</text>
+      <text x="85" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#f1f5f9">Slow Query Captured: 1,240ms</text>
+      <rect x="15" y="48" width="350" height="32" rx="6" fill="#020617"/>
+      <text x="25" y="69" font-family="monospace" font-size="11" fill="#94a3b8">SELECT * FROM orders WHERE status = ?</text>
+    </g>
+
+    <!-- Incident Card -->
+    <g transform="translate(25, 295)">
+      <rect width="380" height="95" rx="12" fill="#1e293b" fill-opacity="0.5" stroke="#6366f1" stroke-opacity="0.3"/>
+      <rect x="15" y="14" width="85" height="22" rx="6" fill="#6366f1" fill-opacity="0.2"/>
+      <text x="24" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#a5b4fc">INCIDENT</text>
+      <text x="110" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#f1f5f9">DB Connection Saturation</text>
+      <rect x="15" y="48" width="350" height="32" rx="6" fill="#020617"/>
+      <text x="25" y="69" font-family="monospace" font-size="11" fill="#94a3b8">Triggered at 14:22:05 · Investigating</text>
+    </g>
+
+    <!-- Bottom Action Pill -->
+    <g transform="translate(25, 410)">
+      <rect width="380" height="70" rx="12" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-opacity="0.3"/>
+      <circle cx="35" cy="35" r="14" fill="#10b981"/>
+      <path d="M30 35 L34 39 L41 31" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="60" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#34d399">Autonomous Optimization</text>
+      <text x="60" y="49" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#94a3b8">Route &amp; Config Cache Ready to Compile</text>
+    </g>
+  </g>
+</svg>

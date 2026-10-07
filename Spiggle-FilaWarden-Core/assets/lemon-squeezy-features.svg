@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="lfbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="lfglow" cx="50%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#lfbg)"/>
+  <rect width="1280" height="720" fill="url(#lfglow)"/>
+
+  <!-- Top Header -->
+  <g transform="translate(80, 70)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#10b981" letter-spacing="2">DEEP OBSERVABILITY &amp; THREAT INTELLIGENCE</text>
+    <text x="0" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-0.5">Everything Your Laravel Production App Needs</text>
+    <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" fill="#94a3b8">Zero SaaS fees. Zero external agents. 100% Native to your Filament Admin Panel.</text>
+  </g>
+
+  <!-- 3 Big Cards -->
+  <g transform="translate(80, 200)">
+    <!-- Card 1: Security -->
+    <rect width="350" height="420" rx="16" fill="#0f172a" stroke="#10b981" stroke-opacity="0.4" stroke-width="1.5"/>
+    <g transform="translate(30, 40)">
+      <circle cx="28" cy="28" r="28" fill="#10b981" fill-opacity="0.15"/>
+      <text x="18" y="37" font-size="24">🛡️</text>
+      <text x="0" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#ffffff">Security Intel</text>
+      <text x="0" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Automated threat scanner for secrets &amp; leaks</text>
+
+      <g transform="translate(0, 160)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+        <text x="0" y="0">✓ Stripe &amp; AWS Leaked Keys</text>
+        <text x="0" y="32">✓ Dangerous .sql / .zip Files</text>
+        <text x="0" y="64">✓ HTTP Security Headers Audit</text>
+        <text x="0" y="96">✓ SSL / TLS Expiry Sentinel</text>
+        <text x="0" y="128">✓ Security Letter Grade (A-F)</text>
+      </g>
+    </g>
+
+    <!-- Card 2: APM & Queries -->
+    <g transform="translate(385, 0)">
+      <rect width="350" height="420" rx="16" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1.5"/>
+      <g transform="translate(30, 40)">
+        <circle cx="28" cy="28" r="28" fill="#f59e0b" fill-opacity="0.15"/>
+        <text x="18" y="37" font-size="24">⚡</text>
+        <text x="0" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#ffffff">APM Analytics</text>
+        <text x="0" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Application latency &amp; slow queries</text>
+
+        <g transform="translate(0, 160)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+          <text x="0" y="0">✓ Percentiles (P50, P95, P99)</text>
+          <text x="0" y="32">✓ Slow Query Registry &amp; SQL Trace</text>
+          <text x="0" y="64">✓ Requests Per Minute (RPM)</text>
+          <text x="0" y="96">✓ InnoDB Buffer Pool Hit Rates</text>
+          <text x="0" y="128">✓ Database Connection Monitor</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Card 3: Incidents & Alerts -->
+    <g transform="translate(770, 0)">
+      <rect width="350" height="420" rx="16" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.4" stroke-width="1.5"/>
+      <g transform="translate(30, 40)">
+        <circle cx="28" cy="28" r="28" fill="#6366f1" fill-opacity="0.15"/>
+        <text x="18" y="37" font-size="24">🔔</text>
+        <text x="0" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="800" fill="#ffffff">Incident Ops</text>
+        <text x="0" y="125" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Operational triage &amp; automated dispatch</text>
+
+        <g transform="translate(0, 160)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+          <text x="0" y="0">✓ Incident Lifecycle Board</text>
+          <text x="0" y="32">✓ Slack Webhook Notifications</text>
+          <text x="0" y="64">✓ Discord Channel Webhooks</text>
+          <text x="0" y="96">✓ Autonomous AI Remediation</text>
+          <text x="0" y="128">✓ Background Job Retry/Forget</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Strip -->
+  <g transform="translate(80, 650)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#64748b">Compatible with Filament v4 &amp; v5 · Laravel 11, 12 &amp; 13 · MySQL 8.x, PostgreSQL &amp; SQLite</text>
+  </g>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="ltbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="ltglow-pro" cx="75%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#ltbg)"/>
+  <rect width="1280" height="720" fill="url(#ltglow-pro)"/>
+
+  <!-- Heading -->
+  <g transform="translate(80, 70)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#f59e0b" letter-spacing="2">CHOOSE YOUR EDITION</text>
+    <text x="0" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-0.5">Core (Free) vs Advanced (Pro)</text>
+    <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" fill="#94a3b8">Start free with Core, or unlock full enterprise security &amp; APM with Pro.</text>
+  </g>
+
+  <!-- 2 Column Comparison -->
+  <g transform="translate(80, 195)">
+    <!-- Column 1: Core (Free) -->
+    <g filter="url(#card-shadow)">
+      <rect width="530" height="440" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+      <g transform="translate(40, 40)">
+        <rect width="80" height="28" rx="6" fill="#1e293b"/>
+        <text x="14" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#94a3b8">CORE</text>
+        <text x="0" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="900" fill="#ffffff">Free <tspan font-size="16" fill="#64748b" font-weight="500">/ MIT Open Source</tspan></text>
+        <text x="0" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Essential monitoring for developers and small apps.</text>
+
+        <g transform="translate(0, 140)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#cbd5e1">
+          <text x="0" y="0">✓ Executive Dashboard &amp; Health Scoring</text>
+          <text x="0" y="32">✓ 12-Point Deployment Readiness Auditor</text>
+          <text x="0" y="64">✓ Queue &amp; Background Worker Monitor</text>
+          <text x="0" y="96">✓ Scheduled Tasks &amp; Cron Overseer</text>
+          <text x="0" y="128">✓ Database Storage Footprint &amp; Tables</text>
+          <text x="0" y="160">✓ Application Error Log Reader</text>
+          <text x="0" y="192">✓ SSL / TLS Expiry &amp; Risk File Scanner</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Column 2: Pro (Advanced) -->
+    <g transform="translate(570, 0)" filter="url(#card-shadow)">
+      <rect width="550" height="440" rx="16" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <!-- Pro Badge Ribbon -->
+      <rect x="420" y="25" width="95" height="30" rx="15" fill="#f59e0b"/>
+      <text x="437" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" fill="#000000">PRO TIER</text>
+
+      <g transform="translate(40, 40)">
+        <rect width="90" height="28" rx="6" fill="#f59e0b" fill-opacity="0.2"/>
+        <text x="14" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#f59e0b">ADVANCED</text>
+        <text x="0" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="900" fill="#ffffff">Commercial <tspan font-size="16" fill="#34d399" font-weight="600">/ Instant Key</tspan></text>
+        <text x="0" y="100" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#94a3b8">Everything in Core, plus enterprise observability.</text>
+
+        <g transform="translate(0, 140)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" fill="#f8fafc">
+          <text x="0" y="0" font-weight="600" fill="#34d399">★ Security Intelligence (Secrets Leak Scanner)</text>
+          <text x="0" y="32" font-weight="600" fill="#fbbf24">★ APM Slow Query Registry &amp; Latencies</text>
+          <text x="0" y="64" font-weight="600" fill="#a5b4fc">★ Operational Incident Lifecycle Triage</text>
+          <text x="0" y="96" font-weight="600" fill="#38bdf8">★ Multi-Channel Alerting (Slack / Discord)</text>
+          <text x="0" y="128" font-weight="600" fill="#f43f5e">★ Autonomous Recommendations &amp; Cache Actions</text>
+          <text x="0" y="160">✓ Commercial License &amp; Lifetime Updates</text>
+          <text x="0" y="192">✓ Private GitHub / Composer Repository Access</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
