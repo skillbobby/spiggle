@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Portal Snapshot widget">
+  <rect width="640" height="360" rx="18" fill="#f8fafc"/>
+  <rect width="640" height="42" fill="#0f172a"/>
+  <circle cx="22" cy="21" r="5" fill="#22c55e"/>
+  <text x="38" y="26" fill="#e2e8f0" font-family="Inter,sans-serif" font-size="13" font-weight="600">Snapshots</text>
+  <rect x="500" y="11" width="122" height="20" rx="8" fill="#f59e0b"/>
+  <text x="561" y="25" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="600">Create</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="16" y="58" width="608" height="44" rx="10" fill="#fff" stroke="#e2e8f0"/>
+    <text x="32" y="85" font-size="12" font-weight="600" fill="#0f172a">golden-baseline.sql.gz</text>
+    <text x="430" y="85" font-size="11" fill="#b45309">Starred · midnight reset</text>
+    <rect x="16" y="112" width="608" height="44" rx="10" fill="#fff" stroke="#e2e8f0"/>
+    <text x="32" y="139" font-size="12" fill="#0f172a">nightly-2026-10-07.sql.gz</text>
+    <text x="470" y="139" font-size="11" fill="#15803d">Copied to S3</text>
+    <rect x="16" y="166" width="608" height="44" rx="10" fill="#fff" stroke="#e2e8f0"/>
+    <text x="32" y="193" font-size="12" fill="#0f172a">pre-release.sql.gz</text>
+    <text x="500" y="193" font-size="11" fill="#0369a1">Queued</text>
+    <rect x="16" y="226" width="196" height="114" rx="12" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="32" y="256" font-size="12" font-weight="700" fill="#9a3412">Demo reset</text>
+    <text x="32" y="278" font-size="11" fill="#c2410c">00:00 · golden file</text>
+    <rect x="224" y="226" width="196" height="114" rx="12" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="240" y="256" font-size="12" font-weight="700" fill="#166534">Restore</text>
+    <text x="240" y="278" font-size="11" fill="#15803d">Type RESTORE</text>
+    <rect x="432" y="226" width="192" height="114" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="448" y="256" font-size="12" font-weight="700" fill="#1d4ed8">Remote disk</text>
+    <text x="448" y="278" font-size="11" fill="#1d4ed8">S3 · Drive · SFTP</text>
+  </g>
+</svg>

@@ -1,25 +1,27 @@
 # Spiggle
 
-Public product pages for private Spiggle packages. Package source stays in its own repo.
+Public product pages for Spiggle themes and Filament packages. Package source stays in its own repository. Private repositories are not listed on the catalog.
 
 GitHub Pages: [skillbobby.github.io/spiggle](https://skillbobby.github.io/spiggle/)
 
-```
-spiggle/
-  filament-theme/              Spiggle Theme product page
-  filament-fascia-theme/         Fascia Theme product page
-  material-theme/              Material Theme product page
-  filament-portal-snapshot/    Portal Snapshot product page
-```
+Catalog v2 links each card to that product’s site and shows a widget-sized screenshot.
 
-## Pages
+## Themes
 
-- [Fascia by Spiggle](https://skillbobby.github.io/spiggle/filament-fascia-theme/) — compact icon rail, flyout menu, large sidebar. Single Site $19, Unlimited Projects $49
-- [Material Theme](https://skillbobby.github.io/spiggle/material-theme/) — Material Design shell for Laravel Filament 5, $39 lifetime, all files, unlimited sites
-- [Spiggle Theme](https://skillbobby.github.io/spiggle/filament-theme/) — four layouts, six palettes, $9.99 unlimited license
+- [Rabbet Theme](https://skillbobby.github.io/spiggle/rabbet-theme/)
+- [Rabbet starter kit](https://skillbobby.github.io/spiggle/rabbet-starter-kit/)
+- [Fascia](https://skillbobby.github.io/spiggle/filament-fascia-theme/)
+- [Soffit](https://skillbobby.github.io/spiggle/filament-soffit-theme/)
+- [Spiggle Theme](https://skillbobby.github.io/spiggle/filament-theme/)
+- [Material Theme](https://skillbobby.github.io/spiggle/material-theme/)
+- [Visual Theme](https://skillbobby.github.io/spiggle/filament-visual-theme/)
 
-## Other Spiggle plugins
+## Packages
 
-- [Dynamic Fields Core](https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/)
+- [Visual Board](https://skillbobby.github.io/spiggle/filament-visual-board/)
+- [SaaS Billing](https://skillbobby.github.io/spiggle/filament-saas-billing/)
+- [Portal Snapshot](https://skillbobby.github.io/spiggle/filament-portal-snapshot/)
+- [FilaWarden Core](https://skillbobby.github.io/spiggle/Spiggle-FilaWarden-Core/)
+- [Rules Engine](https://skillbobby.github.io/Spiggle-Rules-Engine/)
 - [Form Builder Core](https://skillbobby.github.io/Spiggle-Form-Builder-Core/)
-- [List View](https://skillbobby.github.io/spiggle/material-theme/#list-view) — A–Z list toggle for Filament tables
+- [Dynamic Fields Core](https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/)

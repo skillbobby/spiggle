@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Visual Board kanban widget">
+  <rect width="640" height="360" rx="18" fill="#f8fafc"/>
+  <rect x="0" y="0" width="640" height="42" fill="#0f172a"/>
+  <circle cx="22" cy="21" r="5" fill="#f59e0b"/>
+  <text x="38" y="26" fill="#e2e8f0" font-family="Inter,sans-serif" font-size="13" font-weight="600">Task Board</text>
+  <rect x="520" y="12" width="100" height="18" rx="9" fill="#1e293b"/>
+  <text x="570" y="25" text-anchor="middle" fill="#fbbf24" font-family="Inter,sans-serif" font-size="10">4 columns</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="16" y="58" width="146" height="286" rx="12" fill="#fff" stroke="#e2e8f0"/>
+    <text x="28" y="80" font-size="11" font-weight="700" fill="#64748b">BACKLOG</text>
+    <rect x="28" y="94" width="122" height="52" rx="8" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="38" y="116" font-size="12" font-weight="600" fill="#9a3412">Brief the board</text>
+    <text x="38" y="132" font-size="10" fill="#c2410c">Vision</text>
+    <rect x="28" y="154" width="122" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="38" y="176" font-size="12" font-weight="600" fill="#0f172a">Empty plugin</text>
+    <text x="38" y="192" font-size="10" fill="#64748b">No seed data</text>
+    <rect x="174" y="58" width="146" height="286" rx="12" fill="#fff" stroke="#e2e8f0"/>
+    <text x="186" y="80" font-size="11" font-weight="700" fill="#0369a1">DOING</text>
+    <rect x="186" y="94" width="122" height="64" rx="8" fill="#e0f2fe" stroke="#7dd3fc"/>
+    <text x="196" y="118" font-size="12" font-weight="600" fill="#0c4a6e">Kanban lane</text>
+    <text x="196" y="136" font-size="10" fill="#0369a1">Drag cards</text>
+    <rect x="332" y="58" width="146" height="286" rx="12" fill="#fff" stroke="#e2e8f0"/>
+    <text x="344" y="80" font-size="11" font-weight="700" fill="#b45309">REVIEW</text>
+    <rect x="344" y="94" width="122" height="52" rx="8" fill="#fffbeb" stroke="#fcd34d"/>
+    <text x="354" y="116" font-size="12" font-weight="600" fill="#92400e">Calendar</text>
+    <text x="354" y="132" font-size="10" fill="#b45309">Same records</text>
+    <rect x="490" y="58" width="134" height="286" rx="12" fill="#fff" stroke="#e2e8f0"/>
+    <text x="502" y="80" font-size="11" font-weight="700" fill="#15803d">DONE</text>
+    <rect x="502" y="94" width="110" height="52" rx="8" fill="#f0fdf4" stroke="#86efac"/>
+    <text x="512" y="116" font-size="12" font-weight="600" fill="#166534">List view</text>
+    <text x="512" y="132" font-size="10" fill="#15803d">Table too</text>
+  </g>
+</svg>

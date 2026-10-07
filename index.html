@@ -3,99 +3,306 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Spiggle — Laravel & Filament Ecosystem Packages</title>
+  <title>Spiggle — Filament themes and packages</title>
+  <meta name="description" content="Public catalog of Spiggle themes and Filament packages. Every card opens that product’s site.">
   <link rel="canonical" href="https://skillbobby.github.io/spiggle/">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Spiggle catalog">
+  <meta property="og:description" content="Filament themes and packages. Each card opens the product site.">
+  <meta property="og:url" content="https://skillbobby.github.io/spiggle/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root { --bg:#faf8f5; --card-bg:#fff; --ink:#111827; --muted:#4b5563; --line:#e5e7eb; --accent:#f59e0b; --accent-hover:#d97706; --font:Inter,system-ui,sans-serif; --card-hover-border:#cbd5e1; --btn-bg:#fff; }
-    [data-theme=dark] { --bg:#0f172a; --card-bg:#1e293b; --ink:#f8fafc; --muted:#94a3b8; --line:#334155; --accent-hover:#fbbf24; --card-hover-border:#475569; --btn-bg:#1e293b; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:var(--font); background:var(--bg); color:var(--ink); line-height:1.6; }
-    .wrap { width:min(1100px,calc(100% - 32px)); margin:0 auto; padding:60px 0 80px; }
-    header { margin-bottom:48px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
-    .theme-toggle-btn { background:var(--card-bg); border:1px solid var(--line); color:var(--ink); width:40px; height:40px; border-radius:50%; cursor:pointer; }
-    [data-theme=dark] .sun-icon { display:block; } [data-theme=dark] .moon-icon { display:none; } .sun-icon { display:none; } .moon-icon { display:block; }
-    .kicker { font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-hover); margin-bottom:8px; }
-    h1 { margin:0 0 12px; font-size:clamp(2rem,4vw,2.6rem); letter-spacing:-.03em; }
-    .lead { color:var(--muted); max-width:40rem; margin:0; }
-    .filter-bar { display:flex; gap:8px; margin-bottom:28px; flex-wrap:wrap; }
-    .filter-btn { background:transparent; border:1px solid var(--line); padding:6px 14px; border-radius:999px; font-size:13px; font-weight:500; color:var(--muted); cursor:pointer; }
-    .filter-btn:hover,.filter-btn.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; }
-    article { background:var(--card-bg); border:1px solid var(--line); border-radius:16px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; }
-    article:hover { transform:translateY(-2px); border-color:var(--card-hover-border); }
-    .badges { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
-    .badge { font-size:11px; font-weight:600; padding:3px 8px; border-radius:6px; text-transform:uppercase; }
-    .badge-core { background:#eff6ff; color:#1d4ed8; } .badge-pro { background:#fdf4ff; color:#a21caf; } .badge-theme { background:#fff7ed; color:#c2410c; } .badge-mit { background:#f0fdf4; color:#15803d; }
-    article h2 { margin:0 0 8px; font-size:1.15rem; } article h2 a { color:var(--ink); text-decoration:none; }
-    article p { margin:0 0 20px; color:var(--muted); font-size:.93rem; flex-grow:1; }
-    .card-footer { display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:14px; }
-    .repo-stats { font-size:12px; color:var(--muted); }
-    a.btn { color:var(--ink); font-weight:600; font-size:13px; text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:6px 12px; background:var(--btn-bg); }
-    footer { margin-top:64px; border-top:1px solid var(--line); padding-top:24px; color:var(--muted); font-size:14px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    footer a { color:var(--muted); }
+    :root {
+      --bg: #f4efe6;
+      --ink: #172033;
+      --muted: #5c6574;
+      --line: rgba(23, 32, 51, .12);
+      --card: #fffdf8;
+      --sky: #0284c7;
+      --amber: #d97706;
+      --shadow: 0 18px 40px rgba(23, 32, 51, .08);
+    }
+    [data-theme="dark"] {
+      --bg: #10151f;
+      --ink: #f4efe6;
+      --muted: #a8b0bd;
+      --line: rgba(244, 239, 230, .12);
+      --card: #1a2130;
+      --shadow: 0 18px 40px rgba(0, 0, 0, .28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 420px at 8% -10%, rgba(14, 165, 233, .18), transparent 60%),
+        radial-gradient(800px 380px at 100% 0%, rgba(245, 158, 11, .2), transparent 55%),
+        var(--bg);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0 8px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; letter-spacing: -.02em; }
+    .mark {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, #0ea5e9, #f59e0b);
+    }
+    .theme-btn {
+      width: 40px; height: 40px; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer;
+    }
+    [data-theme="dark"] .sun { display: block; }
+    [data-theme="dark"] .moon { display: none; }
+    .sun { display: none; }
+    .moon { display: block; }
+    .hero { padding: 28px 0 18px; display: grid; grid-template-columns: 1.4fr .8fr; gap: 28px; align-items: end; }
+    .kicker { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin: 0 0 10px; }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: .95; letter-spacing: -.04em; margin: 0 0 14px; font-weight: 560; }
+    .lead { margin: 0; max-width: 38rem; color: var(--muted); font-size: 1.05rem; }
+    .version {
+      justify-self: end; background: var(--card); border: 1px solid var(--line);
+      border-radius: 18px; padding: 16px 18px; box-shadow: var(--shadow); min-width: 210px;
+    }
+    .version strong { display: block; font-family: Fraunces, Georgia, serif; font-size: 1.4rem; }
+    .version span { color: var(--muted); font-size: 13px; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 22px 0 18px; }
+    .filter-btn {
+      border: 1px solid var(--line); background: transparent; color: var(--muted);
+      border-radius: 999px; padding: 8px 14px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+    article.card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+      box-shadow: var(--shadow); display: flex; flex-direction: column; min-height: 100%;
+    }
+    article.card:hover { transform: translateY(-3px); }
+    .shot {
+      display: block; aspect-ratio: 16 / 9; background: #e7e1d6; position: relative; overflow: hidden;
+    }
+    .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+    .shot svg, .shot img.widget { object-fit: cover; }
+    .badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .badge { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; }
+    .core { background: #e0f2fe; color: #075985; }
+    .theme { background: #ffedd5; color: #9a3412; }
+    .pro { background: #fae8ff; color: #86198f; }
+    .mit { background: #dcfce7; color: #166534; }
+    [data-theme="dark"] .core { background: #0c4a6e; color: #e0f2fe; }
+    [data-theme="dark"] .theme { background: #7c2d12; color: #ffedd5; }
+    [data-theme="dark"] .pro { background: #701a75; color: #fae8ff; }
+    [data-theme="dark"] .mit { background: #14532d; color: #dcfce7; }
+    .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    h2 { margin: 0; font-size: 1.2rem; letter-spacing: -.02em; }
+    h2 a { text-decoration: none; }
+    h2 a:hover { color: var(--sky); }
+    p { margin: 0; color: var(--muted); font-size: .94rem; flex: 1; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 8px; }
+    .meta { font-size: 12px; color: var(--muted); }
+    .btn {
+      text-decoration: none; font-size: 13px; font-weight: 700;
+      border-radius: 999px; padding: 8px 12px; background: var(--ink); color: var(--bg);
+    }
+    footer {
+      margin: 48px 0 28px; padding-top: 18px; border-top: 1px solid var(--line);
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      color: var(--muted); font-size: 14px;
+    }
+    footer a { color: var(--muted); }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+      .version { justify-self: start; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div>
-        <div class="kicker">Laravel · FilamentPHP · Ecosystem</div>
-        <h1>Spiggle Repositories</h1>
-        <p class="lead">Complete directory of packages, UI themes, core builders, and extensions maintained by Spiggle.</p>
-      </div>
-      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">
-        <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
-        <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle></svg>
+    <div class="top">
+      <a class="brand" href="./"><span class="mark" aria-hidden="true"></span> Spiggle</a>
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="moon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+        <svg class="sun" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2"></path></svg>
       </button>
+    </div>
+    <header class="hero">
+      <div>
+        <p class="kicker">Laravel · Filament · Catalog v2</p>
+        <h1>Themes and packages, with the panel in the card.</h1>
+        <p class="lead">Public product sites only. Private repositories are not listed. Every card opens that theme or package site.</p>
+      </div>
+      <div class="version">
+        <strong>Catalog v2</strong>
+        <span>Widget previews · live site links · no private repos</span>
+      </div>
     </header>
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterRepo('all', this)">All Repositories</button>
-      <button class="filter-btn" onclick="filterRepo('core', this)">Core & Free</button>
-      <button class="filter-btn" onclick="filterRepo('pro', this)">Pro Add-ons</button>
-      <button class="filter-btn" onclick="filterRepo('theme', this)">Themes & UI</button>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="theme">Themes</button>
+      <button class="filter-btn" data-filter="core">Packages</button>
+      <button class="filter-btn" data-filter="pro">Commercial</button>
     </div>
     <div class="grid" id="repo-grid">
-      <article data-category="core"><div class="badges"><span class="badge badge-core">Core</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://skillbobby.github.io/spiggle/filament-visual-board/">Visual Board</a></h2><p>Task Board + Vision Board for Filament 5. Kanban, list, table, calendar. Plugin ships empty.</p><div class="card-footer"><span class="repo-stats">Laravel 13</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-visual-board/">View Site →</a></div></article>
-      <article data-category="theme"><div class="badges"><span class="badge badge-theme">Theme</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://skillbobby.github.io/spiggle/filament-visual-theme/">Visual Theme</a></h2><p>Six profile palettes, Inter typography, and an Appearance page. No product data is hardcoded.</p><div class="card-footer"><span class="repo-stats">Filament 5</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-visual-theme/">View Site →</a></div></article>
-      <article data-category="core"><div class="badges"><span class="badge badge-core">Core</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://skillbobby.github.io/spiggle/filament-saas-billing/">SaaS Billing</a></h2><p>Free / Starter $9.99 / Studio $29. Usage limits, Integrations page, Lemon Squeezy webhooks.</p><div class="card-footer"><span class="repo-stats">Lemon Squeezy</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-saas-billing/">View Site →</a></div></article>
-      <article data-category="core"><div class="badges"><span class="badge badge-core">Core</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://skillbobby.github.io/spiggle/filament-portal-snapshot/">Portal Snapshot</a></h2><p>Create, schedule, export, and restore database snapshots from Filament v4 &amp; v5 — with automated midnight demo resets and remote storage sync.</p><div class="card-footer"><span class="repo-stats">Filament 4 &amp; 5 · Free</span><div style="display:flex;gap:6px;"><a class="btn" href="https://github.com/skillbobby/Spiggle-Filament-Portal-Snapshot" target="_blank" rel="noopener">GitHub ↗</a><a class="btn" href="https://skillbobby.github.io/spiggle/filament-portal-snapshot/">View Site →</a></div></div></article>
-      <article data-category="core"><div class="badges"><span class="badge badge-core">Core</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://skillbobby.github.io/spiggle/Spiggle-FilaWarden-Core/">FilaWarden Core</a></h2><p>Enterprise health scoring, deployment pre-flight auditor, queue &amp; cron overseer, and system telemetry sentinel for Filament v4 &amp; v5.</p><div class="card-footer"><span class="repo-stats">Filament 4 &amp; 5 · Free</span><div style="display:flex;gap:6px;"><a class="btn" href="https://github.com/skillbobby/Spiggle-FilaWarden-Core" target="_blank" rel="noopener">GitHub ↗</a><a class="btn" href="https://skillbobby.github.io/spiggle/Spiggle-FilaWarden-Core/">View Site →</a></div></div></article>
-      <article data-category="core"><div class="badges"><span class="badge badge-core">Core</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://github.com/skillbobby/Spiggle-Rules-Engine">Rules Engine</a></h2><p>Enterprise fully UI-driven event trigger plugin designed for Laravel and Filament.</p><div class="card-footer"><span class="repo-stats">Community</span><a class="btn" href="https://skillbobby.github.io/Spiggle-Rules-Engine">Explore →</a></div></article>
-      <article data-category="core"><div class="badges"><span class="badge badge-core">Core</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://github.com/skillbobby/Spiggle-Form-Builder-Core">Form Builder</a></h2><p>Public forms, submissions inbox, and CSV export.</p><div class="card-footer"><span class="repo-stats">Community</span><a class="btn" href="https://skillbobby.github.io/Spiggle-Form-Builder-Core">View Site →</a></div></article>
-      <article data-category="core"><div class="badges"><span class="badge badge-core">Core</span><span class="badge badge-mit">MIT</span></div><h2><a href="https://github.com/skillbobby/Spiggle-Dynamic-Fields-Core">Dynamic Fields</a></h2><p>Custom EAV fields for any Eloquent model.</p><div class="card-footer"><span class="repo-stats">Community</span><a class="btn" href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/">View Site →</a></div></article>
-      <article data-category="pro"><div class="badges"><span class="badge badge-pro">Kit</span><span class="badge badge-pro">Commercial</span></div><h2><a href="https://skillbobby.github.io/spiggle/rabbet-theme/#offers">Rabbet starter kit</a></h2><p>Overview, work queue, policies, quotes, and claims for Filament 5. Requires the Rabbet theme.</p><div class="card-footer"><span class="repo-stats">Bundle · $29 / $79 yr</span><a class="btn" href="https://skillbobby.github.io/spiggle/rabbet-theme/#offers">View Site →</a></div></article>
-      <article data-category="theme"><div class="badges"><span class="badge badge-theme">Theme</span><span class="badge badge-pro">Commercial</span></div><h2><a href="https://skillbobby.github.io/spiggle/rabbet-theme/">Rabbet Theme</a></h2><p>Forest-green Filament 5 shell. Theme only at $19 / $49, or theme plus starter kit at $29 / $79 a year.</p><div class="card-footer"><span class="repo-stats">Four licenses</span><a class="btn" href="https://skillbobby.github.io/spiggle/rabbet-theme/">View Site →</a></div></article>
-      <article data-category="theme"><div class="badges"><span class="badge badge-theme">Theme</span><span class="badge badge-pro">Commercial</span></div><h2><a href="https://skillbobby.github.io/spiggle/filament-fascia-theme/">Fascia by Spiggle</a></h2><p>Compact icon rail, flyout menu, and large sidebar for Filament 4 and 5. Nunito, seven skins, light and dark mode, and a mobile drawer.</p><div class="card-footer"><span class="repo-stats">Filament 4 & 5 · $19 / $49</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-fascia-theme/">View Site →</a></div></article>
-      <article data-category="theme"><div class="badges"><span class="badge badge-theme">Theme</span><span class="badge badge-pro">Commercial</span></div><h2><a href="https://skillbobby.github.io/spiggle/filament-soffit-theme/">Soffit Theme</a></h2><p>A soft, calm Filament admin shell with a full-height white sidebar, rounded cards, quiet shadows, and warm teal &amp; brass accents. Light &amp; dark mode.</p><div class="card-footer"><span class="repo-stats">Filament 4 &amp; 5 · $19 / $49</span><div style="display:flex;gap:6px;"><a class="btn" href="https://skillbobby.com/spiggle/public/admin/login" target="_blank" rel="noopener">Live Demo ↗</a><a class="btn" href="https://skillbobby.github.io/spiggle/filament-soffit-theme/">View Site →</a></div></div></article>
-      <article data-category="theme"><div class="badges"><span class="badge badge-theme">Theme</span></div><h2><a href="https://skillbobby.github.io/spiggle/filament-theme">Spiggle Theme</a></h2><p>Crisp Filament theme with flexible sidebar layouts.</p><div class="card-footer"><span class="repo-stats">Tailwind CSS</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-theme">View Site →</a></div></article>
-      <article data-category="theme"><div class="badges"><span class="badge badge-theme">Theme</span></div><h2><a href="https://skillbobby.github.io/spiggle/material-theme">Material Theme</a></h2><p>Material Design chrome for Filament v5.</p><div class="card-footer"><span class="repo-stats">Material</span><a class="btn" href="https://skillbobby.github.io/spiggle/material-theme">View Site →</a></div></article>
-      <article data-category="pro"><div class="badges"><span class="badge badge-pro">Pro</span></div><h2><a href="https://github.com/skillbobby/Spiggle-Form-Builder-Pro">Form Builder Pro</a></h2><p>Licensed add-on for Form Builder Core.</p><div class="card-footer"><span class="repo-stats">Licensed</span><a class="btn" href="https://github.com/skillbobby/Spiggle-Form-Builder-Pro">GitHub →</a></div></article>
+      <article class="card" data-category="theme">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/rabbet-theme/"><img src="rabbet-theme/screenshots/overview-light.png" alt="Rabbet theme dashboard widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge theme">Theme</span><span class="badge pro">Commercial</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/rabbet-theme/">Rabbet Theme</a></h2>
+          <p>Forest-green Filament 5 shell. Theme only at $19 / $49, or theme plus starter kit at $29 / $79 a year.</p>
+          <div class="foot"><span class="meta">Filament 5 · four licenses</span><a class="btn" href="https://skillbobby.github.io/spiggle/rabbet-theme/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="pro">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/"><img src="rabbet-starter-kit/screenshots/work-queue.png" alt="Rabbet starter kit work queue"></a>
+        <div class="body">
+          <div class="badges"><span class="badge pro">Kit</span><span class="badge pro">Commercial</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/">Rabbet starter kit</a></h2>
+          <p>Overview, work queue, policies, quotes, and claims for Filament 5. Requires the Rabbet theme.</p>
+          <div class="foot"><span class="meta">Bundle · $29 / $79 yr</span><a class="btn" href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="theme">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-fascia-theme/"><img src="filament-fascia-theme/screenshots/light.png" alt="Fascia theme light shell"></a>
+        <div class="body">
+          <div class="badges"><span class="badge theme">Theme</span><span class="badge pro">Commercial</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-fascia-theme/">Fascia</a></h2>
+          <p>Compact icon rail, flyout menu, and large sidebar for Filament 4 and 5. Nunito, seven skins, light and dark, mobile drawer.</p>
+          <div class="foot"><span class="meta">Filament 4 & 5 · $19 / $49</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-fascia-theme/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="theme">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-soffit-theme/"><img src="filament-soffit-theme/screenshots/preview-light.png" alt="Soffit theme light preview"></a>
+        <div class="body">
+          <div class="badges"><span class="badge theme">Theme</span><span class="badge pro">Commercial</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-soffit-theme/">Soffit</a></h2>
+          <p>Soft admin shell. Full-height white sidebar, rounded cards, quiet shadows, teal and brass. Light and dark.</p>
+          <div class="foot"><span class="meta">Filament 4 & 5 · $19 / $49</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-soffit-theme/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="theme">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-theme/"><img src="filament-theme/screenshots/Spiggle-Theme_Standard-Blue_Layout.png" alt="Spiggle theme standard blue layout"></a>
+        <div class="body">
+          <div class="badges"><span class="badge theme">Theme</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-theme/">Spiggle Theme</a></h2>
+          <p>Crisp Filament theme with standard, solid, and canvas sidebar layouts and several palettes.</p>
+          <div class="foot"><span class="meta">Tailwind · layouts</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-theme/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="theme">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/material-theme/"><img src="material-theme/screenshots/list-view.png" alt="Material theme list view"></a>
+        <div class="body">
+          <div class="badges"><span class="badge theme">Theme</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/material-theme/">Material Theme</a></h2>
+          <p>Material Design chrome for Filament v5, including list view, notifications, and account screens.</p>
+          <div class="foot"><span class="meta">Filament 5 · Material</span><a class="btn" href="https://skillbobby.github.io/spiggle/material-theme/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="theme">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-visual-theme/"><img class="widget" src="widgets/visual-theme.svg" alt="Visual Theme palette widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge theme">Theme</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-visual-theme/">Visual Theme</a></h2>
+          <p>Six profile palettes, Inter typography, and an Appearance page. No product data is hardcoded.</p>
+          <div class="foot"><span class="meta">Filament 5</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-visual-theme/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="core">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-visual-board/"><img class="widget" src="widgets/visual-board.svg" alt="Visual Board kanban widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-visual-board/">Visual Board</a></h2>
+          <p>Task Board and Vision Board for Filament 5. Kanban, list, table, calendar. Plugin ships empty.</p>
+          <div class="foot"><span class="meta">Laravel 13</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-visual-board/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="core">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-saas-billing/"><img class="widget" src="widgets/saas-billing.svg" alt="SaaS billing plans widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-saas-billing/">SaaS Billing</a></h2>
+          <p>Free, Starter $9.99, Studio $29. Usage limits, Integrations page, Lemon Squeezy webhooks.</p>
+          <div class="foot"><span class="meta">Lemon Squeezy</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-saas-billing/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="core">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/filament-portal-snapshot/"><img class="widget" src="widgets/portal-snapshot.svg" alt="Portal Snapshot widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/filament-portal-snapshot/">Portal Snapshot</a></h2>
+          <p>Create, schedule, export, and restore database snapshots from Filament 4 and 5, with a midnight demo reset.</p>
+          <div class="foot"><span class="meta">Filament 4 & 5</span><a class="btn" href="https://skillbobby.github.io/spiggle/filament-portal-snapshot/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="core">
+        <a class="shot" href="https://skillbobby.github.io/spiggle/Spiggle-FilaWarden-Core/"><img src="Spiggle-FilaWarden-Core/assets/executive-dashboard.png" alt="FilaWarden executive dashboard"></a>
+        <div class="body">
+          <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/spiggle/Spiggle-FilaWarden-Core/">FilaWarden Core</a></h2>
+          <p>Health scoring, deployment pre-flight, queue and cron overseer, and telemetry for Filament 4 and 5.</p>
+          <div class="foot"><span class="meta">Filament 4 & 5</span><a class="btn" href="https://skillbobby.github.io/spiggle/Spiggle-FilaWarden-Core/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="core">
+        <a class="shot" href="https://skillbobby.github.io/Spiggle-Rules-Engine/"><img class="widget" src="widgets/rules-engine.svg" alt="Rules Engine trigger widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/Spiggle-Rules-Engine/">Rules Engine</a></h2>
+          <p>UI-driven event triggers for Laravel and Filament. Conditions and actions without a code deploy.</p>
+          <div class="foot"><span class="meta">Community</span><a class="btn" href="https://skillbobby.github.io/Spiggle-Rules-Engine/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="core">
+        <a class="shot" href="https://skillbobby.github.io/Spiggle-Form-Builder-Core/"><img class="widget" src="widgets/form-builder.svg" alt="Form Builder widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/Spiggle-Form-Builder-Core/">Form Builder</a></h2>
+          <p>Public forms, submissions inbox, and CSV export. Community edition.</p>
+          <div class="foot"><span class="meta">Community</span><a class="btn" href="https://skillbobby.github.io/Spiggle-Form-Builder-Core/">View site</a></div>
+        </div>
+      </article>
+      <article class="card" data-category="core">
+        <a class="shot" href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/"><img class="widget" src="widgets/dynamic-fields.svg" alt="Dynamic Fields widget"></a>
+        <div class="body">
+          <div class="badges"><span class="badge core">Package</span><span class="badge mit">MIT</span></div>
+          <h2><a href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/">Dynamic Fields</a></h2>
+          <p>Custom EAV fields for any Eloquent model, surfaced in Filament forms and tables.</p>
+          <div class="foot"><span class="meta">Community</span><a class="btn" href="https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/">View site</a></div>
+        </div>
+      </article>
     </div>
     <footer>
-      <span>© <span id="y"></span> Spiggle · Built for developers</span>
-      <a href="https://x.com/iamspiggle" target="_blank">@iamspiggle</a>
+      <span>© <span id="y"></span> Spiggle · Catalog v2</span>
+      <a href="https://x.com/iamspiggle">@iamspiggle</a>
     </footer>
   </div>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-    const toggleBtn = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) htmlElement.setAttribute('data-theme', savedTheme);
-    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) htmlElement.setAttribute('data-theme', 'dark');
-    toggleBtn.addEventListener('click', () => {
-      const next = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      htmlElement.setAttribute('data-theme', next);
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
     });
-    function filterRepo(category, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('#repo-grid article').forEach(article => {
-        article.style.display = (category === 'all' || article.dataset.category === category) ? 'flex' : 'none';
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const category = btn.dataset.filter;
+        document.querySelectorAll('#repo-grid article').forEach((card) => {
+          card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
+        });
       });
-    }
+    });
   </script>
 </body>
 </html>

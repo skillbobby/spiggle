@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Form Builder widget">
+  <rect width="640" height="360" rx="18" fill="#f8fafc"/>
+  <rect width="168" height="360" fill="#0f172a"/>
+  <text x="20" y="36" fill="#fbbf24" font-family="Inter,sans-serif" font-size="13" font-weight="700">Forms</text>
+  <text x="20" y="70" fill="#e2e8f0" font-family="Inter,sans-serif" font-size="12">Public form</text>
+  <text x="20" y="96" fill="#94a3b8" font-family="Inter,sans-serif" font-size="12">Inbox</text>
+  <text x="20" y="122" fill="#94a3b8" font-family="Inter,sans-serif" font-size="12">CSV export</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="188" y="20" width="432" height="320" rx="14" fill="#fff" stroke="#e2e8f0"/>
+    <text x="208" y="52" font-size="14" font-weight="700" fill="#0f172a">Workshop intake</text>
+    <text x="208" y="78" font-size="11" fill="#64748b">12 submissions · public URL</text>
+    <rect x="208" y="100" width="392" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="220" y="123" font-size="12" fill="#94a3b8">Name</text>
+    <rect x="208" y="146" width="392" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="220" y="169" font-size="12" fill="#94a3b8">Email</text>
+    <rect x="208" y="192" width="392" height="72" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="220" y="216" font-size="12" fill="#94a3b8">Message</text>
+    <rect x="208" y="278" width="120" height="34" rx="8" fill="#0ea5e9"/>
+    <text x="268" y="300" text-anchor="middle" font-size="12" fill="#fff" font-weight="600">Submit</text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='980' height='560' viewBox='0 0 980 560' role='img' aria-label='Restore snapshot confirmation'>
+  <rect width='980' height='560' fill='#0f172a' opacity='0.45'/>
+  <rect x='190' y='50' width='600' height='460' rx='16' fill='#ffffff'/>
+  <rect x='220' y='78' width='36' height='36' rx='18' fill='#fef3c7'/>
+  <text x='231' y='102' fill='#b45309' font-family='Inter,Segoe UI,sans-serif' font-size='18' font-weight='700'>!</text>
+  <text x='268' y='102' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='20' font-weight='700'>Restore snapshot</text>
+  <text x='220' y='146' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='13'>This drops tables on the target connection, then loads the dump. Plugin schedule and operation rows are preserved.</text>
+  <rect x='220' y='168' width='540' height='56' rx='10' fill='#fff7ed' stroke='#fdba74'/>
+  <text x='236' y='192' fill='#9a3412' font-family='Inter,Segoe UI,sans-serif' font-size='13' font-weight='600'>demo-baseline.sql.gz</text>
+  <text x='236' y='210' fill='#c2410c' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Golden baseline · 18.4 MB · mysql</text>
+  <text x='220' y='256' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Target connection</text>
+  <rect x='220' y='264' width='540' height='40' rx='8' fill='#fff' stroke='#cbd5e1'/>
+  <text x='234' y='290' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14'>mysql</text>
+  <text x='220' y='334' fill='#334155' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Type RESTORE to confirm</text>
+  <rect x='220' y='342' width='540' height='40' rx='8' fill='#fff' stroke='#f59e0b'/>
+  <text x='234' y='368' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='700'>RESTORE</text>
+  <text x='220' y='406' fill='#94a3b8' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Blocked outside allow_restore_environments. Default: local, staging, demo.</text>
+  <rect x='454' y='438' width='140' height='40' rx='10' fill='#fff' stroke='#e2e8f0'/>
+  <text x='500' y='463' fill='#475569' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='600'>Cancel</text>
+  <rect x='608' y='438' width='152' height='40' rx='10' fill='#dc2626'/>
+  <text x='640' y='463' fill='#fff' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='700'>Restore now</text>
+</svg>

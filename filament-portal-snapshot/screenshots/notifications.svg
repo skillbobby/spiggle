@@ -1,0 +1,35 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='980' height='640' viewBox='0 0 980 640' role='img' aria-label='Stats and notification bell'>
+  <rect width='980' height='640' fill='#f8fafc'/>
+  <rect width='980' height='56' fill='#ffffff' stroke='#e2e8f0'/>
+  <text x='24' y='36' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='16' font-weight='700'>Snapshots</text>
+  <circle cx='900' cy='28' r='14' fill='#fff7ed' stroke='#f59e0b'/>
+  <text x='895' y='33' fill='#b45309' font-family='Inter,Segoe UI,sans-serif' font-size='12'>3</text>
+  <rect x='790' y='64' width='168' height='220' rx='12' fill='#ffffff' stroke='#e2e8f0'/>
+  <text x='806' y='90' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='13' font-weight='700'>Notifications</text>
+  <text x='806' y='122' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Snapshot created</text>
+  <text x='806' y='140' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11'>nightly-2026-09-28 · 2m</text>
+  <text x='806' y='172' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Copied to s3</text>
+  <text x='806' y='190' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11'>19.1 MB uploaded · 1m</text>
+  <text x='806' y='222' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='12' font-weight='600'>Demo reset finished</text>
+  <text x='806' y='240' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='11'>golden restored · 00:00</text>
+  <rect x='24' y='80' width='300' height='90' rx='12' fill='#fff' stroke='#e2e8f0'/>
+  <text x='44' y='112' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Snapshots on disk</text>
+  <text x='44' y='146' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='28' font-weight='700'>6</text>
+  <rect x='340' y='80' width='300' height='90' rx='12' fill='#fff' stroke='#e2e8f0'/>
+  <text x='360' y='112' fill='#64748b' font-family='Inter,Segoe UI,sans-serif' font-size='12'>Active schedules</text>
+  <text x='360' y='146' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='28' font-weight='700'>3</text>
+  <rect x='24' y='190' width='742' height='420' rx='14' fill='#fff' stroke='#e2e8f0'/>
+  <text x='44' y='226' fill='#0f172a' font-family='Inter,Segoe UI,sans-serif' font-size='14' font-weight='700'>Recent activity</text>
+  <g font-family='Inter,Segoe UI,sans-serif' font-size='13'>
+    <text x='44' y='270' fill='#0f172a'>Create · nightly-2026-09-28.sql.gz</text>
+    <text x='520' y='270' fill='#047857' font-weight='600'>completed</text>
+    <text x='44' y='314' fill='#0f172a'>Remote copy · s3://portal-dumps</text>
+    <text x='520' y='314' fill='#047857' font-weight='600'>completed</text>
+    <text x='44' y='358' fill='#0f172a'>Restore · demo-baseline.sql.gz</text>
+    <text x='520' y='358' fill='#047857' font-weight='600'>completed</text>
+    <text x='44' y='402' fill='#0f172a'>Cleanup · kept last 14 dumps</text>
+    <text x='520' y='402' fill='#047857' font-weight='600'>completed</text>
+    <text x='44' y='446' fill='#0f172a'>Create · before-import.sql.gz</text>
+    <text x='520' y='446' fill='#b45309' font-weight='600'>queued</text>
+  </g>
+</svg>

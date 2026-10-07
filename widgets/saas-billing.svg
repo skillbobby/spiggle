@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="SaaS billing plans widget">
+  <rect width="640" height="360" rx="18" fill="#fffbeb"/>
+  <rect width="640" height="42" fill="#0f172a"/>
+  <circle cx="22" cy="21" r="5" fill="#f59e0b"/>
+  <text x="38" y="26" fill="#e2e8f0" font-family="Inter,sans-serif" font-size="13" font-weight="600">Billing</text>
+  <g font-family="Inter,sans-serif">
+    <rect x="18" y="60" width="194" height="280" rx="14" fill="#fff" stroke="#e7e5e4"/>
+    <text x="34" y="90" font-size="12" fill="#78716c">Free</text>
+    <text x="34" y="118" font-size="26" font-weight="700" fill="#0f172a">$0</text>
+    <text x="34" y="148" font-size="11" fill="#78716c">Usage limits on</text>
+    <rect x="34" y="250" width="162" height="32" rx="8" fill="#f5f5f4"/>
+    <text x="115" y="271" text-anchor="middle" font-size="12" fill="#44403c">Current</text>
+    <rect x="224" y="60" width="194" height="280" rx="14" fill="#fff" stroke="#f59e0b" stroke-width="2"/>
+    <text x="240" y="90" font-size="12" fill="#b45309">Starter</text>
+    <text x="240" y="118" font-size="26" font-weight="700" fill="#0f172a">$9.99</text>
+    <text x="240" y="148" font-size="11" fill="#78716c">Lemon Squeezy</text>
+    <rect x="240" y="250" width="162" height="32" rx="8" fill="#f59e0b"/>
+    <text x="321" y="271" text-anchor="middle" font-size="12" fill="#fff" font-weight="600">Upgrade</text>
+    <rect x="430" y="60" width="192" height="280" rx="14" fill="#0f172a"/>
+    <text x="446" y="90" font-size="12" fill="#fbbf24">Studio</text>
+    <text x="446" y="118" font-size="26" font-weight="700" fill="#fff">$29</text>
+    <text x="446" y="148" font-size="11" fill="#94a3b8">Integrations page</text>
+    <rect x="446" y="250" width="160" height="32" rx="8" fill="#fbbf24"/>
+    <text x="526" y="271" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="600">Webhook</text>
+  </g>
+</svg>
