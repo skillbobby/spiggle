@@ -6,7 +6,9 @@ It restyles every screen you already have, including forms, tables, modals and t
 
 Product page: https://skillbobby.github.io/spiggle/small-business-theme/
 
-Versions: 2.4 · PHP 8.3+ · Laravel 13 · Filament 5
+**Current version:** 2.4
+
+PHP 8.3+ · Laravel 13 · Filament 5
 
 ## Preview
 
