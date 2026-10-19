@@ -10,6 +10,7 @@ GitHub Pages: [skillbobby.github.io/spiggle](https://skillbobby.github.io/spiggl
 - [Rabbet starter kit](https://skillbobby.github.io/spiggle/rabbet-starter-kit/)
 - [Fascia](https://skillbobby.github.io/spiggle/filament-fascia-theme/)
 - [Soffit](https://skillbobby.github.io/spiggle/filament-soffit-theme/)
+- [Small Business Theme](https://skillbobby.github.io/spiggle/small-business-theme/)
 - [Spiggle Theme](https://skillbobby.github.io/spiggle/filament-theme/)
 - [Material Theme](https://skillbobby.github.io/spiggle/material-theme/)
 - [Visual Theme](https://skillbobby.github.io/spiggle/filament-visual-theme/)
