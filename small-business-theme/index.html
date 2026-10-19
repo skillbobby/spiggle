@@ -100,23 +100,23 @@
       <div class="container">
         <div class="section-label">Preview</div>
         <h2 class="section-title">The same frame on every screen</h2>
-        <p class="section-desc">Dashboard, a list, an edit form, and a record view. Colour follows the active scheme.</p>
+        <p class="section-desc">Dashboard, employees, appearance, and forms. Each shot keeps the whole rounded frame. Click one to zoom.</p>
         <div class="gallery">
           <figure>
             <figcaption>Dashboard</figcaption>
-            <img src="screenshots/dashboard.png" alt="Dashboard with head count, projects, tasks, and leave">
+            <img src="screenshots/dashboard.png" alt="Dashboard inside the full rounded frame">
           </figure>
           <figure>
-            <figcaption>Departments</figcaption>
-            <img src="screenshots/departments.png" alt="Departments table inside the rounded frame">
+            <figcaption>Employees</figcaption>
+            <img src="screenshots/employees.png" alt="Employees list inside the full rounded frame">
           </figure>
           <figure>
-            <figcaption>Edit employee</figcaption>
-            <img src="screenshots/employee.png" alt="Employee edit form with personal details">
+            <figcaption>Appearance</figcaption>
+            <img src="screenshots/appearance.png" alt="Appearance page with six colour schemes inside the full rounded frame">
           </figure>
           <figure>
-            <figcaption>Project</figcaption>
-            <img src="screenshots/project.png" alt="Project view with status, priority, and description">
+            <figcaption>Forms</figcaption>
+            <img src="screenshots/forms.png" alt="Forms list inside the full rounded frame">
           </figure>
         </div>
       </div>
@@ -260,6 +260,20 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('.hero-shot img, .gallery img').forEach((img) => {
+      img.addEventListener('click', () => {
+        const dialog = document.createElement('dialog');
+        dialog.className = 'zoom-dialog';
+        const full = document.createElement('img');
+        full.src = img.src;
+        full.alt = img.alt;
+        dialog.append(full);
+        dialog.addEventListener('click', () => dialog.close());
+        dialog.addEventListener('close', () => dialog.remove());
+        document.body.append(dialog);
+        dialog.showModal();
+      });
+    });
   </script>
 </body>
 </html>
