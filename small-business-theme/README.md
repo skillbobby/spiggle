@@ -6,6 +6,8 @@ It restyles every screen you already have, including forms, tables, modals and t
 
 Product page: https://skillbobby.github.io/spiggle/small-business-theme/
 
+Versions: 2.4 · PHP 8.3+ · Laravel 13 · Filament 5
+
 ## Preview
 
 The panel sits on a quiet canvas as a single rounded surface. Sidebar, topbar and content share that frame. Cards, buttons and navigation follow the active scheme.
