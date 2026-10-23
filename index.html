@@ -416,34 +416,177 @@ code { font-family: var(--mono); font-size: 0.86em; }
   box-shadow: var(--shadow);
 }
 
-.dots { display: block; width: 100%; height: auto; }
-.dots circle { transform-box: fill-box; transform-origin: center; }
-.dots .off { fill: #e7e4ee; }
-.dots .on { fill: url(#art-grad); }
+/* ---------- plugin spotlight ---------- */
 
-.chip {
-  position: absolute;
-  padding: 7px 14px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  box-shadow: var(--shadow);
+.plugin-spotlight { padding: clamp(18px, 2.4vw, 24px); }
+
+.ps-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.ps-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   font-family: var(--mono);
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+.ps-kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--purple);
+  box-shadow: 0 0 0 4px var(--purple-tint);
+}
+
+.ps-controls { display: flex; gap: 6px; }
+
+.ps-arrow {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
   color: var(--ink-2);
+  cursor: pointer;
+  transition: color .18s var(--ease), border-color .18s var(--ease), background-color .18s var(--ease);
+}
+.ps-arrow:hover { border-color: var(--purple); background: var(--purple-tint); color: var(--purple); }
+.ps-arrow .icon { width: 16px; height: 16px; }
+
+.ps-content { min-width: 0; }
+.ps-content.is-swapping { animation: ps-in .4s var(--ease) both; }
+
+.ps-figure {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--purple-tint);
+}
+.ps-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.ps-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.ps-tag {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--purple-tint);
+  color: var(--purple);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ps-count {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+.ps-title {
+  margin-top: 8px;
+  font-size: clamp(1.25rem, 1.9vw, 1.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+.ps-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.ps-title a:hover { color: var(--purple); }
+.ps-title .icon { width: 15px; height: 15px; color: var(--muted); }
+
+.ps-desc {
+  min-height: 2.9em;
+  margin-top: 7px;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.ps-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.ps-dots { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.ps-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #d9d4e6;
+  cursor: pointer;
+  transition: width .2s var(--ease), background-color .2s var(--ease), border-radius .2s var(--ease);
+}
+.ps-dot:hover { background: #a99bd0; }
+.ps-dot.is-active { width: 18px; border-radius: 999px; background: var(--purple); }
+
+.ps-browse {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 36px;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
   white-space: nowrap;
 }
-.chip-1 { top: -16px; left: 28px; }
-.chip-2 { top: 34%; right: -22px; color: var(--purple); }
-.chip-3 { bottom: 24%; left: -26px; color: var(--blue); }
-.chip-4 { bottom: -16px; right: 40px; }
+.ps-browse:hover { color: var(--purple); }
+.ps-browse .icon { width: 14px; height: 14px; transition: transform .18s var(--ease); }
+.ps-browse:hover .icon { transform: translateX(2px); }
+
+@keyframes ps-in {
+  from { opacity: .25; transform: translateY(7px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 460px) {
+  .plugin-spotlight { padding: 17px; }
+  .ps-title { font-size: 1.1875rem; }
+  .ps-desc { font-size: 0.875rem; }
+}
 
 @media (max-width: 899px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-art { justify-self: start; max-width: 420px; margin-top: 8px; }
-  .chip-2 { right: 8px; }
-  .chip-3 { left: 8px; bottom: 6%; }
 }
 
 @media (max-width: 640px) {
@@ -489,6 +632,30 @@ code { font-family: var(--mono); font-size: 0.86em; }
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
   gap: clamp(30px, 4.5vw, 60px);
   align-items: center;
+}
+
+.ad-sponsored {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 5px 11px;
+  border: 1px solid #343a34;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.04);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a8aea6;
+}
+.ad-sponsored::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #70bc51;
 }
 
 .ad-brand {
@@ -1406,26 +1573,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
   to   { opacity: 1; transform: perspective(900px); }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-14px) rotate(-2.5deg); }
-}
-
-@keyframes float-alt {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(12px) rotate(2.5deg); }
-}
-
-@keyframes wave-off {
-  0%, 55%, 100% { transform: scale(1); }
-  25% { transform: scale(.3); fill: #cbc4e2; }
-}
-
-@keyframes wave-on {
-  0%, 55%, 100% { transform: scale(1); }
-  25% { transform: scale(1.35); }
-}
-
 @keyframes blob-a {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(-120px, 70px) scale(1.2); }
@@ -1467,12 +1614,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
   30% { transform: translateX(4px); }
 }
 
-@keyframes tilt {
-  0%, 100% { transform: perspective(900px) rotateX(0) rotateY(0); }
-  25% { transform: perspective(900px) rotateX(5deg) rotateY(-8deg); }
-  75% { transform: perspective(900px) rotateX(-4deg) rotateY(7deg); }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .hero h1 .w {
     animation: word-in .72s var(--ease) both;
@@ -1480,18 +1621,8 @@ code { font-family: var(--mono); font-size: 0.86em; }
   }
 
   .hero-art {
-    animation:
-      art-in 1.05s var(--ease) .35s both,
-      tilt 9s ease-in-out 1.8s infinite;
+    animation: art-in 1.05s var(--ease) .35s both;
   }
-
-  .dots .off { animation: wave-off 2.6s ease-in-out infinite; animation-delay: var(--d); }
-  .dots .on  { animation: wave-on 2.6s ease-in-out infinite; animation-delay: var(--d); }
-
-  .chip { animation: float 4.5s ease-in-out infinite; }
-  .chip-2 { animation-name: float-alt; animation-delay: -1.1s; }
-  .chip-3 { animation-delay: -2.3s; }
-  .chip-4 { animation-name: float-alt; animation-delay: -3.4s; }
 
   .hero::before { animation: blob-a 11s ease-in-out infinite; }
   .hero::after  { animation: blob-b 13s ease-in-out infinite; }
@@ -1623,18 +1754,42 @@ code { font-family: var(--mono); font-size: 0.86em; }
         </div>
       </div>
 
-      <div class="hero-art" role="img" aria-label="Spiggle dot matrix mark surrounded by Laravel, Filament 5 and Livewire chips">
-        <svg class="dots" aria-hidden="true" viewBox="0 0 330 270"><circle class="off" cx="15" cy="15" r="7" style="--d:0ms"/><circle class="off" cx="45" cy="15" r="7" style="--d:90ms"/><circle class="off" cx="75" cy="15" r="7" style="--d:180ms"/><circle class="off" cx="105" cy="15" r="7" style="--d:270ms"/><circle class="off" cx="135" cy="15" r="7" style="--d:360ms"/><circle class="off" cx="165" cy="15" r="7" style="--d:450ms"/><circle class="off" cx="195" cy="15" r="7" style="--d:540ms"/><circle class="off" cx="225" cy="15" r="7" style="--d:630ms"/><circle class="off" cx="255" cy="15" r="7" style="--d:720ms"/><circle class="off" cx="285" cy="15" r="7" style="--d:810ms"/><circle class="off" cx="315" cy="15" r="7" style="--d:900ms"/><circle class="off" cx="15" cy="45" r="7" style="--d:90ms"/><circle class="off" cx="45" cy="45" r="7" style="--d:180ms"/><circle class="on" cx="75" cy="45" r="7" style="--d:270ms"/><circle class="on" cx="105" cy="45" r="7" style="--d:360ms"/><circle class="on" cx="135" cy="45" r="7" style="--d:450ms"/><circle class="on" cx="165" cy="45" r="7" style="--d:540ms"/><circle class="on" cx="195" cy="45" r="7" style="--d:630ms"/><circle class="on" cx="225" cy="45" r="7" style="--d:720ms"/><circle class="on" cx="255" cy="45" r="7" style="--d:810ms"/><circle class="off" cx="285" cy="45" r="7" style="--d:900ms"/><circle class="off" cx="315" cy="45" r="7" style="--d:990ms"/><circle class="off" cx="15" cy="75" r="7" style="--d:180ms"/><circle class="off" cx="45" cy="75" r="7" style="--d:270ms"/><circle class="on" cx="75" cy="75" r="7" style="--d:360ms"/><circle class="off" cx="105" cy="75" r="7" style="--d:450ms"/><circle class="off" cx="135" cy="75" r="7" style="--d:540ms"/><circle class="off" cx="165" cy="75" r="7" style="--d:630ms"/><circle class="off" cx="195" cy="75" r="7" style="--d:720ms"/><circle class="off" cx="225" cy="75" r="7" style="--d:810ms"/><circle class="off" cx="255" cy="75" r="7" style="--d:900ms"/><circle class="off" cx="285" cy="75" r="7" style="--d:990ms"/><circle class="off" cx="315" cy="75" r="7" style="--d:1080ms"/><circle class="off" cx="15" cy="105" r="7" style="--d:270ms"/><circle class="off" cx="45" cy="105" r="7" style="--d:360ms"/><circle class="on" cx="75" cy="105" r="7" style="--d:450ms"/><circle class="off" cx="105" cy="105" r="7" style="--d:540ms"/><circle class="off" cx="135" cy="105" r="7" style="--d:630ms"/><circle class="off" cx="165" cy="105" r="7" style="--d:720ms"/><circle class="off" cx="195" cy="105" r="7" style="--d:810ms"/><circle class="off" cx="225" cy="105" r="7" style="--d:900ms"/><circle class="off" cx="255" cy="105" r="7" style="--d:990ms"/><circle class="off" cx="285" cy="105" r="7" style="--d:1080ms"/><circle class="off" cx="315" cy="105" r="7" style="--d:1170ms"/><circle class="off" cx="15" cy="135" r="7" style="--d:360ms"/><circle class="off" cx="45" cy="135" r="7" style="--d:450ms"/><circle class="on" cx="75" cy="135" r="7" style="--d:540ms"/><circle class="on" cx="105" cy="135" r="7" style="--d:630ms"/><circle class="on" cx="135" cy="135" r="7" style="--d:720ms"/><circle class="on" cx="165" cy="135" r="7" style="--d:810ms"/><circle class="on" cx="195" cy="135" r="7" style="--d:900ms"/><circle class="on" cx="225" cy="135" r="7" style="--d:990ms"/><circle class="on" cx="255" cy="135" r="7" style="--d:1080ms"/><circle class="off" cx="285" cy="135" r="7" style="--d:1170ms"/><circle class="off" cx="315" cy="135" r="7" style="--d:1260ms"/><circle class="off" cx="15" cy="165" r="7" style="--d:450ms"/><circle class="off" cx="45" cy="165" r="7" style="--d:540ms"/><circle class="off" cx="75" cy="165" r="7" style="--d:630ms"/><circle class="off" cx="105" cy="165" r="7" style="--d:720ms"/><circle class="off" cx="135" cy="165" r="7" style="--d:810ms"/><circle class="off" cx="165" cy="165" r="7" style="--d:900ms"/><circle class="off" cx="195" cy="165" r="7" style="--d:990ms"/><circle class="off" cx="225" cy="165" r="7" style="--d:1080ms"/><circle class="on" cx="255" cy="165" r="7" style="--d:1170ms"/><circle class="off" cx="285" cy="165" r="7" style="--d:1260ms"/><circle class="off" cx="315" cy="165" r="7" style="--d:1350ms"/><circle class="off" cx="15" cy="195" r="7" style="--d:540ms"/><circle class="off" cx="45" cy="195" r="7" style="--d:630ms"/><circle class="off" cx="75" cy="195" r="7" style="--d:720ms"/><circle class="off" cx="105" cy="195" r="7" style="--d:810ms"/><circle class="off" cx="135" cy="195" r="7" style="--d:900ms"/><circle class="off" cx="165" cy="195" r="7" style="--d:990ms"/><circle class="off" cx="195" cy="195" r="7" style="--d:1080ms"/><circle class="off" cx="225" cy="195" r="7" style="--d:1170ms"/><circle class="on" cx="255" cy="195" r="7" style="--d:1260ms"/><circle class="off" cx="285" cy="195" r="7" style="--d:1350ms"/><circle class="off" cx="315" cy="195" r="7" style="--d:1440ms"/><circle class="off" cx="15" cy="225" r="7" style="--d:630ms"/><circle class="off" cx="45" cy="225" r="7" style="--d:720ms"/><circle class="on" cx="75" cy="225" r="7" style="--d:810ms"/><circle class="on" cx="105" cy="225" r="7" style="--d:900ms"/><circle class="on" cx="135" cy="225" r="7" style="--d:990ms"/><circle class="on" cx="165" cy="225" r="7" style="--d:1080ms"/><circle class="on" cx="195" cy="225" r="7" style="--d:1170ms"/><circle class="on" cx="225" cy="225" r="7" style="--d:1260ms"/><circle class="on" cx="255" cy="225" r="7" style="--d:1350ms"/><circle class="off" cx="285" cy="225" r="7" style="--d:1440ms"/><circle class="off" cx="315" cy="225" r="7" style="--d:1530ms"/><circle class="off" cx="15" cy="255" r="7" style="--d:720ms"/><circle class="off" cx="45" cy="255" r="7" style="--d:810ms"/><circle class="off" cx="75" cy="255" r="7" style="--d:900ms"/><circle class="off" cx="105" cy="255" r="7" style="--d:990ms"/><circle class="off" cx="135" cy="255" r="7" style="--d:1080ms"/><circle class="off" cx="165" cy="255" r="7" style="--d:1170ms"/><circle class="off" cx="195" cy="255" r="7" style="--d:1260ms"/><circle class="off" cx="225" cy="255" r="7" style="--d:1350ms"/><circle class="off" cx="255" cy="255" r="7" style="--d:1440ms"/><circle class="off" cx="285" cy="255" r="7" style="--d:1530ms"/><circle class="off" cx="315" cy="255" r="7" style="--d:1620ms"/></svg>
-        <span class="chip chip-1">Laravel</span>
-        <span class="chip chip-2">Filament&nbsp;5</span>
-        <span class="chip chip-3">Livewire</span>
-        <span class="chip chip-4">MIT packages</span>
+      <div class="hero-art plugin-spotlight" data-spotlight role="region" aria-roledescription="carousel" aria-label="Plugin spotlight">
+        <div class="ps-top">
+          <p class="ps-kicker">Plugin spotlight</p>
+          <div class="ps-controls">
+            <button class="ps-arrow" type="button" data-ps-prev aria-label="Previous plugin">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="ps-arrow" type="button" data-ps-next aria-label="Next plugin">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="ps-content" data-ps-content>
+          <div class="ps-figure">
+            <img data-ps-image src="banners/filament/small-business-theme.webp" width="1280" height="720" alt="Filament Small-Business-Theme" loading="eager">
+          </div>
+          <div class="ps-meta"><span class="ps-tag" data-ps-tag>Theme</span><span class="ps-count" data-ps-count>01 / 11</span></div>
+          <p class="ps-title">
+            <a data-ps-link href="https://skillbobby.github.io/spiggle/small-business-theme/">
+              <span data-ps-title>Filament Small-Business-Theme</span>
+              <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+          </p>
+          <p class="ps-desc" data-ps-desc>Six colour schemes, rounded cards and unlimited sites.</p>
+        </div>
+        <div class="ps-foot">
+          <div class="ps-dots" data-ps-dots role="group" aria-label="Choose a plugin"></div>
+          <a class="ps-browse" href="#plugins">Browse all <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- TICKITDEX AD -->
   <section class="ticket-ad" aria-labelledby="ticket-ad-h">
+    <div class="wrap"><p class="ad-sponsored">Sponsored</p></div>
     <div class="wrap ticket-ad-grid">
       <div class="ad-copy">
         <div class="ad-brand">
@@ -1650,11 +1805,11 @@ code { font-family: var(--mono); font-size: 0.86em; }
         <h2 class="ad-title" id="ticket-ad-h"><span>Customer support</span><span>without the <em>bloat</em></span></h2>
         <p class="ad-lead">The premier desk for customer requests, issues and service tickets. See every conversation in one fast shared inbox &mdash; email, live chat, customer portal and self-service docs &mdash; and answer with AI drafts your team approves.</p>
         <div class="ad-actions">
-          <a class="btn ad-btn ad-btn-primary" href="https://tickitdex.com" target="_blank" rel="noopener">
+          <a class="btn ad-btn ad-btn-primary" href="https://tickitdex.com" target="_blank" rel="sponsored noopener">
             Set up your desk
             <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
           </a>
-          <a class="btn ad-btn ad-btn-ghost" href="https://tickitdex.com/#plans" target="_blank" rel="noopener">View pricing</a>
+          <a class="btn ad-btn ad-btn-ghost" href="https://tickitdex.com/#plans" target="_blank" rel="sponsored noopener">View pricing</a>
         </div>
         <p class="ad-note"><span>Set up in 2 minutes</span><span>Cancel anytime</span><span>Nothing charged until you choose a plan</span></p>
       </div>
@@ -1822,21 +1977,14 @@ code { font-family: var(--mono); font-size: 0.86em; }
             <h3 class="oss-title">Themes, panel packages and starter kits for&nbsp;Filament</h3>
             <p class="oss-sub">Themes, panel packages and starter kits for Filament 4 and 5. Every card links to the product page or the repository.</p>
           </div>
-          <p class="oss-count"><span>16</span> packages</p>
+          <p class="oss-count"><span>11</span> packages</p>
         </div>
         <ul class="oss" data-reveal>
           <li class="oss-card">
-            <img decoding="async" src="cards/rabbet-theme.png" width="1280" height="720" alt="Rabbet theme dashboard" loading="lazy">
+            <img decoding="async" src="banners/filament/small-business-theme.webp" width="1280" height="720" alt="Small Business theme dashboard" loading="lazy">
             <div class="oss-body">
-              <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/rabbet-theme/"><code>rabbet-theme</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
-              <p>Forest-green Filament 5 shell. Pill navigation, theme options, brand upload, light and dark, audit log and list view.</p>
-            </div>
-          </li>
-          <li class="oss-card">
-            <img decoding="async" src="cards/rabbet-kit.png" width="1280" height="720" alt="Rabbet starter kit overview screen" loading="lazy">
-            <div class="oss-body">
-              <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/rabbet-starter-kit/"><code>rabbet-starter-kit</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
-              <p>Operations starter kit for Rabbet: overview, work queue, policies, quotes and claims, ready to adapt.</p>
+              <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/small-business-theme/"><code>small-business-theme</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
+              <p>Rounded frame, six colour schemes and dashboard cards for small teams. One payment, unlimited sites.</p>
             </div>
           </li>
           <li class="oss-card">
@@ -1854,13 +2002,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
             </div>
           </li>
           <li class="oss-card">
-            <img decoding="async" src="banners/filament/small-business-theme.webp" width="1280" height="720" alt="Small Business theme dashboard" loading="lazy">
-            <div class="oss-body">
-              <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/small-business-theme/"><code>small-business-theme</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
-              <p>Rounded frame, six colour schemes and dashboard cards for small teams. One payment, unlimited sites.</p>
-            </div>
-          </li>
-          <li class="oss-card">
             <img decoding="async" src="banners/filament/spiggle-theme.webp" width="1280" height="720" alt="Spiggle theme standard layout" loading="lazy">
             <div class="oss-body">
               <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/filament-theme/"><code>spiggle-theme</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
@@ -1872,28 +2013,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
             <div class="oss-body">
               <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/material-theme/"><code>material-theme</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
               <p>Material Design chrome for Filament 5, with list view, notifications, account screens and theme settings.</p>
-            </div>
-          </li>
-          <li class="oss-card">
-            <img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00NCAtMjggNzI4IDQxNiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJWaXN1YWwgVGhlbWUgcGFsZXR0ZSB3aWRnZXQiPgogIDxyZWN0IHdpZHRoPSI2NDAiIGhlaWdodD0iMzYwIiByeD0iMTgiIGZpbGw9IiNmOGZhZmMiLz4KICA8cmVjdCB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQyIiBmaWxsPSIjMGYxNzJhIi8+CiAgPGNpcmNsZSBjeD0iMjIiIGN5PSIyMSIgcj0iNSIgZmlsbD0iIzM4YmRmOCIvPgogIDx0ZXh0IHg9IjM4IiB5PSIyNiIgZmlsbD0iI2UyZThmMCIgZm9udC1mYW1pbHk9IkludGVyLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI2MDAiPkFwcGVhcmFuY2U8L3RleHQ+CiAgPGcgZm9udC1mYW1pbHk9IkludGVyLHNhbnMtc2VyaWYiPgogICAgPHJlY3QgeD0iMjAiIHk9IjYyIiB3aWR0aD0iMjkyIiBoZWlnaHQ9IjI3OCIgcng9IjE0IiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlMmU4ZjAiLz4KICAgIDx0ZXh0IHg9IjM2IiB5PSI5MCIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzBmMTcyYSI+UHJvZmlsZSBwYWxldHRlczwvdGV4dD4KICAgIDx0ZXh0IHg9IjM2IiB5PSIxMTAiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiM2NDc0OGIiPk5vdGhpbmcgaGFyZGNvZGVkLiBTaXggc2hlbGxzLjwvdGV4dD4KICAgIDxnPgogICAgICA8cmVjdCB4PSIzNiIgeT0iMTI4IiB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHJ4PSI4IiBmaWxsPSIjMGVhNWU5Ii8+CiAgICAgIDxyZWN0IHg9Ijc4IiB5PSIxMjgiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgcng9IjgiIGZpbGw9IiNmNTllMGIiLz4KICAgICAgPHJlY3QgeD0iMTIwIiB5PSIxMjgiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgcng9IjgiIGZpbGw9IiMxMGI5ODEiLz4KICAgICAgPHJlY3QgeD0iMTYyIiB5PSIxMjgiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgcng9IjgiIGZpbGw9IiM4YjVjZjYiLz4KICAgICAgPHJlY3QgeD0iMjA0IiB5PSIxMjgiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgcng9IjgiIGZpbGw9IiNlZjQ0NDQiLz4KICAgICAgPHJlY3QgeD0iMjQ2IiB5PSIxMjgiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgcng9IjgiIGZpbGw9IiMwZjE3MmEiLz4KICAgIDwvZz4KICAgIDx0ZXh0IHg9IjM2IiB5PSIxODgiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiM2NDc0OGIiPkludGVyIMK3IGxpZ2h0IC8gZGFyayDCtyBwYW5lbCBjaHJvbWU8L3RleHQ+CiAgICA8cmVjdCB4PSIzNiIgeT0iMjA2IiB3aWR0aD0iMjYwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iI2UyZThmMCIvPgogICAgPHJlY3QgeD0iMzYiIHk9IjIwNiIgd2lkdGg9IjE2OCIgaGVpZ2h0PSIxMCIgcng9IjUiIGZpbGw9IiMwZWE1ZTkiLz4KICAgIDxyZWN0IHg9IjM2IiB5PSIyMjgiIHdpZHRoPSIyMDAiIGhlaWdodD0iMzQiIHJ4PSI4IiBmaWxsPSIjZjBmOWZmIiBzdHJva2U9IiNiYWU2ZmQiLz4KICAgIDx0ZXh0IHg9IjQ4IiB5PSIyNDkiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMwMzY5YTEiIGZvbnQtd2VpZ2h0PSI2MDAiPkFjdGl2ZSBwcm9maWxlIMK3IFNreTwvdGV4dD4KICAgIDxyZWN0IHg9IjMyOCIgeT0iNjIiIHdpZHRoPSIyOTIiIGhlaWdodD0iMjc4IiByeD0iMTQiIGZpbGw9IiMwZjE3MmEiLz4KICAgIDx0ZXh0IHg9IjM0OCIgeT0iOTIiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM5NGEzYjgiPkRhcmsgc2hlbGw8L3RleHQ+CiAgICA8cmVjdCB4PSIzNDgiIHk9IjExMCIgd2lkdGg9IjI1MiIgaGVpZ2h0PSI1NCIgcng9IjEwIiBmaWxsPSIjMWUyOTNiIi8+CiAgICA8cmVjdCB4PSIzNjIiIHk9IjEyNCIgd2lkdGg9IjkwIiBoZWlnaHQ9IjEwIiByeD0iNSIgZmlsbD0iIzM4YmRmOCIvPgogICAgPHJlY3QgeD0iMzYyIiB5PSIxNDAiIHdpZHRoPSIxNTAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMzMzQxNTUiLz4KICAgIDxyZWN0IHg9IjM0OCIgeT0iMTc2IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjcwIiByeD0iMTAiIGZpbGw9IiMxZTI5M2IiLz4KICAgIDxyZWN0IHg9IjQ4MCIgeT0iMTc2IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjcwIiByeD0iMTAiIGZpbGw9IiMxZTI5M2IiLz4KICAgIDxyZWN0IHg9IjM0OCIgeT0iMjU4IiB3aWR0aD0iMjUyIiBoZWlnaHQ9IjU4IiByeD0iMTAiIGZpbGw9IiMxZTI5M2IiLz4KICAgIDx0ZXh0IHg9IjM2NCIgeT0iMjkyIiBmb250LXNpemU9IjEyIiBmaWxsPSIjZTJlOGYwIj5ObyBwcm9kdWN0IGRhdGEgaW4gdGhlIHRoZW1lPC90ZXh0PgogIDwvZz4KPC9zdmc+Cg==" width="1280" height="720" alt="Visual theme appearance page" loading="lazy">
-            <div class="oss-body">
-              <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/filament-visual-theme/"><code>visual-theme</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
-              <p>Six profile palettes, Inter typography and an Appearance page. No product data is hardcoded.</p>
-            </div>
-          </li>
-
-          <li class="oss-card">
-            <img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00NCAtMjggNzI4IDQxNiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJWaXN1YWwgQm9hcmQga2FuYmFuIHdpZGdldCI+CiAgPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzNjAiIHJ4PSIxOCIgZmlsbD0iI2Y4ZmFmYyIvPgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI2NDAiIGhlaWdodD0iNDIiIGZpbGw9IiMwZjE3MmEiLz4KICA8Y2lyY2xlIGN4PSIyMiIgY3k9IjIxIiByPSI1IiBmaWxsPSIjZjU5ZTBiIi8+CiAgPHRleHQgeD0iMzgiIHk9IjI2IiBmaWxsPSIjZTJlOGYwIiBmb250LWZhbWlseT0iSW50ZXIsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjYwMCI+VGFzayBCb2FyZDwvdGV4dD4KICA8cmVjdCB4PSI1MjAiIHk9IjEyIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjE4IiByeD0iOSIgZmlsbD0iIzFlMjkzYiIvPgogIDx0ZXh0IHg9IjU3MCIgeT0iMjUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmYmJmMjQiIGZvbnQtZmFtaWx5PSJJbnRlcixzYW5zLXNlcmlmIiBmb250LXNpemU9IjEwIj40IGNvbHVtbnM8L3RleHQ+CiAgPGcgZm9udC1mYW1pbHk9IkludGVyLHNhbnMtc2VyaWYiPgogICAgPHJlY3QgeD0iMTYiIHk9IjU4IiB3aWR0aD0iMTQ2IiBoZWlnaHQ9IjI4NiIgcng9IjEyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNlMmU4ZjAiLz4KICAgIDx0ZXh0IHg9IjI4IiB5PSI4MCIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzY0NzQ4YiI+QkFDS0xPRzwvdGV4dD4KICAgIDxyZWN0IHg9IjI4IiB5PSI5NCIgd2lkdGg9IjEyMiIgaGVpZ2h0PSI1MiIgcng9IjgiIGZpbGw9IiNmZmY3ZWQiIHN0cm9rZT0iI2ZlZDdhYSIvPgogICAgPHRleHQgeD0iMzgiIHk9IjExNiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzlhMzQxMiI+QnJpZWYgdGhlIGJvYXJkPC90ZXh0PgogICAgPHRleHQgeD0iMzgiIHk9IjEzMiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2MyNDEwYyI+VmlzaW9uPC90ZXh0PgogICAgPHJlY3QgeD0iMjgiIHk9IjE1NCIgd2lkdGg9IjEyMiIgaGVpZ2h0PSI1MiIgcng9IjgiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iI2UyZThmMCIvPgogICAgPHRleHQgeD0iMzgiIHk9IjE3NiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzBmMTcyYSI+RW1wdHkgcGx1Z2luPC90ZXh0PgogICAgPHRleHQgeD0iMzgiIHk9IjE5MiIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzY0NzQ4YiI+Tm8gc2VlZCBkYXRhPC90ZXh0PgogICAgPHJlY3QgeD0iMTc0IiB5PSI1OCIgd2lkdGg9IjE0NiIgaGVpZ2h0PSIyODYiIHJ4PSIxMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZTJlOGYwIi8+CiAgICA8dGV4dCB4PSIxODYiIHk9IjgwIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMDM2OWExIj5ET0lORzwvdGV4dD4KICAgIDxyZWN0IHg9IjE4NiIgeT0iOTQiIHdpZHRoPSIxMjIiIGhlaWdodD0iNjQiIHJ4PSI4IiBmaWxsPSIjZTBmMmZlIiBzdHJva2U9IiM3ZGQzZmMiLz4KICAgIDx0ZXh0IHg9IjE5NiIgeT0iMTE4IiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMGM0YTZlIj5LYW5iYW4gbGFuZTwvdGV4dD4KICAgIDx0ZXh0IHg9IjE5NiIgeT0iMTM2IiBmb250LXNpemU9IjEwIiBmaWxsPSIjMDM2OWExIj5EcmFnIGNhcmRzPC90ZXh0PgogICAgPHJlY3QgeD0iMzMyIiB5PSI1OCIgd2lkdGg9IjE0NiIgaGVpZ2h0PSIyODYiIHJ4PSIxMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZTJlOGYwIi8+CiAgICA8dGV4dCB4PSIzNDQiIHk9IjgwIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjYjQ1MzA5Ij5SRVZJRVc8L3RleHQ+CiAgICA8cmVjdCB4PSIzNDQiIHk9Ijk0IiB3aWR0aD0iMTIyIiBoZWlnaHQ9IjUyIiByeD0iOCIgZmlsbD0iI2ZmZmJlYiIgc3Ryb2tlPSIjZmNkMzRkIi8+CiAgICA8dGV4dCB4PSIzNTQiIHk9IjExNiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjYwMCIgZmlsbD0iIzkyNDAwZSI+Q2FsZW5kYXI8L3RleHQ+CiAgICA8dGV4dCB4PSIzNTQiIHk9IjEzMiIgZm9udC1zaXplPSIxMCIgZmlsbD0iI2I0NTMwOSI+U2FtZSByZWNvcmRzPC90ZXh0PgogICAgPHJlY3QgeD0iNDkwIiB5PSI1OCIgd2lkdGg9IjEzNCIgaGVpZ2h0PSIyODYiIHJ4PSIxMiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZTJlOGYwIi8+CiAgICA8dGV4dCB4PSI1MDIiIHk9IjgwIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMTU4MDNkIj5ET05FPC90ZXh0PgogICAgPHJlY3QgeD0iNTAyIiB5PSI5NCIgd2lkdGg9IjExMCIgaGVpZ2h0PSI1MiIgcng9IjgiIGZpbGw9IiNmMGZkZjQiIHN0cm9rZT0iIzg2ZWZhYyIvPgogICAgPHRleHQgeD0iNTEyIiB5PSIxMTYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxNjY1MzQiPkxpc3QgdmlldzwvdGV4dD4KICAgIDx0ZXh0IHg9IjUxMiIgeT0iMTMyIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMTU4MDNkIj5UYWJsZSB0b288L3RleHQ+CiAgPC9nPgo8L3N2Zz4K" width="1280" height="720" alt="Visual Board kanban task board" loading="lazy">
-            <div class="oss-body">
-              <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/filament-visual-board/"><code>visual-board</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
-              <p>Kanban, list, table, calendar and Vision boards for Filament 5. The plugin ships empty.</p>
-            </div>
-          </li>
-          <li class="oss-card">
-            <img decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00NCAtMjggNzI4IDQxNiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJTYWFTIGJpbGxpbmcgcGxhbnMgd2lkZ2V0Ij4KICA8cmVjdCB3aWR0aD0iNjQwIiBoZWlnaHQ9IjM2MCIgcng9IjE4IiBmaWxsPSIjZmZmYmViIi8+CiAgPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSI0MiIgZmlsbD0iIzBmMTcyYSIvPgogIDxjaXJjbGUgY3g9IjIyIiBjeT0iMjEiIHI9IjUiIGZpbGw9IiNmNTllMGIiLz4KICA8dGV4dCB4PSIzOCIgeT0iMjYiIGZpbGw9IiNlMmU4ZjAiIGZvbnQtZmFtaWx5PSJJbnRlcixzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNjAwIj5CaWxsaW5nPC90ZXh0PgogIDxnIGZvbnQtZmFtaWx5PSJJbnRlcixzYW5zLXNlcmlmIj4KICAgIDxyZWN0IHg9IjE4IiB5PSI2MCIgd2lkdGg9IjE5NCIgaGVpZ2h0PSIyODAiIHJ4PSIxNCIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjZTdlNWU0Ii8+CiAgICA8dGV4dCB4PSIzNCIgeT0iOTAiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM3ODcxNmMiPkZyZWU8L3RleHQ+CiAgICA8dGV4dCB4PSIzNCIgeT0iMTE4IiBmb250LXNpemU9IjI2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMGYxNzJhIj4kMDwvdGV4dD4KICAgIDx0ZXh0IHg9IjM0IiB5PSIxNDgiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiM3ODcxNmMiPlVzYWdlIGxpbWl0cyBvbjwvdGV4dD4KICAgIDxyZWN0IHg9IjM0IiB5PSIyNTAiIHdpZHRoPSIxNjIiIGhlaWdodD0iMzIiIHJ4PSI4IiBmaWxsPSIjZjVmNWY0Ii8+CiAgICA8dGV4dCB4PSIxMTUiIHk9IjI3MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzQ0NDAzYyI+Q3VycmVudDwvdGV4dD4KICAgIDxyZWN0IHg9IjIyNCIgeT0iNjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjgwIiByeD0iMTQiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2Y1OWUwYiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8dGV4dCB4PSIyNDAiIHk9IjkwIiBmb250LXNpemU9IjEyIiBmaWxsPSIjYjQ1MzA5Ij5TdGFydGVyPC90ZXh0PgogICAgPHRleHQgeD0iMjQwIiB5PSIxMTgiIGZvbnQtc2l6ZT0iMjYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMwZjE3MmEiPiQ5Ljk5PC90ZXh0PgogICAgPHRleHQgeD0iMjQwIiB5PSIxNDgiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiM3ODcxNmMiPkxlbW9uIFNxdWVlenk8L3RleHQ+CiAgICA8cmVjdCB4PSIyNDAiIHk9IjI1MCIgd2lkdGg9IjE2MiIgaGVpZ2h0PSIzMiIgcng9IjgiIGZpbGw9IiNmNTllMGIiLz4KICAgIDx0ZXh0IHg9IjMyMSIgeT0iMjcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEyIiBmaWxsPSIjZmZmIiBmb250LXdlaWdodD0iNjAwIj5VcGdyYWRlPC90ZXh0PgogICAgPHJlY3QgeD0iNDMwIiB5PSI2MCIgd2lkdGg9IjE5MiIgaGVpZ2h0PSIyODAiIHJ4PSIxNCIgZmlsbD0iIzBmMTcyYSIvPgogICAgPHRleHQgeD0iNDQ2IiB5PSI5MCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2ZiYmYyNCI+U3R1ZGlvPC90ZXh0PgogICAgPHRleHQgeD0iNDQ2IiB5PSIxMTgiIGZvbnQtc2l6ZT0iMjYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmYiPiQyOTwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ0NiIgeT0iMTQ4IiBmb250LXNpemU9IjExIiBmaWxsPSIjOTRhM2I4Ij5JbnRlZ3JhdGlvbnMgcGFnZTwvdGV4dD4KICAgIDxyZWN0IHg9IjQ0NiIgeT0iMjUwIiB3aWR0aD0iMTYwIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iI2ZiYmYyNCIvPgogICAgPHRleHQgeD0iNTI2IiB5PSIyNzEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMwZjE3MmEiIGZvbnQtd2VpZ2h0PSI2MDAiPldlYmhvb2s8L3RleHQ+CiAgPC9nPgo8L3N2Zz4K" width="1280" height="720" alt="SaaS Billing plans and usage limits" loading="lazy">
-            <div class="oss-body">
-              <h4><a class="stretched" href="https://skillbobby.github.io/spiggle/filament-saas-billing/"><code>saas-billing</code><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></h4>
-              <p>Free, Starter and Studio plans. Usage limits, an Integrations page and Lemon Squeezy webhooks.</p>
             </div>
           </li>
           <li class="oss-card">
@@ -1910,7 +2029,6 @@ code { font-family: var(--mono); font-size: 0.86em; }
               <p>Health scoring, deployment pre-flight, queue and cron oversight, security center and telemetry.</p>
             </div>
           </li>
-
           <li class="oss-card">
             <img decoding="async" src="banners/filament/rules-engine.webp" width="1280" height="720" alt="Rules Engine condition builder" loading="lazy">
             <div class="oss-body">
@@ -2162,6 +2280,100 @@ code { font-family: var(--mono); font-size: 0.86em; }
         toast.classList.remove('is-visible');
       }, 6000);
     });
+  })();
+// Hero plugin spotlight
+  (() => {
+    const root = document.querySelector('[data-spotlight]');
+    if (!root) return;
+
+    const plugins = [
+      { title: 'Filament Small-Business-Theme', tag: 'Theme', desc: 'Six colour schemes, rounded cards and unlimited sites.', href: 'https://skillbobby.github.io/spiggle/small-business-theme/', image: 'banners/filament/small-business-theme.webp' },
+      { title: 'Filament Fascia', tag: 'Theme', desc: 'Compact icon rail, flyout or large sidebar, with seven skins and a mobile drawer.', href: 'https://skillbobby.github.io/spiggle/filament-fascia-theme/', image: 'cards/fascia.png' },
+      { title: 'Filament Soffit', tag: 'Theme', desc: 'Full-height white sidebar, rounded cards, quiet shadows, teal and brass accents.', href: 'https://skillbobby.github.io/spiggle/filament-soffit-theme/', image: 'banners/filament/soffit.webp' },
+      { title: 'Filament Spiggle Theme', tag: 'Theme', desc: 'Standard, solid and canvas sidebar layouts plus several palettes.', href: 'https://skillbobby.github.io/spiggle/filament-theme/', image: 'banners/filament/spiggle-theme.webp' },
+      { title: 'Filament Material Theme', tag: 'Theme', desc: 'Material Design chrome with list view, notifications and account screens.', href: 'https://skillbobby.github.io/spiggle/material-theme/', image: 'banners/filament/material-theme.webp' },
+      { title: 'Filament Portal Snapshot', tag: 'Plugin', desc: 'Create, schedule, export and restore database snapshots from the panel.', href: 'https://skillbobby.github.io/spiggle/filament-portal-snapshot/', image: 'banners/filament/portal-snapshot.png' },
+      { title: 'Filament FilaWarden', tag: 'Plugin', desc: 'Health scoring, deployment pre-flight, queue and cron oversight for Filament.', href: 'https://filawarden.com', image: 'cards/filawarden-banner.svg' },
+      { title: 'Filament Rules Engine', tag: 'Plugin', desc: 'UI-driven event triggers, conditions and actions without a code deploy.', href: 'https://skillbobby.github.io/Spiggle-Rules-Engine/', image: 'banners/filament/rules-engine.webp' },
+      { title: 'Filament Form Builder', tag: 'Plugin', desc: 'Public forms, a submissions inbox and CSV export. MIT licensed.', href: 'https://skillbobby.github.io/Spiggle-Form-Builder-Core/', image: 'banners/filament/form-builder-core.webp' },
+      { title: 'Filament Dynamic Fields', tag: 'Plugin', desc: 'Custom EAV fields for any Eloquent model, in forms and tables.', href: 'https://skillbobby.github.io/Spiggle-Dynamic-Fields-Core/', image: 'banners/filament/dynamic-fields-core.webp' },
+      { title: 'Filament List View', tag: 'Plugin', desc: 'Toggle any Filament table between the default table and an alphabetical list.', href: 'https://github.com/skillbobby/Spiggle-List-View', image: 'banners/filament/list-view.webp' }
+    ];
+
+    const content = root.querySelector('[data-ps-content]');
+    const image = root.querySelector('[data-ps-image]');
+    const tag = root.querySelector('[data-ps-tag]');
+    const count = root.querySelector('[data-ps-count]');
+    const title = root.querySelector('[data-ps-title]');
+    const desc = root.querySelector('[data-ps-desc]');
+    const link = root.querySelector('[data-ps-link]');
+    const dotBox = root.querySelector('[data-ps-dots]');
+    const prev = root.querySelector('[data-ps-prev]');
+    const next = root.querySelector('[data-ps-next]');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const total = String(plugins.length).padStart(2, '0');
+    const dots = [];
+    let index = 0;
+    let timer = null;
+    let paused = false;
+
+    plugins.forEach((plugin, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'ps-dot';
+      dot.setAttribute('aria-label', 'Show ' + plugin.title);
+      dot.addEventListener('click', () => { show(i); start(); });
+      dotBox.appendChild(dot);
+      dots.push(dot);
+    });
+
+    const show = (i, animate = true) => {
+      index = (i + plugins.length) % plugins.length;
+      const plugin = plugins[index];
+      image.src = plugin.image;
+      image.alt = plugin.title;
+      tag.textContent = plugin.tag;
+      title.textContent = plugin.title;
+      desc.textContent = plugin.desc;
+      link.href = plugin.href;
+      count.textContent = String(index + 1).padStart(2, '0') + ' / ' + total;
+      dots.forEach((dot, j) => {
+        dot.classList.toggle('is-active', j === index);
+        if (j === index) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+      if (animate && !reduce) {
+        content.classList.remove('is-swapping');
+        void content.offsetWidth;
+        content.classList.add('is-swapping');
+      }
+    };
+
+    const start = () => {
+      if (reduce || paused) return;
+      stop();
+      timer = window.setInterval(() => show(index + 1), 6500);
+    };
+    const stop = () => {
+      if (timer) window.clearInterval(timer);
+      timer = null;
+    };
+
+    prev.addEventListener('click', () => { show(index - 1); start(); });
+    next.addEventListener('click', () => { show(index + 1); start(); });
+    root.addEventListener('mouseenter', () => { paused = true; stop(); });
+    root.addEventListener('mouseleave', () => { paused = false; start(); });
+    root.addEventListener('focusin', () => { paused = true; stop(); });
+    root.addEventListener('focusout', (event) => {
+      if (!root.contains(event.relatedTarget)) { paused = false; start(); }
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop();
+      else start();
+    });
+
+    show(0, false);
+    start();
   })();
 </script>
 </body>
