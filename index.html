@@ -326,8 +326,8 @@ code { font-family: var(--mono); font-size: 0.86em; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: 56px clamp(40px, 6vw, 88px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 56px clamp(40px, 4.5vw, 64px);
   align-items: center;
 }
 
@@ -408,7 +408,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
   position: relative;
   justify-self: end;
   width: 100%;
-  max-width: 460px;
+  max-width: 520px;
   padding: clamp(20px, 3vw, 32px);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -418,7 +418,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 
 /* ---------- plugin spotlight ---------- */
 
-.plugin-spotlight { padding: clamp(18px, 2.4vw, 24px); }
+.plugin-spotlight { --ps-pad: clamp(18px, 2.4vw, 24px); padding: var(--ps-pad); }
 
 .ps-top {
   display: flex;
@@ -470,18 +470,53 @@ code { font-family: var(--mono); font-size: 0.86em; }
 .ps-content.is-swapping { animation: ps-in .4s var(--ease) both; }
 
 .ps-figure {
+  position: relative;
+  display: block;
+  width: calc(100% + var(--ps-pad) + var(--ps-pad));
+  margin: 2px calc(0px - var(--ps-pad)) 0;
+  padding: 0;
   overflow: hidden;
   aspect-ratio: 16 / 9;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--purple-tint);
+  border: 0;
+  border-block: 1px solid var(--line);
+  border-radius: 0;
+  background: #f1eee7;
+  color: inherit;
+  font: inherit;
+  cursor: zoom-in;
 }
 .ps-figure img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(var(--ps-zoom, 1));
+  transition: transform .45s var(--ease);
 }
+.ps-expand {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgb(21 19 28 / 0.78);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  pointer-events: none;
+}
+.ps-expand .icon { width: 13px; height: 13px; }
+.ps-figure:hover .ps-expand,
+.ps-figure:focus-visible .ps-expand { opacity: 1; transform: none; }
+@media (hover: none) { .ps-expand { opacity: 1; transform: none; } }
 
 .ps-meta {
   display: flex;
@@ -579,14 +614,66 @@ code { font-family: var(--mono); font-size: 0.86em; }
 }
 
 @media (max-width: 460px) {
-  .plugin-spotlight { padding: 17px; }
+  .plugin-spotlight { --ps-pad: 17px; padding: var(--ps-pad); }
   .ps-title { font-size: 1.1875rem; }
   .ps-desc { font-size: 0.875rem; }
 }
 
+.ps-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 48px);
+  background: rgb(10 8 16 / 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.ps-modal[hidden] { display: none; }
+.ps-modal-inner {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  max-width: min(1120px, 94vw);
+  margin: 0;
+}
+.ps-modal-inner img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 34px 90px -30px #000;
+}
+.ps-modal-caption {
+  color: #f7f8f5;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: center;
+}
+.ps-modal-close {
+  position: absolute;
+  top: clamp(12px, 3vw, 24px);
+  right: clamp(12px, 3vw, 24px);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.12);
+  color: #fff;
+  cursor: pointer;
+}
+.ps-modal-close:hover { background: rgb(255 255 255 / 0.22); }
+body.ps-modal-open { overflow: hidden; }
+
 @media (max-width: 899px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-art { justify-self: start; max-width: 420px; margin-top: 8px; }
+  .hero-art { justify-self: start; max-width: 520px; margin-top: 8px; }
 }
 
 @media (max-width: 640px) {
@@ -1770,9 +1857,10 @@ code { font-family: var(--mono); font-size: 0.86em; }
           </div>
         </div>
         <div class="ps-content" data-ps-content>
-          <div class="ps-figure">
-            <img data-ps-image src="banners/filament/small-business-theme.webp" width="1280" height="720" alt="Filament Small-Business-Theme" loading="eager">
-          </div>
+          <button class="ps-figure" type="button" data-ps-expand aria-label="View full-size preview of Filament Small-Business-Theme">
+            <img data-ps-image src="banners/filament/small-business-theme.webp" width="1280" height="720" alt="Filament Small-Business-Theme" loading="eager" decoding="async">
+            <span class="ps-expand" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></svg><span>Expand</span></span>
+          </button>
           <div class="ps-meta"><span class="ps-tag" data-ps-tag>Theme</span><span class="ps-count" data-ps-count>01 / 11</span></div>
           <p class="ps-title">
             <a data-ps-link href="https://skillbobby.github.io/spiggle/small-business-theme/">
@@ -2132,6 +2220,16 @@ code { font-family: var(--mono); font-size: 0.86em; }
   </div>
 </footer>
 
+<div class="ps-modal" data-ps-modal role="dialog" aria-modal="true" aria-label="Full-size plugin preview" hidden>
+  <button class="ps-modal-close" type="button" data-ps-modal-close aria-label="Close preview">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <figure class="ps-modal-inner">
+    <img data-ps-modal-img alt="">
+    <figcaption class="ps-modal-caption" data-ps-modal-caption></figcaption>
+  </figure>
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -2290,7 +2388,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
 
     const plugins = [
       { title: 'Filament Small-Business-Theme', tag: 'Theme', desc: 'Six colour schemes, rounded cards and unlimited sites.', href: 'https://skillbobby.github.io/spiggle/small-business-theme/', image: 'banners/filament/small-business-theme.webp' },
-      { title: 'Filament Fascia', tag: 'Theme', desc: 'Compact icon rail, flyout or large sidebar, with seven skins and a mobile drawer.', href: 'https://skillbobby.github.io/spiggle/filament-fascia-theme/', image: 'cards/fascia.png' },
+      { title: 'Filament Fascia', tag: 'Theme', desc: 'Compact icon rail, flyout or large sidebar, with seven skins and a mobile drawer.', href: 'https://skillbobby.github.io/spiggle/filament-fascia-theme/', image: 'cards/fascia.png', zoom: 1.22 },
       { title: 'Filament Soffit', tag: 'Theme', desc: 'Full-height white sidebar, rounded cards, quiet shadows, teal and brass accents.', href: 'https://skillbobby.github.io/spiggle/filament-soffit-theme/', image: 'banners/filament/soffit.webp' },
       { title: 'Filament Spiggle Theme', tag: 'Theme', desc: 'Standard, solid and canvas sidebar layouts plus several palettes.', href: 'https://skillbobby.github.io/spiggle/filament-theme/', image: 'banners/filament/spiggle-theme.webp' },
       { title: 'Filament Material Theme', tag: 'Theme', desc: 'Material Design chrome with list view, notifications and account screens.', href: 'https://skillbobby.github.io/spiggle/material-theme/', image: 'banners/filament/material-theme.webp' },
@@ -2312,12 +2410,18 @@ code { font-family: var(--mono); font-size: 0.86em; }
     const dotBox = root.querySelector('[data-ps-dots]');
     const prev = root.querySelector('[data-ps-prev]');
     const next = root.querySelector('[data-ps-next]');
+    const figure = root.querySelector('[data-ps-expand]');
+    const modal = document.querySelector('[data-ps-modal]');
+    const modalImg = modal.querySelector('[data-ps-modal-img]');
+    const modalCaption = modal.querySelector('[data-ps-modal-caption]');
+    const modalClose = modal.querySelector('[data-ps-modal-close]');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const total = String(plugins.length).padStart(2, '0');
     const dots = [];
     let index = 0;
     let timer = null;
     let paused = false;
+    let modalOpen = false;
 
     plugins.forEach((plugin, i) => {
       const dot = document.createElement('button');
@@ -2334,6 +2438,8 @@ code { font-family: var(--mono); font-size: 0.86em; }
       const plugin = plugins[index];
       image.src = plugin.image;
       image.alt = plugin.title;
+      image.style.setProperty('--ps-zoom', plugin.zoom || 1);
+      figure.setAttribute('aria-label', 'View full-size preview of ' + plugin.title);
       tag.textContent = plugin.tag;
       title.textContent = plugin.title;
       desc.textContent = plugin.desc;
@@ -2352,7 +2458,7 @@ code { font-family: var(--mono); font-size: 0.86em; }
     };
 
     const start = () => {
-      if (reduce || paused) return;
+      if (reduce || paused || modalOpen) return;
       stop();
       timer = window.setInterval(() => show(index + 1), 6500);
     };
@@ -2360,6 +2466,31 @@ code { font-family: var(--mono); font-size: 0.86em; }
       if (timer) window.clearInterval(timer);
       timer = null;
     };
+
+    const openModal = () => {
+      modalImg.src = image.currentSrc || image.src;
+      modalImg.alt = image.alt;
+      modalCaption.textContent = title.textContent;
+      modal.hidden = false;
+      modalOpen = true;
+      document.body.classList.add('ps-modal-open');
+      stop();
+      modalClose.focus();
+    };
+    const closeModal = () => {
+      modal.hidden = true;
+      modalOpen = false;
+      document.body.classList.remove('ps-modal-open');
+      figure.focus();
+    };
+    figure.addEventListener('click', openModal);
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+    });
 
     prev.addEventListener('click', () => { show(index - 1); start(); });
     next.addEventListener('click', () => { show(index + 1); start(); });
