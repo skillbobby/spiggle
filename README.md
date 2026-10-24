@@ -17,6 +17,7 @@ GitHub Pages: [skillbobby.github.io/spiggle](https://skillbobby.github.io/spiggl
 
 ## Packages
 
+- [Visual Dashboards](https://github.com/skillbobby/Spiggle-Visual-Dashboards) — Power BI-style dashboard canvas
 - [Visual Board](https://skillbobby.github.io/spiggle/filament-visual-board/)
 - [SaaS Billing](https://skillbobby.github.io/spiggle/filament-saas-billing/)
 - [Portal Snapshot](https://skillbobby.github.io/spiggle/filament-portal-snapshot/)
