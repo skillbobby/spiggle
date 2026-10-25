@@ -17,6 +17,7 @@ GitHub Pages: [skillbobby.github.io/spiggle](https://skillbobby.github.io/spiggl
 
 ## Packages
 
+- [Geo Lock](https://github.com/skillbobby/Spiggle-Geo-Lock) — allow or block a role by country and region
 - [Visual Dashboards](https://github.com/skillbobby/Spiggle-Visual-Dashboards) — Power BI-style dashboard canvas
 - [Visual Board](https://skillbobby.github.io/spiggle/filament-visual-board/)
 - [SaaS Billing](https://skillbobby.github.io/spiggle/filament-saas-billing/)

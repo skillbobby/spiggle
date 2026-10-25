@@ -15,6 +15,7 @@ Spiggle package cards on the landing page.
 | `dynamic-fields-core.webp` | https://filamentphp.com/plugins/spiggle-dynamic-fields-core |
 | `list-view.webp` | https://filamentphp.com/plugins/spiggle-list-view |
 | `visual-dashboards.webp` | https://github.com/skillbobby/Spiggle-Visual-Dashboards |
+| `geo-lock.webp` | https://github.com/skillbobby/Spiggle-Geo-Lock |
 
 Packages that are not listed in the Filament directory (Rabbet, Rabbet starter
 kit, Fascia, Visual theme, Visual Board and SaaS Billing) use the local card
