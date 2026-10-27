@@ -176,10 +176,12 @@
         scrollToReplay();
     }
 
-    document.addEventListener('livewire:init', () => {
-        if (typeof window.Livewire?.hook !== 'function') {
+    const registerLivewireHooks = () => {
+        if (typeof window.Livewire?.hook !== 'function' || document.documentElement.dataset.aiLivewireHooks === 'true') {
             return;
         }
+
+        document.documentElement.dataset.aiLivewireHooks = 'true';
 
         const refresh = ({ el } = {}) => {
             const root = el instanceof HTMLElement ? el : document;
@@ -197,7 +199,13 @@
         } catch {
             // Livewire versions expose different hook names; navigate events cover us.
         }
-    });
+    };
+
+    if (typeof window.Livewire?.hook === 'function') {
+        registerLivewireHooks();
+    } else {
+        document.addEventListener('livewire:init', registerLivewireHooks);
+    }
 
     document.addEventListener('livewire:navigated', () => {
         highlightWithin();

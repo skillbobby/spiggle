@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Spiggle\ApiInspector\Tests;
 
-use Spiggle\ApiInspector\Models\ApiRequest;
 use Spiggle\ApiInspector\Services\Pruner;
 use Spiggle\ApiInspector\Support\Settings;
 
