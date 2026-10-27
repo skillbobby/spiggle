@@ -300,6 +300,10 @@ final class ReplayService
             $warnings[] = 'The captured payload was truncated. A live replay would send only the stored portion unless you edit the body.';
         }
 
+        if (str_contains((string) $source->request_payload, '__files')) {
+            $warnings[] = 'Uploaded files are not stored or replayed. Only the form fields will be sent.';
+        }
+
         if (str_contains(strtolower((string) $source->uri), 'redacted')) {
             $warnings[] = 'The captured URI contains redacted query values. Edit the target URI before a live replay if those values are still required.';
         }

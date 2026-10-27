@@ -17,6 +17,7 @@ final class SettingsTest extends TestCase
         $this->assertTrue($settings->isEnabled());
         $this->assertSame(100, $settings->sampleRate());
         $this->assertContains('payload', $settings->capture());
+        $this->assertNotContains('session', $settings->capture());
         $this->assertSame([
             'api-inspector/*',
             'api-requests',

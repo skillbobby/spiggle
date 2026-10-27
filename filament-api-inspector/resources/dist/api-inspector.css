@@ -1665,7 +1665,6 @@
     background: color-mix(in srgb, var(--ai-card) 86%, transparent);
     border: 1px solid var(--ai-border);
     border-radius: 14px;
-    bottom: 1rem;
     box-shadow: 0 10px 30px -18px rgba(16, 24, 40, 0.45);
     display: flex;
     flex-wrap: wrap;
@@ -1673,8 +1672,6 @@
     justify-content: space-between;
     margin-top: 16px;
     padding: 10px 12px;
-    position: sticky;
-    z-index: 5;
 }
 
 .ai-settings-actions__hint {
@@ -1762,7 +1759,7 @@ body:has(.ai-dock) .fi-page {
     position: fixed;
     transform: translateX(-50%);
     width: min(720px, calc(100vw - 28px));
-    z-index: 60;
+    z-index: 30;
 }
 
 .dark .ai-dock {
@@ -1943,10 +1940,6 @@ body:has(.ai-dock) .fi-page {
 
     .ai-settings-hero__ring {
         display: none;
-    }
-
-    .ai-settings-actions {
-        bottom: 0.5rem;
     }
 
     .ai-settings-actions__hint {

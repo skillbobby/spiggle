@@ -218,6 +218,29 @@ class SettingsPage extends Page
                             ->suffix('%')
                             ->helperText('Capture a percentage of matching requests. Keep at 100 for a complete feed.'),
                     ]),
+
+                Section::make('Limits & content types')
+                    ->description('Bodies are capped before storage. Binary and excluded content types keep their status, headers and size without the body.')
+                    ->columns(2)
+                    ->schema([
+                        TextInput::make('max_payload_kb')
+                            ->label('Max request body')
+                            ->numeric()
+                            ->minValue(1)
+                            ->maxValue(4096)
+                            ->suffix('KB'),
+                        TextInput::make('max_response_kb')
+                            ->label('Max response body')
+                            ->numeric()
+                            ->minValue(1)
+                            ->maxValue(4096)
+                            ->suffix('KB'),
+                        TagsInput::make('ignore_content_types')
+                            ->label('Skip response bodies for these content types')
+                            ->placeholder('image/*')
+                            ->helperText('Wildcards supported. Bodies are skipped, metadata is still captured.')
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 

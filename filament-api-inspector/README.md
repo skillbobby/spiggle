@@ -165,7 +165,7 @@ The live bar only appears on request feed/detail pages. Settings stays focused o
     'health',
     'healthz',
 ],
-'methods' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+'methods' => ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 'sample_rate' => 100,
 'ignore_content_types' => ['image/*', 'video/*', 'audio/*', 'font/*', 'application/octet-stream', 'application/zip', 'application/gzip'],
 ```
@@ -266,8 +266,8 @@ Verified against both supported branches:
 
 | Filament | Livewire | Laravel | Result |
 | --- | --- | --- | --- |
-| 5.11 | 4.4 | 12.70 | 49 tests / 250 assertions |
-| 4.16 | 3.8 | 12.70 | 49 tests / 250 assertions |
+| 5.11 | 4.4 | 12.70 | 49 tests / 251 assertions |
+| 4.16 | 3.8 | 12.70 | 49 tests / 251 assertions |
 
 ### Workbench demo
 

@@ -59,7 +59,7 @@ return [
         'healthz',
     ],
 
-    'methods' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    'methods' => ['GET', 'HEAD', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 
     'sample_rate' => 100,
 
@@ -100,7 +100,6 @@ return [
         'user_agent',
         'referer',
         'route',
-        'session',
         'exception',
         'replay',
     ],

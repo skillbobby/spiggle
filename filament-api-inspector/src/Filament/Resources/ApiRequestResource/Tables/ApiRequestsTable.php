@@ -141,6 +141,7 @@ final class ApiRequestsTable
                     ->icon('heroicon-m-eye')
                     ->iconButton()
                     ->tooltip('Inspect request')
+                    ->color('gray')
                     ->url(fn (ApiRequest $record): string => ViewApiRequest::getUrl(['record' => $record])),
 
                 Action::make('replay')
