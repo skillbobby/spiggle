@@ -90,7 +90,7 @@ class ViewApiRequest extends ViewRecord
             'replayMode' => ['required', 'in:simulated,live'],
             'replayMethod' => ['required', 'string', 'max:20'],
             'replayUri' => ['required', 'string', 'max:2048'],
-            'replayBody' => ['nullable', 'string'],
+            'replayBody' => ['nullable', 'string', 'max:' . ((int) config('api-inspector.replay.max_body_kb', 256) * 1024)],
         ]);
 
         $settings = app(Settings::class);

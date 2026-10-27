@@ -84,6 +84,8 @@
                         <button type="button" role="tab" class="ai-tab" x-bind:class="tab === 'replays' ? 'is-active' : ''" x-on:click="tab = 'replays'" x-bind:aria-selected="tab === 'replays'">
                             Replays
                             <span class="ai-tab__count">{{ $history->count() }}</span>
+                        </button>
+                    </div>
 
                     <div class="ai-tabpanel" x-show="tab === 'request'" x-cloak>
                         @include('api-inspector::pages.partials.request-panel', ['record' => $record, 'has' => $has])
@@ -114,6 +116,3 @@
         </div>
     </div>
 </x-filament-panels::page>
-
-                        </button>
-                    </div>

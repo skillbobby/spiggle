@@ -147,7 +147,8 @@ final class FilamentPagesTest extends TestCase
             ->set('replayMode', 'simulated')
             ->call('runReplay')
             ->assertHasNoErrors()
-            ->assertSet('replayResultId', fn (?string $id): bool => $id !== null);
+            ->assertSet('replayResultId', fn (?string $id): bool => $id !== null)
+            ->assertSee('Original response');
 
         $this->assertDatabaseCount('api_inspector_replays', 1);
         $this->assertSame(1, $request->fresh()->replay_count);

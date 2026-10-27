@@ -5,14 +5,16 @@
         $updatedLabel = $secondsAgo < 5 ? 'just now' : $updated->diffForHumans(short: true);
     @endphp
 
-    <div class="ai-dock" @if ($live) wire:poll.{{ $interval }}s="poll" @endif>
-        <div class="ai-dock__progress" wire:loading.class="is-loading" wire:target="poll"></div>
+    <div class="ai-dock" @if ($live) wire:poll.{{ $interval }}s="poll" @endif role="status" aria-live="polite">
+        <div class="ai-dock__progress" wire:loading.class="is-loading"></div>
 
         <div class="ai-dock__inner">
             <div class="ai-dock__status">
-                <span class="ai-dock__dot {{ $live ? 'is-live' : 'is-paused' }}"></span>
+                <span class="ai-dock__dot {{ $live && $captureEnabled ? 'is-live' : 'is-paused' }}"></span>
                 <div class="ai-dock__status-copy">
-                    <span class="ai-dock__title">{{ $live ? 'Live capture' : 'Live updates paused' }}</span>
+                    <span class="ai-dock__title">
+                        {{ $live ? ($captureEnabled ? 'Live capture' : 'Capture paused') : 'Live updates paused' }}
+                    </span>
                     <span class="ai-dock__updated">
                         Updated {{ $updatedLabel }}
                     </span>

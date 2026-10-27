@@ -182,7 +182,13 @@
         }
 
         const refresh = ({ el } = {}) => {
-            highlightWithin(el instanceof HTMLElement ? el : document);
+            const root = el instanceof HTMLElement ? el : document;
+
+            root.querySelectorAll?.('[data-ai-json]').forEach((node) => {
+                delete node.dataset.aiHighlighted;
+            });
+
+            highlightWithin(root);
         };
 
         try {

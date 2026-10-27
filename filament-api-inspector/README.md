@@ -167,7 +167,7 @@ The live bar only appears on request feed/detail pages. Settings stays focused o
 ],
 'methods' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 'sample_rate' => 100,
-'ignore_content_types' => ['image/*', 'video/*', 'audio/*', 'font/*', 'application/octet-stream'],
+'ignore_content_types' => ['image/*', 'video/*', 'audio/*', 'font/*', 'application/octet-stream', 'application/zip', 'application/gzip'],
 ```
 
 Paths support Laravel wildcards (`api/*`, `webhooks/stripe*`). The allow list is evaluated first, then the ignore list. Method names are normalised to uppercase.
@@ -266,8 +266,8 @@ Verified against both supported branches:
 
 | Filament | Livewire | Laravel | Result |
 | --- | --- | --- | --- |
-| 5.11 | 4.4 | 12.70 | 49 tests / 249 assertions |
-| 4.16 | 3.8 | 12.70 | 49 tests / 249 assertions |
+| 5.11 | 4.4 | 12.70 | 49 tests / 250 assertions |
+| 4.16 | 3.8 | 12.70 | 49 tests / 250 assertions |
 
 ### Workbench demo
 

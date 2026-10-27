@@ -19,6 +19,8 @@ final class LiveBar extends Component
 
     public bool $live = true;
 
+    public bool $captureEnabled = true;
+
     public int $interval = 5;
 
     public int $total = 0;
@@ -48,6 +50,7 @@ final class LiveBar extends Component
 
         $settings = app(Settings::class);
         $this->live = $settings->liveEnabled();
+        $this->captureEnabled = $settings->isEnabled();
         $this->interval = $settings->liveInterval();
         $this->lastSeenAt = now()->toIso8601String();
         $this->updatedAt = now()->toIso8601String();
@@ -70,6 +73,7 @@ final class LiveBar extends Component
         }
 
         $this->live = true;
+        $this->captureEnabled = $settings->isEnabled();
         $this->interval = $settings->liveInterval();
 
         $since = $this->lastSeenAt ? Carbon::parse($this->lastSeenAt) : now()->subSeconds($this->interval);
@@ -131,10 +135,12 @@ final class LiveBar extends Component
         }
 
         if ($this->newErrorCount > 0 && (bool) $settings->get('live.notify_on_error', true)) {
+            $latest = $this->latest[0] ?? null;
+
             Notification::make()
                 ->danger()
                 ->title($this->newErrorCount === 1 ? 'New server error captured' : $this->newErrorCount . ' new server errors captured')
-                ->body($this->latest[0]['method'] . ' ' . $this->latest[0]['path'])
+                ->body($latest ? $latest['method'] . ' ' . $latest['path'] : null)
                 ->seconds(7)
                 ->send();
 
@@ -142,10 +148,12 @@ final class LiveBar extends Component
         }
 
         if ((bool) $settings->get('live.notify_on_new', true)) {
+            $latest = $this->latest[0] ?? null;
+
             Notification::make()
                 ->success()
                 ->title($this->newCount === 1 ? 'New request captured' : $this->newCount . ' new requests captured')
-                ->body($this->latest[0]['method'] . ' ' . $this->latest[0]['path'])
+                ->body($latest ? $latest['method'] . ' ' . $latest['path'] : null)
                 ->seconds(5)
                 ->send();
         }

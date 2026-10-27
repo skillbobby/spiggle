@@ -149,6 +149,17 @@
                     <pre class="ai-code ai-code--compact" @if (is_array($replayBody)) data-ai-json @endif>{{ \Spiggle\ApiInspector\Support\Body::pretty($replayBody) }}</pre>
                 </details>
             @endif
+
+            @if ($result->modeEnum() === \Spiggle\ApiInspector\Enums\ReplayMode::Simulated && $record->response_body !== null)
+                <div class="ai-note">
+                    Simulation does not execute the request. The response below is the original capture,
+                    shown as a reference for what this route returned.
+                </div>
+                <details class="ai-details">
+                    <summary>Original response · {{ $record->status_code }} {{ $record->status_text }}</summary>
+                    <pre class="ai-code ai-code--compact" @if (is_array($record->decodedResponse())) data-ai-json @endif>{{ \Spiggle\ApiInspector\Support\Body::pretty($record->decodedResponse()) }}</pre>
+                </details>
+            @endif
         </div>
     @else
         <div class="ai-console__empty">
