@@ -238,7 +238,7 @@ Replay history is removed with its parent request.
 | `only_paths` / `ignore_paths` | `[]` / sensible ignores | Capture allow/deny list. |
 | `methods` | GET…OPTIONS | Methods eligible for capture. |
 | `sample_rate` | `100` | Capture percentage (1–100). |
-| `capture` | all fields | Stored fields (core fields are forced). |
+| `capture` | all fields except session | Stored fields (core fields are forced; session is opt-in). |
 | `max_payload_kb` | `64` | Request body cap. |
 | `max_response_kb` | `128` | Response body cap. |
 | `redact_headers` / `redact_keys` | see above | Sensitive value redaction. |
