@@ -3,3 +3,5 @@
 /install.log
 .phpunit.result.cache
 .phpunit.cache/
+
+/workbench/storage
