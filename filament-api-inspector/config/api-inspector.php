@@ -225,6 +225,7 @@ return [
         'group' => 'API Inspector',
         'sort' => 90,
         'icon' => 'heroicon-o-signal',
+        'settings_icon' => 'heroicon-o-cog-6-tooth',
         'requests_label' => 'Requests',
         'settings_label' => 'Settings',
     ],

@@ -58,7 +58,7 @@ class SettingsPage extends Page
 
     public static function getNavigationIcon(): string | \BackedEnum | \Illuminate\Contracts\Support\Htmlable | null
     {
-        return (string) config('api-inspector.navigation.icon', 'heroicon-o-signal');
+        return (string) config('api-inspector.navigation.settings_icon', 'heroicon-o-cog-6-tooth');
     }
 
     public static function getNavigationSort(): ?int
