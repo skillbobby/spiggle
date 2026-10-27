@@ -1,12 +1,6 @@
 @php
     $color = $record->statusColor();
-    $label = $record->status_text ?: match ($record->statusFamily()) {
-        'success' => 'Success',
-        'redirect' => 'Redirect',
-        'client_error' => 'Client error',
-        'server_error' => 'Server error',
-        default => 'Unknown',
-    };
+    $label = $record->statusLabel();
 @endphp
 
 <div class="ai-status-cell">

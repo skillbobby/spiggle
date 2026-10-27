@@ -4,7 +4,7 @@
         <span class="ai-request-cell__path" title="{{ $record->uri }}">{{ $record->path ?: '/' }}</span>
         @if ($record->replay_count > 0)
             <span class="ai-request-cell__flag" title="Replayed {{ $record->replay_count }} time(s)">
-                <x-filament::icon icon="heroicon-m-arrow-path" class="ai-icon ai-icon--xs" />
+                <x-filament::icon icon="heroicon-o-arrow-path" class="ai-icon ai-icon--xs" />
                 {{ $record->replay_count }}
             </span>
         @endif

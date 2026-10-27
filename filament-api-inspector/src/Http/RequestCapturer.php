@@ -43,7 +43,7 @@ final class RequestCapturer
                 'scheme' => $request->getScheme(),
                 'host' => $request->getHost(),
                 'path' => '/' . ltrim($request->path(), '/'),
-                'uri' => $request->fullUrl(),
+                'uri' => $this->safeUri($request),
                 'status_code' => $response->getStatusCode(),
                 'status_text' => Response::$statusTexts[$response->getStatusCode()] ?? null,
                 'request_size' => strlen($requestContent),
@@ -107,8 +107,12 @@ final class RequestCapturer
 
             if (in_array(CaptureField::ResponseBody->value, $fields, true)) {
                 $contentType = $response->headers->get('Content-Type');
+                $ignoredContentType = Body::contentTypeMatches(
+                    $contentType,
+                    $this->settings->ignoreContentTypes(),
+                );
                 $isBinary = $responseContent !== null
-                    && Body::isBinary($contentType, $responseContent);
+                    && (Body::isBinary($contentType, $responseContent) || $ignoredContentType);
 
                 $data['response_binary'] = $isBinary;
 
@@ -127,7 +131,7 @@ final class RequestCapturer
                 $data += $this->user($request);
             }
 
-            if (in_array(CaptureField::Session->value, $fields, true) && $this->settings->captureSession()) {
+            if (in_array(CaptureField::Session->value, $fields, true)) {
                 try {
                     $data['session_id'] = $request->hasSession() ? $request->session()->getId() : null;
                 } catch (Throwable) {
@@ -284,6 +288,17 @@ final class RequestCapturer
         $content = $request->getContent();
 
         return is_string($content) ? $content : '';
+    }
+
+    private function safeUri(Request $request): string
+    {
+        $query = Redactor::data($request->query->all(), $this->settings->redactKeys());
+
+        if ($query === []) {
+            return $request->url();
+        }
+
+        return $request->url() . '?' . http_build_query($query, '', '&', PHP_QUERY_RFC3986);
     }
 
     private function rawResponseContent(Response $response): ?string

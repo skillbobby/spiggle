@@ -76,6 +76,8 @@ final class CaptureTest extends TestCase
         $this->assertSame('[redacted]', $request->request_headers['x-api-key'][0]);
         $this->assertSame('[redacted]', $request->request_headers['cookie'][0]);
         $this->assertSame('[redacted]', $request->query['token']);
+        $this->assertStringNotContainsString('query-secret', (string) $request->uri);
+        $this->assertStringContainsString('redacted', strtolower((string) $request->uri));
 
         $payload = $request->decodedPayload();
 
@@ -121,7 +123,8 @@ final class CaptureTest extends TestCase
 
     public function test_it_does_not_capture_its_own_traffic_or_replays(): void
     {
-        $this->get('/livewire/update')->assertNotFound();
+        $this->get('/livewire/update');
+        $this->get('/livewire-abc123/update');
         $this->get('/api-inspector/anything')->assertNotFound();
         $this->getJson('/api/orders', ['X-Api-Inspector-Replay' => 'test'])->assertOk();
 
@@ -180,6 +183,21 @@ final class CaptureTest extends TestCase
     public function test_it_skips_binary_response_bodies_but_keeps_metadata(): void
     {
         $this->get('/api/binary')->assertOk();
+
+        $request = ApiRequest::query()->firstOrFail();
+
+        $this->assertTrue($request->response_binary);
+        $this->assertNull($request->response_body);
+        $this->assertSame(200, $request->status_code);
+    }
+
+    public function test_it_can_skip_response_bodies_by_content_type(): void
+    {
+        $this->configure([
+            'ignore_content_types' => ['application/json'],
+        ]);
+
+        $this->getJson('/api/orders')->assertOk();
 
         $request = ApiRequest::query()->firstOrFail();
 

@@ -127,11 +127,6 @@ final class Settings
         return max(1, (int) $this->get('max_exception_kb', 32)) * 1024;
     }
 
-    public function captureSession(): bool
-    {
-        return (bool) $this->get('capture_session', false);
-    }
-
     public function liveEnabled(): bool
     {
         return (bool) $this->get('live.enabled', true);
@@ -204,7 +199,6 @@ final class Settings
             'max_response_kb' => (int) ($all['max_response_kb'] ?? 128),
             'redact_headers' => $this->redactHeaders(),
             'redact_keys' => $this->redactKeys(),
-            'capture_session' => (bool) ($all['capture_session'] ?? false),
             'retention_days' => $this->retentionDays(),
             'max_records' => $this->maxRecords(),
             'live' => [
@@ -229,7 +223,7 @@ final class Settings
      */
     public function save(array $values): void
     {
-        $sanitized = $this->sanitize($values);
+        $sanitized = $this->merge($this->readStored(), $this->sanitize($values));
 
         InspectorSetting::query()->updateOrCreate(
             ['key' => self::RECORD_KEY],
@@ -320,7 +314,6 @@ final class Settings
             'max_response_kb',
             'redact_headers',
             'redact_keys',
-            'capture_session',
             'retention_days',
             'max_records',
             'live',
@@ -335,7 +328,7 @@ final class Settings
             $value = $values[$key];
 
             $sanitized[$key] = match ($key) {
-                'enabled', 'capture_session' => (bool) $value,
+                'enabled' => (bool) $value,
                 'capture' => CaptureField::normalize((array) $value),
                 'only_paths', 'ignore_paths', 'ignore_content_types', 'redact_headers', 'redact_keys' => $this->stringList($value),
                 'methods' => $this->httpMethods($value),

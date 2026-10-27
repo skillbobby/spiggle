@@ -1,6 +1,6 @@
 @php
     $ms = (float) ($record->duration_ms ?? 0);
-    $width = $ms <= 0 ? 3 : min(100, max(6, $ms / 12));
+    $width = $ms <= 0 ? 3 : min(100, max(10, (log10($ms + 1) / 3.2) * 100));
     $tone = $ms >= 1000 ? 'danger' : ($ms >= 300 ? 'warning' : 'success');
 @endphp
 

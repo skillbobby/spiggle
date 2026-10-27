@@ -1,52 +1,54 @@
 /* Spiggle API Inspector — self-contained design layer.
    Uses Filament's CSS variables so it follows the panel theme automatically. */
 
+:root,
 .ai-detail,
 .ai-settings,
 .ai-dock {
     --ai-card: #ffffff;
-    --ai-bg: rgb(var(--gray-50, 249 250 251));
-    --ai-border: rgb(var(--gray-200, 228 231 236));
-    --ai-border-strong: rgb(var(--gray-300, 209 213 220));
-    --ai-text: rgb(var(--gray-950, 16 24 40));
-    --ai-muted: rgb(var(--gray-500, 102 112 133));
-    --ai-faint: rgb(var(--gray-400, 152 162 179));
-    --ai-primary: rgb(var(--primary-600, 79 70 229));
-    --ai-primary-soft: rgb(var(--primary-50, 238 242 255));
-    --ai-primary-soft-2: rgb(var(--primary-100, 224 231 255));
-    --ai-success: rgb(var(--success-600, 6 118 71));
-    --ai-success-soft: rgb(var(--success-50, 236 253 243));
-    --ai-warning: rgb(var(--warning-600, 181 71 8));
-    --ai-warning-soft: rgb(var(--warning-50, 255 250 235));
-    --ai-danger: rgb(var(--danger-600, 180 35 24));
-    --ai-danger-soft: rgb(var(--danger-50, 254 243 242));
-    --ai-info: rgb(var(--info-600, 3 105 161));
-    --ai-info-soft: rgb(var(--info-50, 240 249 255));
-    --ai-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    --ai-bg: var(--gray-50, rgb(249 250 251));
+    --ai-border: var(--gray-200, rgb(228 231 236));
+    --ai-border-strong: var(--gray-300, rgb(209 213 220));
+    --ai-text: var(--gray-950, rgb(16 24 40));
+    --ai-muted: var(--gray-500, rgb(102 112 133));
+    --ai-faint: var(--gray-400, rgb(152 162 179));
+    --ai-primary: var(--primary-600, rgb(79 70 229));
+    --ai-primary-soft: var(--primary-50, rgb(238 242 255));
+    --ai-primary-soft-2: var(--primary-100, rgb(224 231 255));
+    --ai-success: var(--success-600, rgb(6 118 71));
+    --ai-success-soft: var(--success-50, rgb(236 253 243));
+    --ai-warning: var(--warning-600, rgb(181 71 8));
+    --ai-warning-soft: var(--warning-50, rgb(255 250 235));
+    --ai-danger: var(--danger-600, rgb(180 35 24));
+    --ai-danger-soft: var(--danger-50, rgb(254 243 242));
+    --ai-info: var(--info-600, rgb(3 105 161));
+    --ai-info-soft: var(--info-50, rgb(240 249 255));
+    --ai-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace, "Inter Variable", sans-serif;
     --ai-radius: 16px;
     --ai-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 18px 40px -28px rgba(16, 24, 40, 0.35);
 }
 
+.dark,
 .dark .ai-detail,
 .dark .ai-settings,
 .dark .ai-dock {
-    --ai-card: rgb(var(--gray-900, 17 24 39));
-    --ai-bg: rgb(var(--gray-950, 3 7 18));
-    --ai-border: rgb(var(--gray-800, 31 41 55));
-    --ai-border-strong: rgb(var(--gray-700, 55 65 81));
-    --ai-text: rgb(var(--gray-50, 249 250 251));
-    --ai-muted: rgb(var(--gray-400, 156 163 175));
-    --ai-faint: rgb(var(--gray-500, 107 114 128));
-    --ai-primary: rgb(var(--primary-400, 129 140 248));
+    --ai-card: var(--gray-900, rgb(17 24 39));
+    --ai-bg: var(--gray-950, rgb(3 7 18));
+    --ai-border: var(--gray-800, rgb(31 41 55));
+    --ai-border-strong: var(--gray-700, rgb(55 65 81));
+    --ai-text: var(--gray-50, rgb(249 250 251));
+    --ai-muted: var(--gray-400, rgb(156 163 175));
+    --ai-faint: var(--gray-500, rgb(107 114 128));
+    --ai-primary: var(--primary-400, rgb(129 140 248));
     --ai-primary-soft: rgba(99, 102, 241, 0.14);
     --ai-primary-soft-2: rgba(99, 102, 241, 0.22);
-    --ai-success: rgb(var(--success-400, 74 222 128));
+    --ai-success: var(--success-400, rgb(74 222 128));
     --ai-success-soft: rgba(22, 163, 74, 0.15);
-    --ai-warning: rgb(var(--warning-400, 251 191 36));
+    --ai-warning: var(--warning-400, rgb(251 191 36));
     --ai-warning-soft: rgba(217, 119, 6, 0.16);
-    --ai-danger: rgb(var(--danger-400, 248 113 113));
+    --ai-danger: var(--danger-400, rgb(248 113 113));
     --ai-danger-soft: rgba(220, 38, 38, 0.16);
-    --ai-info: rgb(var(--info-400, 56 189 248));
+    --ai-info: var(--info-400, rgb(56 189 248));
     --ai-info-soft: rgba(2, 132, 199, 0.16);
     --ai-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 24px 45px -30px rgba(0, 0, 0, 0.8);
 }
@@ -103,6 +105,7 @@
     border: 1px solid transparent;
     border-radius: 6px;
     display: inline-flex;
+    flex: none;
     font-family: var(--ai-mono);
     font-size: 10px;
     font-weight: 700;
@@ -279,6 +282,7 @@
     color: var(--ai-warning);
     font-family: inherit;
     padding: 1px 5px;
+}
 
 /* -------------------------------------------------------------------------
    Table cells
@@ -289,7 +293,9 @@
     flex-direction: column;
     gap: 4px;
     min-width: 0;
+    overflow: hidden;
     padding: 2px 0;
+    width: 100%;
 }
 
 .ai-request-cell__top {
@@ -297,13 +303,17 @@
     display: flex;
     gap: 7px;
     min-width: 0;
+    width: 100%;
 }
 
 .ai-request-cell__path {
     color: var(--ai-text);
+    flex: 0 1 auto;
     font-family: var(--ai-mono);
     font-size: 12.5px;
     font-weight: 550;
+    max-width: calc(100% - 70px);
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -316,7 +326,9 @@
     font-size: 11px;
     gap: 6px;
     min-width: 0;
+    overflow: hidden;
     padding-left: 1px;
+    white-space: nowrap;
 }
 
 .ai-request-cell__route {
@@ -347,6 +359,17 @@
 .ai-request-cell__flag--danger {
     background: var(--ai-danger-soft);
     color: var(--ai-danger);
+}
+
+/* Filament wraps HTML columns in a single-line clamp; our request cell needs
+   two lines (request + context) and must not clip its own children. */
+.ai-list-cell .fi-ta-text {
+    -webkit-box-orient: unset !important;
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+    line-height: normal !important;
+    overflow: visible !important;
+    white-space: normal !important;
 }
 
 .ai-status-cell {

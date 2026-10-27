@@ -41,7 +41,13 @@ return [
 
     'ignore_paths' => [
         'api-inspector/*',
+        '*/api-inspector',
+        '*/api-inspector/*',
+        '*/api-requests',
+        '*/api-requests/*',
         'livewire/*',
+        'livewire-*',
+        'livewire-*/*',
         '_ignition/*',
         'telescope/*',
         'horizon/*',
@@ -150,8 +156,6 @@ return [
         'cvv',
         'ssn',
     ],
-
-    'capture_session' => false,
 
     /*
     |--------------------------------------------------------------------------

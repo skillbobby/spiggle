@@ -21,6 +21,7 @@ abstract class TestCase extends Orchestra
     {
         return [
             \BladeUI\Icons\BladeIconsServiceProvider::class,
+            \BladeUI\Heroicons\BladeHeroiconsServiceProvider::class,
             \Livewire\LivewireServiceProvider::class,
             \Filament\Support\SupportServiceProvider::class,
             \Filament\Actions\ActionsServiceProvider::class,

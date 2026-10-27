@@ -185,6 +185,18 @@ class ApiRequest extends Model
         };
     }
 
+    public function statusLabel(): string
+    {
+        return match ($this->statusFamily()) {
+            'success' => 'Success',
+            'redirect' => 'Redirect',
+            'client_error' => 'Client error',
+            'server_error' => 'Server error',
+            'informational' => 'Info',
+            default => 'Pending',
+        };
+    }
+
     public function methodColor(): string
     {
         return match (strtoupper((string) $this->method)) {
@@ -279,7 +291,7 @@ class ApiRequest extends Model
 
     public function hasField(CaptureField $field): bool
     {
-        return in_array($field->value, (array) config('api-inspector.capture', []), true);
+        return app(\Spiggle\ApiInspector\Support\Settings::class)->captures($field);
     }
 
     /**

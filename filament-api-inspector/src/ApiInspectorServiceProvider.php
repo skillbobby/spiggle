@@ -118,7 +118,7 @@ final class ApiInspectorServiceProvider extends ServiceProvider
 
             if (
                 $routeName === ''
-                || (! str_contains($routeName, 'api-requests') && ! str_contains($routeName, 'api-inspector'))
+                || ! str_contains($routeName, 'api-requests')
                 || ! Access::allowed()
             ) {
                 return '';

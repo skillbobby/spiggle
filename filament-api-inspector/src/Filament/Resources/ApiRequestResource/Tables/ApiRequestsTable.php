@@ -30,6 +30,8 @@ final class ApiRequestsTable
                     ->searchable(['path', 'uri', 'route_name', 'controller_action', 'user_label', 'ip'])
                     ->sortable()
                     ->html()
+                    ->extraHeaderAttributes(['style' => 'width: 58%'])
+                    ->extraCellAttributes(['style' => 'width: 58%', 'class' => 'ai-list-cell'])
                     ->formatStateUsing(fn (ApiRequest $record): string => view('api-inspector::tables.request-cell', ['record' => $record])->render()),
 
                 TextColumn::make('status_code')
@@ -37,6 +39,8 @@ final class ApiRequestsTable
                     ->sortable()
                     ->alignEnd()
                     ->html()
+                    ->extraHeaderAttributes(['style' => 'width: 122px'])
+                    ->extraCellAttributes(['style' => 'width: 122px', 'class' => 'ai-list-cell'])
                     ->formatStateUsing(fn (ApiRequest $record): string => view('api-inspector::tables.status-cell', ['record' => $record])->render()),
 
                 TextColumn::make('duration_ms')
@@ -44,22 +48,18 @@ final class ApiRequestsTable
                     ->sortable()
                     ->alignEnd()
                     ->html()
+                    ->extraHeaderAttributes(['style' => 'width: 96px'])
+                    ->extraCellAttributes(['style' => 'width: 96px', 'class' => 'ai-list-cell'])
                     ->formatStateUsing(fn (ApiRequest $record): string => view('api-inspector::tables.duration-cell', ['record' => $record])->render()),
-
-                TextColumn::make('user_label')
-                    ->label('Caller')
-                    ->placeholder('Guest')
-                    ->searchable()
-                    ->toggleable()
-                    ->description(fn (ApiRequest $record): string => (string) ($record->ip ?: 'unknown IP'))
-                    ->color('gray'),
 
                 TextColumn::make('captured_at')
                     ->label('When')
                     ->since()
                     ->dateTimeTooltip('M j, Y H:i:s')
                     ->sortable()
-                    ->alignEnd(),
+                    ->alignEnd()
+                    ->extraHeaderAttributes(['style' => 'width: 104px'])
+                    ->extraCellAttributes(['style' => 'width: 104px']),
             ])
             ->filters([
                 SelectFilter::make('method')

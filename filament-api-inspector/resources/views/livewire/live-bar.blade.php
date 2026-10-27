@@ -1,4 +1,10 @@
 @if ($authorized)
+    @php
+        $updated = $updatedAt ? \Illuminate\Support\Carbon::parse($updatedAt) : null;
+        $secondsAgo = $updated ? max(0, (int) $updated->diffInSeconds(now())) : 0;
+        $updatedLabel = $secondsAgo < 5 ? 'just now' : $updated->diffForHumans(short: true);
+    @endphp
+
     <div class="ai-dock" @if ($live) wire:poll.{{ $interval }}s="poll" @endif>
         <div class="ai-dock__progress" wire:loading.class="is-loading" wire:target="poll"></div>
 
@@ -8,7 +14,7 @@
                 <div class="ai-dock__status-copy">
                     <span class="ai-dock__title">{{ $live ? 'Live capture' : 'Live updates paused' }}</span>
                     <span class="ai-dock__updated">
-                        Updated {{ $updatedAt ? \Illuminate\Support\Carbon::parse($updatedAt)->diffForHumans() : 'just now' }}
+                        Updated {{ $updatedLabel }}
                     </span>
                 </div>
             </div>

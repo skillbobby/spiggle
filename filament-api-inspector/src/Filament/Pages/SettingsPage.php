@@ -165,10 +165,15 @@ class SettingsPage extends Page
                         CheckboxList::make('capture')
                             ->hiddenLabel()
                             ->options(CaptureField::options())
-                            ->descriptions(CaptureField::descriptions())
+                            ->descriptions(collect(CaptureField::descriptions())
+                                ->map(fn (string $description, string $value): string => in_array($value, CaptureField::coreValues(), true)
+                                    ? $description . ' Always captured.'
+                                    : $description)
+                                ->all())
                             ->columns(2)
                             ->bulkToggleable()
                             ->searchable()
+                            ->helperText('HTTP method, URI, response status and captured at are always stored so every request can be identified.')
                             ->live(),
                     ]),
 

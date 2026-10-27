@@ -78,24 +78,29 @@
             }
 
             if (button instanceof HTMLElement) {
-                const label = button.querySelector('span:not(.ai-icon)');
-                const original = label?.textContent;
-
                 button.classList.add('ai-copied');
 
-                if (label && original) {
-                    label.textContent = button.dataset.aiCopyLabel
-                        ? button.dataset.aiCopyLabel.replace(/\s+copied$/i, '') || 'Copied'
-                        : 'Copied';
-                }
-
-                window.setTimeout(() => {
-                    button.classList.remove('ai-copied');
+                if (button.hasAttribute('data-ai-copy-target')) {
+                    const label = button.querySelector('span:not(.ai-icon)');
+                    const original = button.dataset.aiOriginalLabel ?? label?.textContent;
 
                     if (label && original) {
-                        label.textContent = original;
+                        button.dataset.aiOriginalLabel = original;
+                        label.textContent = 'Copied';
                     }
-                }, 1600);
+
+                    window.setTimeout(() => {
+                        button.classList.remove('ai-copied');
+
+                        if (label && button.dataset.aiOriginalLabel) {
+                            label.textContent = button.dataset.aiOriginalLabel;
+                        }
+                    }, 1600);
+
+                    return;
+                }
+
+                window.setTimeout(() => button.classList.remove('ai-copied'), 1600);
             }
         } catch {
             // Clipboard access can be denied; fail silently.
