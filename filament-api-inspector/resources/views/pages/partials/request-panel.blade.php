@@ -12,7 +12,7 @@
             <h3 class="ai-section__title">Request payload</h3>
             <p class="ai-section__hint">
                 @if ($payload !== null)
-                    {{ is_array($payload) ? 'JSON' : 'Raw body' }} · {{ $record->sizeForHumans($record->request_size) }}
+                    {{ $record->payload_type === 'form' ? 'Form' : (is_array($payload) ? 'JSON' : 'Raw body') }} · {{ $record->sizeForHumans($record->request_size) }}
                     @if ($record->payload_truncated)
                         · <span class="ai-text-warning">truncated</span>
                     @endif

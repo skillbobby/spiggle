@@ -158,6 +158,7 @@ final class ApiRequestsTable
                 ]),
             ])
             ->defaultSort('captured_at', 'desc')
+            ->stackedOnMobile()
             ->poll(function (): ?string {
                 $settings = app(Settings::class);
 
