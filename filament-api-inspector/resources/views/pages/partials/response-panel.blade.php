@@ -2,6 +2,7 @@
     $responseHeaders = \Spiggle\ApiInspector\Support\Body::flattenHeaders($record->response_headers ?? []);
     $contentType = $responseHeaders['content-type'] ?? $responseHeaders['Content-Type'] ?? null;
     $body = $record->decodedResponse();
+    $maxResponseKb = (int) app(\Spiggle\ApiInspector\Support\Settings::class)->get('max_response_kb', 128);
 @endphp
 
 <div class="ai-section">
@@ -59,8 +60,8 @@
             <div class="ai-empty-note">
                 <x-filament::icon icon="heroicon-o-photo" class="ai-icon" />
                 <div>
-                    <strong>Binary response skipped.</strong>
-                    <p>{{ $contentType ?: 'This' }} content is not stored as text. Status, headers and size were captured.</p>
+                    <strong>Response body skipped.</strong>
+                    <p>{{ $contentType ?: 'This content' }} is binary or excluded by the content-type rules. Status, headers and size were captured.</p>
                 </div>
             </div>
         @elseif ($body === null)
@@ -73,7 +74,7 @@
             </div>
         @else
             @if ($record->response_truncated)
-                <div class="ai-warning">The response hit the {{ (int) config('api-inspector.max_response_kb', 128) }} KB cap and was truncated.</div>
+                <div class="ai-warning">The response hit the {{ $maxResponseKb }} KB cap and was truncated.</div>
             @endif
             <pre class="ai-code" @if (is_array($body)) data-ai-json @endif id="ai-response-{{ $record->id }}">{{ \Spiggle\ApiInspector\Support\Body::pretty($body) }}</pre>
         @endif

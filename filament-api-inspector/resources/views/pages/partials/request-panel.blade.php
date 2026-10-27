@@ -3,6 +3,7 @@
     $query = (array) ($record->query ?? []);
     $headers = \Spiggle\ApiInspector\Support\Body::flattenHeaders($record->request_headers ?? []);
     $contentType = $headers['content-type'] ?? $headers['Content-Type'] ?? null;
+    $maxPayloadKb = (int) app(\Spiggle\ApiInspector\Support\Settings::class)->get('max_payload_kb', 64);
 @endphp
 
 <div class="ai-section">
@@ -46,7 +47,7 @@
         </div>
     @elseif ($record->payload_truncated)
         <div class="ai-warning">
-            The stored body hit the {{ (int) config('api-inspector.max_payload_kb', 64) }} KB cap. The beginning is shown below.
+            The stored body hit the {{ $maxPayloadKb }} KB cap. The beginning is shown below.
         </div>
         <pre class="ai-code" @if (is_array($payload)) data-ai-json @endif id="ai-payload-{{ $record->id }}">{{ \Spiggle\ApiInspector\Support\Body::pretty($payload) }}</pre>
     @else
