@@ -6,7 +6,7 @@
 
 API Inspector listens to the global HTTP stack, records the request and response data you choose, and turns the feed into a live, searchable debugging workspace. Simulated replays explain exactly what a request will do before anything runs. Live replays can even roll back database writes afterwards.
 
-Built and tested against **Filament 4 and Filament 5**.
+Built and tested against **Filament 4 and Filament 5**. See [`docs/PLAN.md`](docs/PLAN.md) for the architecture, replay design and full verification matrix.
 
 ## Features
 
