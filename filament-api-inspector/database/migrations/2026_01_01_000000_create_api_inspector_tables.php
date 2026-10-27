@@ -80,7 +80,7 @@ return new class extends Migration
                 $table->foreignUlid('api_request_id')
                     ->nullable()
                     ->constrained($requestsTable)
-                    ->nullOnDelete();
+                    ->cascadeOnDelete();
 
                 $table->string('mode', 20)->index();
                 $table->string('method', 10);
