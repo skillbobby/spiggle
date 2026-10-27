@@ -41,6 +41,8 @@ return [
 
     'ignore_paths' => [
         'api-inspector/*',
+        'api-requests',
+        'api-requests/*',
         '*/api-inspector',
         '*/api-inspector/*',
         '*/api-requests',

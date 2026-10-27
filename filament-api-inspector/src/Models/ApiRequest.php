@@ -258,6 +258,10 @@ class ApiRequest extends Model
 
     public function decodedResponse(): mixed
     {
+        if ($this->response_body === null || $this->response_body === '') {
+            return null;
+        }
+
         $type = $this->response_headers['content-type'][0]
             ?? $this->response_headers['content-type']
             ?? null;
@@ -266,9 +270,12 @@ class ApiRequest extends Model
             $type = $type[0] ?? null;
         }
 
+        $looksJson = is_string($this->response_body)
+            && (str_starts_with(ltrim($this->response_body), '{') || str_starts_with(ltrim($this->response_body), '['));
+
         return $this->decode(
             $this->response_body,
-            is_string($type) && str_contains(strtolower($type), 'json') ? 'json' : 'text',
+            (is_string($type) && str_contains(strtolower($type), 'json')) || $looksJson ? 'json' : 'text',
         );
     }
 

@@ -17,6 +17,7 @@ GitHub Pages: [skillbobby.github.io/spiggle](https://skillbobby.github.io/spiggl
 
 ## Packages
 
+- [API Inspector](./filament-api-inspector) — capture, inspect, filter and replay API calls with live updates
 - [Geo Lock](https://github.com/skillbobby/Spiggle-Geo-Lock) — allow or block a role by country and region
 - [Visual Dashboards](https://github.com/skillbobby/Spiggle-Visual-Dashboards) — Power BI-style dashboard canvas
 - [Visual Board](https://skillbobby.github.io/spiggle/filament-visual-board/)

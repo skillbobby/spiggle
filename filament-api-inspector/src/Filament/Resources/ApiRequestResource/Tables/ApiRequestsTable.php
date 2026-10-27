@@ -78,13 +78,13 @@ final class ApiRequestsTable
 
                 SelectFilter::make('status_family')
                     ->label('Response')
+                    ->native(false)
                     ->options([
                         'success' => '2xx · Success',
                         'redirect' => '3xx · Redirect',
                         'client' => '4xx · Client error',
                         'server' => '5xx · Server error',
                     ])
-                    ->native(false)
                     ->query(function (Builder $query, array $data): Builder {
                         return match ($data['value'] ?? null) {
                             'success' => $query->whereBetween('status_code', [200, 299]),
@@ -94,6 +94,19 @@ final class ApiRequestsTable
                             default => $query,
                         };
                     }),
+
+                SelectFilter::make('user_label')
+                    ->label('Caller')
+                    ->native(false)
+                    ->searchable()
+                    ->options(fn (): array => ApiRequest::query()
+                        ->whereNotNull('user_label')
+                        ->where('user_label', '!=', '')
+                        ->distinct()
+                        ->orderBy('user_label')
+                        ->limit(50)
+                        ->pluck('user_label', 'user_label')
+                        ->all()),
 
                 Filter::make('captured_at')
                     ->label('Date range')

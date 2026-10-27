@@ -71,7 +71,7 @@ final class ReplayService
         $payloadProvided = array_key_exists('payload', $options) && $options['payload'] !== null;
         $payload = $this->resolvePayload($source, $options['payload'] ?? null, $payloadProvided);
 
-        $headers = $this->resolveHeaders($source, $options['headers'] ?? [], $payload['type']);
+        $headers = $this->resolveHeaders($source, $options['headers'] ?? [], $payload['type'], $payloadProvided);
 
         return [
             'method' => $method,
@@ -145,7 +145,7 @@ final class ReplayService
      * @param  array<string, string>  $overrides
      * @return array<string, string>
      */
-    private function resolveHeaders(ApiRequest $source, array $overrides, ?string $payloadType): array
+    private function resolveHeaders(ApiRequest $source, array $overrides, ?string $payloadType, bool $payloadProvided = false): array
     {
         $headers = [];
         $allowed = [
@@ -186,6 +186,16 @@ final class ReplayService
             $headers['Accept'] = 'application/json';
         }
 
+        if ($payloadProvided && ! $this->hasHeader($overrides, 'content-type')) {
+            if ($payloadType === 'json') {
+                $headers = $this->withHeader($headers, 'Content-Type', 'application/json');
+            } elseif ($payloadType === 'form') {
+                $headers = $this->withHeader($headers, 'Content-Type', 'application/x-www-form-urlencoded');
+            } elseif ($payloadType === 'text') {
+                $headers = $this->withHeader($headers, 'Content-Type', 'text/plain');
+            }
+        }
+
         if (! $this->hasHeader($headers, 'content-type')) {
             if ($payloadType === 'json') {
                 $headers['Content-Type'] = 'application/json';
@@ -193,6 +203,23 @@ final class ReplayService
                 $headers['Content-Type'] = 'application/x-www-form-urlencoded';
             }
         }
+
+        return $headers;
+    }
+
+    /**
+     * @param  array<string, string>  $headers
+     * @return array<string, string>
+     */
+    private function withHeader(array $headers, string $name, string $value): array
+    {
+        foreach (array_keys($headers) as $key) {
+            if (strtolower($key) === strtolower($name)) {
+                unset($headers[$key]);
+            }
+        }
+
+        $headers[$name] = $value;
 
         return $headers;
     }
@@ -273,6 +300,17 @@ final class ReplayService
             $warnings[] = 'The captured payload was truncated. A live replay would send only the stored portion unless you edit the body.';
         }
 
+        if (str_contains(strtolower((string) $source->uri), 'redacted')) {
+            $warnings[] = 'The captured URI contains redacted query values. Edit the target URI before a live replay if those values are still required.';
+        }
+
+        $sourceHeaders = Body::flattenHeaders($source->request_headers ?? []);
+        $authorization = $sourceHeaders['authorization'] ?? $sourceHeaders['Authorization'] ?? null;
+
+        if ($authorization === Redactor::PLACEHOLDER) {
+            $warnings[] = 'The original authorization header was redacted and cannot be reused. Live replays rely on the restored user session instead.';
+        }
+
         $writes = ! in_array($method, ['GET', 'HEAD', 'OPTIONS'], true);
         $destructive = $method === 'DELETE'
             || str_contains(strtolower((string) $route['controller']), 'destroy')
@@ -303,7 +341,8 @@ final class ReplayService
                 'label' => 'Authentication',
                 'status' => $route['auth_required'] && $sourceUser === null ? 'warning' : 'passed',
                 'detail' => $route['auth_required']
-                    ? ($sourceUser ? 'Replays as ' . $this->userLabel($sourceUser) : 'Guest (original user unavailable)')
+                    ? (($sourceUser ? 'Replays as ' . $this->userLabel($sourceUser) : 'Guest (original user unavailable)')
+                        . ($route['auth_guard'] ? ' via ' . $route['auth_guard'] : ''))
                     : 'No authentication required',
             ],
             [
@@ -332,6 +371,7 @@ final class ReplayService
             'route' => $route,
             'auth' => [
                 'required' => $route['auth_required'],
+                'guard' => $route['auth_guard'],
                 'resolved' => $sourceUser !== null,
                 'user' => $sourceUser ? $this->userLabel($sourceUser) : null,
             ],
@@ -352,7 +392,7 @@ final class ReplayService
 
 
     /**
-     * @return array{matched: bool, name: string|null, controller: string|null, uri: string|null, middleware: array<int, string>, auth_required: bool, csrf: bool, throttled: bool, allowed_methods: array<int, string>}
+     * @return array{matched: bool, name: string|null, controller: string|null, uri: string|null, middleware: array<int, string>, auth_required: bool, auth_guard: string|null, csrf: bool, throttled: bool, allowed_methods: array<int, string>}
      */
     private function matchRoute(string $uri, string $method): array
     {
@@ -363,6 +403,7 @@ final class ReplayService
             'uri' => null,
             'middleware' => [],
             'auth_required' => false,
+            'auth_guard' => null,
             'csrf' => false,
             'throttled' => false,
             'allowed_methods' => [],
@@ -393,6 +434,7 @@ final class ReplayService
         }
 
         $authRequired = false;
+        $authGuard = null;
         $csrf = false;
         $throttled = false;
 
@@ -401,6 +443,12 @@ final class ReplayService
 
             if (str_starts_with($lower, 'auth') || str_contains($item, 'Authenticate')) {
                 $authRequired = true;
+
+                if (preg_match('/^auth:([^,]+)/', $lower, $matches)) {
+                    $authGuard = trim($matches[1]);
+                } elseif ($authGuard === null) {
+                    $authGuard = 'web';
+                }
             }
 
             if (str_contains($lower, 'csrf') || str_contains($item, 'ValidateCsrfToken')) {
@@ -419,6 +467,7 @@ final class ReplayService
             'uri' => $route->uri(),
             'middleware' => $middleware,
             'auth_required' => $authRequired,
+            'auth_guard' => $authGuard,
             'csrf' => $csrf,
             'throttled' => $throttled,
             'allowed_methods' => [],
@@ -502,7 +551,17 @@ final class ReplayService
         $replay->request_headers = Redactor::headers($headers, $this->settings->redactHeaders());
 
         $sourceUser = $this->sourceUser($source);
+        $guardName = $plan['auth']['guard'] ?? null;
         $guard = Auth::guard();
+
+        if (is_string($guardName) && $guardName !== '') {
+            try {
+                $guard = Auth::guard($guardName);
+            } catch (Throwable) {
+                // Fall back to the default guard if the route guard is not configured.
+            }
+        }
+
         $previousUser = null;
 
         try {

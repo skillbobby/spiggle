@@ -135,13 +135,21 @@ class SettingsPage extends Page
 
     public function resetSettings(): void
     {
-        app(Settings::class)->reset();
-        $this->form->fill(app(Settings::class)->formData());
+        try {
+            app(Settings::class)->reset();
+            $this->form->fill(app(Settings::class)->formData());
 
-        Notification::make()
-            ->success()
-            ->title('Defaults restored')
-            ->send();
+            Notification::make()
+                ->success()
+                ->title('Defaults restored')
+                ->send();
+        } catch (Throwable $exception) {
+            Notification::make()
+                ->danger()
+                ->title('Could not restore defaults')
+                ->body($exception->getMessage())
+                ->send();
+        }
     }
 
     private function captureTab(): Tab

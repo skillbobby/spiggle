@@ -19,6 +19,8 @@ final class SettingsTest extends TestCase
         $this->assertContains('payload', $settings->capture());
         $this->assertSame([
             'api-inspector/*',
+            'api-requests',
+            'api-requests/*',
             '*/api-inspector',
             '*/api-inspector/*',
             '*/api-requests',

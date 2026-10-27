@@ -35,6 +35,13 @@
     @endphp
 
     <div class="ai-settings">
+        @unless (app(\Spiggle\ApiInspector\Support\Settings::class)->storageReady())
+            <div class="ai-danger-note">
+                <x-filament::icon icon="heroicon-o-exclamation-triangle" class="ai-icon" />
+                The inspector tables are not available yet. Run <code>php artisan migrate</code> (or <code>php artisan api-inspector:install --migrate</code>) before saving settings.
+            </div>
+        @endunless
+
         <section class="ai-settings-hero">
             <div class="ai-settings-hero__main">
                 <span class="ai-settings-hero__eyebrow">Traffic control</span>
