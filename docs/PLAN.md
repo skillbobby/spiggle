@@ -1,0 +1,86 @@
+# Implementation plan — Spiggle API Guard
+
+## Product goal
+
+Give a Filament panel a first-class HTTP observability workspace:
+
+1. Track every relevant incoming call with configurable detail.
+2. Let an admin find a request quickly, understand it deeply and replay it safely.
+3. Keep the UI live, calm and useful without manual refreshes.
+4. Work identically on Filament 4 and Filament 5.
+
+## Architecture
+
+| Layer | Responsibility |
+| --- | --- |
+| `ApiGuardServiceProvider` | Config, migrations, views, assets, global middleware, exception tracking, live bar, prune schedule |
+| `Http\Middleware\CaptureApiRequest` | Request-scoped timing and termination hook |
+| `Http\CaptureState` | Shares state between the handle and terminate middleware instances (WeakMap, Octane-safe) |
+| `Http\RequestFilter` | Master switch, allow/deny paths, methods, sample rate, self/Livewire/static exclusion |
+| `Http\RequestCapturer` | Field selection, redaction, payload/response decoding, truncation, storage |
+| `Support\Settings` | Cached config + database overrides, sanitisation, form data |
+| `Services\GuardRuleEngine` | Cached block/throttle rules, matching, rate limiting and dry-run predictions |
+| `Http\Middleware\EnforceApiGuard` | Applies block/429 responses after auth middleware and records rule decisions |
+| `Services\ReplayService` | Route planning, guard predictions, simulated records, internal live execution, auth restoration, DB rollback |
+| `Services\Pruner` | Retention by age and max record count |
+| Filament resource/pages | Feed, detail workspace, replay console, settings |
+| `Livewire\LiveBar` | Background status dock, counts, new-request detection, toasts |
+
+## Data model
+
+- `api_guard_requests` — one row per capture; ULID key, request/response/context/performance columns, replay counters, exception details.
+- `api_guard_replays` — one row per simulated/live attempt; mode, target, sanitized headers/body, plan, response, error, rollback flag.
+- `api_guard_settings` — one JSON payload row (`default`) overriding config defaults.
+- `api_guard_rules` — block/throttle rules with path, method, IP, user, priority, limits and hit counters.
+- Guard decision columns on `api_guard_requests` record the rule and action for every tracked call.
+
+Indexes cover the feed's common access paths: `captured_at`, `status_code`, `method`, `path`, `ip`, `route_name`, `duration_ms`.
+
+## Tracking flow
+
+1. Global middleware evaluates `RequestFilter`.
+2. State (timestamp, high-resolution start, exception bucket) is stored against the request.
+3. The application handles the request unchanged.
+4. After the response is sent, `terminate()` builds the selected fields, redacts secrets in headers/query/URI/body, caps sizes, and writes the record.
+5. Storage failures are swallowed (optionally logged) so observability cannot break the app.
+6. Route exceptions are also fed into the request state through the Laravel exception handler's `reportable()` hook.
+
+## Replay flow
+
+1. Normalise target method/URI/payload/headers.
+2. Match the target against the route collection and build a plan: route/controller/middleware, auth guard/user, writes/destructive flag, CSRF/throttle/host warnings, blockers.
+3. **Simulated** — store the plan and show the original captured response as a reference; execute nothing.
+4. **Live** — bind the current request/user, execute through the Laravel HTTP kernel with a recursion guard. Optionally wrap in a DB transaction and roll back afterwards. Response, duration and status are persisted.
+5. Every attempt increments the source request's replay counter and appears in history.
+
+## UI plan
+
+- **Feed** — method/status badges, path/context cell, latency meter, status family labels, caller/date filters, search, bulk delete, stats overview with 24h traffic/errors/latency/guard hits.
+- **Live dock** — fixed bottom status, tracking state, last update, 24h totals and errors, new-request chip, indeterminate loader, accessible label; polls independently of the table.
+- **Detail workspace** — summary hero, tabs for Request / Response / Headers / Context / Replays, JSON highlighting, copy actions, cURL export, sticky replay console with plan timeline and response preview.
+- **Settings** — tracking switch, field checklist, path/method/sample rules, size/content-type limits, redaction, guard policy, replay policy, live interval/toasts, retention. Live preview of the record shape.
+- **Rules** — create, edit, enable/disable and delete block/throttle rules; hit counts and quick actions from tracked requests.
+- **Visual system** — self-contained `api-guard.css` using Filament colour variables, light/dark support, responsive grid, reduced-motion support and scoped `ag-` classes.
+
+## Security & safety
+
+- Redaction before persistence; URI query values redacted too.
+- Live replay restrictions: allowed methods/hosts, self-route blocking, recursion guard, optional DB rollback, warnings for redacted auth/CSRF/truncated payload/files.
+- Panel access through a gate/email allow list.
+- No public package routes.
+
+## Verification plan
+
+| Area | Coverage |
+| --- | --- |
+| Capture | methods, status, URI/query, payloads, headers, IP, user agent, user, exceptions, binary/content-type skip, truncation, toggles, allow/ignore paths, method filters, self/Livewire/replay exclusion |
+| Settings | defaults, merge, sanitisation, clamping, partial updates, reset, storage readiness |
+| Replay | simulation plan, original response reference, live GET, live mutation rollback, mutation persistence, auth restoration, payload/header overrides, method/host/guard blockers, missing route, nested replay, history link |
+| Retention | age pruning, max-record pruning, dry run, replay cleanup, command |
+| UI | feed render, detail render, settings render, settings save, access restriction, live bar counts/poll, simulated/live replay from detail |
+| Support | cURL escaping/redaction, wildcard redaction, UTF-8 truncation, binary detection |
+
+Run against both dependency branches:
+
+- Filament 5.11 / Livewire 4.4 / Laravel 12.70 — 62 tests, 315 assertions.
+- Filament 4.16 / Livewire 3.8 / Laravel 12.70 — 62 tests, 315 assertions.
