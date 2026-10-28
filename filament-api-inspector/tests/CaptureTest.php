@@ -85,6 +85,8 @@ final class CaptureTest extends TestCase
         $this->assertSame('[redacted]', $payload['nested']['api_key']);
         $this->assertSame('keep-me', $payload['nested']['safe']);
         $this->assertSame('ada@example.com', $payload['email']);
+        $this->assertStringNotContainsString('hunter2', (string) $request->response_body);
+        $this->assertStringContainsString('[redacted]', (string) $request->response_body);
     }
 
     public function test_it_respects_the_capture_toggle(): void

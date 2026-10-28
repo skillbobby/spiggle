@@ -181,7 +181,7 @@ Paths support Laravel wildcards (`api/*`, `webhooks/stripe*`). The allow list is
 
 ## Privacy
 
-Sensitive header names and JSON/query keys are redacted before a record is written:
+Sensitive header names and JSON/query keys are redacted before a record is written (request and response bodies included):
 
 ```php
 'redact_headers' => [
@@ -273,8 +273,8 @@ Verified against both supported branches:
 
 | Filament | Livewire | Laravel | Result |
 | --- | --- | --- | --- |
-| 5.11 | 4.4 | 12.70 | 49 tests / 251 assertions |
-| 4.16 | 3.8 | 12.70 | 49 tests / 251 assertions |
+| 5.11 | 4.4 | 12.70 | 49 tests / 253 assertions |
+| 4.16 | 3.8 | 12.70 | 49 tests / 253 assertions |
 
 ### Workbench demo
 

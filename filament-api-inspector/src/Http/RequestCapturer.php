@@ -117,9 +117,23 @@ final class RequestCapturer
                 $data['response_binary'] = $isBinary;
 
                 if (! $isBinary && $responseContent !== null) {
+                    $storedResponse = $responseContent;
+
+                    $looksJson = str_starts_with(ltrim($responseContent), '{') || str_starts_with(ltrim($responseContent), '[');
+
+                    if ((is_string($contentType) && str_contains(strtolower($contentType), 'json')) || $looksJson) {
+                        $decodedResponse = json_decode($responseContent, true);
+
+                        if (json_last_error() === JSON_ERROR_NONE && is_array($decodedResponse)) {
+                            $storedResponse = Body::encode(
+                                Redactor::data($decodedResponse, $this->settings->redactKeys()),
+                            ) ?? $responseContent;
+                        }
+                    }
+
                     $truncated = false;
                     $data['response_body'] = Body::truncate(
-                        $responseContent,
+                        $storedResponse,
                         $this->settings->maxResponseBytes(),
                         $truncated,
                     );

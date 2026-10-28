@@ -77,5 +77,5 @@ Indexes cover the feed's common access paths: `captured_at`, `status_code`, `met
 
 Run against both dependency branches:
 
-- Filament 5.11 / Livewire 4.4 / Laravel 12.70 — 49 tests, 251 assertions.
-- Filament 4.16 / Livewire 3.8 / Laravel 12.70 — 49 tests, 251 assertions.
+- Filament 5.11 / Livewire 4.4 / Laravel 12.70 — 49 tests, 253 assertions.
+- Filament 4.16 / Livewire 3.8 / Laravel 12.70 — 49 tests, 253 assertions.
