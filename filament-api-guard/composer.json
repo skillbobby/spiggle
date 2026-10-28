@@ -1,0 +1,73 @@
+{
+    "name": "spiggle/filament-api-guard",
+    "description": "Track, inspect, replay, throttle and block every API request in Filament 4/5 or Laravel — with live updates and a beautiful security console.",
+    "keywords": [
+        "filament",
+        "laravel",
+        "api",
+        "guard",
+        "security",
+        "throttle",
+        "block",
+        "debug",
+        "replay"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Spiggle",
+            "homepage": "https://github.com/skillbobby"
+        }
+    ],
+    "homepage": "https://github.com/skillbobby/Spiggle-API-Guard",
+    "support": {
+        "issues": "https://github.com/skillbobby/Spiggle-API-Guard/issues",
+        "source": "https://github.com/skillbobby/Spiggle-API-Guard"
+    },
+    "require": {
+        "php": "^8.2",
+        "filament/filament": "^4.0|^5.0",
+        "illuminate/contracts": "^11.0|^12.0|^13.0",
+        "illuminate/database": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^11.5",
+        "symfony/polyfill-intl-icu": "^1.43"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spiggle\\ApiGuard\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spiggle\\ApiGuard\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\": "workbench/database/"
+        },
+        "files": [
+            "tests/bootstrap-intl.php"
+        ]
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spiggle\\ApiGuard\\ApiGuardServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
