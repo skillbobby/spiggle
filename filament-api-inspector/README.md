@@ -39,6 +39,13 @@ composer require spiggle/filament-api-inspector
 php artisan api-inspector:install --migrate
 ```
 
+> **Developing from this repository:** the package lives in `filament-api-inspector/`. Add a path repository and require the dev branch until the package is tagged on Packagist:
+>
+> ```bash
+> composer config repositories.api-inspector path ./filament-api-inspector
+> composer require spiggle/filament-api-inspector:@dev
+> ```
+
 If you prefer to do it manually:
 
 ```bash
