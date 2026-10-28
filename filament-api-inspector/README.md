@@ -151,6 +151,8 @@ The replay result shows status, duration, warnings, the execution plan, whether 
 
 The live bar only appears on request feed/detail pages. Settings stays focused on configuration.
 
+![Live status dock](art/live-dock.png)
+
 ## Capture rules
 
 ```php
