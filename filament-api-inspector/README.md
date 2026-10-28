@@ -8,6 +8,8 @@ API Inspector listens to the global HTTP stack, records the request and response
 
 Built and tested against **Filament 4 and Filament 5**. See [`docs/PLAN.md`](docs/PLAN.md) for the architecture, replay design and full verification matrix.
 
+Repository: [skillbobby/Spiggle-API-Inspector](https://github.com/skillbobby/Spiggle-API-Inspector)
+
 ## Features
 
 - **Capture everything that matters** — method, URI, route, controller, status, duration, memory, request/response headers, query string, JSON/form payloads, response body, IP, user, user agent, referer, session and exceptions.

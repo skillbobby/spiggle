@@ -17,10 +17,10 @@
             "homepage": "https://github.com/skillbobby"
         }
     ],
-    "homepage": "https://github.com/skillbobby/spiggle",
+    "homepage": "https://github.com/skillbobby/Spiggle-API-Inspector",
     "support": {
-        "issues": "https://github.com/skillbobby/spiggle/issues",
-        "source": "https://github.com/skillbobby/spiggle"
+        "issues": "https://github.com/skillbobby/Spiggle-API-Inspector/issues",
+        "source": "https://github.com/skillbobby/Spiggle-API-Inspector"
     },
     "require": {
         "php": "^8.2",
