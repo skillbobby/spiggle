@@ -35,12 +35,19 @@
 
     <div class="ai-form">
         <div class="ai-form__row">
-            <label class="ai-label" for="ai-replay-method">Method</label>
-            <select id="ai-replay-method" class="ai-input ai-input--method" wire:model="replayMethod">
+            <span class="ai-label">Method</span>
+            <div class="ai-methods" role="group" aria-label="Replay method">
                 @foreach (['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'] as $method)
-                    <option value="{{ $method }}">{{ $method }}</option>
+                    <button
+                        type="button"
+                        class="ai-method-choice {{ $replayMethod === $method ? 'is-active' : '' }}"
+                        wire:click="$set('replayMethod', '{{ $method }}')"
+                        aria-pressed="{{ $replayMethod === $method ? 'true' : 'false' }}"
+                    >
+                        {{ $method }}
+                    </button>
                 @endforeach
-            </select>
+            </div>
         </div>
 
         <div class="ai-form__row">

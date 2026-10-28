@@ -1122,6 +1122,38 @@
     padding: 7px 8px;
 }
 
+.ai-methods {
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ai-method-choice {
+    background: var(--ai-card);
+    border: 1px solid var(--ai-border);
+    border-radius: 6px;
+    color: var(--ai-muted);
+    cursor: pointer;
+    font-family: var(--ai-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 6px 4px;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.ai-method-choice:hover {
+    background: var(--ai-bg);
+    border-color: var(--ai-border-strong);
+    color: var(--ai-text);
+}
+
+.ai-method-choice.is-active {
+    background: var(--ai-primary-soft);
+    border-color: color-mix(in srgb, var(--ai-primary) 28%, transparent);
+    color: var(--ai-primary);
+}
+
 .ai-textarea {
     max-height: 240px;
     min-height: 96px;
