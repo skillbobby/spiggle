@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder
                 'host' => 'app.spiggle.test',
                 'path' => $path,
                 'uri' => 'https://app.spiggle.test' . $path . ($query ? '?' . http_build_query($query) : ''),
-                'route_name' => 'api.' . trim(str_replace('/', '.', $path), '.'),
+                'route_name' => 'api.' . trim(str_replace(['/api/', '/'], ['', '.'], $path), '.'),
                 'controller_action' => 'App\\Http\\Controllers\\Api\\Controller@handle',
                 'route_middleware' => ['api', 'auth:sanctum', 'throttle:api'],
                 'status_code' => $status,

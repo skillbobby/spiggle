@@ -103,7 +103,7 @@ Uploaded files are never stored — only their name, MIME type and size metadata
 
 The request feed is designed to stay out of your way:
 
-- **Live dock** — a fixed bottom bar shows whether capture is live, the last update, today's total and server error count. It polls on the interval selected in settings (2–60 seconds) and shows a progress loader while fetching.
+- **Live dock** — a fixed bottom bar shows whether capture is live, the last update, 24h total and server error count. It polls on the interval selected in settings (2–60 seconds) and shows a progress loader while fetching.
 - **Automatic refresh** — the table and the 24-hour stats refresh on the same interval. No manual reloads.
 - **Toasts** — new traffic raises a subtle success toast; new 5xx responses raise a danger toast. Toggle both in **Settings → Live feed**.
 - **Search & filters** — search by path, URI, route, caller or IP. Filter by method, status family, date range, slow requests, server errors or replayed requests.
@@ -273,8 +273,8 @@ Verified against both supported branches:
 
 | Filament | Livewire | Laravel | Result |
 | --- | --- | --- | --- |
-| 5.11 | 4.4 | 12.70 | 49 tests / 253 assertions |
-| 4.16 | 3.8 | 12.70 | 49 tests / 253 assertions |
+| 5.11 | 4.4 | 12.70 | 50 tests / 256 assertions |
+| 4.16 | 3.8 | 12.70 | 50 tests / 256 assertions |
 
 ### Workbench demo
 

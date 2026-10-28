@@ -107,8 +107,17 @@
         }
     };
 
+    const tidyZeroBadges = (root = document) => {
+        root.querySelectorAll?.('.fi-ta-filters-dropdown .fi-badge').forEach((badge) => {
+            if ((badge.textContent ?? '').trim() === '0') {
+                badge.remove();
+            }
+        });
+    };
+
     const bind = () => {
         highlightWithin();
+        tidyZeroBadges();
 
         if (document.documentElement.dataset.aiCopyBound === 'true') {
             return;
@@ -191,6 +200,7 @@
             });
 
             highlightWithin(root);
+            tidyZeroBadges(root);
         };
 
         try {

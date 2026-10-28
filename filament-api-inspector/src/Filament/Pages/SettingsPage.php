@@ -185,7 +185,7 @@ class SettingsPage extends Page
                             ->live(),
                     ]),
 
-                Section::make('Filters')
+                Section::make('Capture filters')
                     ->description('Paths accept Laravel wildcards such as api/* or webhooks/stripe. Leave “only” empty to capture everything not ignored.')
                     ->columns(2)
                     ->schema([

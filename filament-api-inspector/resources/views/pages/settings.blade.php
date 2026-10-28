@@ -75,7 +75,7 @@
             <div class="ai-settings-actions">
                 <div class="ai-settings-actions__hint">
                     <x-filament::icon icon="heroicon-o-information-circle" class="ai-icon" />
-                    Config is cached and refreshed instantly for this panel.
+                    Overrides are stored in the database and applied immediately.
                 </div>
                 <div class="ai-settings-actions__buttons">
                     <x-filament::button

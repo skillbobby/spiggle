@@ -361,6 +361,24 @@
     color: var(--ai-danger);
 }
 
+.ai-request-cell__flag-mark {
+    font-family: var(--ai-mono);
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.ai-request-cell__mobile {
+    display: none;
+}
+
+.ai-request-cell__mobile-item {
+    color: var(--ai-muted);
+    font-family: var(--ai-mono);
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+}
+
 /* Filament wraps HTML columns in a single-line clamp; our request cell needs
    two lines (request + context) and must not clip its own children. */
 .ai-list-cell .fi-ta-text {
@@ -490,6 +508,29 @@
     flex-wrap: wrap;
     font-size: 12px;
     gap: 8px;
+}
+
+.ai-hero__replay {
+    align-items: center;
+    background: var(--ai-primary-soft);
+    border: 1px solid color-mix(in srgb, var(--ai-primary) 22%, transparent);
+    border-radius: 999px;
+    color: var(--ai-primary);
+    display: inline-flex;
+    font-size: 10.5px;
+    font-weight: 600;
+    gap: 4px;
+    margin-left: auto;
+    padding: 5px 8px;
+    text-decoration: none;
+}
+
+.ai-hero__replay:hover {
+    background: var(--ai-primary-soft-2);
+}
+
+#replay-console {
+    scroll-margin-top: 1rem;
 }
 
 .ai-metrics {
@@ -970,8 +1011,12 @@
 .ai-run:focus-visible,
 .ai-seg__btn:focus-visible,
 .ai-tab:focus-visible,
+.ai-method-choice:focus-visible,
+.ai-dock__link:focus-visible,
 .ai-share__btn:focus-visible,
-.ai-copy-link:focus-visible {
+.ai-copy-link:focus-visible,
+.ai-empty-state__link:focus-visible,
+.ai-hero__replay:focus-visible {
     outline: 2px solid var(--ai-primary);
     outline-offset: 2px;
 }
@@ -1936,6 +1981,101 @@ body:has(.ai-dock) .fi-page {
 
 
 /* -------------------------------------------------------------------------
+   Empty feed
+------------------------------------------------------------------------- */
+
+.ai-empty-state {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 42px 20px 46px;
+    text-align: center;
+}
+
+.ai-empty-state__signal {
+    align-items: center;
+    background: var(--ai-primary-soft);
+    border: 1px solid color-mix(in srgb, var(--ai-primary) 22%, transparent);
+    border-radius: 999px;
+    display: flex;
+    height: 56px;
+    justify-content: center;
+    margin-bottom: 4px;
+    position: relative;
+    width: 56px;
+}
+
+.ai-empty-state__pulse {
+    animation: ai-ping 2.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+    border: 1px solid color-mix(in srgb, var(--ai-primary) 40%, transparent);
+    border-radius: 999px;
+    inset: 5px;
+    position: absolute;
+}
+
+.ai-empty-state__icon {
+    color: var(--ai-primary);
+    height: 24px;
+    position: relative;
+    width: 24px;
+}
+
+.ai-empty-state__title {
+    color: var(--ai-text);
+    font-size: 16px;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.ai-empty-state__copy {
+    color: var(--ai-muted);
+    font-size: 12px;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 380px;
+}
+
+.ai-empty-state__command {
+    align-items: center;
+    background: #0b1020;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 8px;
+    color: #d8e2f3;
+    display: flex;
+    font-family: var(--ai-mono);
+    font-size: 11px;
+    gap: 7px;
+    margin-top: 3px;
+    padding: 8px 11px;
+}
+
+.ai-empty-state__prompt {
+    color: #34d399;
+}
+
+.ai-empty-state__command code {
+    font-family: inherit;
+}
+
+.ai-empty-state__link {
+    align-items: center;
+    color: var(--ai-primary);
+    display: inline-flex;
+    font-size: 11px;
+    font-weight: 600;
+    gap: 3px;
+    margin-top: 2px;
+    text-decoration: none;
+}
+
+.ai-empty-state__link:hover {
+    text-decoration: underline;
+}
+
+
+/* -------------------------------------------------------------------------
    Responsive
 ------------------------------------------------------------------------- */
 
@@ -1996,6 +2136,75 @@ body:has(.ai-dock) .fi-page {
     }
 }
 
+@media (max-width: 1240px) {
+    .ai-col-request {
+        width: auto !important;
+    }
+
+    .ai-col-status,
+    .ai-col-latency,
+    .ai-col-when {
+        display: none !important;
+    }
+
+    .ai-request-cell__mobile {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 3px;
+    }
+
+    .ai-request-cell__mobile .ai-status {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    .ai-request-cell__path {
+        max-width: calc(100% - 52px);
+    }
+
+    .ai-request-cell__route,
+    .ai-request-cell__route-dot {
+        display: none;
+    }
+
+    .ai-request-cell__flag {
+        display: none;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    /* Stats overview becomes a compact 2×2 grid below tablet. */
+    .fi-page .fi-grid[style*="--cols-cxl"] {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .fi-page .fi-grid[style*="--cols-cxl"] > .fi-grid-col {
+        grid-column: span 1 / span 1 !important;
+    }
+
+    .fi-wi-stats-overview-stat {
+        padding: 14px;
+    }
+
+    .fi-wi-stats-overview-stat-value {
+        font-size: 1.35rem;
+        line-height: 1.2;
+    }
+
+    .fi-wi-stats-overview-stat-label {
+        font-size: 0.72rem;
+    }
+
+    .fi-wi-stats-overview-stat-description {
+        font-size: 0.66rem;
+        line-height: 1.35;
+        margin-top: 2px;
+    }
+}
+
 @media (max-width: 560px) {
     .ai-dock {
         border-radius: 18px;
@@ -2044,7 +2253,54 @@ body:has(.ai-dock) .fi-page {
     }
 
     .ai-tabbar {
+        flex-wrap: wrap;
+        gap: 4px;
         padding: 6px;
+    }
+
+    .ai-tab {
+        flex: 1 1 auto;
+        justify-content: center;
+        padding: 7px 8px;
+    }
+
+    .ai-tab.is-active {
+        background: var(--ai-primary-soft);
+        box-shadow: none;
+        color: var(--ai-primary);
+    }
+
+    .ai-tab.is-active::after {
+        display: none;
+    }
+
+    .ai-tab__count {
+        background: var(--ai-card);
+    }
+
+    .ai-share__footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .ai-settings .fi-tabs {
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .ai-settings .fi-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ai-settings .fi-tabs-item {
+        font-size: 10.5px;
+        gap: 2px;
+        padding: 7px 5px;
+    }
+
+    .ai-settings .fi-tabs-item .fi-icon {
+        display: none;
     }
 }
 
@@ -2098,6 +2354,7 @@ body:has(.ai-dock) .fi-page {
     .ai-dock__dot.is-live,
     .ai-dot--pulse,
     .ai-ping,
+    .ai-empty-state__pulse,
     .ai-dock__progress.is-loading::after,
     .ai-result {
         animation: none !important;

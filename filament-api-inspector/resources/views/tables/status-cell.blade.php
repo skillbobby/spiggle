@@ -8,5 +8,7 @@
         <span class="ai-status__dot"></span>
         {{ $record->status_code ?? '—' }}
     </span>
-    <span class="ai-status-cell__label">{{ $label }}</span>
+    @if ($record->statusFamily() !== 'success')
+        <span class="ai-status-cell__label">{{ $label }}</span>
+    @endif
 </div>

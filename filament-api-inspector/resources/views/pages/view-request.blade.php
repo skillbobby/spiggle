@@ -30,6 +30,11 @@
                         Exception
                     </span>
                 @endif
+                <a href="#replay-console" class="ai-hero__replay">
+                    <x-filament::icon icon="heroicon-m-arrow-path" class="ai-icon ai-icon--xs" />
+                    Replay request
+                    <x-filament::icon icon="heroicon-m-arrow-down" class="ai-icon ai-icon--xs" />
+                </a>
             </div>
 
             <div class="ai-hero__meta">
@@ -37,7 +42,9 @@
                 <span class="ai-sep"></span>
                 <span>{{ $record->user_label ?: 'Guest' }}</span>
                 <span class="ai-sep"></span>
-                <span>{{ $record->host }}</span>
+                @if ($record->host && $record->host !== $record->ip)
+                    <span>{{ $record->host }}</span>
+                @endif
                 @if ($record->route_name)
                     <span class="ai-sep"></span>
                     <span class="ai-mono">{{ $record->route_name }}</span>
@@ -69,41 +76,41 @@
             <div class="ai-detail__main">
                 <section class="ai-card ai-card--flush">
                     <div class="ai-tabbar" role="tablist" aria-label="Request detail">
-                        <button type="button" role="tab" class="ai-tab" x-bind:class="tab === 'request' ? 'is-active' : ''" x-on:click="tab = 'request'" x-bind:aria-selected="tab === 'request'">
+                        <button type="button" role="tab" id="ai-tab-request" aria-controls="ai-panel-request" class="ai-tab" x-bind:class="tab === 'request' ? 'is-active' : ''" x-on:click="tab = 'request'" x-bind:aria-selected="tab === 'request'">
                             Request
                         </button>
-                        <button type="button" role="tab" class="ai-tab" x-bind:class="tab === 'response' ? 'is-active' : ''" x-on:click="tab = 'response'" x-bind:aria-selected="tab === 'response'">
+                        <button type="button" role="tab" id="ai-tab-response" aria-controls="ai-panel-response" class="ai-tab" x-bind:class="tab === 'response' ? 'is-active' : ''" x-on:click="tab = 'response'" x-bind:aria-selected="tab === 'response'">
                             Response
                         </button>
-                        <button type="button" role="tab" class="ai-tab" x-bind:class="tab === 'headers' ? 'is-active' : ''" x-on:click="tab = 'headers'" x-bind:aria-selected="tab === 'headers'">
+                        <button type="button" role="tab" id="ai-tab-headers" aria-controls="ai-panel-headers" class="ai-tab" x-bind:class="tab === 'headers' ? 'is-active' : ''" x-on:click="tab = 'headers'" x-bind:aria-selected="tab === 'headers'">
                             Headers
                         </button>
-                        <button type="button" role="tab" class="ai-tab" x-bind:class="tab === 'context' ? 'is-active' : ''" x-on:click="tab = 'context'" x-bind:aria-selected="tab === 'context'">
+                        <button type="button" role="tab" id="ai-tab-context" aria-controls="ai-panel-context" class="ai-tab" x-bind:class="tab === 'context' ? 'is-active' : ''" x-on:click="tab = 'context'" x-bind:aria-selected="tab === 'context'">
                             Context
                         </button>
-                        <button type="button" role="tab" class="ai-tab" x-bind:class="tab === 'replays' ? 'is-active' : ''" x-on:click="tab = 'replays'" x-bind:aria-selected="tab === 'replays'">
+                        <button type="button" role="tab" id="ai-tab-replays" aria-controls="ai-panel-replays" class="ai-tab" x-bind:class="tab === 'replays' ? 'is-active' : ''" x-on:click="tab = 'replays'" x-bind:aria-selected="tab === 'replays'">
                             Replays
                             <span class="ai-tab__count">{{ $history->count() }}</span>
                         </button>
                     </div>
 
-                    <div class="ai-tabpanel" x-show="tab === 'request'" x-cloak>
+                    <div class="ai-tabpanel" id="ai-panel-request" role="tabpanel" aria-labelledby="ai-tab-request" x-show="tab === 'request'" x-cloak>
                         @include('api-inspector::pages.partials.request-panel', ['record' => $record, 'has' => $has])
                     </div>
 
-                    <div class="ai-tabpanel" x-show="tab === 'response'" x-cloak>
+                    <div class="ai-tabpanel" id="ai-panel-response" role="tabpanel" aria-labelledby="ai-tab-response" x-show="tab === 'response'" x-cloak>
                         @include('api-inspector::pages.partials.response-panel', ['record' => $record, 'has' => $has])
                     </div>
 
-                    <div class="ai-tabpanel" x-show="tab === 'headers'" x-cloak>
+                    <div class="ai-tabpanel" id="ai-panel-headers" role="tabpanel" aria-labelledby="ai-tab-headers" x-show="tab === 'headers'" x-cloak>
                         @include('api-inspector::pages.partials.headers-panel', ['record' => $record, 'has' => $has])
                     </div>
 
-                    <div class="ai-tabpanel" x-show="tab === 'context'" x-cloak>
+                    <div class="ai-tabpanel" id="ai-panel-context" role="tabpanel" aria-labelledby="ai-tab-context" x-show="tab === 'context'" x-cloak>
                         @include('api-inspector::pages.partials.context-panel', ['record' => $record, 'has' => $has])
                     </div>
 
-                    <div class="ai-tabpanel" x-show="tab === 'replays'" x-cloak>
+                    <div class="ai-tabpanel" id="ai-panel-replays" role="tabpanel" aria-labelledby="ai-tab-replays" x-show="tab === 'replays'" x-cloak>
                         @include('api-inspector::pages.partials.replays-panel', ['record' => $record, 'history' => $history])
                     </div>
                 </section>

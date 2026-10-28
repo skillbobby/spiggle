@@ -11,6 +11,15 @@ use Spiggle\ApiInspector\Models\ApiRequest;
 
 final class FilamentPagesTest extends TestCase
 {
+    public function test_the_request_feed_renders_an_empty_state(): void
+    {
+        $response = $this->actingAs($this->user)->get('/admin/api-requests');
+
+        $response->assertOk();
+        $response->assertSee('Listening for traffic');
+        $response->assertSee('Configure capture');
+    }
+
     public function test_the_request_feed_renders_captured_traffic(): void
     {
         $this->actingAs($this->user)->getJson('/api/orders')->assertOk();

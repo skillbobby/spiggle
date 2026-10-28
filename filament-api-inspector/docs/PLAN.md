@@ -52,7 +52,7 @@ Indexes cover the feed's common access paths: `captured_at`, `status_code`, `met
 ## UI plan
 
 - **Feed** — method/status badges, path/context cell, latency meter, status family labels, caller/date filters, search, bulk delete, stats overview with 24h traffic/errors/latency/replays.
-- **Live dock** — fixed bottom status, capture state, last update, today/errors, new-request chip, indeterminate loader, accessible live region; polls independently of the table.
+- **Live dock** — fixed bottom status, capture state, last update, 24h totals and errors, new-request chip, indeterminate loader, accessible label; polls independently of the table.
 - **Detail workspace** — summary hero, tabs for Request / Response / Headers / Context / Replays, JSON highlighting, copy actions, cURL export, sticky replay console with plan timeline and response preview.
 - **Settings** — capture switch, field checklist (core fields marked always captured), path/method/sample rules, size/content-type limits, redaction, replay policy, live interval/toasts, retention. Live preview of the record shape.
 - **Visual system** — self-contained `api-inspector.css` using Filament colour variables, light/dark support, responsive grid, reduced-motion support and scoped `ai-` classes.
@@ -77,5 +77,5 @@ Indexes cover the feed's common access paths: `captured_at`, `status_code`, `met
 
 Run against both dependency branches:
 
-- Filament 5.11 / Livewire 4.4 / Laravel 12.70 — 49 tests, 253 assertions.
-- Filament 4.16 / Livewire 3.8 / Laravel 12.70 — 49 tests, 253 assertions.
+- Filament 5.11 / Livewire 4.4 / Laravel 12.70 — 50 tests, 256 assertions.
+- Filament 4.16 / Livewire 3.8 / Laravel 12.70 — 50 tests, 256 assertions.

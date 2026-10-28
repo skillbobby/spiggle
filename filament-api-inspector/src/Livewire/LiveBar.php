@@ -6,7 +6,6 @@ namespace Spiggle\ApiInspector\Livewire;
 
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Spiggle\ApiInspector\Models\ApiRequest;
 use Spiggle\ApiInspector\Support\Access;
@@ -21,6 +20,8 @@ final class LiveBar extends Component
 
     public bool $captureEnabled = true;
 
+    public bool $onFeed = false;
+
     public int $interval = 5;
 
     public int $total = 0;
@@ -33,7 +34,7 @@ final class LiveBar extends Component
 
     public ?string $updatedAt = null;
 
-    public ?string $lastSeenAt = null;
+    public ?string $lastSeenId = null;
 
     /**
      * @var array<int, array{method: string, path: string, status: int|null}>
@@ -43,6 +44,7 @@ final class LiveBar extends Component
     public function mount(): void
     {
         $this->authorized = Access::allowed();
+        $this->onFeed = request()->routeIs('filament.*.resources.api-requests.index');
 
         if (! $this->authorized) {
             return;
@@ -52,7 +54,7 @@ final class LiveBar extends Component
         $this->live = $settings->liveEnabled();
         $this->captureEnabled = $settings->isEnabled();
         $this->interval = $settings->liveInterval();
-        $this->lastSeenAt = now()->toIso8601String();
+        $this->lastSeenId = $this->latestRequestId();
         $this->updatedAt = now()->toIso8601String();
 
         $this->hydrateCounts();
@@ -76,30 +78,40 @@ final class LiveBar extends Component
         $this->captureEnabled = $settings->isEnabled();
         $this->interval = $settings->liveInterval();
 
-        $since = $this->lastSeenAt ? Carbon::parse($this->lastSeenAt) : now()->subSeconds($this->interval);
-
         try {
-            $newQuery = ApiRequest::query()->where('captured_at', '>', $since);
+            $newQuery = ApiRequest::query();
+
+            if ($this->lastSeenId !== null) {
+                $newQuery->where('id', '>', $this->lastSeenId);
+            } else {
+                $newQuery->where('captured_at', '>=', now()->subSeconds($this->interval));
+            }
+
             $this->newCount = (clone $newQuery)->count();
             $this->newErrorCount = (clone $newQuery)->where('status_code', '>=', 500)->count();
 
             $this->latest = (clone $newQuery)
                 ->latestFirst()
                 ->limit(3)
-                ->get(['method', 'path', 'status_code'])
+                ->get(['id', 'method', 'path', 'status_code'])
                 ->map(fn (ApiRequest $request): array => [
                     'method' => (string) $request->method,
                     'path' => (string) $request->path,
                     'status' => $request->status_code,
                 ])
                 ->all();
+
+            $newestId = (clone $newQuery)->orderByDesc('id')->value('id');
+
+            if (is_string($newestId)) {
+                $this->lastSeenId = $newestId;
+            }
         } catch (Throwable) {
             $this->newCount = 0;
             $this->newErrorCount = 0;
             $this->latest = [];
         }
 
-        $this->lastSeenAt = now()->toIso8601String();
         $this->updatedAt = now()->toIso8601String();
 
         $this->hydrateCounts();
@@ -111,10 +123,21 @@ final class LiveBar extends Component
         return view('api-inspector::livewire.live-bar');
     }
 
+    private function latestRequestId(): ?string
+    {
+        try {
+            $id = ApiRequest::query()->orderByDesc('id')->value('id');
+
+            return is_string($id) ? $id : null;
+        } catch (Throwable) {
+            return null;
+        }
+    }
+
     private function hydrateCounts(): void
     {
         try {
-            $from = now()->startOfDay();
+            $from = now()->subDay();
 
             $this->total = ApiRequest::query()->where('captured_at', '>=', $from)->count();
             $this->errors = ApiRequest::query()

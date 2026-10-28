@@ -13,7 +13,6 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Spiggle\ApiInspector\Filament\Pages\SettingsPage;
 use Spiggle\ApiInspector\Filament\Resources\ApiRequestResource\Pages\ViewApiRequest;
 use Spiggle\ApiInspector\Models\ApiRequest;
 use Spiggle\ApiInspector\Support\Access;
@@ -30,8 +29,8 @@ final class ApiRequestsTable
                     ->searchable(['path', 'uri', 'route_name', 'controller_action', 'user_label', 'ip'])
                     ->sortable()
                     ->html()
-                    ->extraHeaderAttributes(['style' => 'width: 58%'])
-                    ->extraCellAttributes(['style' => 'width: 58%', 'class' => 'ai-list-cell'])
+                    ->extraHeaderAttributes(['style' => 'width: 54%', 'class' => 'ai-col-request'])
+                    ->extraCellAttributes(['style' => 'width: 54%', 'class' => 'ai-list-cell ai-col-request'])
                     ->formatStateUsing(fn (ApiRequest $record): string => view('api-inspector::tables.request-cell', ['record' => $record])->render()),
 
                 TextColumn::make('status_code')
@@ -39,8 +38,8 @@ final class ApiRequestsTable
                     ->sortable()
                     ->alignEnd()
                     ->html()
-                    ->extraHeaderAttributes(['style' => 'width: 122px'])
-                    ->extraCellAttributes(['style' => 'width: 122px', 'class' => 'ai-list-cell'])
+                    ->extraHeaderAttributes(['style' => 'width: 108px', 'class' => 'ai-col-status'])
+                    ->extraCellAttributes(['style' => 'width: 108px', 'class' => 'ai-list-cell ai-col-status'])
                     ->formatStateUsing(fn (ApiRequest $record): string => view('api-inspector::tables.status-cell', ['record' => $record])->render()),
 
                 TextColumn::make('duration_ms')
@@ -48,8 +47,8 @@ final class ApiRequestsTable
                     ->sortable()
                     ->alignEnd()
                     ->html()
-                    ->extraHeaderAttributes(['style' => 'width: 96px'])
-                    ->extraCellAttributes(['style' => 'width: 96px', 'class' => 'ai-list-cell'])
+                    ->extraHeaderAttributes(['style' => 'width: 84px', 'class' => 'ai-col-latency'])
+                    ->extraCellAttributes(['style' => 'width: 84px', 'class' => 'ai-list-cell ai-col-latency'])
                     ->formatStateUsing(fn (ApiRequest $record): string => view('api-inspector::tables.duration-cell', ['record' => $record])->render()),
 
                 TextColumn::make('captured_at')
@@ -58,8 +57,8 @@ final class ApiRequestsTable
                     ->dateTimeTooltip('M j, Y H:i:s')
                     ->sortable()
                     ->alignEnd()
-                    ->extraHeaderAttributes(['style' => 'width: 104px'])
-                    ->extraCellAttributes(['style' => 'width: 104px']),
+                    ->extraHeaderAttributes(['style' => 'width: 92px', 'class' => 'ai-col-when'])
+                    ->extraCellAttributes(['style' => 'width: 92px', 'class' => 'ai-col-when']),
             ])
             ->filters([
                 SelectFilter::make('method')
@@ -158,7 +157,6 @@ final class ApiRequestsTable
                 ]),
             ])
             ->defaultSort('captured_at', 'desc')
-            ->stackedOnMobile()
             ->poll(function (): ?string {
                 $settings = app(Settings::class);
 
@@ -167,16 +165,8 @@ final class ApiRequestsTable
             ->striped()
             ->paginated([10, 25, 50, 100])
             ->defaultPaginationPageOption(25)
-            ->searchPlaceholder('Search path, route, IP or caller…')
-            ->emptyStateHeading('Listening for requests')
-            ->emptyStateDescription('Traffic appears here automatically. Open your app or send a request to get started.')
-            ->emptyStateIcon('heroicon-o-signal')
-            ->emptyStateActions([
-                Action::make('settings')
-                    ->label('Configure capture')
-                    ->icon('heroicon-o-cog-6-tooth')
-                    ->url(fn (): string => SettingsPage::getUrl()),
-            ]);
+            ->searchPlaceholder('Search path, route, IP…')
+            ->emptyState(fn () => view('api-inspector::tables.empty-state'));
     }
 }
 

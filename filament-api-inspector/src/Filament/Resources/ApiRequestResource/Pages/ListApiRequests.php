@@ -26,7 +26,7 @@ class ListApiRequests extends ListRecords
 
     public function getSubheading(): string | \Illuminate\Contracts\Support\Htmlable | null
     {
-        return 'Live traffic, updated in the background. Click any row to inspect, filter or replay it.';
+        return 'Live traffic, updated automatically. Inspect, filter or replay any request.';
     }
 
     protected function getHeaderWidgets(): array
