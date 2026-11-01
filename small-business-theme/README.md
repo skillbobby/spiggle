@@ -6,7 +6,7 @@ It restyles every screen you already have, including forms, tables, modals and t
 
 Product page: https://skillbobby.github.io/spiggle/small-business-theme/
 
-Live demo: https://skillbobby.com/larafill/public/admin/login (`demo@user.net` / `password`)
+Live demo: https://spiggle.skillbobby.com (`demo@spiggle.net` / `password`)
 
 **[Buy a lifetime license](https://kodesmart.lemonsqueezy.com/checkout/buy/a4cffc19-a631-4aaa-99b3-e3eff6c26038)** — $19 once, unlimited sites.
 

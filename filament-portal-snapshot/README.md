@@ -14,3 +14,11 @@ Filament 4 + 5 plugin on top of `spatie/laravel-db-snapshots`:
 - Filament bell + queued email (mail fails silently)
 
 Source stays in the private repo. This folder is the public feature page only.
+
+## Live demo
+
+https://spiggle.skillbobby.com
+
+**Email:** demo@spiggle.net  
+**Password:** password
+

@@ -21,8 +21,8 @@ A Laravel Filament PHP admin theme: deep blue sidebar, rounded content card, act
 
 | | |
 |---|---|
-| **URL** | [skillbobby.com/larafill/public/admin/login](https://skillbobby.com/larafill/public/admin/login) |
-| **Email** | `demo@user.net` |
+| **URL** | [spiggle.skillbobby.com](https://spiggle.skillbobby.com) |
+| **Email** | `demo@spiggle.net` |
 | **Password** | `password` |
 
 ## Get a license

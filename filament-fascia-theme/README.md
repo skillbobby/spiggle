@@ -142,3 +142,11 @@ Same packages as Soffit. Buy from the [theme page](https://skillbobby.github.io/
 |---|---|---|
 | **Single Site** | **$19** | 1 production panel · 1 year of updates and security fixes |
 | **Unlimited Projects** | **$49** | Unlimited sites and client projects · 1 year of updates · priority support |
+
+## Live demo
+
+https://spiggle.skillbobby.com
+
+**Email:** demo@spiggle.net  
+**Password:** password
+

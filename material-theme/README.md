@@ -64,3 +64,11 @@ The public showcase features comprehensive visual previews across desktop and mo
 ## Contact
 
 [@iamspiggle](https://x.com/iamspiggle)
+
+## Live demo
+
+https://spiggle.skillbobby.com
+
+**Email:** demo@spiggle.net  
+**Password:** password
+
